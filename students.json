@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "enrolled_topics": [
+      {
+        "id": 1,
+        "name": "Introduction to Programming",
+        "submitted_code": {
+          "hello_world": {
+            "language": "Python",
+            "code": "print('Hello, World!')",
+            "result": "Hello, World!"
+          },
+          "sum_two_numbers": {
+            "language": "Python",
+            "code": "a = 5\nb = 3\nprint(a + b)",
+            "result": "8"
+          },
+          "factorial": {
+            "language": "Python",
+            "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))",
+            "result": "120"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "submitted_code": {
+          "hello_world": {
+            "language": "Python",
+            "code": "print('Hello, Topic2')",
+            "result": "Hello, Topic2"
+          },
+          "sum_two_numbers": {
+            "language": "Python",
+            "code": "a = 5\nb = 3\nprint(a + b)",
+            "result": "8"
+          },
+          "factorial": {
+            "language": "Python",
+            "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))",
+            "result": "120"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "enrolled_topics": [
+      {
+        "id": 1,
+        "name": "Introduction to Programming",
+        "submitted_code": {
+          "hello_world": {
+            "language": "C++",
+            "code": "#include <iostream>\nint main() {\n    std::cout << \"Hello, C++\";\n    return 0;\n}",
+            "result": "Hello, C++"
+          },
+          "sum_two_numbers": {
+            "language": "C++",
+            "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}",
+            "result": "8"
+          },
+          "factorial": {
+            "language": "C++",
+            "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}",
+            "result": "120"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "submitted_code": {
+          "hello_world": {
+            "language": "C++",
+            "code": "#include <iostream>\nint main() {\n    std::cout << \"Hello, world!\";\n    return 0;\n}",
+            "result": "Hello, world!"
+          },
+          "sum_two_numbers": {
+            "language": "C++",
+            "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}",
+            "result": "8"
+          },
+          "factorial": {
+            "language": "C++",
+            "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}",
+            "result": "120"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Charlie Brown",
+    "enrolled_topics": [
+      {
+        "id": 1,
+        "name": "Introduction to Programming",
+        "submitted_code": {
+          "hello_world": {
+            "language": "Rust",
+            "code": "fn main() {\n    println!(\"Hello, world!\");\n}",
+            "result": "Hello, world!"
+          },
+          "sum_two_numbers": {
+            "language": "Rust",
+            "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}",
+            "result": "8"
+          },
+          "factorial": {
+            "language": "Rust",
+            "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}",
+            "result": "120"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "submitted_code": {
+          "hello_world": {
+            "language": "Rust",
+            "code": "fn main() {\n    println!(\"Hello, world!\");\n}",
+            "result": "Hello, world!"
+          },
+          "sum_two_numbers": {
+            "language": "Rust",
+            "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}",
+            "result": "8"
+          },
+          "factorial": {
+            "language": "Rust",
+            "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}",
+            "result": "120"
+          }
+        }
+      }
+    ]
+  }
+]
