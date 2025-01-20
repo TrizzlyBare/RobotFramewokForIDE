@@ -1,13 +1,26 @@
 import sys
 import json
 import subprocess
-import requests
+from databaseRequest import post_scores
 
-api_url = "https://localhost:8000/"
+
+def run_database_request():
+    result = subprocess.run(
+        ["python", "databaseRequest.py"], capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        print("Failed to fetch data from API")
+        print(result.stdout)
+        print(result.stderr)
+        sys.exit(1)
+    else:
+        print("Data fetched and written to JSON files successfully")
+        print(result.stdout)
+
 
 def run_robot_tests():
     result = subprocess.run(
-        ["robot", "NOSELENIUM.ROBOT"], capture_output=True, text=True
+        ["robot", "ROBOTTESTING.ROBOT"], capture_output=True, text=True
     )
     if result.returncode != 0:
         print("Robot Framework tests failed")
@@ -47,7 +60,9 @@ def print_scores(scores):
 
 
 if __name__ == "__main__":
+    run_database_request()
     run_robot_tests()
     data = load_data()
     scores = calculate_scores(data)
     print_scores(scores)
+    post_scores(scores)
