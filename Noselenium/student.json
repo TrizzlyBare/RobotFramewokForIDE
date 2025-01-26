@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Student1",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Introduction to Programming",
+        "submitted_code": {
+          "hello_world": {
+            "language": "Python",
+            "code": "print('Hello, world!')",
+            "result": "Hello, world!"
+          },
+          "sum_two_numbers": {
+            "language": "Python",
+            "code": "a = int(input())\nb = int(input())\nprint(a + b)",
+            "result": "8"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "submitted_code": {
+          "factorial": {
+            "language": "Python",
+            "code": "def factorial(n): return 1 if n == 0 else n * factorial(n-1)\nnum = int(input())\nprint(factorial(num))",
+            "result": "120"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Student2",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Introduction to Programming",
+        "submitted_code": {
+          "hello_world": {
+            "language": "C++",
+            "code": "#include <iostream>\nint main() { std::cout << 'Hello, world!'; return 0; }",
+            "result": "Hello, world!"
+          },
+          "sum_two_numbers": {
+            "language": "C++",
+            "code": "#include <iostream>\nint main() { int a, b; std::cin >> a >> b; std::cout << a + b; return 0; }",
+            "result": "3"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "submitted_code": {
+          "factorial": {
+            "language": "C++",
+            "code": "#include <iostream>\nint factorial(int n) { return n <= 1 ? 1 : n * factorial(n - 1); }\nint main() { int num; std::cin >> num; std::cout << factorial(num); return 0; }",
+            "result": "120"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Student3",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Introduction to Programming",
+        "submitted_code": {
+          "hello_world": {
+            "language": "Rust",
+            "code": "fn main() { println!(\"Hello, world!\"); }",
+            "result": "Hello, world!"
+          },
+          "sum_two_numbers": {
+            "language": "Rust",
+            "code": "use std::io::{self, Write};\nfn main() {\n    let mut input1 = String::new();\n    let mut input2 = String::new();\n    io::stdin().read_line(&mut input1).expect(\"Failed to read line\");\n    io::stdin().read_line(&mut input2).expect(\"Failed to read line\");\n    let a: i32 = input1.trim().parse().expect(\"Please type a number!\");\n    let b: i32 = input2.trim().parse().expect(\"Please type a number!\");\n    println!(\"{}\", a + b);\n}",
+            "result": "3"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "submitted_code": {
+          "factorial": {
+            "language": "Rust",
+            "code": "fn factorial(n: u32) -> u32 { if n == 0 { 1 } else { n * factorial(n - 1) } }\nfn main() { let mut input = String::new(); std::io::stdin().read_line(&mut input).expect(\"Failed to read line\"); let num: u32 = input.trim().parse().expect(\"Please type a number!\"); println!(\"{}\", factorial(num)); }",
+            "result": "120"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Student4",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Introduction to Programming",
+        "submitted_code": {
+          "hello_world": {
+            "language": "Python",
+            "code": "print('Hello, world!')",
+            "result": "Hello, world!"
+          },
+          "sum_two_numbers": {
+            "language": "Python",
+            "code": "a = int(input())\nb = int(input())\nprint(a + b)",
+            "result": "3"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "submitted_code": {
+          "factorial": {
+            "language": "Python",
+            "code": "def factorial(n): return 1 if n == 0 else n * factorial(n-1)\nnum = int(input())\nprint(factorial(num))",
+            "result": "120"
+          }
+        }
+      }
+    ]
+  }
+]
