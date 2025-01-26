@@ -2,17 +2,10 @@
   {
     "student_name": "Student1",
     "topic_name": "Introduction to Programming",
-    "problem_name": "factorial",
-    "status": "PASS",
-    "details": "120",
-    "language": "Python"
-  },
-  {
-    "student_name": "Student1",
-    "topic_name": "Introduction to Programming",
     "problem_name": "hello_world",
     "status": "FAIL",
-    "details": "Hello, world!",
+    "student_output": "Hello, world!",
+    "expected_output": "Hello, World",
     "language": "Python"
   },
   {
@@ -20,7 +13,17 @@
     "topic_name": "Introduction to Programming",
     "problem_name": "sum_two_numbers",
     "status": "FAIL",
-    "details": "3",
+    "student_output": "Enter A: Enter B: 8",
+    "expected_output": "8",
+    "language": "Python"
+  },
+  {
+    "student_name": "Student1",
+    "topic_name": "Data Structures",
+    "problem_name": "factorial",
+    "status": "PASS",
+    "student_output": "120",
+    "expected_output": "120",
     "language": "Python"
   },
   {
@@ -28,15 +31,17 @@
     "topic_name": "Introduction to Programming",
     "problem_name": "hello_world",
     "status": "FAIL",
-    "details": "Hello, world!",
+    "student_output": "1919706145",
+    "expected_output": "Hello, C++",
     "language": "C++"
   },
   {
     "student_name": "Student2",
     "topic_name": "Introduction to Programming",
     "problem_name": "sum_two_numbers",
-    "status": "FAIL",
-    "details": "3",
+    "status": "PASS",
+    "student_output": "8",
+    "expected_output": "8",
     "language": "C++"
   },
   {
@@ -44,7 +49,8 @@
     "topic_name": "Data Structures",
     "problem_name": "factorial",
     "status": "PASS",
-    "details": "120",
+    "student_output": "120",
+    "expected_output": "120",
     "language": "C++"
   },
   {
@@ -52,15 +58,17 @@
     "topic_name": "Introduction to Programming",
     "problem_name": "hello_world",
     "status": "PASS",
-    "details": "Hello, world!",
+    "student_output": "Hello, world!",
+    "expected_output": "Hello, world!",
     "language": "Rust"
   },
   {
     "student_name": "Student3",
     "topic_name": "Introduction to Programming",
     "problem_name": "sum_two_numbers",
-    "status": "FAIL",
-    "details": "3",
+    "status": "PASS",
+    "student_output": "8",
+    "expected_output": "8",
     "language": "Rust"
   },
   {
@@ -68,7 +76,8 @@
     "topic_name": "Data Structures",
     "problem_name": "factorial",
     "status": "PASS",
-    "details": "120",
+    "student_output": "120",
+    "expected_output": "120",
     "language": "Rust"
   },
   {
@@ -76,15 +85,17 @@
     "topic_name": "Introduction to Programming",
     "problem_name": "hello_world",
     "status": "FAIL",
-    "details": "Hello, world!",
+    "student_output": "Hello, world!",
+    "expected_output": "Hello, World",
     "language": "Python"
   },
   {
     "student_name": "Student4",
     "topic_name": "Introduction to Programming",
     "problem_name": "sum_two_numbers",
-    "status": "FAIL",
-    "details": "3",
+    "status": "PASS",
+    "student_output": "8",
+    "expected_output": "8",
     "language": "Python"
   },
   {
@@ -92,7 +103,8 @@
     "topic_name": "Data Structures",
     "problem_name": "factorial",
     "status": "PASS",
-    "details": "120",
+    "student_output": "120",
+    "expected_output": "120",
     "language": "Python"
   }
 ]

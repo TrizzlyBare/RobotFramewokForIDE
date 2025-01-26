@@ -12,6 +12,7 @@ ${TEMP_DIR}        ${EXECDIR}/temp
 ${PYTHON_CMD}      python
 ${CPP_COMPILER}    g++
 ${RUST_COMPILER}   rustc
+${JAVASCRIPT_CMD}  node
 ${RESULTS_FILE}    ${EXECDIR}/comparison_results.json
 
 *** Keywords ***
@@ -48,6 +49,7 @@ Execute Code
     ...    '${language}' == 'Python'    .py
     ...    '${language}' == 'C++'       .cpp
     ...    '${language}' == 'Rust'      .rs
+    ...    '${language}' == 'JavaScript'    .js
     
     Create File    ${TEMP_DIR}/${filename}${ext}    ${code}
     
@@ -59,6 +61,10 @@ Execute Code
             ${result}    Run Process    ${PYTHON_CMD}    ${TEMP_DIR}/${filename}${ext}    shell=True
             ${output}    Set Variable    ${result.stdout.strip()}
             
+        ELSE IF   '${language}' == 'JavaScript'
+            ${result}    Run Process    ${JAVASCRIPT_CMD}    ${TEMP_DIR}/${filename}${ext}    shell=True
+            ${output}    Set Variable    ${result.stdout.strip()}
+
         ELSE IF    '${language}' == 'C++'
             ${compile_result}    Run Process    ${CPP_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
             IF    ${compile_result.rc} == 0
@@ -79,6 +85,8 @@ Execute Code
                 ${output}    Set Variable    ${compile_result.stderr}
             END
         END
+        
+
     EXCEPT    AS    ${error}
         ${status}    Set Variable    runtime_error
         ${output}    Set Variable    ${error}
@@ -114,7 +122,6 @@ Compare Student And Teacher Results By Compiling
         Log    Comparing results for student: ${student_name}
         
         # Get student's programming language
-# Get student's programming language
         ${first_topic}    Get From List    ${student}[topics]    0
         @{submission_keys}    Get Dictionary Keys    ${first_topic}[submitted_code]
         ${first_problem}    Get From List    ${submission_keys}    0

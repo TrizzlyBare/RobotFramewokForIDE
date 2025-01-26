@@ -19,6 +19,7 @@ def run_database_request():
 
 
 def run_robot_tests():
+    
     result = subprocess.run(
         ["robot", "ROBOTTESTING.ROBOT"], capture_output=True, text=True
     )

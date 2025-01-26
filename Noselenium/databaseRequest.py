@@ -2,7 +2,7 @@ import requests
 import json
 
 # API endpoints for fetching data
-LANGUAGE_API_URL = "https://example.com/api/languages"
+LANGUAGE_API_URL = "http://intelligentbuilding.io:8080/api/coding/language-choices/"
 STUDENTS_API_URL = "https://example.com/api/students/"
 STUDENT_API_CODE = "https://example.com/api/students/code"
 STUDENTS_RESULTS_API_URL = "https://example.com/api/students/results"
@@ -10,6 +10,10 @@ TEACHERS_API_URL = "https://example.com/api/teachers"
 TEACHERS_CODES_API_URL = "https://example.com/api/teachers/codes"
 TEACHERS_RESULTS_API_URL = "https://example.com/api/teachers/results"
 SCORING_API_URL = "https://example.com/api/scores"
+SOLUTION_CHOICES_API_URL = (
+    "http://intelligentbuilding.io:8080/api/coding/solution-choices/"
+)
+QUESTION_API = "http://intelligentbuilding.io:8080/api/coding/question/"
 
 
 # Fetch data from the API
