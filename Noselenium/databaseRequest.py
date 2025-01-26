@@ -3,13 +3,12 @@ import json
 
 # API endpoints for fetching data
 LANGUAGE_API_URL = "https://example.com/api/languages"
-
 STUDENTS_API_URL = "https://example.com/api/students/"
+STUDENT_API_CODE = "https://example.com/api/students/code"
 STUDENTS_RESULTS_API_URL = "https://example.com/api/students/results"
-
 TEACHERS_API_URL = "https://example.com/api/teachers"
 TEACHERS_CODES_API_URL = "https://example.com/api/teachers/codes"
-
+TEACHERS_RESULTS_API_URL = "https://example.com/api/teachers/results"
 SCORING_API_URL = "https://example.com/api/scores"
 
 
@@ -88,6 +87,7 @@ def main():
                         problem["name"]: {
                             "language": problem["language"],
                             "code": problem["code"],
+                            "output": problem["output"],
                         }
                         for problem in topic["problems"]
                     },
@@ -98,10 +98,11 @@ def main():
         for teacher in teachers
     ]
 
+    # Write structured data to JSON files
     write_to_json_file("students.json", structured_students)
     write_to_json_file("teacher.json", structured_teachers)
 
-    print("Data has been successfully written to students.json and teachers.json")
+    print("Data has been successfully written to students.json and teacher.json")
 
 
 if __name__ == "__main__":

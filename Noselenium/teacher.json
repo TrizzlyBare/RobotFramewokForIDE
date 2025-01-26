@@ -9,15 +9,18 @@
         "example_code": {
           "hello_world": {
             "language": "Python",
-            "code": "print('Hello, World')"
+            "code": "print('Hello, World')",
+            "output": "Hello, World"
           },
           "sum_two_numbers": {
             "language": "Python",
-            "code": "a = 5\nb = 3\nprint(a + b)"
+            "code": "a = 5\nb = 3\nprint(a + b)",
+            "output": "8"
           },
           "factorial": {
             "language": "Python",
-            "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))"
+            "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))",
+            "output": "120"
           }
         }
       },
@@ -27,15 +30,18 @@
         "example_code": {
           "hello_world": {
             "language": "Python",
-            "code": "print('Hello, World2!')"
+            "code": "print('Hello, World2!')",
+            "output": "Hello, World2!"
           },
           "sum_two_numbers": {
             "language": "Python",
-            "code": "a = 5\nb = 5\nprint(a + b)"
+            "code": "a = 5\nb = 5\nprint(a + b)",
+            "output": "10"
           },
           "factorial": {
             "language": "Python",
-            "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))"
+            "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))",
+            "output": "120"
           }
         }
       }
@@ -51,15 +57,18 @@
         "example_code": {
           "hello_world": {
             "language": "C++",
-            "code": "#include <iostream>\nint main() {\n    std::cout << 'Hello, C++';\n    return 0;\n}"
+            "code": "#include <iostream>\nint main() {\n    std::cout << 'Hello, C++';\n    return 0;\n}",
+            "output": "Hello, C++"
           },
           "sum_two_numbers": {
             "language": "C++",
-            "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}"
+            "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}",
+            "output": "8"
           },
           "factorial": {
             "language": "C++",
-            "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}"
+            "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}",
+            "output": "120"
           }
         }
       },
@@ -69,15 +78,18 @@
         "example_code": {
           "hello_world": {
             "language": "C++",
-            "code": "#include <iostream>\nint main() {\n    std::cout << 'Hello, world!';\n    return 0;\n}"
+            "code": "#include <iostream>\nint main() {\n    std::cout << 'Hello, world!';\n    return 0;\n}",
+            "output": "Hello, world!"
           },
           "sum_two_numbers": {
             "language": "C++",
-            "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}"
+            "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}",
+            "output": "8"
           },
           "factorial": {
             "language": "C++",
-            "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}"
+            "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}",
+            "output": "120"
           }
         }
       }
@@ -93,15 +105,18 @@
         "example_code": {
           "hello_world": {
             "language": "Rust",
-            "code": "fn main() {\n    println!(\"Hello, world!\");\n}"
+            "code": "fn main() {\n    println!(\"Hello, world!\");\n}",
+            "output": "Hello, world!"
           },
           "sum_two_numbers": {
             "language": "Rust",
-            "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}"
+            "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}",
+            "output": "8"
           },
           "factorial": {
             "language": "Rust",
-            "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}"
+            "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}",
+            "output": "120"
           }
         }
       },
@@ -111,15 +126,18 @@
         "example_code": {
           "hello_world": {
             "language": "Rust",
-            "code": "fn main() {\n    println!(\"Hello, world!\");\n}"
+            "code": "fn main() {\n    println!(\"Hello, world!\");\n}",
+            "output": "Hello, world!"
           },
           "sum_two_numbers": {
             "language": "Rust",
-            "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}"
+            "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}",
+            "output": "8"
           },
           "factorial": {
             "language": "Rust",
-            "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}"
+            "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}",
+            "output": "120"
           }
         }
       }
