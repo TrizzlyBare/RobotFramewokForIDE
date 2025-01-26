@@ -3,4 +3,4 @@ def factorial(n):
         return 1
     return n * factorial(n - 1)
 
-print(factorial(4))  # Output: 120
+print(factorial(3))  # Output: 120

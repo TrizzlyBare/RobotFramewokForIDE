@@ -104,9 +104,9 @@ Prepare Comparison Results
     ${student_output}    Set Variable    ${student_result.stdout.strip()}
     ${teacher_output}    Set Variable    ${teacher_result.stdout.strip()}
     
-    # Determine test status
-    ${test_status}    Set Variable If    
-    ...    '${student_output}' == '${teacher_output}'    PASS    FAIL
+    # Flexible comparison: check if outputs are numerically equivalent
+    ${test_status}    Evaluate    
+    ...    'PASS' if float(${student_output}) == float(${teacher_output}) else 'FAIL'
 
     # Create results dictionary
     ${result}    Create Dictionary
@@ -157,7 +157,11 @@ Compare Student And Teacher Default Codes
     # Assertions
     Should Be Equal As Integers    ${student_result.rc}    0    msg=Student code execution failed
     Should Be Equal As Integers    ${teacher_result.rc}    0    msg=Teacher code execution failed
-    Should Be Equal    ${student_result.stdout.strip()}    ${teacher_result.stdout.strip()}    msg=Outputs differ
+    
+    # Use numerical comparison instead of strict string comparison
+    ${student_num}    Convert To Number    ${student_result.stdout.strip()}
+    ${teacher_num}    Convert To Number    ${teacher_result.stdout.strip()}
+    Should Be Equal    ${student_num}    ${teacher_num}    msg=Outputs differ
     
     # Cleanup
     Cleanup Test Environment
