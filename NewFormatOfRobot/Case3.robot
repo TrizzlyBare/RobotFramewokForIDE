@@ -44,9 +44,13 @@ Compare Student and Teacher Results
     
     # Initialize results list
     @{results}    Create List
-    
-    # Compare results
-    ${comparison_status}    Compare Results    ${student_data}[testresult]    ${teacher_data}[testresult]
+
+    IF    ${student_data} != None    
+        ${comparison_status}    Compare Results    ${student_data}[testresult]    ${teacher_data}[testresult]
+    ELSE
+        ${comparison_status}    Set Variable    FAIL
+    END
+
     
     # Add comparison result
     Add Comparison Result    ${results}    ${comparison_status}    ${student_data}[testresult] vs ${teacher_data}[testresult]

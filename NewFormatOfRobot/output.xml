@@ -1,120 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-27T00:58:23.992768" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-27T01:07:14.087344" rpa="false" schemaversion="5">
 <suite id="s1" name="Case3" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/Case3.robot">
 <test id="s1-t1" name="Compare Student and Teacher Results" line="40">
 <kw name="Load JSON Data">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-27T00:58:24.054511" level="INFO">${data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
+<msg time="2025-01-27T01:07:14.150011" level="INFO">${data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
 <var>${data}</var>
 <arg>${file_path}</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.054343" elapsed="0.000190"/>
+<status status="PASS" start="2025-01-27T01:07:14.149846" elapsed="0.000184"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${data} == None</arg>
 <arg>Fail</arg>
 <arg>Failed to load data from ${file_path}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.054599" elapsed="0.000117"/>
+<status status="PASS" start="2025-01-27T01:07:14.150100" elapsed="0.000117"/>
 </kw>
 <return>
 <value>${data}</value>
-<status status="PASS" start="2025-01-27T00:58:24.054745" elapsed="0.000020"/>
+<status status="PASS" start="2025-01-27T01:07:14.150248" elapsed="0.000022"/>
 </return>
-<msg time="2025-01-27T00:58:24.054823" level="INFO">${student_data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
+<msg time="2025-01-27T01:07:14.150332" level="INFO">${student_data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
 <var>${student_data}</var>
 <arg>${STUDENT_FILE}</arg>
-<status status="PASS" start="2025-01-27T00:58:24.053981" elapsed="0.000853"/>
+<status status="PASS" start="2025-01-27T01:07:14.149502" elapsed="0.000841"/>
 </kw>
 <kw name="Load JSON Data">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-27T00:58:24.055148" level="INFO">${data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
+<msg time="2025-01-27T01:07:14.150650" level="INFO">${data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
 <var>${data}</var>
 <arg>${file_path}</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.055038" elapsed="0.000120"/>
+<status status="PASS" start="2025-01-27T01:07:14.150539" elapsed="0.000122"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${data} == None</arg>
 <arg>Fail</arg>
 <arg>Failed to load data from ${file_path}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.055209" elapsed="0.000094"/>
+<status status="PASS" start="2025-01-27T01:07:14.150711" elapsed="0.000094"/>
 </kw>
 <return>
 <value>${data}</value>
-<status status="PASS" start="2025-01-27T00:58:24.055326" elapsed="0.000014"/>
+<status status="PASS" start="2025-01-27T01:07:14.150827" elapsed="0.000015"/>
 </return>
-<msg time="2025-01-27T00:58:24.055388" level="INFO">${teacher_data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
+<msg time="2025-01-27T01:07:14.150893" level="INFO">${teacher_data} = {'id': 1, 'title': 'Python Function: Calculate Factorial', 'language': 'python', 'tag_list': ['recersion'], 'description': '"Write a Python function to calculate the factorial of a number using recurs...</msg>
 <var>${teacher_data}</var>
 <arg>${TEACHER_FILE}</arg>
-<status status="PASS" start="2025-01-27T00:58:24.054922" elapsed="0.000477"/>
+<status status="PASS" start="2025-01-27T01:07:14.150426" elapsed="0.000477"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-01-27T00:58:24.055512" level="INFO">@{results} = [ ]</msg>
+<msg time="2025-01-27T01:07:14.151013" level="INFO">@{results} = [ ]</msg>
 <var>@{results}</var>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.055462" elapsed="0.000058"/>
+<status status="PASS" start="2025-01-27T01:07:14.150962" elapsed="0.000059"/>
 </kw>
+<if>
+<branch type="IF" condition="${student_data} != None">
 <kw name="Compare Results">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-01-27T00:58:24.055862" level="INFO">${student_result_list} = [(5, 25), (4, 16), (3, 9)]</msg>
+<msg time="2025-01-27T01:07:14.151462" level="INFO">${student_result_list} = [(5, 25), (4, 16), (3, 9)]</msg>
 <var>${student_result_list}</var>
 <arg>ast.literal_eval('''${student_result}''')</arg>
 <arg>modules=ast</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.055720" elapsed="0.000151"/>
+<status status="PASS" start="2025-01-27T01:07:14.151323" elapsed="0.000149"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-01-27T00:58:24.056026" level="INFO">${teacher_result_list} = [(5, 25), (4, 16), (3, 9)]</msg>
+<msg time="2025-01-27T01:07:14.151627" level="INFO">${teacher_result_list} = [(5, 25), (4, 16), (3, 9)]</msg>
 <var>${teacher_result_list}</var>
 <arg>ast.literal_eval('''${teacher_result}''')</arg>
 <arg>modules=ast</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.055918" elapsed="0.000116"/>
+<status status="PASS" start="2025-01-27T01:07:14.151518" elapsed="0.000117"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-01-27T00:58:24.056183" level="INFO">${status} = PASS</msg>
+<msg time="2025-01-27T01:07:14.151786" level="INFO">${status} = PASS</msg>
 <var>${status}</var>
 <arg>${student_result_list} == ${teacher_result_list}</arg>
 <arg>PASS</arg>
 <arg>FAIL</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.056082" elapsed="0.000109"/>
+<status status="PASS" start="2025-01-27T01:07:14.151684" elapsed="0.000111"/>
 </kw>
 <return>
 <value>${status}</value>
-<status status="PASS" start="2025-01-27T00:58:24.056211" elapsed="0.000012"/>
+<status status="PASS" start="2025-01-27T01:07:14.151815" elapsed="0.000013"/>
 </return>
-<msg time="2025-01-27T00:58:24.056265" level="INFO">${comparison_status} = PASS</msg>
+<msg time="2025-01-27T01:07:14.151872" level="INFO">${comparison_status} = PASS</msg>
 <var>${comparison_status}</var>
 <arg>${student_data}[testresult]</arg>
 <arg>${teacher_data}[testresult]</arg>
-<status status="PASS" start="2025-01-27T00:58:24.055593" elapsed="0.000680"/>
+<status status="PASS" start="2025-01-27T01:07:14.151196" elapsed="0.000683"/>
 </kw>
+<status status="PASS" start="2025-01-27T01:07:14.151071" elapsed="0.000821"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${comparison_status}</var>
+<arg>FAIL</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-27T01:07:14.151942" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-27T01:07:14.151903" elapsed="0.000057"/>
+</branch>
+<status status="PASS" start="2025-01-27T01:07:14.151060" elapsed="0.000909"/>
+</if>
 <kw name="Add Comparison Result">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-01-27T00:58:24.056665" level="INFO">${result} = {'status': 'PASS', 'details': '[\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n] vs [\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n]'}</msg>
+<msg time="2025-01-27T01:07:14.152306" level="INFO">${result} = {'status': 'PASS', 'details': '[\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n] vs [\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n]'}</msg>
 <var>${result}</var>
 <arg>status=${status}</arg>
 <arg>details=${details}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.056480" elapsed="0.000194"/>
+<status status="PASS" start="2025-01-27T01:07:14.152180" elapsed="0.000135"/>
 </kw>
 <kw name="Append To List" owner="Collections">
 <arg>${results}</arg>
 <arg>${result}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.056715" elapsed="0.000061"/>
+<status status="PASS" start="2025-01-27T01:07:14.152356" elapsed="0.000056"/>
 </kw>
 <arg>${results}</arg>
 <arg>${comparison_status}</arg>
 <arg>${student_data}[testresult] vs ${teacher_data}[testresult]</arg>
-<status status="PASS" start="2025-01-27T00:58:24.056342" elapsed="0.000458"/>
+<status status="PASS" start="2025-01-27T01:07:14.152036" elapsed="0.000400"/>
 </kw>
 <kw name="Save Results">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-01-27T00:58:24.057145" level="INFO">${json_string} = [
+<msg time="2025-01-27T01:07:14.152829" level="INFO">${json_string} = [
   {
     "status": "PASS",
     "details": "[\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n] vs [\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n]"
@@ -124,21 +139,21 @@
 <arg>json.dumps($results, indent=2)</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.056986" elapsed="0.000169"/>
+<status status="PASS" start="2025-01-27T01:07:14.152599" elapsed="0.000240"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-01-27T00:58:24.057566" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json&lt;/a&gt;'.</msg>
+<msg time="2025-01-27T01:07:14.153111" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json&lt;/a&gt;'.</msg>
 <arg>${RESULTS_FILE}</arg>
 <arg>${json_string}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-01-27T00:58:24.057196" elapsed="0.000389"/>
+<status status="PASS" start="2025-01-27T01:07:14.152880" elapsed="0.000254"/>
 </kw>
 <arg>${results}</arg>
-<status status="PASS" start="2025-01-27T00:58:24.056882" elapsed="0.000728"/>
+<status status="PASS" start="2025-01-27T01:07:14.152494" elapsed="0.000663"/>
 </kw>
-<status status="PASS" start="2025-01-27T00:58:24.053650" elapsed="0.004013"/>
+<status status="PASS" start="2025-01-27T01:07:14.149141" elapsed="0.004068"/>
 </test>
-<status status="PASS" start="2025-01-27T00:58:23.994003" elapsed="0.063813"/>
+<status status="PASS" start="2025-01-27T01:07:14.087912" elapsed="0.065449"/>
 </suite>
 <statistics>
 <total>
