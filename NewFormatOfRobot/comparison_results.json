@@ -1,6 +1,6 @@
 [
   {
-    "status": true,
-    "details": "Student: , Teacher: "
+    "status": "PASS",
+    "details": "[\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n] vs [\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n]"
   }
 ]

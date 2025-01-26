@@ -1,14 +1,16 @@
 {
-  "id": 2,
-  "title": "Square Example",
+  "id": 1,
+  "title": "Python Function: Calculate Factorial",
   "language": "python",
-  "tag_list": ["other"],
-  "description": "Write a Python function to calculate square of input",
+  "tag_list": [
+      "recersion"
+  ],
+  "description": "\"Write a Python function to calculate the factorial of a number using recursion.\"",
   "example": "def factorial(n):\r\n    pass\r\n\r\n# Test the function\r\nprint(factorial(5))  # Output: 120\r\nprint(factorial(3))  # Output: 6",
-  "testcase": "example",
-  "testresult": "example",
-  "defaultCode": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\n# Test the function\r\nprint(factorial(5))  # Output: 120\r\nprint(factorial(3))  # Output: 6",
-  "solutionType": "default_code",
+  "testcase": "''",
+  "testresult": "[\r\n(5,25),\r\n(4,16),\r\n(3,9),\r\n]",
+  "defaultCode": "def factorial(n):\r\n    # Write your recursive factorial function here\r\n    pass\r\n\r\n# Test cases\r\nprint(factorial(5))\r\nprint(factorial(3))",
+  "solutionType": "test_result",
   "limitTime": false,
   "duration": "00:30:00"
 }
