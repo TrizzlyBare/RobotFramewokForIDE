@@ -1,117 +1,167 @@
 *** Settings ***
-Library           JSONLibrary
-Library           OperatingSystem
 Library           Collections
+Library           OperatingSystem
 Library           Process
-Library           String
-Library           BuiltIn
+Library           json
 
 *** Variables ***
-${STUDENT_FILE}  ${EXECDIR}/students.json
-${TEACHER_FILE}  ${EXECDIR}/teacher.json
-${RESULTS_FILE}  ${EXECDIR}/comparison_results.json
-${TEMP_DIR}      ${EXECDIR}/temp
-${PYTHON_CMD}    python3
-${JAVASCRIPT_CMD}     node
-${CPP_COMPILER}   g++
-${RUST_COMPILER}  rustc
+${STUDENTS_JSON}    students.json
+${TEACHER_JSON}    teacher.json
+${TEMP_DIR}        ./temp
+${RESULTS_FILE}    comparison_results.json
+
+# Language Execution Commands
+${PYTHON_CMD}      python
+${CPP_COMPILER}    g++
+${RUST_COMPILER}   rustc
+${JAVASCRIPT_CMD}  node
+${JAVA_COMPILER}   javac
+${JAVA_CMD}        java
 
 *** Keywords ***
-Get Language Extension
-    [Arguments]  ${language}
-    ${ext}  Set Variable If 
-        ...  '${language}' == 'Python'       .py
-        ...  '${language}' == 'C++'          .cpp
-        ...  '${language}' == 'Rust'         .rs
-        ...  '${language}' == 'JavaScript'   .js
-        ...  ${EMPTY}
-    RETURN  ${ext}
+Setup Test Environment
+    Create Directory    ${TEMP_DIR}
+    Log    Created temporary directory: ${TEMP_DIR}
+
+Cleanup Test Environment
+    Remove Directory    ${TEMP_DIR}    recursive=True
+    Run Keyword If    File Exists    ${RESULTS_FILE}    Remove File    ${RESULTS_FILE}
+
+Create Source File
+    [Arguments]    ${code}    ${language}
+    
+    # Language-specific file extensions
+    ${ext}    Set Variable If    
+    ...    '${language}' == 'python'    .py
+    ...    '${language}' == 'cpp'       .cpp
+    ...    '${language}' == 'rust'      .rs
+    ...    '${language}' == 'javascript'    .js
+    ...    '${language}' == 'java'      .java
+    ...    .txt
+    
+    # Generate unique filename
+    ${filename}    Evaluate    f'code_{random.randint(1000, 9999)}'    modules=random
+    ${full_path}    Set Variable    ${TEMP_DIR}/${filename}${ext}
+    
+    Create File    ${full_path}    ${code}
+    Log    Created ${language} source file: ${full_path}
+    RETURN    ${full_path}
+
+Execute Python Code
+    [Arguments]    ${file_path}
+    ${result}    Run Process    ${PYTHON_CMD}    ${file_path}    shell=True    stderr=STDOUT
+    RETURN    ${result}
+
+Execute JavaScript Code
+    [Arguments]    ${file_path}
+    ${result}    Run Process    ${JAVASCRIPT_CMD}    ${file_path}    shell=True    stderr=STDOUT
+    RETURN    ${result}
+
+Compile And Execute CPP Code
+    [Arguments]    ${file_path}
+    ${compile_result}    Run Process    ${CPP_COMPILER}    ${file_path}    -o    ${file_path}.out    shell=True    stderr=STDOUT
+    Run Keyword If    ${compile_result.rc} != 0    Fail    C++ Compilation Failed: ${compile_result.stderr}
+    
+    ${result}    Run Process    ${file_path}.out    shell=True    stderr=STDOUT
+    RETURN    ${result}
+
+Compile And Execute Rust Code
+    [Arguments]    ${file_path}
+    ${compile_result}    Run Process    ${RUST_COMPILER}    ${file_path}    -o    ${file_path}.out    shell=True    stderr=STDOUT
+    Run Keyword If    ${compile_result.rc} != 0    Fail    Rust Compilation Failed: ${compile_result.stderr}
+    
+    ${result}    Run Process    ${file_path}.out    shell=True    stderr=STDOUT
+    RETURN    ${result}
+
+Compile And Execute Java Code
+    [Arguments]    ${file_path}
+    # Extract class name from file path
+    ${class_name}    Evaluate    os.path.splitext(os.path.basename('${file_path}'))[0]    modules=os
+    
+    ${compile_result}    Run Process    ${JAVA_COMPILER}    ${file_path}    shell=True    stderr=STDOUT
+    Run Keyword If    ${compile_result.rc} != 0    Fail    Java Compilation Failed: ${compile_result.stderr}
+    
+    ${result}    Run Process    ${JAVA_CMD}    -cp    ${TEMP_DIR}    ${class_name}    shell=True    stderr=STDOUT
+    RETURN    ${result}
 
 Execute Code
-    [Arguments]  ${code}  ${language} 
-    ${filename}  Set Variable  test
-    ${ext}       Get Language Extension  ${language}
-    Create Directory  ${TEMP_DIR}  
-    ${filepath}  Set Variable  ${TEMP_DIR}/${filename}${ext} 
-    Create File  ${filepath}  ${code} 
+    [Arguments]    ${file_path}    ${language}
+    
+    ${result}    Run Keyword If    
+    ...    '${language}' == 'python'    Execute Python Code    ${file_path}
+    ...    ELSE IF    '${language}' == 'javascript'    Execute JavaScript Code    ${file_path}
+    ...    ELSE IF    '${language}' == 'cpp'    Compile And Execute CPP Code    ${file_path}
+    ...    ELSE IF    '${language}' == 'rust'    Compile And Execute Rust Code    ${file_path}
+    ...    ELSE IF    '${language}' == 'java'    Compile And Execute Java Code    ${file_path}
+    ...    ELSE    Fail    Unsupported language: ${language}
+    
+    RETURN    ${result}
 
-    ${status}  Set Variable  success
-    ${output}  Set Variable  ${EMPTY}
+Prepare Comparison Results
+    [Arguments]    ${students}    ${student_result}    ${teacher_result}    ${teacher_data}
+    
+    # Normalize outputs
+    ${student_output}    Set Variable    ${student_result.stdout.strip()}
+    ${teacher_output}    Set Variable    ${teacher_result.stdout.strip()}
+    
+    # Determine test status
+    ${test_status}    Set Variable If    
+    ...    '${student_output}' == '${teacher_output}'    PASS    FAIL
 
-    TRY
-        IF  '${language}' == 'Python'
-            ${result}  Run Process  ${PYTHON_CMD}  ${filepath}  stdout=STDOUT  stderr=STDERR
-            ${output}  Set Variable  ${result.stdout.strip()}
-            ${status}  Set Variable If  ${result.rc} == 0  success  runtime_error
-        ELSE IF  '${language}' == 'JavaScript'
-            ${result}  Run Process  ${JAVASCRIPT_CMD}  ${filepath}  stdout=STDOUT  stderr=STDERR
-            ${output}  Set Variable  ${result.stdout.strip()}
-            ${status}  Set Variable If  ${result.rc} == 0  success  runtime_error
-        ELSE IF  '${language}' == 'C++'
-            ${compile_result}  Run Process  ${CPP_COMPILER}  ${filepath}  -o  ${TEMP_DIR}/${filename}  shell=True
-            IF  ${compile_result.rc} == 0
-                ${result}  Run Process  ${TEMP_DIR}/${filename}  stdout=STDOUT  stderr=STDERR
-                ${output}  Set Variable  ${result.stdout.strip()}
-                ${status}  Set Variable  success
-            ELSE
-                ${status}  Set Variable  compilation_error
-                ${output}  Set Variable  ${compile_result.stderr}
-            END
-        ELSE IF  '${language}' == 'Rust'
-            ${compile_result}  Run Process  ${RUST_COMPILER}  ${filepath}  -o  ${TEMP_DIR}/${filename}  stdout=STDOUT  stderr=STDERR
-            IF  ${compile_result.rc} == 0
-                ${result}  Run Process  ${TEMP_DIR}/${filename}  stdout=STDOUT  stderr=STDERR
-                ${output}  Set Variable  ${result.stdout.strip()}
-                ${status}  Set Variable  success
-            ELSE
-                ${status}  Set Variable  compilation_error
-                ${output}  Set Variable  ${compile_result.stderr}
-            END
-        END
-    EXCEPT  AS  ${error}
-        ${status}  Set Variable  runtime_error
-        ${output}  Set Variable  ${error}
-    END
+    # Create results dictionary
+    ${result}    Create Dictionary
+    ...    status=${test_status}
+    ...    details=${students}[title]
+    ...    language=${students}[language]
+    ...    student_output=${student_output}
+    ...    teacher_output=${teacher_output}
+    ...    student_code=${students}[defaultCode]
+    ...    teacher_code=${teacher_data}[defaultCode]
+    ...    student_exit_code=${student_result.rc}
+    ...    teacher_exit_code=${teacher_result.rc}
+    ...    student_stderr=${student_result.stderr}
+    ...    teacher_stderr=${teacher_result.stderr}
 
-    RETURN  ${status}  ${output}
+    # Write results to file
+    ${results}    Create List    ${result}
+    ${json_string}    Evaluate    json.dumps($results, indent=2)    json
+    Create File    ${RESULTS_FILE}    ${json_string}
+    
+    RETURN    ${result}
 
 *** Test Cases ***
-Compare Student and Teacher Results
-    [Documentation]  Compare Compiled student code outputs with teacher's compiled teacher code outputs
-    # Load student and teacher files
-    ${students}  Load JSON From File  ${STUDENT_FILE}
-    ${teachers}  Load JSON From File  ${TEACHER_FILE}
-
-    # Get student and teacher data
-    ${student_language}  Get From Dictionary  ${students}  language
-    ${teacher_language}  Get From Dictionary  ${teachers}  language
-    ${student_code}     Get From Dictionary  ${students}  defaultCode
-    ${teacher_code}     Get From Dictionary  ${teachers}  defaultCode
-
-    # Execute student and teacher code
-    ${student_status}  ${student_output}  Execute Code  ${student_code}  ${student_language}  
-    ${teacher_status}  ${teacher_output}  Execute Code  ${teacher_code}  ${teacher_language}  
-    Log To Console  ${student_output}
-    Log To Console  ${teacher_output}
-
-    # Verify execution statuses
-    Should Be Equal    ${student_status}    success
-    Should Be Equal    ${teacher_status}    success
-
-    # Compare outputs
-    ${results}  Create List
-    ${test_status}  Set Variable If  '${student_output}' == '${teacher_output}'  PASS  FAIL
-    ${reason}  Set Variable If  '${student_output}' == '${teacher_output}'  
-    ...  Outputs match  Outputs do not match (Student: ${student_output}, Teacher: ${teacher_output})
-
-    ${result}  Create Dictionary
-        ...  status=${test_status}
-        ...  details=${students}[title]
-        ...  reason=${reason}
-    Append To List  ${results}  ${result}
+Compare Student And Teacher Default Codes
+    # Setup
+    Setup Test Environment
     
-    ${json_string}  Evaluate  json.dumps($results, indent=2)  json
-    Create File  ${RESULTS_FILE}  ${json_string}
+    # Read JSON files
+    ${students_data}    Evaluate    json.load(open('${STUDENTS_JSON}'))    json
+    ${teacher_data}    Evaluate    json.load(open('${TEACHER_JSON}'))    json
+    
+    # Extract codes and language
+    ${language}    Set Variable    ${students_data['language'].lower()}
+    ${student_code}    Set Variable    ${students_data['defaultCode']}
+    ${teacher_code}    Set Variable    ${teacher_data['defaultCode']}
+    
+    # Create source files
+    ${student_file}    Create Source File    ${student_code}    ${language}
+    ${teacher_file}    Create Source File    ${teacher_code}    ${language}
+    
+    # Execute codes
+    ${student_result}    Execute Code    ${student_file}    ${language}
+    ${teacher_result}    Execute Code    ${teacher_file}    ${language}
+    
+    # Prepare and verify results
+    ${comparison_result}    Prepare Comparison Results    ${students_data}    ${student_result}    ${teacher_result}    ${teacher_data}
+    
+    # Assertions
+    Should Be Equal As Integers    ${student_result.rc}    0    msg=Student code execution failed
+    Should Be Equal As Integers    ${teacher_result.rc}    0    msg=Teacher code execution failed
+    Should Be Equal    ${student_result.stdout.strip()}    ${teacher_result.stdout.strip()}    msg=Outputs differ
+    
+    # Cleanup
+    Cleanup Test Environment
 
-    # Force test to fail if outputs do not match
-    Should Be Equal  ${student_output}  ${teacher_output}
+*** Keywords ***
+Teardown
+    Run Keyword If Test Failed    Cleanup Test Environment

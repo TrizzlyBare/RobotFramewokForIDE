@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-27T02:24:22.715079" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-27T03:29:47.955394" rpa="false" schemaversion="5">
 <suite id="s1" name="Case1" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/Case1.robot">
-<test id="s1-t1" name="Compare Student and Teacher Results" line="79">
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-27T02:24:22.778689" level="INFO">${students} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
-<var>${students}</var>
-<arg>${STUDENT_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.778507" elapsed="0.000200"/>
+<test id="s1-t1" name="Compare Student And Teacher Default Codes" line="133">
+<kw name="Setup Test Environment">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-01-27T03:29:47.975930" level="INFO" html="true">Created directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;'.</msg>
+<arg>${TEMP_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.975613" elapsed="0.000360"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-27T02:24:22.778912" level="INFO">${teachers} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
-<var>${teachers}</var>
-<arg>${TEACHER_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.778789" elapsed="0.000135"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.976127" level="INFO">Created temporary directory: ./temp</msg>
+<arg>Created temporary directory: ${TEMP_DIR}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.976045" elapsed="0.000101"/>
 </kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-27T02:24:22.779061" level="INFO">${student_language} = python</msg>
-<var>${student_language}</var>
-<arg>${students}</arg>
-<arg>language</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.778990" elapsed="0.000080"/>
+<status status="PASS" start="2025-01-27T03:29:47.975253" elapsed="0.000928"/>
 </kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-27T02:24:22.779196" level="INFO">${teacher_language} = python</msg>
-<var>${teacher_language}</var>
-<arg>${teachers}</arg>
-<arg>language</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.779131" elapsed="0.000074"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.976563" level="INFO">${students_data} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
+<var>${students_data}</var>
+<arg>json.load(open('${STUDENTS_JSON}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.976323" elapsed="0.000253"/>
 </kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-27T02:24:22.779328" level="INFO">${student_code} = def factorial(n):
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.976813" level="INFO">${teacher_data} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
+<var>${teacher_data}</var>
+<arg>json.load(open('${TEACHER_JSON}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.976651" elapsed="0.000173"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.977163" level="INFO">${language} = python</msg>
+<var>${language}</var>
+<arg>${students_data['language'].lower()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.976892" elapsed="0.000281"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.977488" level="INFO">${student_code} = def factorial(n):
     if n == 0 or n == 1:
         return 1
     return n * factorial(n - 1)
@@ -41,656 +49,382 @@
 print(factorial(4))  # Output: 120
 </msg>
 <var>${student_code}</var>
-<arg>${students}</arg>
-<arg>defaultCode</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.779265" elapsed="0.000073"/>
+<arg>${students_data['defaultCode']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.977285" elapsed="0.000215"/>
 </kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-27T02:24:22.779456" level="INFO">${teacher_code} = def factorial(n):
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.977865" level="INFO">${teacher_code} = def factorial(n):
     if n == 0 or n == 1:
         return 1
     return n * factorial(n - 1)
 
-print(factorial(1))  # Output: 120
+print(factorial(5))  # Output: 120
 </msg>
 <var>${teacher_code}</var>
-<arg>${teachers}</arg>
-<arg>defaultCode</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.779394" elapsed="0.000071"/>
-</kw>
-<kw name="Execute Code">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.779966" level="INFO">${filename} = test</msg>
-<var>${filename}</var>
-<arg>test</arg>
+<arg>${teacher_data['defaultCode']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.779906" elapsed="0.000077"/>
+<status status="PASS" start="2025-01-27T03:29:47.977634" elapsed="0.000246"/>
 </kw>
-<kw name="Get Language Extension">
+<kw name="Create Source File">
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.780481" level="INFO">${ext} = </msg>
+<msg time="2025-01-27T03:29:47.978328" level="INFO">${ext} = .py</msg>
 <var>${ext}</var>
-<arg>'${language}' == 'Python'</arg>
+<arg>'${language}' == 'python'</arg>
 <arg>.py</arg>
-<arg>'${language}' == 'C++'</arg>
+<arg>'${language}' == 'cpp'</arg>
 <arg>.cpp</arg>
-<arg>'${language}' == 'Rust'</arg>
+<arg>'${language}' == 'rust'</arg>
 <arg>.rs</arg>
-<arg>'${language}' == 'JavaScript'</arg>
+<arg>'${language}' == 'javascript'</arg>
 <arg>.js</arg>
-<arg>${EMPTY}</arg>
+<arg>'${language}' == 'java'</arg>
+<arg>.java</arg>
+<arg>.txt</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.780162" elapsed="0.000332"/>
+<status status="PASS" start="2025-01-27T03:29:47.978241" elapsed="0.000098"/>
 </kw>
-<return>
-<value>${ext}</value>
-<status status="PASS" start="2025-01-27T02:24:22.780529" elapsed="0.000023"/>
-</return>
-<msg time="2025-01-27T02:24:22.780603" level="INFO">${ext} = </msg>
-<var>${ext}</var>
-<arg>${language}</arg>
-<status status="PASS" start="2025-01-27T02:24:22.780044" elapsed="0.000567"/>
-</kw>
-<kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-01-27T02:24:22.780714" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;' already exists.</msg>
-<arg>${TEMP_DIR}</arg>
-<doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.780653" elapsed="0.000081"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.978509" level="INFO">${filename} = code_7015</msg>
+<var>${filename}</var>
+<arg>f'code_{random.randint(1000, 9999)}'</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.978395" elapsed="0.000124"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.780840" level="INFO">${filepath} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test</msg>
-<var>${filepath}</var>
+<msg time="2025-01-27T03:29:47.978643" level="INFO">${full_path} = ./temp/code_7015.py</msg>
+<var>${full_path}</var>
 <arg>${TEMP_DIR}/${filename}${ext}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.780773" elapsed="0.000075"/>
+<status status="PASS" start="2025-01-27T03:29:47.978564" elapsed="0.000088"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-01-27T02:24:22.781112" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test&lt;/a&gt;'.</msg>
-<arg>${filepath}</arg>
+<msg time="2025-01-27T03:29:47.978956" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/code_7015.py"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/code_7015.py&lt;/a&gt;'.</msg>
+<arg>${full_path}</arg>
 <arg>${code}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.780887" elapsed="0.000247"/>
+<status status="PASS" start="2025-01-27T03:29:47.978692" elapsed="0.000317"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.781220" level="INFO">${status} = success</msg>
-<var>${status}</var>
-<arg>success</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.781175" elapsed="0.000052"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.979115" level="INFO">Created python source file: ./temp/code_7015.py</msg>
+<arg>Created ${language} source file: ${full_path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.979053" elapsed="0.000077"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.781456" level="INFO">${output} = </msg>
-<var>${output}</var>
-<arg>${EMPTY}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.781265" elapsed="0.000199"/>
-</kw>
-<try>
-<branch type="TRY">
-<if>
-<branch type="IF" condition="'${language}' == 'Python'">
-<kw name="Run Process" owner="Process">
-<var>${result}</var>
-<arg>${PYTHON_CMD}</arg>
-<arg>${filepath}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781598" elapsed="0.000007"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781645" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<var>${status}</var>
-<arg>${result.rc} == 0</arg>
-<arg>success</arg>
-<arg>runtime_error</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781690" elapsed="0.000073"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781530" elapsed="0.000248"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'JavaScript'">
-<kw name="Run Process" owner="Process">
-<var>${result}</var>
-<arg>${JAVASCRIPT_CMD}</arg>
-<arg>${filepath}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781848" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781891" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<var>${status}</var>
-<arg>${result.rc} == 0</arg>
-<arg>success</arg>
-<arg>runtime_error</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781933" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781789" elapsed="0.000188"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'C++'">
-<kw name="Run Process" owner="Process">
-<var>${compile_result}</var>
-<arg>${CPP_COMPILER}</arg>
-<arg>${filepath}</arg>
-<arg>-o</arg>
-<arg>${TEMP_DIR}/${filename}</arg>
-<arg>shell=True</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782045" elapsed="0.000006"/>
-</kw>
-<if>
-<branch type="IF" condition="${compile_result.rc} == 0">
-<kw name="Run Process" owner="Process">
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782109" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782150" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>success</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782185" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782076" elapsed="0.000125"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>compilation_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782241" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${compile_result.stderr}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782277" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782210" elapsed="0.000082"/>
-</branch>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782071" elapsed="0.000229"/>
-</if>
-<status status="NOT RUN" start="2025-01-27T02:24:22.781987" elapsed="0.000322"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'Rust'">
-<kw name="Run Process" owner="Process">
-<var>${compile_result}</var>
-<arg>${RUST_COMPILER}</arg>
-<arg>${filepath}</arg>
-<arg>-o</arg>
-<arg>${TEMP_DIR}/${filename}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782374" elapsed="0.000006"/>
-</kw>
-<if>
-<branch type="IF" condition="${compile_result.rc} == 0">
-<kw name="Run Process" owner="Process">
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782439" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782478" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>success</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782513" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782407" elapsed="0.000121"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>compilation_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782569" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${compile_result.stderr}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782604" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782537" elapsed="0.000082"/>
-</branch>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782402" elapsed="0.000224"/>
-</if>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782317" elapsed="0.000318"/>
-</branch>
-<status status="PASS" start="2025-01-27T02:24:22.781523" elapsed="0.001120"/>
-</if>
-<status status="PASS" start="2025-01-27T02:24:22.781506" elapsed="0.001145"/>
-</branch>
-<branch type="EXCEPT" assign="${error}">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>runtime_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782698" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${error}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782736" elapsed="0.000006"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.782667" elapsed="0.000085"/>
-</branch>
-<status status="PASS" start="2025-01-27T02:24:22.781488" elapsed="0.001276"/>
-</try>
 <return>
-<value>${status}</value>
-<value>${output}</value>
-<status status="PASS" start="2025-01-27T02:24:22.782777" elapsed="0.000011"/>
+<value>${full_path}</value>
+<status status="PASS" start="2025-01-27T03:29:47.979151" elapsed="0.000026"/>
 </return>
-<msg time="2025-01-27T02:24:22.782853" level="INFO">${student_status} = success</msg>
-<msg time="2025-01-27T02:24:22.782867" level="INFO">${student_output} = </msg>
-<var>${student_status}</var>
-<var>${student_output}</var>
+<msg time="2025-01-27T03:29:47.979233" level="INFO">${student_file} = ./temp/code_7015.py</msg>
+<var>${student_file}</var>
 <arg>${student_code}</arg>
-<arg>${student_language}</arg>
-<status status="PASS" start="2025-01-27T02:24:22.779744" elapsed="0.003130"/>
-</kw>
-<kw name="Execute Code">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.783376" level="INFO">${filename} = test</msg>
-<var>${filename}</var>
-<arg>test</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.783331" elapsed="0.000053"/>
-</kw>
-<kw name="Get Language Extension">
-<kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.783789" level="INFO">${ext} = </msg>
-<var>${ext}</var>
-<arg>'${language}' == 'Python'</arg>
-<arg>.py</arg>
-<arg>'${language}' == 'C++'</arg>
-<arg>.cpp</arg>
-<arg>'${language}' == 'Rust'</arg>
-<arg>.rs</arg>
-<arg>'${language}' == 'JavaScript'</arg>
-<arg>.js</arg>
-<arg>${EMPTY}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.783535" elapsed="0.000263"/>
-</kw>
-<return>
-<value>${ext}</value>
-<status status="PASS" start="2025-01-27T02:24:22.783824" elapsed="0.000013"/>
-</return>
-<msg time="2025-01-27T02:24:22.783879" level="INFO">${ext} = </msg>
-<var>${ext}</var>
 <arg>${language}</arg>
-<status status="PASS" start="2025-01-27T02:24:22.783436" elapsed="0.000451"/>
+<status status="PASS" start="2025-01-27T03:29:47.978016" elapsed="0.001225"/>
 </kw>
-<kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-01-27T02:24:22.783980" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;' already exists.</msg>
-<arg>${TEMP_DIR}</arg>
-<doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.783925" elapsed="0.000073"/>
+<kw name="Create Source File">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.979545" level="INFO">${ext} = .py</msg>
+<var>${ext}</var>
+<arg>'${language}' == 'python'</arg>
+<arg>.py</arg>
+<arg>'${language}' == 'cpp'</arg>
+<arg>.cpp</arg>
+<arg>'${language}' == 'rust'</arg>
+<arg>.rs</arg>
+<arg>'${language}' == 'javascript'</arg>
+<arg>.js</arg>
+<arg>'${language}' == 'java'</arg>
+<arg>.java</arg>
+<arg>.txt</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.979476" elapsed="0.000078"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.979704" level="INFO">${filename} = code_1326</msg>
+<var>${filename}</var>
+<arg>f'code_{random.randint(1000, 9999)}'</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.979605" elapsed="0.000108"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.784101" level="INFO">${filepath} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test</msg>
-<var>${filepath}</var>
+<msg time="2025-01-27T03:29:47.979829" level="INFO">${full_path} = ./temp/code_1326.py</msg>
+<var>${full_path}</var>
 <arg>${TEMP_DIR}/${filename}${ext}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.784035" elapsed="0.000074"/>
+<status status="PASS" start="2025-01-27T03:29:47.979755" elapsed="0.000083"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-01-27T02:24:22.784510" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test&lt;/a&gt;'.</msg>
-<arg>${filepath}</arg>
+<msg time="2025-01-27T03:29:47.980094" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/code_1326.py"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/code_1326.py&lt;/a&gt;'.</msg>
+<arg>${full_path}</arg>
 <arg>${code}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.784161" elapsed="0.000397"/>
+<status status="PASS" start="2025-01-27T03:29:47.979878" elapsed="0.000236"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.784661" level="INFO">${status} = success</msg>
-<var>${status}</var>
-<arg>success</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.784611" elapsed="0.000058"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-27T03:29:47.980214" level="INFO">Created python source file: ./temp/code_1326.py</msg>
+<arg>Created ${language} source file: ${full_path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.980157" elapsed="0.000101"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.784918" level="INFO">${output} = </msg>
-<var>${output}</var>
-<arg>${EMPTY}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.784710" elapsed="0.000217"/>
+<return>
+<value>${full_path}</value>
+<status status="PASS" start="2025-01-27T03:29:47.980277" elapsed="0.000016"/>
+</return>
+<msg time="2025-01-27T03:29:47.980345" level="INFO">${teacher_file} = ./temp/code_1326.py</msg>
+<var>${teacher_file}</var>
+<arg>${teacher_code}</arg>
+<arg>${language}</arg>
+<status status="PASS" start="2025-01-27T03:29:47.979325" elapsed="0.001028"/>
 </kw>
-<try>
-<branch type="TRY">
-<if>
-<branch type="IF" condition="'${language}' == 'Python'">
+<kw name="Execute Code">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Python Code">
 <kw name="Run Process" owner="Process">
+<msg time="2025-01-27T03:29:47.981100" level="INFO">Starting process:
+python ./temp/code_7015.py</msg>
+<msg time="2025-01-27T03:29:47.983763" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-01-27T03:29:48.000459" level="INFO">Process completed.</msg>
+<msg time="2025-01-27T03:29:48.000660" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>${PYTHON_CMD}</arg>
-<arg>${filepath}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785066" elapsed="0.000007"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785113" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<var>${status}</var>
-<arg>${result.rc} == 0</arg>
-<arg>success</arg>
-<arg>runtime_error</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785158" elapsed="0.000006"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.784990" elapsed="0.000187"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'JavaScript'">
-<kw name="Run Process" owner="Process">
-<var>${result}</var>
-<arg>${JAVASCRIPT_CMD}</arg>
-<arg>${filepath}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785245" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785285" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<var>${status}</var>
-<arg>${result.rc} == 0</arg>
-<arg>success</arg>
-<arg>runtime_error</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785326" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785187" elapsed="0.000156"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'C++'">
-<kw name="Run Process" owner="Process">
-<var>${compile_result}</var>
-<arg>${CPP_COMPILER}</arg>
-<arg>${filepath}</arg>
-<arg>-o</arg>
-<arg>${TEMP_DIR}/${filename}</arg>
+<arg>${file_path}</arg>
 <arg>shell=True</arg>
+<arg>stderr=STDOUT</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785407" elapsed="0.000006"/>
+<status status="PASS" start="2025-01-27T03:29:47.980985" elapsed="0.019694"/>
 </kw>
-<if>
-<branch type="IF" condition="${compile_result.rc} == 0">
-<kw name="Run Process" owner="Process">
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785471" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785510" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>success</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785547" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785440" elapsed="0.000122"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>compilation_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785598" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${compile_result.stderr}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785633" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785570" elapsed="0.000078"/>
-</branch>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785434" elapsed="0.000221"/>
-</if>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785352" elapsed="0.000313"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'Rust'">
-<kw name="Run Process" owner="Process">
-<var>${compile_result}</var>
-<arg>${RUST_COMPILER}</arg>
-<arg>${filepath}</arg>
-<arg>-o</arg>
-<arg>${TEMP_DIR}/${filename}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785782" elapsed="0.000009"/>
-</kw>
-<if>
-<branch type="IF" condition="${compile_result.rc} == 0">
-<kw name="Run Process" owner="Process">
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}</arg>
-<arg>stdout=STDOUT</arg>
-<arg>stderr=STDERR</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785863" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout.strip()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785905" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>success</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785942" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785822" elapsed="0.000135"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>compilation_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785995" elapsed="0.000005"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${compile_result.stderr}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.786034" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785965" elapsed="0.000085"/>
-</branch>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785816" elapsed="0.000256"/>
-</if>
-<status status="NOT RUN" start="2025-01-27T02:24:22.785672" elapsed="0.000438"/>
-</branch>
-<status status="PASS" start="2025-01-27T02:24:22.784983" elapsed="0.001136"/>
-</if>
-<status status="PASS" start="2025-01-27T02:24:22.784967" elapsed="0.001160"/>
-</branch>
-<branch type="EXCEPT" assign="${error}">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>runtime_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.786176" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${error}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-27T02:24:22.786215" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-01-27T02:24:22.786144" elapsed="0.000087"/>
-</branch>
-<status status="PASS" start="2025-01-27T02:24:22.784950" elapsed="0.001316"/>
-</try>
 <return>
-<value>${status}</value>
-<value>${output}</value>
-<status status="PASS" start="2025-01-27T02:24:22.786281" elapsed="0.000014"/>
+<value>${result}</value>
+<status status="PASS" start="2025-01-27T03:29:48.000798" elapsed="0.000063"/>
 </return>
-<msg time="2025-01-27T02:24:22.786367" level="INFO">${teacher_status} = success</msg>
-<msg time="2025-01-27T02:24:22.786382" level="INFO">${teacher_output} = </msg>
-<var>${teacher_status}</var>
+<arg>${file_path}</arg>
+<status status="PASS" start="2025-01-27T03:29:47.980879" elapsed="0.020093"/>
+</kw>
+<msg time="2025-01-27T03:29:48.001015" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>'${language}' == 'python'</arg>
+<arg>Execute Python Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'javascript'</arg>
+<arg>Execute JavaScript Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'cpp'</arg>
+<arg>Compile And Execute CPP Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'rust'</arg>
+<arg>Compile And Execute Rust Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'java'</arg>
+<arg>Compile And Execute Java Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Unsupported language: ${language}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-27T03:29:47.980751" elapsed="0.020274"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2025-01-27T03:29:48.001069" elapsed="0.000013"/>
+</return>
+<msg time="2025-01-27T03:29:48.001138" level="INFO">${student_result} = &lt;result object with rc 0&gt;</msg>
+<var>${student_result}</var>
+<arg>${student_file}</arg>
+<arg>${language}</arg>
+<status status="PASS" start="2025-01-27T03:29:47.980605" elapsed="0.020545"/>
+</kw>
+<kw name="Execute Code">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Python Code">
+<kw name="Run Process" owner="Process">
+<msg time="2025-01-27T03:29:48.002792" level="INFO">Starting process:
+python ./temp/code_1326.py</msg>
+<msg time="2025-01-27T03:29:48.005095" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-01-27T03:29:48.020207" level="INFO">Process completed.</msg>
+<msg time="2025-01-27T03:29:48.020432" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>${PYTHON_CMD}</arg>
+<arg>${file_path}</arg>
+<arg>shell=True</arg>
+<arg>stderr=STDOUT</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-01-27T03:29:48.002625" elapsed="0.017828"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2025-01-27T03:29:48.020572" elapsed="0.000071"/>
+</return>
+<arg>${file_path}</arg>
+<status status="PASS" start="2025-01-27T03:29:48.001804" elapsed="0.018980"/>
+</kw>
+<msg time="2025-01-27T03:29:48.020866" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>'${language}' == 'python'</arg>
+<arg>Execute Python Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'javascript'</arg>
+<arg>Execute JavaScript Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'cpp'</arg>
+<arg>Compile And Execute CPP Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'rust'</arg>
+<arg>Compile And Execute Rust Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE IF</arg>
+<arg>'${language}' == 'java'</arg>
+<arg>Compile And Execute Java Code</arg>
+<arg>${file_path}</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Unsupported language: ${language}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-27T03:29:48.001646" elapsed="0.019259"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2025-01-27T03:29:48.020966" elapsed="0.000021"/>
+</return>
+<msg time="2025-01-27T03:29:48.021064" level="INFO">${teacher_result} = &lt;result object with rc 0&gt;</msg>
+<var>${teacher_result}</var>
+<arg>${teacher_file}</arg>
+<arg>${language}</arg>
+<status status="PASS" start="2025-01-27T03:29:48.001408" elapsed="0.019667"/>
+</kw>
+<kw name="Prepare Comparison Results">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-27T03:29:48.022079" level="INFO">${student_output} = 24</msg>
+<var>${student_output}</var>
+<arg>${student_result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-27T03:29:48.021718" elapsed="0.000378"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-27T03:29:48.022397" level="INFO">${teacher_output} = 120</msg>
 <var>${teacher_output}</var>
-<arg>${teacher_code}</arg>
-<arg>${teacher_language}</arg>
-<status status="PASS" start="2025-01-27T02:24:22.783185" elapsed="0.003203"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${student_output}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.786450" elapsed="0.000073"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${teacher_output}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.786593" elapsed="0.000062"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${student_status}</arg>
-<arg>success</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.786755" elapsed="0.000072"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${teacher_status}</arg>
-<arg>success</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.786877" elapsed="0.000061"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.787036" level="INFO">${results} = []</msg>
-<var>${results}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.786986" elapsed="0.000058"/>
+<arg>${teacher_result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-27T03:29:48.022157" elapsed="0.000250"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.787213" level="INFO">${test_status} = PASS</msg>
+<msg time="2025-01-27T03:29:48.022573" level="INFO">${test_status} = FAIL</msg>
 <var>${test_status}</var>
 <arg>'${student_output}' == '${teacher_output}'</arg>
 <arg>PASS</arg>
 <arg>FAIL</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.787138" elapsed="0.000083"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.787471" level="INFO">${reason} = Outputs match</msg>
-<var>${reason}</var>
-<arg>'${student_output}' == '${teacher_output}'</arg>
-<arg>Outputs match</arg>
-<arg>Outputs do not match (Student: ${student_output}, Teacher: ${teacher_output})</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.787322" elapsed="0.000157"/>
+<status status="PASS" start="2025-01-27T03:29:48.022469" elapsed="0.000114"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.787742" level="INFO">${result} = {'status': 'PASS', 'details': 'Square Example', 'reason': 'Outputs match'}</msg>
+<msg time="2025-01-27T03:29:48.023732" level="INFO">${result} = {'status': 'FAIL', 'details': 'Square Example', 'language': 'python', 'student_output': '24', 'teacher_output': '120', 'student_code': 'def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return ...</msg>
 <var>${result}</var>
 <arg>status=${test_status}</arg>
 <arg>details=${students}[title]</arg>
-<arg>reason=${reason}</arg>
+<arg>language=${students}[language]</arg>
+<arg>student_output=${student_output}</arg>
+<arg>teacher_output=${teacher_output}</arg>
+<arg>student_code=${students}[defaultCode]</arg>
+<arg>teacher_code=${teacher_data}[defaultCode]</arg>
+<arg>student_exit_code=${student_result.rc}</arg>
+<arg>teacher_exit_code=${teacher_result.rc}</arg>
+<arg>student_stderr=${student_result.stderr}</arg>
+<arg>teacher_stderr=${teacher_result.stderr}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.787572" elapsed="0.000179"/>
+<status status="PASS" start="2025-01-27T03:29:48.022638" elapsed="0.001108"/>
 </kw>
-<kw name="Append To List" owner="Collections">
-<arg>${results}</arg>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-01-27T03:29:48.023885" level="INFO">${results} = [{'status': 'FAIL', 'details': 'Square Example', 'language': 'python', 'student_output': '24', 'teacher_output': '120', 'student_code': 'def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return...</msg>
+<var>${results}</var>
 <arg>${result}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.787806" elapsed="0.000075"/>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-01-27T03:29:48.023810" elapsed="0.000084"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-01-27T02:24:22.788169" level="INFO">${json_string} = [
+<msg time="2025-01-27T03:29:48.025448" level="INFO">${json_string} = [
   {
-    "status": "PASS",
+    "status": "FAIL",
     "details": "Square Example",
-    "reason": "Outputs match"
-  }
-]</msg>
+    "language": "python",
+    "student_output": "24",
+    "teacher_output": "120",
+    "student_code": "def factorial(n):\r\n    if n == 0 ...</msg>
 <var>${json_string}</var>
 <arg>json.dumps($results, indent=2)</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.788000" elapsed="0.000178"/>
+<status status="PASS" start="2025-01-27T03:29:48.023938" elapsed="0.001581"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-01-27T02:24:22.788442" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json&lt;/a&gt;'.</msg>
+<msg time="2025-01-27T03:29:48.025915" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json&lt;/a&gt;'.</msg>
 <arg>${RESULTS_FILE}</arg>
 <arg>${json_string}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.788229" elapsed="0.000233"/>
+<status status="PASS" start="2025-01-27T03:29:48.025574" elapsed="0.000364"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2025-01-27T03:29:48.025959" elapsed="0.000016"/>
+</return>
+<msg time="2025-01-27T03:29:48.026041" level="INFO">${comparison_result} = {'status': 'FAIL', 'details': 'Square Example', 'language': 'python', 'student_output': '24', 'teacher_output': '120', 'student_code': 'def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return ...</msg>
+<var>${comparison_result}</var>
+<arg>${students_data}</arg>
+<arg>${student_result}</arg>
+<arg>${teacher_result}</arg>
+<arg>${teacher_data}</arg>
+<status status="PASS" start="2025-01-27T03:29:48.021384" elapsed="0.004667"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-01-27T03:29:48.026454" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${student_result.rc}</arg>
+<arg>0</arg>
+<arg>msg=Student code execution failed</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-01-27T03:29:48.026119" elapsed="0.000366"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-01-27T03:29:48.026827" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${teacher_result.rc}</arg>
+<arg>0</arg>
+<arg>msg=Teacher code execution failed</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-01-27T03:29:48.026556" elapsed="0.000295"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
-<arg>${student_output}</arg>
-<arg>${teacher_output}</arg>
+<msg time="2025-01-27T03:29:48.027335" level="FAIL">Outputs differ: 24 != 120</msg>
+<arg>${student_result.stdout.strip()}</arg>
+<arg>${teacher_result.stdout.strip()}</arg>
+<arg>msg=Outputs differ</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-01-27T02:24:22.788563" elapsed="0.000070"/>
+<status status="FAIL" start="2025-01-27T03:29:48.026916" elapsed="0.000527">Outputs differ: 24 != 120</status>
 </kw>
-<doc>Compare Compiled student code outputs with teacher's compiled teacher code outputs</doc>
-<status status="PASS" start="2025-01-27T02:24:22.777997" elapsed="0.010746"/>
+<kw name="Cleanup Test Environment">
+<status status="NOT RUN" start="2025-01-27T03:29:48.027535" elapsed="0.000010"/>
+</kw>
+<status status="FAIL" start="2025-01-27T03:29:47.974880" elapsed="0.052756">Outputs differ: 24 != 120</status>
 </test>
-<status status="PASS" start="2025-01-27T02:24:22.715875" elapsed="0.073113"/>
+<status status="FAIL" start="2025-01-27T03:29:47.955983" elapsed="0.071860"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Case1">Case1</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Case1">Case1</stat>
 </suite>
 </statistics>
 <errors>
