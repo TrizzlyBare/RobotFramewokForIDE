@@ -1,15 +1,6 @@
 [
   {
-    "status": "PASS",
-    "details": "Square Example",
-    "language": "python",
-    "student_output": "120",
-    "teacher_output": "120",
-    "student_code": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\nprint(factorial(5))  # Output: 120\r\n",
-    "teacher_code": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\nprint(factorial(5))  # Output: 120\r\n",
-    "student_exit_code": 0,
-    "teacher_exit_code": 0,
-    "student_stderr": "",
-    "teacher_stderr": ""
+    "status": "FAIL",
+    "details": "8 vs 85"
   }
 ]

@@ -19,10 +19,10 @@ Load JSON Data
 
 Compare Results
     [Arguments]    ${student_result}    ${teacher_result}
-    ${student_result_list}    Evaluate    ast.literal_eval('''${student_result}''')    modules=ast
-    ${teacher_result_list}    Evaluate    ast.literal_eval('''${teacher_result}''')    modules=ast
-    ${status}    Set Variable If    ${student_result_list} == ${teacher_result_list}    PASS    FAIL
+    # Direct comparison of results
+    ${status}    Set Variable If    '${student_result}' == '${teacher_result}'    PASS    FAIL
     RETURN    ${status}
+
 
 Add Comparison Result
     [Arguments]    ${results}    ${status}    ${details}
