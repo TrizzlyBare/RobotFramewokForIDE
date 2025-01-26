@@ -15,8 +15,6 @@ ${PYTHON_CMD}      python
 ${CPP_COMPILER}    g++
 ${RUST_COMPILER}   rustc
 ${JAVASCRIPT_CMD}  node
-${JAVA_COMPILER}   javac
-${JAVA_CMD}        java
 
 *** Keywords ***
 Setup Test Environment
@@ -73,17 +71,6 @@ Compile And Execute Rust Code
     ${result}    Run Process    ${file_path}.out    shell=True    stderr=STDOUT
     RETURN    ${result}
 
-Compile And Execute Java Code
-    [Arguments]    ${file_path}
-    # Extract class name from file path
-    ${class_name}    Evaluate    os.path.splitext(os.path.basename('${file_path}'))[0]    modules=os
-    
-    ${compile_result}    Run Process    ${JAVA_COMPILER}    ${file_path}    shell=True    stderr=STDOUT
-    Run Keyword If    ${compile_result.rc} != 0    Fail    Java Compilation Failed: ${compile_result.stderr}
-    
-    ${result}    Run Process    ${JAVA_CMD}    -cp    ${TEMP_DIR}    ${class_name}    shell=True    stderr=STDOUT
-    RETURN    ${result}
-
 Execute Code
     [Arguments]    ${file_path}    ${language}
     
@@ -92,7 +79,6 @@ Execute Code
     ...    ELSE IF    '${language}' == 'javascript'    Execute JavaScript Code    ${file_path}
     ...    ELSE IF    '${language}' == 'cpp'    Compile And Execute CPP Code    ${file_path}
     ...    ELSE IF    '${language}' == 'rust'    Compile And Execute Rust Code    ${file_path}
-    ...    ELSE IF    '${language}' == 'java'    Compile And Execute Java Code    ${file_path}
     ...    ELSE    Fail    Unsupported language: ${language}
     
     RETURN    ${result}
@@ -133,6 +119,7 @@ Prepare Comparison Results
 Compare Student And Teacher Default Codes
     # Setup
     Setup Test Environment
+    [Teardown]    Cleanup Test Environment
     
     # Read JSON files
     ${students_data}    Evaluate    json.load(open('${STUDENTS_JSON}'))    json
@@ -165,7 +152,3 @@ Compare Student And Teacher Default Codes
     
     # Cleanup
     Cleanup Test Environment
-
-*** Keywords ***
-Teardown
-    Run Keyword If Test Failed    Cleanup Test Environment
