@@ -1,14 +1,16 @@
 {
-  "id": 7,
-  "title": "Hello Students",
-  "language": "javascript",
-  "tag_list": ["other"],
-  "description": "Implement a code which show \"Hello JavaScript!\" in the terminal",
-  "example": "console.log(\"Hello World!\")",
-  "testcase": "None",
-  "testresult": "85",
-  "defaultCode": "None",
-  "solutionType": "test_result",
-  "limitTime": false,
-  "duration": "00:30:00"
+    "id": 6,
+    "title": "SimpleAdd",
+    "language": "rust",
+    "tag_list": [
+        "other"
+    ],
+    "description": "Implement a function to add 2 numbers together using a helper function.",
+    "example": "fn add(a: i32, b: i32) -> i32 {\r\n   pass\r\n}\r\n\r\nfn main() {\r\n    println!(\"{}\", add(3, 5));\r\n}",
+    "testcase": "None",
+    "testresult": "None",
+    "defaultCode": "fn add(a: i32, b: i32) -> i32 {\r\n    a + b\r\n}\r\n\r\nfn main() {\r\n    println!(\"{}\", add(3, 5));\r\n}",
+    "solutionType": "default_code",
+    "limitTime": false,
+    "duration": "00:30:00"
 }
