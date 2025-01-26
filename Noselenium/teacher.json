@@ -10,16 +10,19 @@
           "hello_world": {
             "language": "Python",
             "code": "print('Hello, World')",
+            "input": "",
             "output": "Hello, World"
           },
           "sum_two_numbers": {
             "language": "Python",
             "code": "a = 5\nb = 3\nprint(a + b)",
+            "input": "",
             "output": "8"
           },
           "factorial": {
             "language": "Python",
             "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))",
+            "input": "",
             "output": "120"
           }
         }
@@ -31,16 +34,19 @@
           "hello_world": {
             "language": "Python",
             "code": "print('Hello, World2!')",
+            "input": "",
             "output": "Hello, World2!"
           },
           "sum_two_numbers": {
             "language": "Python",
             "code": "a = 5\nb = 5\nprint(a + b)",
+            "input": "",
             "output": "10"
           },
           "factorial": {
             "language": "Python",
             "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\nprint(factorial(5))",
+            "input": "",
             "output": "120"
           }
         }
@@ -58,16 +64,19 @@
           "hello_world": {
             "language": "C++",
             "code": "#include <iostream>\nint main() {\n    std::cout << 'Hello, C++';\n    return 0;\n}",
+            "input": "",
             "output": "Hello, C++"
           },
           "sum_two_numbers": {
             "language": "C++",
             "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}",
+            "input": "",
             "output": "8"
           },
           "factorial": {
             "language": "C++",
             "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}",
+            "input": "",
             "output": "120"
           }
         }
@@ -79,16 +88,19 @@
           "hello_world": {
             "language": "C++",
             "code": "#include <iostream>\nint main() {\n    std::cout << 'Hello, world!';\n    return 0;\n}",
+            "input": "",
             "output": "Hello, world!"
           },
           "sum_two_numbers": {
             "language": "C++",
             "code": "#include <iostream>\nint main() {\n    int a = 5, b = 3;\n    std::cout << (a + b);\n    return 0;\n}",
+            "input": "",
             "output": "8"
           },
           "factorial": {
             "language": "C++",
             "code": "#include <iostream>\nint factorial(int n) {\n    if (n == 0) return 1;\n    else return n * factorial(n - 1);\n}\nint main() {\n    std::cout << factorial(5);\n    return 0;\n}",
+            "input": "",
             "output": "120"
           }
         }
@@ -106,16 +118,19 @@
           "hello_world": {
             "language": "Rust",
             "code": "fn main() {\n    println!(\"Hello, world!\");\n}",
+            "input": "",
             "output": "Hello, world!"
           },
           "sum_two_numbers": {
             "language": "Rust",
             "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}",
+            "input": "",
             "output": "8"
           },
           "factorial": {
             "language": "Rust",
             "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}",
+            "input": "",
             "output": "120"
           }
         }
@@ -127,16 +142,19 @@
           "hello_world": {
             "language": "Rust",
             "code": "fn main() {\n    println!(\"Hello, world!\");\n}",
+            "input": "",
             "output": "Hello, world!"
           },
           "sum_two_numbers": {
             "language": "Rust",
-            "code": "fn main() {\n    let a = 5;\n    let b = 3;\n    println!(\"{}\", a + b);\n}",
+            "code": "use std::io;\nfn main() {\n    let mut input1 = String::new();\n    let mut input2 = String::new();\n    io::stdin().read_line(&mut input1).expect(\"Failed to read line\");\n    io::stdin().read_line(&mut input2).expect(\"Failed to read line\");\n    let a: i32 = input1.trim().parse().expect(\"Please type a number!\");\n    let b: i32 = input2.trim().parse().expect(\"Please type a number!\");\n    println!(\"{}\", a + b);\n}",
+            "input": "5\n3",
             "output": "8"
           },
           "factorial": {
             "language": "Rust",
             "code": "fn factorial(n: u32) -> u32 {\n    if n == 0 { 1 } else { n * factorial(n - 1) }\n}\nfn main() {\n    println!(\"{}\", factorial(5));\n}",
+            "input": "",
             "output": "120"
           }
         }

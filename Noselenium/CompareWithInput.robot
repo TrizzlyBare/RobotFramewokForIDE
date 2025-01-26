@@ -69,13 +69,72 @@ Execute Code
     END
     RETURN    ${status}    ${output}
 
-Get Teacher For Language
+Execute Code With Input
+    [Arguments]    ${code}    ${language}    ${input}
+    ${filename}    Set Variable    test
+    ${ext}    Set Variable If    
+    ...    '${language}' == 'Python'    .py
+    ...    '${language}' == 'C++'       .cpp
+    ...    '${language}' == 'Rust'      .rs
+    
+    Create File    ${TEMP_DIR}/${filename}${ext}    ${code}
+    
+    ${status}    Set Variable    success
+    ${output}    Set Variable    ${EMPTY}
+    
+    TRY
+        IF    '${language}' == 'Python'
+            ${result}    Run Process    ${PYTHON_CMD}    ${TEMP_DIR}/${filename}${ext}    input=${input}    shell=False    stdout=${TEMP_DIR}/stdout.txt    stderr=${TEMP_DIR}/stderr.txt
+            ${output}    Get File    ${TEMP_DIR}/stdout.txt
+            ${output}    Set Variable    ${output.strip()}
+            
+            
+        ELSE IF    '${language}' == 'C++'
+            ${compile_result}    Run Process    ${CPP_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
+            Run Keyword If    ${compile_result.rc} != 0    Fail    Compilation Error: ${compile_result.stderr}
+            
+            ${result}    Run Process    ${TEMP_DIR}/${filename}    input=${input}    shell=True
+            ${output}    Set Variable    ${result.stdout.strip()}
+            
+        ELSE IF    '${language}' == 'Rust'
+            ${compile_result}    Run Process    ${RUST_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
+            Run Keyword If    ${compile_result.rc} != 0    Fail    Compilation Error: ${compile_result.stderr}
+            
+            ${result}    Run Process    ${TEMP_DIR}/${filename}    input=${input}    shell=True
+            ${output}    Set Variable    ${result.stdout.strip()}
+        END
+    EXCEPT    AS    ${error}
+        ${status}    Set Variable    runtime_error
+        ${output}    Set Variable    ${error}
+    END
+    RETURN    ${status}    ${output}
+
+Get Teacher With Matching Language
     [Arguments]    ${teachers}    ${language}
     FOR    ${teacher}    IN    @{teachers}
-        ${first_topic}    Get From List    ${teacher}[topics]    0
-        ${first_example}    Get From Dictionary    ${first_topic}[example_code]    hello_world
-        IF    '${first_example}[language]' == '${language}'
-            RETURN    ${teacher}
+        FOR    ${topic}    IN    @{teacher}[topics]
+            ${example_code}    Set Variable    ${topic}[example_code]
+            ${keys}    Get Dictionary Keys    ${example_code}
+            FOR    ${problem}    IN    @{keys}
+                ${example_language}    Set Variable    ${example_code}[${problem}][language]
+                Run Keyword If    '${example_language}' == '${language}'    
+                ...    Return From Keyword    ${teacher}
+            END
+        END
+    END
+    Fail    msg=No teacher found for language ${language}
+
+Find Teacher With Matching Language
+    [Arguments]    ${teachers}    ${language}
+    FOR    ${teacher}    IN    @{teachers}
+        FOR    ${topic}    IN    @{teacher}[topics]
+            ${example_code}    Set Variable    ${topic}[example_code]
+            ${keys}    Get Dictionary Keys    ${example_code}
+            FOR    ${problem}    IN    @{keys}
+                ${example_language}    Set Variable    ${example_code}[${problem}][language]
+                Run Keyword If    '${example_language}' == '${language}'    
+                ...    Return From Keyword    ${teacher}
+            END
         END
     END
     Fail    msg=No teacher found for language ${language}
@@ -96,91 +155,14 @@ Save Results
     ${json_string}    Evaluate    json.dumps($results, indent=2)    json
     Create File    ${RESULTS_FILE}    ${json_string}
 
-Find Matching Result
-    [Arguments]    ${results}    ${expected}
-    FOR    ${result}    IN    @{results}
-        ${is_match}    Evaluate Matching Criteria    ${result}    ${expected}
-        Return From Keyword If    ${is_match}    ${result}
+Find Matching Topic
+    [Arguments]    ${teacher_topics}    ${student_topic_name}
+    FOR    ${teacher_topic}    IN    @{teacher_topics}
+        ${topic_name}    Get From Dictionary    ${teacher_topic}    name
+        Run Keyword If    '${topic_name}' == '${student_topic_name}'    
+        ...    Return From Keyword    ${teacher_topic}
     END
-    RETURN    ${None}
-
-Execute Code With Input
-    [Arguments]    ${code}    ${language}    ${input}
-    ${filename}    Set Variable    test
-    ${ext}    Set Variable If    
-    ...    '${language}' == 'Python'    .py
-    ...    '${language}' == 'C++'       .cpp
-    ...    '${language}' == 'Rust'      .rs
-    
-    Create File    ${TEMP_DIR}/${filename}${ext}    ${code}
-    
-    ${status}    Set Variable    success
-    ${output}    Set Variable    ${EMPTY}
-    
-    TRY
-        IF    '${language}' == 'Python'
-            ${result}    Run Process    ${PYTHON_CMD}    ${TEMP_DIR}/${filename}${ext}    input=${input}    shell=True
-            ${output}    Set Variable    ${result.stdout.strip()}
-            
-        ELSE IF    '${language}' == 'C++'
-            ${compile_result}    Run Process    ${CPP_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
-            IF    ${compile_result.rc} == 0
-                ${result}    Run Process    ${TEMP_DIR}/${filename}    input=${input}    shell=True
-                ${output}    Set Variable    ${result.stdout.strip()}
-            ELSE
-                ${status}    Set Variable    compilation_error
-                ${output}    Set Variable    ${compile_result.stderr}
-            END
-            
-        ELSE IF    '${language}' == 'Rust'
-            ${compile_result}    Run Process    ${RUST_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
-            IF    ${compile_result.rc} == 0
-                ${result}    Run Process    ${TEMP_DIR}/${filename}    input=${input}    shell=True
-                ${output}    Set Variable    ${result.stdout.strip()}
-            ELSE
-                ${status}    Set Variable    compilation_error
-                ${output}    Set Variable    ${compile_result.stderr}
-            END
-        END
-    EXCEPT    AS    ${error}
-        ${status}    Set Variable    runtime_error
-        ${output}    Set Variable    ${error}
-    END
-    RETURN    ${status}    ${output}
-
-Evaluate Matching Criteria
-    [Arguments]    ${result}    ${expected}
-    ${match}    Evaluate    
-    ...    '${result}[student_name]' == '${expected}[student_name]' and 
-    ...    '${result}[problem_name]' == '${expected}[problem_name]'
-    RETURN    ${match}
-
-Compare Result Details
-    [Arguments]    ${expected}    ${actual}
-    Should Be Equal    ${actual}[status]    ${expected}[status]
-    Should Be Equal    ${actual}[output]    ${expected}[output]
-
-Find Teacher With Matching Language
-    [Arguments]    ${teachers}    ${language}
-    FOR    ${teacher}    IN    @{teachers}
-        FOR    ${topic}    IN    @{teacher}[topics]
-            FOR    ${problem}    IN    ${topic}[example_code].keys()
-                ${example_language}    Set Variable    ${topic}[example_code][${problem}][language]
-                Run Keyword If    '${example_language}' == '${language}'    
-                ...    Return From Keyword    ${teacher}
-            END
-        END
-    END
-    Fail    msg=No teacher found for language ${language}
-
-Get Teacher Problem Output
-    [Arguments]    ${teacher}    ${topic_name}    ${problem_name}
-    FOR    ${topic}    IN    @{teacher}[topics]
-        IF    '${topic}[name]' == '${topic_name}'
-            RETURN    ${topic}[example_code][${problem_name}][output]
-        END
-    END
-    Fail    msg=No matching topic found for ${topic_name}
+    Return From Keyword    ${NONE}
 
 *** Test Cases ***
 Checking Student Code from Input and Output
@@ -206,23 +188,17 @@ Checking Student Code from Input and Output
             ${topic_name}    Set Variable    ${topic}[name]
             
             # Find corresponding teacher topic
-            ${teacher_topic}    Set Variable    ${NONE}
-            FOR    ${t_topic}    IN    @{teacher_match}[topics]
-                IF    '${t_topic}[name]' == '${topic_name}'
-                    ${teacher_topic}    Set Variable    ${t_topic}
-                    BREAK
-                END
-            END
-            
+            ${teacher_topic}    Find Matching Topic    ${teacher_match}[topics]    ${topic_name}
             
             # Dynamically get problem names
             @{problem_names}    Get Dictionary Keys    ${topic}[submitted_code]
             
             FOR    ${problem_name}    IN    @{problem_names}
-                ${student_code}    Get From Dictionary    ${topic}[submitted_code]    ${problem_name}
+                ${student_submission}    Get From Dictionary    ${topic}[submitted_code]    ${problem_name}
                 
                 # Skip if problem not in teacher's example code
-                Continue For Loop If    not ${teacher_topic}[example_code].get('${problem_name}')
+                ${example_code_keys}    Get Dictionary Keys    ${teacher_topic}[example_code]
+                Continue For Loop If    '${problem_name}' not in ${example_code_keys}
                 
                 ${teacher_example}    Get From Dictionary    ${teacher_topic}[example_code]    ${problem_name}
                 
@@ -230,21 +206,32 @@ Checking Student Code from Input and Output
                 ${input}    Set Variable    ${teacher_example}[input]
                 ${expected_output}    Set Variable    ${teacher_example}[output]
                 
-                # Execute code with or without input
-                ${status}    ${actual_output}    Run Keyword If    '${input}' != '${EMPTY}'
-                ...    Execute Code With Input    ${student_code}[code]    ${student_code}[language]    ${input}
-                ...    ELSE    Execute Code    ${student_code}[code]    ${student_code}[language]
+                # Execute student code
+                ${student_status}    ${student_output}    Run Keyword If    '${input}' != '${EMPTY}'
+                ...    Execute Code With Input    ${student_submission}[code]    ${student_submission}[language]    ${input}
+                ...    ELSE    Execute Code    ${student_submission}[code]    ${student_submission}[language]
                 
-                # Verify result
-                Run Keyword If    '${status}' != 'success'    
-                ...    Fail    Execution failed for ${student_name}'s ${problem_name}: ${actual_output}
+                # Execute teacher code 
+                ${teacher_status}    ${teacher_output}    Run Keyword If    '${input}' != '${EMPTY}'
+                ...    Execute Code With Input    ${teacher_example}[code]    ${teacher_example}[language]    ${input}
+                ...    ELSE    Execute Code    ${teacher_example}[code]    ${teacher_example}[language]
                 
-                Should Be Equal As Strings    ${actual_output}    ${expected_output}    
-                ...    msg=Output mismatch for ${student_name}'s ${problem_name}
+                # Detailed comparison with extended conditions
+                ${details}    Set Variable    Actual output: "${student_output}" | Expected output: "${teacher_output}"
                 
-                # Add comparison result
-                Add Comparison Result    ${results}    ${student_name}    ${topic_name}    ${problem_name}
-                ...    PASS    Actual output: "${actual_output}"    ${student_code}[language]
+                IF    '${student_status}' != 'success'
+                    Add Comparison Result    ${results}    ${student_name}    ${topic_name}    ${problem_name}
+                    ...    FAIL    Student code error: ${student_output}    ${student_submission}[language]
+                ELSE IF    '${teacher_status}' != 'success'
+                    Add Comparison Result    ${results}    ${student_name}    ${topic_name}    ${problem_name}
+                    ...    FAIL    Teacher code error: ${teacher_output}    ${student_submission}[language]
+                ELSE IF    '${student_output}' == '${teacher_output}'
+                    Add Comparison Result    ${results}    ${student_name}    ${topic_name}    ${problem_name}
+                    ...    PASS    ${details}    ${student_submission}[language]
+                ELSE
+                    Add Comparison Result    ${results}    ${student_name}    ${topic_name}    ${problem_name}
+                    ...    FAIL    ${details}    ${student_submission}[language]
+                END
             END
         END
     END

@@ -1,264 +1,851 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-25T15:47:06.694550" rpa="false" schemaversion="5">
-<suite id="s1" name="Robottesting" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/Robottesting.robot">
-<test id="s1-t1" name="Compare Student And Teacher Results from code compiling Case 1" line="164">
+<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-26T19:22:01.260181" rpa="false" schemaversion="5">
+<suite id="s1" name="CompareWithInput" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/CompareWithInput.robot">
+<test id="s1-t1" name="Checking Student Code from Input and Output" line="168">
 <kw name="Setup Test Environment" type="SETUP">
 <kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-01-25T15:47:06.759032" level="INFO" html="true">Created directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp&lt;/a&gt;'.</msg>
+<msg time="2025-01-26T19:22:01.323240" level="INFO" html="true">Created directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp&lt;/a&gt;'.</msg>
 <arg>${TEMP_DIR}</arg>
 <doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.758744" elapsed="0.000323"/>
+<status status="PASS" start="2025-01-26T19:22:01.322999" elapsed="0.000276"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.759663" level="INFO">${students} = [{'name': 'Student1', 'enrolled_topics': [{'name': 'Topic1', 'submitted_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}, 'sum_two_numbers': {...</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.323690" level="INFO">${students} = [{'id': 2, 'name': 'Student2', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'submitted_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() { std::cout &lt;&lt;...</msg>
 <var>${students}</var>
-<arg>${STUDENT_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.759131" elapsed="0.000545"/>
+<arg>json.load(open('${STUDENT_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.323342" elapsed="0.000361"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.760004" level="INFO">${teachers} = [{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {...</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.323946" level="INFO">${teachers} = [{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')", 'input': '', 'output'...</msg>
 <var>${teachers}</var>
-<arg>${TEACHER_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.759729" elapsed="0.000287"/>
+<arg>json.load(open('${TEACHER_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.323761" elapsed="0.000196"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.760120" level="INFO">@{results} = [ ]</msg>
+<msg time="2025-01-26T19:22:01.324063" level="INFO">@{results} = [ ]</msg>
 <var>@{results}</var>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.760065" elapsed="0.000064"/>
+<status status="PASS" start="2025-01-26T19:22:01.324012" elapsed="0.000059"/>
 </kw>
 <return>
 <value>${students}</value>
 <value>${teachers}</value>
 <value>${results}</value>
-<status status="PASS" start="2025-01-25T15:47:06.760150" elapsed="0.000022"/>
+<status status="PASS" start="2025-01-26T19:22:01.324091" elapsed="0.000022"/>
 </return>
-<status status="PASS" start="2025-01-25T15:47:06.758420" elapsed="0.001820"/>
+<status status="PASS" start="2025-01-26T19:22:01.322675" elapsed="0.001503"/>
 </kw>
-<kw name="Setup Test Environment">
-<kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-01-25T15:47:06.760500" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp&lt;/a&gt;' already exists.</msg>
-<arg>${TEMP_DIR}</arg>
-<doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.760444" elapsed="0.000075"/>
-</kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.760696" level="INFO">${students} = [{'name': 'Student1', 'enrolled_topics': [{'name': 'Topic1', 'submitted_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}, 'sum_two_numbers': {...</msg>
-<var>${students}</var>
-<arg>${STUDENT_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.760569" elapsed="0.000138"/>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.324305" level="INFO">@{results} = [ ]</msg>
+<var>@{results}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.324253" elapsed="0.000060"/>
 </kw>
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.760876" level="INFO">${teachers} = [{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {...</msg>
+<msg time="2025-01-26T19:22:01.324538" level="INFO">${teachers} = [{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')", 'input': '', 'output'...</msg>
 <var>${teachers}</var>
 <arg>${TEACHER_FILE}</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.760751" elapsed="0.000135"/>
+<status status="PASS" start="2025-01-26T19:22:01.324372" elapsed="0.000177"/>
 </kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.760981" level="INFO">@{results} = [ ]</msg>
-<var>@{results}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.760931" elapsed="0.000059"/>
-</kw>
-<return>
-<value>${students}</value>
-<value>${teachers}</value>
-<value>${results}</value>
-<status status="PASS" start="2025-01-25T15:47:06.761006" elapsed="0.000013"/>
-</return>
-<msg time="2025-01-25T15:47:06.761107" level="INFO">${students} = [{'name': 'Student1', 'enrolled_topics': [{'name': 'Topic1', 'submitted_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}, 'sum_two_numbers': {...</msg>
-<msg time="2025-01-25T15:47:06.761146" level="INFO">${teachers} = [{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {...</msg>
-<msg time="2025-01-25T15:47:06.761162" level="INFO">${results} = []</msg>
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-01-26T19:22:01.324733" level="INFO">${students} = [{'id': 2, 'name': 'Student2', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'submitted_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() { std::cout &lt;&lt;...</msg>
 <var>${students}</var>
-<var>${teachers}</var>
-<var>${results}</var>
-<status status="PASS" start="2025-01-25T15:47:06.760344" elapsed="0.000826"/>
+<arg>${STUDENT_FILE}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.324613" elapsed="0.000131"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.761483" level="INFO">${student_name} = Student1</msg>
+<msg time="2025-01-26T19:22:01.325055" level="INFO">${student_name} = Student2</msg>
 <var>${student_name}</var>
 <arg>${student}[name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.761422" elapsed="0.000070"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.761653" level="INFO">Comparing results for student: Student1</msg>
-<arg>Comparing results for student: ${student_name}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.761533" elapsed="0.000135"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-01-25T15:47:06.761768" level="INFO">${first_topic} = {'name': 'Topic1', 'submitted_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}, 'sum_two_numbers': {'language': 'Python', 'code': 'print(1 + 2...</msg>
-<var>${first_topic}</var>
-<arg>${student}[enrolled_topics]</arg>
-<arg>0</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.761707" elapsed="0.000069"/>
+<status status="PASS" start="2025-01-26T19:22:01.324988" elapsed="0.000077"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-25T15:47:06.761874" level="INFO">${first_submission} = {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}</msg>
+<msg time="2025-01-26T19:22:01.325185" level="INFO">${first_submission} = {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() { std::cout &lt;&lt; 'Hello, world!'; return 0; }", 'result': 'Hello, world!'}</msg>
 <var>${first_submission}</var>
-<arg>${first_topic}[submitted_code]</arg>
+<arg>${student}[topics][0][submitted_code]</arg>
 <arg>hello_world</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.761815" elapsed="0.000067"/>
+<status status="PASS" start="2025-01-26T19:22:01.325108" elapsed="0.000091"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.761971" level="INFO">${student_language} = Python</msg>
-<var>${student_language}</var>
-<arg>${first_submission}[language]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.761922" elapsed="0.000056"/>
-</kw>
-<kw name="Get Teacher For Language">
+<kw name="Find Teacher With Matching Language">
 <for flavor="IN">
 <iter>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-01-25T15:47:06.762300" level="INFO">${first_topic} = {'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {'language': 'Python', 'code': 'a = 5\nb = ...</msg>
-<var>${first_topic}</var>
-<arg>${teacher}[topics]</arg>
-<arg>0</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.762241" elapsed="0.000068"/>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.325699" level="INFO">${example_code} = {'hello_world': {'language': 'Python', 'code': "print('Hello, World')", 'input': '', 'output': 'Hello, World'}, 'sum_two_numbers': {'language': 'Python', 'code': 'a = 5\nb = 3\nprint(a + b)', 'input':...</msg>
+<var>${example_code}</var>
+<arg>${topic}[example_code]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.325638" elapsed="0.000071"/>
 </kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-25T15:47:06.762406" level="INFO">${first_example} = {'language': 'Python', 'code': "print('Hello, World')"}</msg>
-<var>${first_example}</var>
-<arg>${first_topic}[example_code]</arg>
-<arg>hello_world</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.762348" elapsed="0.000065"/>
+<kw name="Get Dictionary Keys" owner="Collections">
+<msg time="2025-01-26T19:22:01.325806" level="INFO">${keys} = ['factorial', 'hello_world', 'sum_two_numbers']</msg>
+<var>${keys}</var>
+<arg>${example_code}</arg>
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.325749" elapsed="0.000066"/>
 </kw>
-<if>
-<branch type="IF" condition="'${first_example}[language]' == '${language}'">
-<return>
-<value>${teacher}</value>
-<status status="PASS" start="2025-01-25T15:47:06.762543" elapsed="0.000011"/>
-</return>
-<status status="PASS" start="2025-01-25T15:47:06.762484" elapsed="0.000083"/>
-</branch>
-<status status="PASS" start="2025-01-25T15:47:06.762476" elapsed="0.000101"/>
-</if>
-<var name="${teacher}">{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {'...</var>
-<status status="PASS" start="2025-01-25T15:47:06.762209" elapsed="0.000381"/>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.325969" level="INFO">${example_language} = Python</msg>
+<var>${example_language}</var>
+<arg>${example_code}[${problem}][language]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.325906" elapsed="0.000071"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${example_language}' == '${language}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.326024" elapsed="0.000077"/>
+</kw>
+<var name="${problem}">factorial</var>
+<status status="PASS" start="2025-01-26T19:22:01.325875" elapsed="0.000241"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.326247" level="INFO">${example_language} = Python</msg>
+<var>${example_language}</var>
+<arg>${example_code}[${problem}][language]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.326183" elapsed="0.000072"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${example_language}' == '${language}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.326298" elapsed="0.000061"/>
+</kw>
+<var name="${problem}">hello_world</var>
+<status status="PASS" start="2025-01-26T19:22:01.326152" elapsed="0.000221"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.326498" level="INFO">${example_language} = Python</msg>
+<var>${example_language}</var>
+<arg>${example_code}[${problem}][language]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.326435" elapsed="0.000071"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${example_language}' == '${language}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.326547" elapsed="0.000058"/>
+</kw>
+<var name="${problem}">sum_two_numbers</var>
+<status status="PASS" start="2025-01-26T19:22:01.326405" elapsed="0.000215"/>
+</iter>
+<var>${problem}</var>
+<value>@{keys}</value>
+<status status="PASS" start="2025-01-26T19:22:01.325833" elapsed="0.000833"/>
+</for>
+<var name="${topic}">{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')", 'input': '', 'output': 'Hello, World'}, 'sum_two_numbers': {'la...</var>
+<status status="PASS" start="2025-01-26T19:22:01.325538" elapsed="0.001143"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.326824" level="INFO">${example_code} = {'hello_world': {'language': 'Python', 'code': "print('Hello, World2!')", 'input': '', 'output': 'Hello, World2!'}, 'sum_two_numbers': {'language': 'Python', 'code': 'a = 5\nb = 5\nprint(a + b)', 'inp...</msg>
+<var>${example_code}</var>
+<arg>${topic}[example_code]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.326764" elapsed="0.000070"/>
+</kw>
+<kw name="Get Dictionary Keys" owner="Collections">
+<msg time="2025-01-26T19:22:01.326928" level="INFO">${keys} = ['factorial', 'hello_world', 'sum_two_numbers']</msg>
+<var>${keys}</var>
+<arg>${example_code}</arg>
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.326872" elapsed="0.000063"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.327088" level="INFO">${example_language} = Python</msg>
+<var>${example_language}</var>
+<arg>${example_code}[${problem}][language]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327026" elapsed="0.000070"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${example_language}' == '${language}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327138" elapsed="0.000057"/>
+</kw>
+<var name="${problem}">factorial</var>
+<status status="PASS" start="2025-01-26T19:22:01.326995" elapsed="0.000214"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.327325" level="INFO">${example_language} = Python</msg>
+<var>${example_language}</var>
+<arg>${example_code}[${problem}][language]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327266" elapsed="0.000066"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${example_language}' == '${language}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327378" elapsed="0.000056"/>
+</kw>
+<var name="${problem}">hello_world</var>
+<status status="PASS" start="2025-01-26T19:22:01.327238" elapsed="0.000210"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.327568" level="INFO">${example_language} = Python</msg>
+<var>${example_language}</var>
+<arg>${example_code}[${problem}][language]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327507" elapsed="0.000070"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${example_language}' == '${language}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327616" elapsed="0.000059"/>
+</kw>
+<var name="${problem}">sum_two_numbers</var>
+<status status="PASS" start="2025-01-26T19:22:01.327478" elapsed="0.000210"/>
+</iter>
+<var>${problem}</var>
+<value>@{keys}</value>
+<status status="PASS" start="2025-01-26T19:22:01.326953" elapsed="0.000746"/>
+</for>
+<var name="${topic}">{'id': 2, 'name': 'Data Structures', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World2!')", 'input': '', 'output': 'Hello, World2!'}, 'sum_two_numbers': {'language':...</var>
+<status status="PASS" start="2025-01-26T19:22:01.326730" elapsed="0.000981"/>
+</iter>
+<var>${topic}</var>
+<value>@{teacher}[topics]</value>
+<status status="PASS" start="2025-01-26T19:22:01.325475" elapsed="0.002246"/>
+</for>
+<var name="${teacher}">{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')", 'input': '', 'output':...</var>
+<status status="PASS" start="2025-01-26T19:22:01.325464" elapsed="0.002268"/>
+</iter>
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.327943" level="INFO">${example_code} = {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() {\n    std::cout &lt;&lt; 'Hello, C++';\n    return 0;\n}", 'input': '', 'output': 'Hello, C++'}, 'sum_two_numbers': {'language':...</msg>
+<var>${example_code}</var>
+<arg>${topic}[example_code]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327887" elapsed="0.000066"/>
+</kw>
+<kw name="Get Dictionary Keys" owner="Collections">
+<msg time="2025-01-26T19:22:01.328046" level="INFO">${keys} = ['factorial', 'hello_world', 'sum_two_numbers']</msg>
+<var>${keys}</var>
+<arg>${example_code}</arg>
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.327991" elapsed="0.000062"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.328328" level="INFO">${example_language} = C++</msg>
+<var>${example_language}</var>
+<arg>${example_code}[${problem}][language]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.328139" elapsed="0.000202"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.328558" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${teacher}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.328529" elapsed="0.000061"/>
+</kw>
+<arg>'${example_language}' == '${language}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.328404" elapsed="0.000206"/>
+</kw>
+<var name="${problem}">factorial</var>
+<status status="PASS" start="2025-01-26T19:22:01.328110" elapsed="0.000515"/>
+</iter>
+<var>${problem}</var>
+<value>@{keys}</value>
+<status status="PASS" start="2025-01-26T19:22:01.328071" elapsed="0.000568"/>
+</for>
+<var name="${topic}">{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() {\n    std::cout &lt;&lt; 'Hello, C++';\n    return 0;\n}", 'inp...</var>
+<status status="PASS" start="2025-01-26T19:22:01.327857" elapsed="0.000795"/>
+</iter>
+<var>${topic}</var>
+<value>@{teacher}[topics]</value>
+<status status="PASS" start="2025-01-26T19:22:01.327800" elapsed="0.000864"/>
+</for>
+<var name="${teacher}">{'id': 2, 'name': 'Jane Smith', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() {\n    std::cou...</var>
+<status status="PASS" start="2025-01-26T19:22:01.327790" elapsed="0.000886"/>
 </iter>
 <var>${teacher}</var>
 <value>@{teachers}</value>
-<status status="PASS" start="2025-01-25T15:47:06.762144" elapsed="0.000462"/>
+<status status="PASS" start="2025-01-26T19:22:01.325393" elapsed="0.003294"/>
 </for>
 <kw name="Fail" owner="BuiltIn">
 <arg>msg=No teacher found for language ${language}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.762643" elapsed="0.000007"/>
+<status status="NOT RUN" start="2025-01-26T19:22:01.328725" elapsed="0.000007"/>
 </kw>
-<msg time="2025-01-25T15:47:06.762699" level="INFO">${teacher} = {'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {'...</msg>
-<var>${teacher}</var>
+<msg time="2025-01-26T19:22:01.328827" level="INFO">${teacher_match} = {'id': 2, 'name': 'Jane Smith', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() {\n    std::cou...</msg>
+<var>${teacher_match}</var>
 <arg>${teachers}</arg>
-<arg>${student_language}</arg>
-<status status="PASS" start="2025-01-25T15:47:06.762048" elapsed="0.000660"/>
+<arg>${first_submission}[language]</arg>
+<status status="PASS" start="2025-01-26T19:22:01.325287" elapsed="0.003550"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.762922" level="INFO">${topic_name} = Topic1</msg>
+<msg time="2025-01-26T19:22:01.329090" level="INFO">${topic_name} = Introduction to Programming</msg>
 <var>${topic_name}</var>
 <arg>${topic}[name]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.762869" elapsed="0.000060"/>
+<status status="PASS" start="2025-01-26T19:22:01.329034" elapsed="0.000064"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.763013" level="INFO">${teacher_topic} = None</msg>
-<var>${teacher_topic}</var>
-<arg>${NONE}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.762967" elapsed="0.000053"/>
-</kw>
-<for flavor="IN">
-<iter>
-<if>
-<branch type="IF" condition="'${t_topic}[name]' == '${topic_name}'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${teacher_topic}</var>
-<arg>${t_topic}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.763179" elapsed="0.000007"/>
-</kw>
-<break>
-<status status="NOT RUN" start="2025-01-25T15:47:06.763204" elapsed="0.000008"/>
-</break>
-<status status="NOT RUN" start="2025-01-25T15:47:06.763111" elapsed="0.000110"/>
-</branch>
-<status status="PASS" start="2025-01-25T15:47:06.763106" elapsed="0.000123"/>
-</if>
-<var name="${t_topic}">{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {'language': 'Python', 'code': 'a = 5\nb = ...</var>
-<status status="PASS" start="2025-01-25T15:47:06.763095" elapsed="0.000142"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'${t_topic}[name]' == '${topic_name}'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${teacher_topic}</var>
-<arg>${t_topic}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.763365" elapsed="0.000007"/>
-</kw>
-<break>
-<status status="NOT RUN" start="2025-01-25T15:47:06.763388" elapsed="0.000004"/>
-</break>
-<status status="NOT RUN" start="2025-01-25T15:47:06.763297" elapsed="0.000103"/>
-</branch>
-<status status="PASS" start="2025-01-25T15:47:06.763292" elapsed="0.000116"/>
-</if>
-<var name="${t_topic}">{'id': 2, 'name': 'Data Structures', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World2!')"}, 'sum_two_numbers': {'language': 'Python', 'code': 'a = 5\nb = 5\nprint(a...</var>
-<status status="PASS" start="2025-01-25T15:47:06.763283" elapsed="0.000133"/>
-</iter>
-<var>${t_topic}</var>
-<value>@{teacher}[topics]</value>
-<status status="PASS" start="2025-01-25T15:47:06.763037" elapsed="0.000390"/>
-</for>
+<kw name="Find Matching Topic">
 <for flavor="IN">
 <iter>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-25T15:47:06.763607" level="INFO">${student_submission} = {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}</msg>
+<msg time="2025-01-26T19:22:01.329461" level="INFO">${topic_name} = Introduction to Programming</msg>
+<var>${topic_name}</var>
+<arg>${teacher_topic}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.329391" elapsed="0.000081"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.329768" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${teacher_topic}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.329737" elapsed="0.000057"/>
+</kw>
+<arg>'${topic_name}' == '${student_topic_name}'</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher_topic}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.329528" elapsed="0.000287"/>
+</kw>
+<var name="${teacher_topic}">{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() {\n    std::cout &lt;&lt; 'Hello, C++';\n    return 0;\n}", 'inp...</var>
+<status status="PASS" start="2025-01-26T19:22:01.329352" elapsed="0.000479"/>
+</iter>
+<var>${teacher_topic}</var>
+<value>@{teacher_topics}</value>
+<status status="PASS" start="2025-01-26T19:22:01.329292" elapsed="0.000555"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>${NONE}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:01.329894" elapsed="0.000006"/>
+</kw>
+<msg time="2025-01-26T19:22:01.329957" level="INFO">${teacher_topic} = {'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() {\n    std::cout &lt;&lt; 'Hello, C++';\n    return 0;\n}", 'inp...</msg>
+<var>${teacher_topic}</var>
+<arg>${teacher_match}[topics]</arg>
+<arg>${topic_name}</arg>
+<status status="PASS" start="2025-01-26T19:22:01.329160" elapsed="0.000807"/>
+</kw>
+<kw name="Get Dictionary Keys" owner="Collections">
+<msg time="2025-01-26T19:22:01.330081" level="INFO">@{problem_names} = [ hello_world | sum_two_numbers ]</msg>
+<var>@{problem_names}</var>
+<arg>${topic}[submitted_code]</arg>
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.330010" elapsed="0.000079"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-01-26T19:22:01.330309" level="INFO">${student_submission} = {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() { std::cout &lt;&lt; 'Hello, world!'; return 0; }", 'result': 'Hello, world!'}</msg>
 <var>${student_submission}</var>
 <arg>${topic}[submitted_code]</arg>
 <arg>${problem_name}</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.763537" elapsed="0.000079"/>
+<status status="PASS" start="2025-01-26T19:22:01.330237" elapsed="0.000082"/>
+</kw>
+<kw name="Get Dictionary Keys" owner="Collections">
+<msg time="2025-01-26T19:22:01.330418" level="INFO">${example_code_keys} = ['factorial', 'hello_world', 'sum_two_numbers']</msg>
+<var>${example_code_keys}</var>
+<arg>${teacher_topic}[example_code]</arg>
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.330358" elapsed="0.000068"/>
+</kw>
+<kw name="Continue For Loop If" owner="BuiltIn">
+<arg>'${problem_name}' not in ${example_code_keys}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.330464" elapsed="0.000078"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-01-25T15:47:06.763730" level="FAIL">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</msg>
+<msg time="2025-01-26T19:22:01.330650" level="INFO">${teacher_example} = {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() {\n    std::cout &lt;&lt; 'Hello, C++';\n    return 0;\n}", 'input': '', 'output': 'Hello, C++'}</msg>
 <var>${teacher_example}</var>
 <arg>${teacher_topic}[example_code]</arg>
 <arg>${problem_name}</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="FAIL" start="2025-01-25T15:47:06.763653" elapsed="0.000092">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
-</kw>
-<kw name="Execute Code">
-<var>${student_status}</var>
-<var>${student_output}</var>
-<arg>${student_submission}[code]</arg>
-<arg>${student_submission}[language]</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764085" elapsed="0.000010"/>
-</kw>
-<kw name="Execute Code">
-<var>${teacher_status}</var>
-<var>${teacher_output}</var>
-<arg>${teacher_example}[code]</arg>
-<arg>${teacher_example}[language]</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764326" elapsed="0.000014"/>
+<status status="PASS" start="2025-01-26T19:22:01.330581" elapsed="0.000078"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<var>${details}</var>
-<arg>Student output: "${student_output}"\nTeacher output: "${teacher_output}"</arg>
+<msg time="2025-01-26T19:22:01.330749" level="INFO">${input} = </msg>
+<var>${input}</var>
+<arg>${teacher_example}[input]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764395" elapsed="0.000009"/>
+<status status="PASS" start="2025-01-26T19:22:01.330699" elapsed="0.000057"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.330847" level="INFO">${expected_output} = Hello, C++</msg>
+<var>${expected_output}</var>
+<arg>${teacher_example}[output]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.330793" elapsed="0.000061"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Code">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.331586" level="INFO">${filename} = test</msg>
+<var>${filename}</var>
+<arg>test</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.331534" elapsed="0.000063"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.331736" level="INFO">${ext} = .cpp</msg>
+<var>${ext}</var>
+<arg>'${language}' == 'Python'</arg>
+<arg>.py</arg>
+<arg>'${language}' == 'C++'</arg>
+<arg>.cpp</arg>
+<arg>'${language}' == 'Rust'</arg>
+<arg>.rs</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.331646" elapsed="0.000099"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-01-26T19:22:01.332249" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp&lt;/a&gt;'.</msg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>${code}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.331792" elapsed="0.000582"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.332503" level="INFO">${status} = success</msg>
+<var>${status}</var>
+<arg>success</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.332440" elapsed="0.000072"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:01.332785" level="INFO">${output} = </msg>
+<var>${output}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.332555" elapsed="0.000239"/>
+</kw>
+<try>
+<branch type="TRY">
+<if>
+<branch type="IF" condition="'${language}' == 'Python'">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${PYTHON_CMD}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:01.332970" elapsed="0.000007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:01.333056" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:01.332883" elapsed="0.000192"/>
+</branch>
+<branch type="ELSE IF" condition="'${language}' == 'C++'">
+<kw name="Run Process" owner="Process">
+<msg time="2025-01-26T19:22:01.333355" level="INFO">Starting process:
+g++ /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp -o /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test</msg>
+<msg time="2025-01-26T19:22:01.335902" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-01-26T19:22:02.075217" level="INFO">Process completed.</msg>
+<msg time="2025-01-26T19:22:02.075467" level="INFO">${compile_result} = &lt;result object with rc 0&gt;</msg>
+<var>${compile_result}</var>
+<arg>${CPP_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.333151" elapsed="0.742338"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<msg time="2025-01-26T19:22:02.076647" level="INFO">Starting process:
+/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test</msg>
+<msg time="2025-01-26T19:22:02.079127" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-01-26T19:22:02.525518" level="INFO">Process completed.</msg>
+<msg time="2025-01-26T19:22:02.525867" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.076377" elapsed="0.449526"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:02.526721" level="INFO">${output} = 1919706145</msg>
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.526213" elapsed="0.000522"/>
+</kw>
+<status status="PASS" start="2025-01-26T19:22:02.075671" elapsed="0.451095"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.526883" elapsed="0.000020"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.526987" elapsed="0.000008"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:02.526798" elapsed="0.000212"/>
+</branch>
+<status status="PASS" start="2025-01-26T19:22:02.075638" elapsed="0.451383"/>
+</if>
+<status status="PASS" start="2025-01-26T19:22:01.333088" elapsed="1.193950"/>
+</branch>
+<branch type="ELSE IF" condition="'${language}' == 'Rust'">
+<kw name="Run Process" owner="Process">
+<var>${compile_result}</var>
+<arg>${RUST_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527099" elapsed="0.000006"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527184" elapsed="0.000007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527227" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527147" elapsed="0.000096"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527285" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527323" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527254" elapsed="0.000084"/>
+</branch>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527138" elapsed="0.000208"/>
+</if>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527051" elapsed="0.000305"/>
+</branch>
+<status status="PASS" start="2025-01-26T19:22:01.332874" elapsed="1.194490"/>
+</if>
+<status status="PASS" start="2025-01-26T19:22:01.332852" elapsed="1.194521"/>
+</branch>
+<branch type="EXCEPT" assign="${error}">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>runtime_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527441" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${error}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527481" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:02.527404" elapsed="0.000094"/>
+</branch>
+<status status="PASS" start="2025-01-26T19:22:01.332825" elapsed="1.194688"/>
+</try>
+<return>
+<value>${status}</value>
+<value>${output}</value>
+<status status="PASS" start="2025-01-26T19:22:02.527534" elapsed="0.000031"/>
+</return>
+<arg>${student_submission}[code]</arg>
+<arg>${student_submission}[language]</arg>
+<status status="PASS" start="2025-01-26T19:22:01.331383" elapsed="1.196273"/>
+</kw>
+<msg time="2025-01-26T19:22:02.527705" level="INFO">${student_status} = success</msg>
+<msg time="2025-01-26T19:22:02.527721" level="INFO">${student_output} = 1919706145</msg>
+<var>${student_status}</var>
+<var>${student_output}</var>
+<arg>'${input}' != '${EMPTY}'</arg>
+<arg>Execute Code With Input</arg>
+<arg>${student_submission}[code]</arg>
+<arg>${student_submission}[language]</arg>
+<arg>${input}</arg>
+<arg>ELSE</arg>
+<arg>Execute Code</arg>
+<arg>${student_submission}[code]</arg>
+<arg>${student_submission}[language]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:01.330898" elapsed="1.196830"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Code">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:02.528747" level="INFO">${filename} = test</msg>
+<var>${filename}</var>
+<arg>test</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.528695" elapsed="0.000061"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-01-26T19:22:02.528893" level="INFO">${ext} = .cpp</msg>
+<var>${ext}</var>
+<arg>'${language}' == 'Python'</arg>
+<arg>.py</arg>
+<arg>'${language}' == 'C++'</arg>
+<arg>.cpp</arg>
+<arg>'${language}' == 'Rust'</arg>
+<arg>.rs</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.528803" elapsed="0.000099"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-01-26T19:22:02.529257" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp&lt;/a&gt;'.</msg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>${code}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.528949" elapsed="0.000362"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:02.529401" level="INFO">${status} = success</msg>
+<var>${status}</var>
+<arg>success</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.529354" elapsed="0.000056"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:02.529644" level="INFO">${output} = </msg>
+<var>${output}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.529449" elapsed="0.000204"/>
+</kw>
+<try>
+<branch type="TRY">
+<if>
+<branch type="IF" condition="'${language}' == 'Python'">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${PYTHON_CMD}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.529784" elapsed="0.000007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:02.529830" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:02.529717" elapsed="0.000131"/>
+</branch>
+<branch type="ELSE IF" condition="'${language}' == 'C++'">
+<kw name="Run Process" owner="Process">
+<msg time="2025-01-26T19:22:02.530071" level="INFO">Starting process:
+g++ /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp -o /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test</msg>
+<msg time="2025-01-26T19:22:02.535902" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-01-26T19:22:02.817697" level="INFO">Process completed.</msg>
+<msg time="2025-01-26T19:22:02.817942" level="INFO">${compile_result} = &lt;result object with rc 0&gt;</msg>
+<var>${compile_result}</var>
+<arg>${CPP_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.529914" elapsed="0.288046"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<msg time="2025-01-26T19:22:02.818826" level="INFO">Starting process:
+/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test</msg>
+<msg time="2025-01-26T19:22:02.820842" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-01-26T19:22:03.135112" level="INFO">Process completed.</msg>
+<msg time="2025-01-26T19:22:03.135339" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.818622" elapsed="0.316737"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.136055" level="INFO">${output} = 541272875</msg>
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.135619" elapsed="0.000446"/>
+</kw>
+<status status="PASS" start="2025-01-26T19:22:02.818129" elapsed="0.317962"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136177" elapsed="0.000008"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136224" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136112" elapsed="0.000130"/>
+</branch>
+<status status="PASS" start="2025-01-26T19:22:02.818099" elapsed="0.318152"/>
+</if>
+<status status="PASS" start="2025-01-26T19:22:02.529858" elapsed="0.606413"/>
+</branch>
+<branch type="ELSE IF" condition="'${language}' == 'Rust'">
+<kw name="Run Process" owner="Process">
+<var>${compile_result}</var>
+<arg>${RUST_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136324" elapsed="0.000006"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136407" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136447" elapsed="0.000008"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136373" elapsed="0.000093"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136505" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136542" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136474" elapsed="0.000084"/>
+</branch>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136363" elapsed="0.000202"/>
+</if>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136282" elapsed="0.000292"/>
+</branch>
+<status status="PASS" start="2025-01-26T19:22:02.529710" elapsed="0.606872"/>
+</if>
+<status status="PASS" start="2025-01-26T19:22:02.529694" elapsed="0.606899"/>
+</branch>
+<branch type="EXCEPT" assign="${error}">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>runtime_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136654" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${error}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136692" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:03.136620" elapsed="0.000088"/>
+</branch>
+<status status="PASS" start="2025-01-26T19:22:02.529677" elapsed="0.607045"/>
+</try>
+<return>
+<value>${status}</value>
+<value>${output}</value>
+<status status="PASS" start="2025-01-26T19:22:03.136743" elapsed="0.000030"/>
+</return>
+<arg>${teacher_example}[code]</arg>
+<arg>${teacher_example}[language]</arg>
+<status status="PASS" start="2025-01-26T19:22:02.528530" elapsed="0.608331"/>
+</kw>
+<msg time="2025-01-26T19:22:03.136907" level="INFO">${teacher_status} = success</msg>
+<msg time="2025-01-26T19:22:03.136922" level="INFO">${teacher_output} = 541272875</msg>
+<var>${teacher_status}</var>
+<var>${teacher_output}</var>
+<arg>'${input}' != '${EMPTY}'</arg>
+<arg>Execute Code With Input</arg>
+<arg>${teacher_example}[code]</arg>
+<arg>${teacher_example}[language]</arg>
+<arg>${input}</arg>
+<arg>ELSE</arg>
+<arg>Execute Code</arg>
+<arg>${teacher_example}[code]</arg>
+<arg>${teacher_example}[language]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:02.527801" elapsed="0.609128"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.137118" level="INFO">${details} = Actual output: "1919706145" | Expected output: "541272875"</msg>
+<var>${details}</var>
+<arg>Actual output: "${student_output}" | Expected output: "${teacher_output}"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.137034" elapsed="0.000092"/>
 </kw>
 <if>
 <branch type="IF" condition="'${student_status}' != 'success'">
@@ -270,9 +857,9 @@
 <arg>FAIL</arg>
 <arg>Student code error: ${student_output}</arg>
 <arg>${student_submission}[language]</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764484" elapsed="0.000008"/>
+<status status="NOT RUN" start="2025-01-26T19:22:03.137286" elapsed="0.000009"/>
 </kw>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764435" elapsed="0.000075"/>
+<status status="NOT RUN" start="2025-01-26T19:22:03.137155" elapsed="0.000158"/>
 </branch>
 <branch type="ELSE IF" condition="'${teacher_status}' != 'success'">
 <kw name="Add Comparison Result">
@@ -283,9 +870,9 @@
 <arg>FAIL</arg>
 <arg>Teacher code error: ${teacher_output}</arg>
 <arg>${student_submission}[language]</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764562" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-01-26T19:22:03.137385" elapsed="0.000008"/>
 </kw>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764522" elapsed="0.000062"/>
+<status status="NOT RUN" start="2025-01-26T19:22:03.137322" elapsed="0.000088"/>
 </branch>
 <branch type="ELSE IF" condition="'${student_output}' == '${teacher_output}'">
 <kw name="Add Comparison Result">
@@ -296,9 +883,357 @@
 <arg>PASS</arg>
 <arg>${details}</arg>
 <arg>${student_submission}[language]</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764636" elapsed="0.000007"/>
+<status status="NOT RUN" start="2025-01-26T19:22:03.137500" elapsed="0.000008"/>
 </kw>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764593" elapsed="0.000067"/>
+<status status="NOT RUN" start="2025-01-26T19:22:03.137418" elapsed="0.000106"/>
+</branch>
+<branch type="ELSE">
+<kw name="Add Comparison Result">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.138048" level="INFO">${result} = {'student_name': 'Student2', 'topic_name': 'Introduction to Programming', 'problem_name': 'hello_world', 'status': 'FAIL', 'details': 'Actual output: "1919706145" | Expected output: "541272875"', 'lan...</msg>
+<var>${result}</var>
+<arg>student_name=${student_name}</arg>
+<arg>topic_name=${topic_name}</arg>
+<arg>problem_name=${problem_name}</arg>
+<arg>status=${status}</arg>
+<arg>details=${details}</arg>
+<arg>language=${language}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.137789" elapsed="0.000270"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${result}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.138110" elapsed="0.000079"/>
+</kw>
+<arg>${results}</arg>
+<arg>${student_name}</arg>
+<arg>${topic_name}</arg>
+<arg>${problem_name}</arg>
+<arg>FAIL</arg>
+<arg>${details}</arg>
+<arg>${student_submission}[language]</arg>
+<status status="PASS" start="2025-01-26T19:22:03.137573" elapsed="0.000641"/>
+</kw>
+<status status="PASS" start="2025-01-26T19:22:03.137537" elapsed="0.000692"/>
+</branch>
+<status status="PASS" start="2025-01-26T19:22:03.137147" elapsed="0.001089"/>
+</if>
+<var name="${problem_name}">hello_world</var>
+<status status="PASS" start="2025-01-26T19:22:01.330204" elapsed="1.808042"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-01-26T19:22:03.138495" level="INFO">${student_submission} = {'language': 'C++', 'code': '#include &lt;iostream&gt;\nint main() { int a, b; std::cin &gt;&gt; a &gt;&gt; b; std::cout &lt;&lt; a + b; return 0; }', 'result': '3'}</msg>
+<var>${student_submission}</var>
+<arg>${topic}[submitted_code]</arg>
+<arg>${problem_name}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.138410" elapsed="0.000096"/>
+</kw>
+<kw name="Get Dictionary Keys" owner="Collections">
+<msg time="2025-01-26T19:22:03.138617" level="INFO">${example_code_keys} = ['factorial', 'hello_world', 'sum_two_numbers']</msg>
+<var>${example_code_keys}</var>
+<arg>${teacher_topic}[example_code]</arg>
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.138556" elapsed="0.000068"/>
+</kw>
+<kw name="Continue For Loop If" owner="BuiltIn">
+<arg>'${problem_name}' not in ${example_code_keys}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.138668" elapsed="0.000091"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-01-26T19:22:03.139023" level="INFO">${teacher_example} = {'language': 'C++', 'code': '#include &lt;iostream&gt;\nint main() {\n    int a = 5, b = 3;\n    std::cout &lt;&lt; (a + b);\n    return 0;\n}', 'input': '', 'output': '8'}</msg>
+<var>${teacher_example}</var>
+<arg>${teacher_topic}[example_code]</arg>
+<arg>${problem_name}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.138807" elapsed="0.000230"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.139150" level="INFO">${input} = </msg>
+<var>${input}</var>
+<arg>${teacher_example}[input]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.139091" elapsed="0.000066"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.139247" level="INFO">${expected_output} = 8</msg>
+<var>${expected_output}</var>
+<arg>${teacher_example}[output]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.139195" elapsed="0.000059"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Code">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.141038" level="INFO">${filename} = test</msg>
+<var>${filename}</var>
+<arg>test</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.140976" elapsed="0.000072"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.141178" level="INFO">${ext} = .cpp</msg>
+<var>${ext}</var>
+<arg>'${language}' == 'Python'</arg>
+<arg>.py</arg>
+<arg>'${language}' == 'C++'</arg>
+<arg>.cpp</arg>
+<arg>'${language}' == 'Rust'</arg>
+<arg>.rs</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.141102" elapsed="0.000087"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-01-26T19:22:03.141693" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp&lt;/a&gt;'.</msg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>${code}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.141252" elapsed="0.000474"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.141847" level="INFO">${status} = success</msg>
+<var>${status}</var>
+<arg>success</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.141787" elapsed="0.000069"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-26T19:22:03.142192" level="INFO">${output} = </msg>
+<var>${output}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.141950" elapsed="0.000252"/>
+</kw>
+<try>
+<branch type="TRY">
+<if>
+<branch type="IF" condition="'${language}' == 'Python'">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${PYTHON_CMD}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.142384" elapsed="0.000007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:03.142431" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:03.142304" elapsed="0.000157"/>
+</branch>
+<branch type="ELSE IF" condition="'${language}' == 'C++'">
+<kw name="Run Process" owner="Process">
+<msg time="2025-01-26T19:22:03.142768" level="INFO">Starting process:
+g++ /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test.cpp -o /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test</msg>
+<msg time="2025-01-26T19:22:03.144928" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-01-26T19:22:03.465175" level="INFO">Process completed.</msg>
+<msg time="2025-01-26T19:22:03.465833" level="INFO">${compile_result} = &lt;result object with rc 0&gt;</msg>
+<var>${compile_result}</var>
+<arg>${CPP_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-01-26T19:22:03.142602" elapsed="0.323273"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<msg time="2025-01-26T19:22:03.467538" level="INFO">Starting process:
+/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp/test</msg>
+<msg time="2025-01-26T19:22:03.469734" level="INFO">Waiting for process to complete.</msg>
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="FAIL" start="2025-01-26T19:22:03.467064" elapsed="20.079205">Execution terminated by signal</status>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546568" elapsed="0.000025"/>
+</kw>
+<status status="FAIL" start="2025-01-26T19:22:03.466084" elapsed="20.080565">Execution terminated by signal</status>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546735" elapsed="0.000007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546780" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546675" elapsed="0.000123"/>
+</branch>
+<status status="FAIL" start="2025-01-26T19:22:03.466051" elapsed="20.080757">Execution terminated by signal</status>
+</if>
+<status status="FAIL" start="2025-01-26T19:22:03.142474" elapsed="20.404365">Execution terminated by signal</status>
+</branch>
+<branch type="ELSE IF" condition="'${language}' == 'Rust'">
+<kw name="Run Process" owner="Process">
+<var>${compile_result}</var>
+<arg>${RUST_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546895" elapsed="0.000006"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546982" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout.strip()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547020" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546948" elapsed="0.000088"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547073" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547107" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547045" elapsed="0.000077"/>
+</branch>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546941" elapsed="0.000188"/>
+</if>
+<status status="NOT RUN" start="2025-01-26T19:22:23.546852" elapsed="0.000289"/>
+</branch>
+<status status="FAIL" start="2025-01-26T19:22:03.142298" elapsed="20.404852">Execution terminated by signal</status>
+</if>
+<status status="FAIL" start="2025-01-26T19:22:03.142280" elapsed="20.404894">Execution terminated by signal</status>
+</branch>
+<branch type="EXCEPT" assign="${error}">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>runtime_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="FAIL" start="2025-01-26T19:22:23.547294" elapsed="0.000098">Execution terminated by signal</status>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${error}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547434" elapsed="0.000007"/>
+</kw>
+<status status="FAIL" start="2025-01-26T19:22:23.547258" elapsed="0.000204">Execution terminated by signal</status>
+</branch>
+<status status="FAIL" start="2025-01-26T19:22:03.142260" elapsed="20.405220">Execution terminated by signal</status>
+</try>
+<return>
+<value>${status}</value>
+<value>${output}</value>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547501" elapsed="0.000007"/>
+</return>
+<arg>${student_submission}[code]</arg>
+<arg>${student_submission}[language]</arg>
+<status status="FAIL" start="2025-01-26T19:22:03.140839" elapsed="20.406737">Execution terminated by signal</status>
+</kw>
+<var>${student_status}</var>
+<var>${student_output}</var>
+<arg>'${input}' != '${EMPTY}'</arg>
+<arg>Execute Code With Input</arg>
+<arg>${student_submission}[code]</arg>
+<arg>${student_submission}[language]</arg>
+<arg>${input}</arg>
+<arg>ELSE</arg>
+<arg>Execute Code</arg>
+<arg>${student_submission}[code]</arg>
+<arg>${student_submission}[language]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-01-26T19:22:03.139310" elapsed="20.408288">Execution terminated by signal</status>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<var>${teacher_status}</var>
+<var>${teacher_output}</var>
+<arg>'${input}' != '${EMPTY}'</arg>
+<arg>Execute Code With Input</arg>
+<arg>${teacher_example}[code]</arg>
+<arg>${teacher_example}[language]</arg>
+<arg>${input}</arg>
+<arg>ELSE</arg>
+<arg>Execute Code</arg>
+<arg>${teacher_example}[code]</arg>
+<arg>${teacher_example}[language]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547673" elapsed="0.000007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${details}</var>
+<arg>Actual output: "${student_output}" | Expected output: "${teacher_output}"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547734" elapsed="0.000007"/>
+</kw>
+<if>
+<branch type="IF" condition="'${student_status}' != 'success'">
+<kw name="Add Comparison Result">
+<arg>${results}</arg>
+<arg>${student_name}</arg>
+<arg>${topic_name}</arg>
+<arg>${problem_name}</arg>
+<arg>FAIL</arg>
+<arg>Student code error: ${student_output}</arg>
+<arg>${student_submission}[language]</arg>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547943" elapsed="0.000009"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547842" elapsed="0.000131"/>
+</branch>
+<branch type="ELSE IF" condition="'${teacher_status}' != 'success'">
+<kw name="Add Comparison Result">
+<arg>${results}</arg>
+<arg>${student_name}</arg>
+<arg>${topic_name}</arg>
+<arg>${problem_name}</arg>
+<arg>FAIL</arg>
+<arg>Teacher code error: ${teacher_output}</arg>
+<arg>${student_submission}[language]</arg>
+<status status="NOT RUN" start="2025-01-26T19:22:23.548024" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547984" elapsed="0.000065"/>
+</branch>
+<branch type="ELSE IF" condition="'${student_output}' == '${teacher_output}'">
+<kw name="Add Comparison Result">
+<arg>${results}</arg>
+<arg>${student_name}</arg>
+<arg>${topic_name}</arg>
+<arg>${problem_name}</arg>
+<arg>PASS</arg>
+<arg>${details}</arg>
+<arg>${student_submission}[language]</arg>
+<status status="NOT RUN" start="2025-01-26T19:22:23.548100" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-01-26T19:22:23.548060" elapsed="0.000060"/>
 </branch>
 <branch type="ELSE">
 <kw name="Add Comparison Result">
@@ -309,235 +1244,62 @@
 <arg>FAIL</arg>
 <arg>${details}</arg>
 <arg>${student_submission}[language]</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764703" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-01-26T19:22:23.548166" elapsed="0.000008"/>
 </kw>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764669" elapsed="0.000090"/>
+<status status="NOT RUN" start="2025-01-26T19:22:23.548128" elapsed="0.000063"/>
 </branch>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764427" elapsed="0.000341"/>
+<status status="NOT RUN" start="2025-01-26T19:22:23.547833" elapsed="0.000365"/>
 </if>
-<var name="${problem_name}">hello_world</var>
-<status status="FAIL" start="2025-01-25T15:47:06.763508" elapsed="0.001290">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
+<var name="${problem_name}">sum_two_numbers</var>
+<status status="FAIL" start="2025-01-26T19:22:03.138369" elapsed="20.409848">Execution terminated by signal</status>
 </iter>
 <var>${problem_name}</var>
-<value>hello_world</value>
-<value>sum_two_numbers</value>
-<value>factorial</value>
-<status status="FAIL" start="2025-01-25T15:47:06.763442" elapsed="0.001385">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
+<value>@{problem_names}</value>
+<status status="FAIL" start="2025-01-26T19:22:01.330109" elapsed="22.218149">Execution terminated by signal</status>
 </for>
-<var name="${topic}">{'name': 'Topic1', 'submitted_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}, 'sum_two_numbers': {'language': 'Python', 'code': 'print(1 + 2...</var>
-<status status="FAIL" start="2025-01-25T15:47:06.762838" elapsed="0.002020">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
+<var name="${topic}">{'id': 1, 'name': 'Introduction to Programming', 'submitted_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() { std::cout &lt;&lt; 'Hello, world!'; return 0; }", 'result': ...</var>
+<status status="FAIL" start="2025-01-26T19:22:01.329002" elapsed="22.219284">Execution terminated by signal</status>
 </iter>
 <var>${topic}</var>
-<value>@{student}[enrolled_topics]</value>
-<status status="FAIL" start="2025-01-25T15:47:06.762726" elapsed="0.002154">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
+<value>@{student}[topics]</value>
+<status status="FAIL" start="2025-01-26T19:22:01.328861" elapsed="22.219444">Execution terminated by signal</status>
 </for>
-<var name="${student}">{'name': 'Student1', 'enrolled_topics': [{'name': 'Topic1', 'submitted_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}, 'sum_two_numbers': {'...</var>
-<status status="FAIL" start="2025-01-25T15:47:06.761384" elapsed="0.003517">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
+<var name="${student}">{'id': 2, 'name': 'Student2', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'submitted_code': {'hello_world': {'language': 'C++', 'code': "#include &lt;iostream&gt;\nint main() { std::cout &lt;&lt; ...</var>
+<status status="FAIL" start="2025-01-26T19:22:01.324941" elapsed="22.223382">Execution terminated by signal</status>
 </iter>
 <var>${student}</var>
 <value>@{students}</value>
-<status status="FAIL" start="2025-01-25T15:47:06.761215" elapsed="0.003705">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
+<status status="FAIL" start="2025-01-26T19:22:01.324788" elapsed="22.223560">Execution terminated by signal</status>
 </for>
 <kw name="Save Results">
 <arg>${results}</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.764995" elapsed="0.000008"/>
+<status status="NOT RUN" start="2025-01-26T19:22:23.548427" elapsed="0.000008"/>
 </kw>
 <kw name="Cleanup Test Environment" type="TEARDOWN">
 <kw name="Remove Directory" owner="OperatingSystem">
-<msg time="2025-01-25T15:47:06.765431" level="INFO" html="true">Removed directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp&lt;/a&gt;'.</msg>
+<msg time="2025-01-26T19:22:23.549324" level="INFO" html="true">Removed directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp&lt;/a&gt;'.</msg>
 <arg>${TEMP_DIR}</arg>
 <arg>recursive=True</arg>
 <doc>Removes the directory pointed to by the given ``path``.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.765234" elapsed="0.000220"/>
+<status status="PASS" start="2025-01-26T19:22:23.548811" elapsed="0.000544"/>
 </kw>
-<status status="PASS" start="2025-01-25T15:47:06.765129" elapsed="0.000351"/>
+<status status="PASS" start="2025-01-26T19:22:23.548569" elapsed="0.000815"/>
 </kw>
-<doc>Compare student code outputs with teacher's expected results</doc>
-<status status="FAIL" start="2025-01-25T15:47:06.758002" elapsed="0.007509">Variable '${teacher_topic}' is None, which is not subscriptable, and thus accessing item 'example_code' from it is not possible. To use '[example_code]' as a literal value, it needs to be escaped like '\[example_code]'.</status>
+<doc>Test student code using teacher's inputs and expected outputs</doc>
+<status status="FAIL" start="2025-01-26T19:22:01.322267" elapsed="22.227146">Execution terminated by signal</status>
 </test>
-<test id="s1-t2" name="Checking Student Code from Input and Output" line="230">
-<kw name="Setup Test Environment" type="SETUP">
-<kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-01-25T15:47:06.766158" level="INFO" html="true">Created directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp&lt;/a&gt;'.</msg>
-<arg>${TEMP_DIR}</arg>
-<doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.765882" elapsed="0.000307"/>
-</kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.766413" level="INFO">${students} = [{'name': 'Student1', 'enrolled_topics': [{'name': 'Topic1', 'submitted_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, world!')", 'result': 'Hello, world!'}, 'sum_two_numbers': {...</msg>
-<var>${students}</var>
-<arg>${STUDENT_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.766242" elapsed="0.000181"/>
-</kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.766613" level="INFO">${teachers} = [{'id': 1, 'name': 'John Doe', 'topics': [{'id': 1, 'name': 'Introduction to Programming', 'example_code': {'hello_world': {'language': 'Python', 'code': "print('Hello, World')"}, 'sum_two_numbers': {...</msg>
-<var>${teachers}</var>
-<arg>${TEACHER_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.766466" elapsed="0.000157"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-01-25T15:47:06.766715" level="INFO">@{results} = [ ]</msg>
-<var>@{results}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.766665" elapsed="0.000057"/>
-</kw>
-<return>
-<value>${students}</value>
-<value>${teachers}</value>
-<value>${results}</value>
-<status status="PASS" start="2025-01-25T15:47:06.766739" elapsed="0.000016"/>
-</return>
-<status status="PASS" start="2025-01-25T15:47:06.765796" elapsed="0.001018"/>
-</kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.766935" level="ERROR">JSON file: /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/input_output_tests.json not found</msg>
-<msg time="2025-01-25T15:47:06.767008" level="FAIL">OSError</msg>
-<var>${input_output_tests}</var>
-<arg>${EXECDIR}/input_output_tests.json</arg>
-<doc>Load JSON from file.</doc>
-<status status="FAIL" start="2025-01-25T15:47:06.766875" elapsed="0.000527">OSError</status>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${student_name}</var>
-<arg>${test_case}[student_name]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.767617" elapsed="0.000010"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${problem_name}</var>
-<arg>${test_case}[problem_name]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.767853" elapsed="0.000007"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${code}</var>
-<arg>${test_case}[code]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.767904" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${language}</var>
-<arg>${test_case}[language]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.767969" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${input}</var>
-<arg>${test_case}[input]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.768076" elapsed="0.000021"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${expected_output}</var>
-<arg>${test_case}[expected_output]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.768133" elapsed="0.000006"/>
-</kw>
-<kw name="Execute Code With Input">
-<var>${status}</var>
-<var>${actual_output}</var>
-<arg>${code}</arg>
-<arg>${language}</arg>
-<arg>${input}</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.768442" elapsed="0.000009"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${status}' != 'success'</arg>
-<arg>Fail</arg>
-<arg>Execution failed for ${student_name}'s ${problem_name}: ${actual_output}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.768505" elapsed="0.000007"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${actual_output}</arg>
-<arg>${expected_output}</arg>
-<arg>msg=Output mismatch for ${student_name}'s ${problem_name}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.768550" elapsed="0.000006"/>
-</kw>
-<var name="${test_case}"/>
-<status status="NOT RUN" start="2025-01-25T15:47:06.767538" elapsed="0.001031"/>
-</iter>
-<var>${test_case}</var>
-<value>@{input_output_tests}</value>
-<status status="NOT RUN" start="2025-01-25T15:47:06.767451" elapsed="0.001131"/>
-</for>
-<kw name="Cleanup Test Environment" type="TEARDOWN">
-<kw name="Remove Directory" owner="OperatingSystem">
-<msg time="2025-01-25T15:47:06.769021" level="INFO" html="true">Removed directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/temp&lt;/a&gt;'.</msg>
-<arg>${TEMP_DIR}</arg>
-<arg>recursive=True</arg>
-<doc>Removes the directory pointed to by the given ``path``.</doc>
-<status status="PASS" start="2025-01-25T15:47:06.768847" elapsed="0.000194"/>
-</kw>
-<status status="PASS" start="2025-01-25T15:47:06.768745" elapsed="0.000320"/>
-</kw>
-<doc>Test student code with predefined inputs and expected outputs</doc>
-<status status="FAIL" start="2025-01-25T15:47:06.765617" elapsed="0.003473">OSError</status>
-</test>
-<test id="s1-t3" name="Compare Student and Teacher Result Case 3" line="258">
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:47:06.769385" level="ERROR">JSON file: /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/expected_results.json not found</msg>
-<msg time="2025-01-25T15:47:06.769441" level="FAIL">OSError</msg>
-<var>${expected_results}</var>
-<arg>${EXECDIR}/expected_results.json</arg>
-<doc>Load JSON from file.</doc>
-<status status="FAIL" start="2025-01-25T15:47:06.769327" elapsed="0.000203">OSError</status>
-</kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<var>${actual_results}</var>
-<arg>${EXECDIR}/actual_results.json</arg>
-<doc>Load JSON from file.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.769587" elapsed="0.000007"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Find Matching Result">
-<var>${matching_actual}</var>
-<arg>${actual_results}</arg>
-<arg>${expected}</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.769788" elapsed="0.000017"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${matching_actual} is None</arg>
-<arg>Fail</arg>
-<arg>No matching result found for ${expected}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-01-25T15:47:06.769861" elapsed="0.000007"/>
-</kw>
-<kw name="Compare Result Details">
-<arg>${expected}</arg>
-<arg>${matching_actual}</arg>
-<status status="NOT RUN" start="2025-01-25T15:47:06.769913" elapsed="0.000007"/>
-</kw>
-<var name="${expected}"/>
-<status status="NOT RUN" start="2025-01-25T15:47:06.769650" elapsed="0.000282"/>
-</iter>
-<var>${expected}</var>
-<value>@{expected_results}</value>
-<status status="NOT RUN" start="2025-01-25T15:47:06.769623" elapsed="0.000330"/>
-</for>
-<doc>Compare results Case 3</doc>
-<status status="FAIL" start="2025-01-25T15:47:06.769186" elapsed="0.000839">OSError</status>
-</test>
-<status status="FAIL" start="2025-01-25T15:47:06.695280" elapsed="0.075194"/>
+<status status="FAIL" start="2025-01-26T19:22:01.261210" elapsed="22.288484"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="3" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="3" skip="0" id="s1" name="Robottesting">Robottesting</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="CompareWithInput">CompareWithInput</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-01-25T15:47:06.766935" level="ERROR">JSON file: /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/input_output_tests.json not found</msg>
-<msg time="2025-01-25T15:47:06.769385" level="ERROR">JSON file: /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/expected_results.json not found</msg>
 </errors>
 </robot>

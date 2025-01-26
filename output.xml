@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-25T15:46:33.934192" rpa="false" schemaversion="5">
-<suite id="s1" name="Robottesting" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/Robottesting.robot">
-<test id="s1-t1" name="Compare Student and Teacher Result Case 3" line="258">
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-01-25T15:46:34.037612" level="ERROR">JSON file: /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/expected_results.json not found</msg>
-<msg time="2025-01-25T15:46:34.040078" level="FAIL">OSError</msg>
-<var>${expected_results}</var>
-<arg>${EXECDIR}/expected_results.json</arg>
-<doc>Load JSON from file.</doc>
-<status status="FAIL" start="2025-01-25T15:46:34.037379" elapsed="0.003541">OSError</status>
+<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-01-26T19:20:01.579648" rpa="false" schemaversion="5">
+<suite id="s1" name="CompareWithInput" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/Noselenium/CompareWithInput.robot">
+<test id="s1-t1" name="Checking Student Code from Input and Output" line="168">
+<kw name="Setup Test Environment" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-01-26T19:20:01.736795" level="INFO" html="true">Created directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/temp&lt;/a&gt;'.</msg>
+<arg>${TEMP_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-01-26T19:20:01.736057" elapsed="0.002228"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<var>${actual_results}</var>
-<arg>${EXECDIR}/actual_results.json</arg>
-<doc>Load JSON from file.</doc>
-<status status="NOT RUN" start="2025-01-25T15:46:34.041441" elapsed="0.000216"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-26T19:20:01.739369" level="FAIL">Evaluating expression "json.load(open('/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'))" failed: FileNotFoundError: [Errno 2] No such file or directory: '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'</msg>
+<var>${students}</var>
+<arg>json.load(open('${STUDENT_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="FAIL" start="2025-01-26T19:20:01.738641" elapsed="1.122966">Evaluating expression "json.load(open('/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'))" failed: FileNotFoundError: [Errno 2] No such file or directory: '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'</status>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Find Matching Result">
-<var>${matching_actual}</var>
-<arg>${actual_results}</arg>
-<arg>${expected}</arg>
-<status status="NOT RUN" start="2025-01-25T15:46:34.042692" elapsed="0.000191"/>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${teachers}</var>
+<arg>json.load(open('${TEACHER_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-01-26T19:20:02.862081" elapsed="0.000226"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${matching_actual} is None</arg>
-<arg>Fail</arg>
-<arg>No matching result found for ${expected}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-01-25T15:46:34.043153" elapsed="0.000071"/>
+<kw name="Create List" owner="BuiltIn">
+<var>@{results}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2025-01-26T19:20:02.862619" elapsed="0.000200"/>
 </kw>
-<kw name="Compare Result Details">
-<arg>${expected}</arg>
-<arg>${matching_actual}</arg>
-<status status="NOT RUN" start="2025-01-25T15:46:34.043327" elapsed="0.000102"/>
+<return>
+<value>${students}</value>
+<value>${teachers}</value>
+<value>${results}</value>
+<status status="NOT RUN" start="2025-01-26T19:20:02.863008" elapsed="0.000179"/>
+</return>
+<status status="FAIL" start="2025-01-26T19:20:01.733797" elapsed="1.129772">Evaluating expression "json.load(open('/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'))" failed: FileNotFoundError: [Errno 2] No such file or directory: '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'</status>
 </kw>
-<var name="${expected}"/>
-<status status="NOT RUN" start="2025-01-25T15:46:34.042338" elapsed="0.001140"/>
-</iter>
-<var>${expected}</var>
-<value>@{expected_results}</value>
-<status status="NOT RUN" start="2025-01-25T15:46:34.042060" elapsed="0.001481"/>
-</for>
-<doc>Compare results Case 3</doc>
-<status status="FAIL" start="2025-01-25T15:46:34.036557" elapsed="0.007173">OSError</status>
+<kw name="Cleanup Test Environment" type="TEARDOWN">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-01-26T19:20:04.556586" level="INFO" html="true">Removed directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/temp&lt;/a&gt;'.</msg>
+<arg>${TEMP_DIR}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-01-26T19:20:04.555391" elapsed="0.001574"/>
+</kw>
+<status status="PASS" start="2025-01-26T19:20:02.864404" elapsed="1.692788"/>
+</kw>
+<doc>Test student code using teacher's inputs and expected outputs</doc>
+<status status="FAIL" start="2025-01-26T19:20:01.731289" elapsed="2.826599">Setup failed:
+Evaluating expression "json.load(open('/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'))" failed: FileNotFoundError: [Errno 2] No such file or directory: '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/students.json'</status>
 </test>
-<status status="FAIL" start="2025-01-25T15:46:33.938161" elapsed="0.106421"/>
+<status status="FAIL" start="2025-01-26T19:20:01.584500" elapsed="2.974695"/>
 </suite>
 <statistics>
 <total>
@@ -55,10 +60,9 @@
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Robottesting">Robottesting</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="CompareWithInput">CompareWithInput</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-01-25T15:46:34.037612" level="ERROR">JSON file: /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/expected_results.json not found</msg>
 </errors>
 </robot>
