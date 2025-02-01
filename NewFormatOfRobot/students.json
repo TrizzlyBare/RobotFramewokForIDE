@@ -1,14 +1,14 @@
 {
-  "id": 6,
-  "title": "SimpleAdd",
-  "language": "rust",
+  "id": 4,
+  "title": "L2Q2 Unicode",
+  "language": "python",
   "tag_list": ["other"],
-  "description": "Implement a function to add 2 numbers together using a helper function.",
-  "example": "fn add(a: i32, b: i32) -> i32 {\r\n   pass\r\n}\r\n\r\nfn main() {\r\n    println!(\"{}\", add(3, 5));\r\n}",
-  "testcase": "None",
+  "description": "Write a program to read one character from keyboard and the program then prints out its Unicode in hexadecimal form.",
+  "example": "For example:\r\n\r\nEnter a character: a\r\nThe Unicode is: u0061\r\n\r\nHint: To print out a hexadecimal number 0xxx, use the \"04x\" pattern.",
+  "testcase": "a",
   "testresult": "None",
-  "defaultCode": "fn add(a: i32, b: i32) -> i32 {\r\n    a + b\r\n}\r\n\r\nfn main() {\r\n    println!(\"{}\", add(3, 5));\r\n}",
-  "solutionType": "default_code",
+  "defaultCode": "x = input(\"Enter a character: \")\nprint(\"The Unicode is: u%04x\" % ord(x))",
+  "solutionType": "testcase",
   "limitTime": false,
   "duration": "00:30:00"
 }

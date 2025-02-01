@@ -1,15 +1,7 @@
 [
   {
-    "status": "PASS",
-    "details": "SimpleAdd",
-    "language": "rust",
-    "student_output": "8",
-    "teacher_output": "8",
-    "student_code": "fn add(a: i32, b: i32) -> i32 {\r\n    a + b\r\n}\r\n\r\nfn main() {\r\n    println!(\"{}\", add(3, 5));\r\n}",
-    "teacher_code": "fn add(a: i32, b: i32) -> i32 {\r\n    a + b\r\n}\r\n\r\nfn main() {\r\n    println!(\"{}\", add(3, 5));\r\n}",
-    "student_exit_code": 0,
-    "teacher_exit_code": 0,
-    "student_stderr": "",
-    "teacher_stderr": ""
+    "status": "FAIL",
+    "details": "Student output: \"u0062\"\nTeacher output: \"u0061\"",
+    "language": "python"
   }
 ]
