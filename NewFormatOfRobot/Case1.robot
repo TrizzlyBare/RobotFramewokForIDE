@@ -31,12 +31,22 @@ Validate Code Output
     ${is_valid}    Set Variable    ${True}
     ${message}    Set Variable    ${EMPTY}
     
-    IF    '${status}' == 'success' and '${output}' == ''
+    ${output_stripped}    Strip String    ${output}
+    
+    # Fixed IF condition syntax using $status and $output_stripped
+    IF    $status == "success" and $output_stripped == ""
         ${is_valid}    Set Variable    ${False}
         ${message}    Set Variable    No output generated from code execution
     END
     
     RETURN    ${is_valid}    ${message}
+
+Normalize Output
+    [Arguments]    ${output}
+    ${normalized}    Strip String    ${output}
+    ${normalized}    Replace String    ${normalized}    \r\n    \n
+    ${normalized}    Replace String    ${normalized}    \r    \n
+    RETURN    ${normalized}
 
 Execute Code
     [Arguments]    ${code}    ${language}
@@ -54,40 +64,41 @@ Execute Code
     ${error_msg}    Set Variable    ${EMPTY}
     
     TRY
-        IF    '${language}' == 'python'
+        IF    $language == "python"
             ${result}    Run Process    ${PYTHON_CMD}    ${TEMP_DIR}/${filename}${ext}    shell=True
-            ${output}    Set Variable    ${result.stdout.strip()}
-            ${error_msg}    Set Variable    ${result.stderr.strip()}
+            ${output}    Set Variable    ${result.stdout}
+            ${error_msg}    Set Variable    ${result.stderr}
             
-        ELSE IF   '${language}' == 'javascript'
+        ELSE IF    $language == "javascript"
             ${result}    Run Process    ${JAVASCRIPT_CMD}    ${TEMP_DIR}/${filename}${ext}    shell=True
-            ${output}    Set Variable    ${result.stdout.strip()}
-            ${error_msg}    Set Variable    ${result.stderr.strip()}
+            ${output}    Set Variable    ${result.stdout}
+            ${error_msg}    Set Variable    ${result.stderr}
 
-        ELSE IF    '${language}' == 'cpp'
+        ELSE IF    $language == "cpp"
             ${compile_result}    Run Process    ${CPP_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
             IF    ${compile_result.rc} == 0
                 ${result}    Run Process    ${TEMP_DIR}/${filename}    shell=True
-                ${output}    Set Variable    ${result.stdout.strip()}
-                ${error_msg}    Set Variable    ${result.stderr.strip()}
+                ${output}    Set Variable    ${result.stdout}
+                ${error_msg}    Set Variable    ${result.stderr}
             ELSE
                 ${status}    Set Variable    compilation_error
                 ${error_msg}    Set Variable    ${compile_result.stderr}
             END
             
-        ELSE IF    '${language}' == 'rust'
+        ELSE IF    $language == "rust"
             ${compile_result}    Run Process    ${RUST_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
             IF    ${compile_result.rc} == 0
                 ${result}    Run Process    ${TEMP_DIR}/${filename}    shell=True
-                ${output}    Set Variable    ${result.stdout.strip()}
-                ${error_msg}    Set Variable    ${result.stderr.strip()}
+                ${output}    Set Variable    ${result.stdout}
+                ${error_msg}    Set Variable    ${result.stderr}
             ELSE
                 ${status}    Set Variable    compilation_error
                 ${error_msg}    Set Variable    ${compile_result.stderr}
             END
         END
 
-        # Validate output
+        # Normalize and validate output
+        ${output}    Normalize Output    ${output}
         ${is_valid}    ${validation_message}    Validate Code Output    ${output}    ${status}
         IF    not ${is_valid}
             ${status}    Set Variable    invalid_output
@@ -132,16 +143,18 @@ Compare Student And Teacher Code
     ...    ${teacher}[defaultCode]    
     ...    ${teacher}[language]
     
-    # Compare results
+    # Compare normalized results
+    ${student_output}    Normalize Output    ${student_output}
+    ${teacher_output}    Normalize Output    ${teacher_output}
     ${details}    Set Variable    Student output: "${student_output}"\nTeacher output: "${teacher_output}"
     
-    IF    '${student_status}' != 'success'
+    IF    $student_status != "success"
         Add Comparison Result    ${results}    FAIL    Student code error: ${student_output}    
         ...    ${student}[language]    ${student_error}
-    ELSE IF    '${teacher_status}' != 'success'
+    ELSE IF    $teacher_status != "success"
         Add Comparison Result    ${results}    FAIL    Teacher code error: ${teacher_output}    
         ...    ${student}[language]    ${teacher_error}
-    ELSE IF    '${student_output}' == '${teacher_output}'
+    ELSE IF    $student_output == $teacher_output
         Add Comparison Result    ${results}    PASS    ${details}    ${student}[language]
     ELSE
         Add Comparison Result    ${results}    FAIL    ${details}    ${student}[language]

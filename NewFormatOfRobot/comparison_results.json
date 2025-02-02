@@ -1,7 +1,8 @@
 [
   {
     "status": "PASS",
-    "details": "Student output: \"The Unicode is: u0062\"\nTeacher output: \"The Unicode is: u0062\"",
-    "language": "python"
+    "details": "Student output: \"120\n6\"\nTeacher output: \"120\n6\"",
+    "language": "python",
+    "error": ""
   }
 ]

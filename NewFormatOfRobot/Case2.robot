@@ -15,7 +15,6 @@ ${CPP_COMPILER}    g++
 ${RUST_COMPILER}   rustc
 ${JAVASCRIPT_CMD}  node
 ${RESULTS_FILE}    comparison_results.json
-${LOG_FILE}        execution_log.txt
 
 *** Keywords ***
 Setup Test Environment
@@ -24,7 +23,6 @@ Setup Test Environment
     ${teacher}    Load JSON From File    ${TEACHER_FILE}
     @{results}    Create List
     ${current_time}    Get Current Date    result_format=%Y-%m-%d %H:%M:%S
-    Create File    ${LOG_FILE}    Test execution started at ${current_time}\n
     RETURN    ${student}    ${teacher}    ${results}
 
 Cleanup Test Environment
@@ -67,7 +65,7 @@ Get Final Output
     
     Log Debug Info    Final raw output: ${final_output}
     RETURN    ${final_output}
-    
+
 Normalize Output
     [Arguments]    ${output}
     ${normalized}    Set Variable    ${output}
@@ -111,7 +109,7 @@ Execute Python Code
     [Arguments]    ${filename}    ${has_input}    ${input_file}
     IF    ${has_input}
         ${result}    Run Process    ${PYTHON_CMD}    ${filename}    
-        ...    stdin=${input_file}    shell=True    stderr=STDOUT    stdout=STDOUT
+        ...    stdin=${input_file}    shell=True    stderr=STDOUT    
         Log Debug Info    Python execution with input - RC: ${result.rc}, Output:\n${result.stdout}
     ELSE
         ${result}    Run Process    ${PYTHON_CMD}    ${filename}    
@@ -130,10 +128,10 @@ Execute CPP Code
     IF    ${compile_result.rc} == 0
         IF    ${has_input}
             ${result}    Run Process    ${TEMP_DIR}/program    
-            ...    stdin=${input_file}    shell=True    stderr=STDOUT    stdout=STDOUT
+            ...    stdin=${input_file}    shell=True    stderr=STDOUT   
         ELSE
             ${result}    Run Process    ${TEMP_DIR}/program    
-            ...    shell=True    stderr=STDOUT    stdout=STDOUT
+            ...    shell=True    stderr=STDOUT    
         END
         Log Debug Info    C++ execution output:\n${result.stdout}
         RETURN    success    ${result}

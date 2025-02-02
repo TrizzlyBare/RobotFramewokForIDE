@@ -17,18 +17,48 @@ Load JSON Data
     Run Keyword If    ${data} == None    Fail    Failed to load data from ${file_path}
     RETURN    ${data}
 
-Compare Results
-    [Arguments]    ${student_result}    ${teacher_result}
-    # Direct comparison of results
-    ${status}    Set Variable If    '${student_result}' == '${teacher_result}'    PASS    FAIL
-    RETURN    ${status}
+Normalize String
+    [Arguments]    ${input_string}
+    ${normalized}    Replace String    ${input_string}    \r\n    ${SPACE}
+    ${normalized}    Replace String    ${normalized}    \n    ${SPACE}
+    ${normalized}    Replace String    ${normalized}    \r    ${SPACE}
+    RETURN    ${normalized}
 
+Compare Single Result
+    [Arguments]    ${student_result}    ${teacher_result}
+    ${student_normalized}    Normalize String    ${student_result}
+    ${teacher_normalized}    Normalize String    ${teacher_result}
+    ${status}    Run Keyword And Return Status
+    ...    Should Be Equal As Strings    ${student_normalized}    ${teacher_normalized}
+    ${result}    Set Variable If    ${status}    PASS    FAIL
+    RETURN    ${result}
+
+Compare Multiple Results
+    [Arguments]    ${student_results}    ${teacher_results}
+    @{comparison_results}    Create List
+    ${student_length}    Get Length    ${student_results}
+    ${teacher_length}    Get Length    ${teacher_results}
+    
+    Run Keyword If    ${student_length} != ${teacher_length}
+    ...    Append To List    ${comparison_results}    FAIL
+    ...    ELSE    Compare Result Lists    ${student_results}    ${teacher_results}    ${comparison_results}
+    
+    RETURN    @{comparison_results}
+
+Compare Result Lists
+    [Arguments]    ${student_results}    ${teacher_results}    ${comparison_results}
+    FOR    ${index}    IN RANGE    0    len(${student_results})
+        ${status}    Compare Single Result    ${student_results}[${index}]    ${teacher_results}[${index}]
+        Append To List    ${comparison_results}    ${status}
+    END
 
 Add Comparison Result
-    [Arguments]    ${results}    ${status}    ${details}
+    [Arguments]    ${results}    ${status}    ${student_value}    ${teacher_value}    ${index}=${None}
+    ${student_normalized}    Normalize String    ${student_value}
+    ${teacher_normalized}    Normalize String    ${teacher_value}
     ${result}    Create Dictionary
     ...    status=${status}
-    ...    details=${details}
+    ...    details=Result ${index}: Student=${student_normalized} vs Teacher=${teacher_normalized}
     Append To List    ${results}    ${result}
 
 Save Results
@@ -44,16 +74,32 @@ Compare Student and Teacher Results
     
     # Initialize results list
     @{results}    Create List
-
-    IF    ${student_data} != None    
-        ${comparison_status}    Compare Results    ${student_data}[testresult]    ${teacher_data}[testresult]
-    ELSE
-        ${comparison_status}    Set Variable    FAIL
-    END
-
     
-    # Add comparison result
-    Add Comparison Result    ${results}    ${comparison_status}    ${student_data}[testresult] vs ${teacher_data}[testresult]
+    # Handle both single and multiple results
+    ${student_results}    Set Variable    ${student_data}[testresult]
+    ${teacher_results}    Set Variable    ${teacher_data}[testresult]
+    
+    # Check if the results are lists
+    ${is_list}    Evaluate    isinstance($student_results, list)
+    
+    IF    ${is_list}
+        @{comparison_statuses}    Compare Multiple Results    ${student_results}    ${teacher_results}
+        FOR    ${index}    ${status}    IN ENUMERATE    @{comparison_statuses}
+            Add Comparison Result    
+            ...    ${results}    
+            ...    ${status}    
+            ...    ${student_results}[${index}]    
+            ...    ${teacher_results}[${index}]    
+            ...    ${index + 1}
+        END
+    ELSE
+        ${comparison_status}    Compare Single Result    ${student_results}    ${teacher_results}
+        Add Comparison Result    
+        ...    ${results}    
+        ...    ${comparison_status}    
+        ...    ${student_results}    
+        ...    ${teacher_results}
+    END
     
     # Save results
     Save Results    ${results}

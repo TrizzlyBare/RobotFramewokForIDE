@@ -1,241 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-02-02T16:11:51.477605" rpa="false" schemaversion="5">
-<suite id="s1" name="Case2" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/Case2.robot">
-<test id="s1-t1" name="Compare Student Code With Test Cases" line="294">
+<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-02-02T17:00:12.019205" rpa="false" schemaversion="5">
+<suite id="s1" name="Case1" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/Case1.robot">
+<test id="s1-t1" name="Compare Student And Teacher Code" line="129">
 <kw name="Setup Test Environment" type="SETUP">
 <kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.544860" level="INFO" html="true">Created directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;'.</msg>
+<msg time="2025-02-02T17:00:12.087649" level="INFO" html="true">Created directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;'.</msg>
 <arg>${TEMP_DIR}</arg>
 <doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.544614" elapsed="0.000280"/>
+<status status="PASS" start="2025-02-02T17:00:12.087422" elapsed="0.000258"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-02-02T16:11:51.545110" level="INFO">${student} = {'id': 4, 'title': 'L2Q2 Unicode', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a program to read one character from keyboard and the program then prints out its Unicode in hexad...</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.087925" level="INFO">${student} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
 <var>${student}</var>
-<arg>${STUDENT_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.544959" elapsed="0.000162"/>
+<arg>json.load(open('${STUDENT_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.087741" elapsed="0.000195"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-02-02T16:11:51.545294" level="INFO">${teacher} = {'id': 4, 'title': 'L2Q2 Unicode', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a program to read one character from keyboard and the program then prints out its Unicode in hexad...</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.088122" level="INFO">${teacher} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
 <var>${teacher}</var>
-<arg>${TEACHER_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.545173" elapsed="0.000132"/>
+<arg>json.load(open('${TEACHER_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.087991" elapsed="0.000141"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.545407" level="INFO">@{results} = [ ]</msg>
+<msg time="2025-02-02T17:00:12.088227" level="INFO">@{results} = [ ]</msg>
 <var>@{results}</var>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.545353" elapsed="0.000063"/>
-</kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.545552" level="INFO">${current_time} = 2025-02-02 16:11:51</msg>
-<var>${current_time}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.545461" elapsed="0.000100"/>
-</kw>
-<kw name="Create File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.545981" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>Test execution started at ${current_time}\n</arg>
-<doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.545604" elapsed="0.000411"/>
+<status status="PASS" start="2025-02-02T17:00:12.088178" elapsed="0.000057"/>
 </kw>
 <return>
 <value>${student}</value>
 <value>${teacher}</value>
 <value>${results}</value>
-<status status="PASS" start="2025-02-02T16:11:51.546046" elapsed="0.000033"/>
+<status status="PASS" start="2025-02-02T17:00:12.088255" elapsed="0.000022"/>
 </return>
-<status status="PASS" start="2025-02-02T16:11:51.544259" elapsed="0.001908"/>
+<status status="PASS" start="2025-02-02T17:00:12.087101" elapsed="0.001238"/>
 </kw>
 <kw name="Setup Test Environment">
 <kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.546699" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;' already exists.</msg>
+<msg time="2025-02-02T17:00:12.088601" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;' already exists.</msg>
 <arg>${TEMP_DIR}</arg>
 <doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.546541" elapsed="0.000182"/>
+<status status="PASS" start="2025-02-02T17:00:12.088531" elapsed="0.000091"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-02-02T16:11:51.546927" level="INFO">${student} = {'id': 4, 'title': 'L2Q2 Unicode', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a program to read one character from keyboard and the program then prints out its Unicode in hexad...</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.088808" level="INFO">${student} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
 <var>${student}</var>
-<arg>${STUDENT_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.546785" elapsed="0.000153"/>
+<arg>json.load(open('${STUDENT_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.088675" elapsed="0.000143"/>
 </kw>
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-02-02T16:11:51.547092" level="INFO">${teacher} = {'id': 4, 'title': 'L2Q2 Unicode', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a program to read one character from keyboard and the program then prints out its Unicode in hexad...</msg>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.088986" level="INFO">${teacher} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
 <var>${teacher}</var>
-<arg>${TEACHER_FILE}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.546986" elapsed="0.000115"/>
+<arg>json.load(open('${TEACHER_FILE}'))</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.088865" elapsed="0.000130"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.547193" level="INFO">@{results} = [ ]</msg>
+<msg time="2025-02-02T17:00:12.089090" level="INFO">@{results} = [ ]</msg>
 <var>@{results}</var>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.547144" elapsed="0.000057"/>
-</kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.547326" level="INFO">${current_time} = 2025-02-02 16:11:51</msg>
-<var>${current_time}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.547241" elapsed="0.000094"/>
-</kw>
-<kw name="Create File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.547583" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>Test execution started at ${current_time}\n</arg>
-<doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.547375" elapsed="0.000227"/>
+<status status="PASS" start="2025-02-02T17:00:12.089041" elapsed="0.000058"/>
 </kw>
 <return>
 <value>${student}</value>
 <value>${teacher}</value>
 <value>${results}</value>
-<status status="PASS" start="2025-02-02T16:11:51.547622" elapsed="0.000017"/>
+<status status="PASS" start="2025-02-02T17:00:12.089117" elapsed="0.000012"/>
 </return>
-<msg time="2025-02-02T16:11:51.547719" level="INFO">${student} = {'id': 4, 'title': 'L2Q2 Unicode', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a program to read one character from keyboard and the program then prints out its Unicode in hexad...</msg>
-<msg time="2025-02-02T16:11:51.547737" level="INFO">${teacher} = {'id': 4, 'title': 'L2Q2 Unicode', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a program to read one character from keyboard and the program then prints out its Unicode in hexad...</msg>
-<msg time="2025-02-02T16:11:51.547749" level="INFO">${results} = []</msg>
+<msg time="2025-02-02T17:00:12.089201" level="INFO">${student} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
+<msg time="2025-02-02T17:00:12.089220" level="INFO">${teacher} = {'id': 2, 'title': 'Square Example', 'language': 'python', 'tag_list': ['other'], 'description': 'Write a Python function to calculate square of input', 'example': 'def factorial(n):\r\n    pass\r\n\r...</msg>
+<msg time="2025-02-02T17:00:12.089233" level="INFO">${results} = []</msg>
 <var>${student}</var>
 <var>${teacher}</var>
 <var>${results}</var>
-<status status="PASS" start="2025-02-02T16:11:51.546382" elapsed="0.001374"/>
+<status status="PASS" start="2025-02-02T17:00:12.088436" elapsed="0.000804"/>
 </kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.548002" level="INFO">${timestamp} = 2025-02-02 16:11:51.547973</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.547931" elapsed="0.000079"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.548269" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.548050" elapsed="0.000248"/>
-</kw>
-<arg>Starting test execution</arg>
-<status status="PASS" start="2025-02-02T16:11:51.547830" elapsed="0.000492"/>
-</kw>
+<kw name="Execute Code">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.548442" level="INFO">${test_input} = b</msg>
-<var>${test_input}</var>
-<arg>${teacher}[testcase]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.548382" elapsed="0.000067"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.548600" level="INFO">${expected_output} = The Unicode is: u0062</msg>
-<var>${expected_output}</var>
-<arg>${teacher}[testresult]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.548527" elapsed="0.000088"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.548791" level="INFO">${code} = a = str(input('Enter A: '))
-print('The Unicode is: u%04x' %ord(a))</msg>
-<var>${code}</var>
-<arg>${student}[defaultCode]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.548702" elapsed="0.000098"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.549099" level="INFO">${timestamp} = 2025-02-02 16:11:51.549067</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.549020" elapsed="0.000089"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.549309" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.549156" elapsed="0.000174"/>
-</kw>
-<arg>Test input: ${test_input}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.548900" elapsed="0.000455"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.549593" level="INFO">${timestamp} = 2025-02-02 16:11:51.549566</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.549524" elapsed="0.000077"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.549760" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.549640" elapsed="0.000139"/>
-</kw>
-<arg>Expected output: ${expected_output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.549415" elapsed="0.000386"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.550064" level="INFO">${timestamp} = 2025-02-02 16:11:51.550037</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.549991" elapsed="0.000083"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.550243" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.550115" elapsed="0.000148"/>
-</kw>
-<arg>Student code: ${code}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.549875" elapsed="0.000411"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Not Be Equal" owner="BuiltIn">
-<arg>${code}</arg>
-<arg>None</arg>
-<doc>Fails if the given objects are equal.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.550419" elapsed="0.000064"/>
-</kw>
-<msg time="2025-02-02T16:11:51.550512" level="INFO">${use_code} = True</msg>
-<var>${use_code}</var>
-<arg>Should Not Be Equal</arg>
-<arg>${code}</arg>
-<arg>None</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.550355" elapsed="0.000165"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${use_code}">
-<kw name="Handle Invalid Code">
-<arg>${results}</arg>
-<arg>${expected_output}</arg>
-<arg>${student}[language]</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.550651" elapsed="0.000008"/>
-</kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.550571" elapsed="0.000102"/>
-</branch>
-<branch type="ELSE">
-<kw name="Execute Code With Input">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.551072" level="INFO">${filename} = test</msg>
+<msg time="2025-02-02T17:00:12.089633" level="INFO">${filename} = test</msg>
 <var>${filename}</var>
 <arg>test</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.551028" elapsed="0.000052"/>
+<status status="PASS" start="2025-02-02T17:00:12.089589" elapsed="0.000052"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.551192" level="INFO">${ext} = .py</msg>
+<msg time="2025-02-02T17:00:12.089751" level="INFO">${ext} = .py</msg>
 <var>${ext}</var>
 <arg>'${language}' == 'python'</arg>
 <arg>.py</arg>
@@ -246,1106 +102,899 @@ print('The Unicode is: u%04x' %ord(a))</msg>
 <arg>'${language}' == 'javascript'</arg>
 <arg>.js</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.551125" elapsed="0.000074"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.551427" level="INFO">${timestamp} = 2025-02-02 16:11:51.551401</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.551358" elapsed="0.000077"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.551591" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.551473" elapsed="0.000137"/>
-</kw>
-<arg>Executing code in ${language}:\n${code}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.551247" elapsed="0.000384"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.551906" level="INFO">${timestamp} = 2025-02-02 16:11:51.551877</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.551767" elapsed="0.000147"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.552068" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.551955" elapsed="0.000132"/>
-</kw>
-<arg>Input values: ${input}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.551670" elapsed="0.000440"/>
+<status status="PASS" start="2025-02-02T17:00:12.089685" elapsed="0.000074"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.552364" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test.py"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test.py&lt;/a&gt;'.</msg>
+<msg time="2025-02-02T17:00:12.090023" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test.py"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test.py&lt;/a&gt;'.</msg>
 <arg>${TEMP_DIR}/${filename}${ext}</arg>
 <arg>${code}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.552167" elapsed="0.000216"/>
-</kw>
-<kw name="Prepare Input File">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Not Be Equal" owner="BuiltIn">
-<arg>${input}</arg>
-<arg>None</arg>
-<doc>Fails if the given objects are equal.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.552621" elapsed="0.000058"/>
-</kw>
-<msg time="2025-02-02T16:11:51.552709" level="INFO">${input_exists} = True</msg>
-<var>${input_exists}</var>
-<arg>Should Not Be Equal</arg>
-<arg>${input}</arg>
-<arg>None</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.552564" elapsed="0.000152"/>
-</kw>
-<if>
-<branch type="IF" condition="${input_exists}">
-<kw name="Replace String" owner="String">
-<msg time="2025-02-02T16:11:51.552860" level="INFO">${normalized_input} = b</msg>
-<var>${normalized_input}</var>
-<arg>${input}</arg>
-<arg>\r\n</arg>
-<arg>\n</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.552798" elapsed="0.000070"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should End With" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.553049" level="FAIL">'b' does not end with '
-'</msg>
-<arg>${normalized_input}</arg>
-<arg>\n</arg>
-<doc>Fails if the string ``str1`` does not end with the string ``str2``.</doc>
-<status status="FAIL" start="2025-02-02T16:11:51.552966" elapsed="0.000149">'b' does not end with '
-'</status>
-</kw>
-<msg time="2025-02-02T16:11:51.553151" level="INFO">${has_newline} = False</msg>
-<var>${has_newline}</var>
-<arg>Should End With</arg>
-<arg>${normalized_input}</arg>
-<arg>\n</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.552913" elapsed="0.000246"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${has_newline}">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.553301" level="INFO">${normalized_input} = b
-</msg>
-<var>${normalized_input}</var>
-<arg>${normalized_input}\n</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.553246" elapsed="0.000063"/>
-</kw>
-<status status="PASS" start="2025-02-02T16:11:51.553185" elapsed="0.000137"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.553178" elapsed="0.000154"/>
-</if>
-<kw name="Create File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.553537" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/input.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/input.txt&lt;/a&gt;'.</msg>
-<arg>${TEMP_DIR}/input.txt</arg>
-<arg>${normalized_input}</arg>
-<arg>encoding=UTF-8</arg>
-<doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.553367" elapsed="0.000189"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.553763" level="INFO">${timestamp} = 2025-02-02 16:11:51.553738</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.553700" elapsed="0.000072"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.553920" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.553810" elapsed="0.000128"/>
-</kw>
-<arg>Created input file with content: ${normalized_input}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.553601" elapsed="0.000360"/>
-</kw>
-<return>
-<value>${True}</value>
-<value>${TEMP_DIR}/input.txt</value>
-<status status="PASS" start="2025-02-02T16:11:51.553976" elapsed="0.000014"/>
-</return>
-<status status="PASS" start="2025-02-02T16:11:51.552745" elapsed="0.001261"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.552737" elapsed="0.001279"/>
-</if>
-<return>
-<value>${False}</value>
-<value>${EMPTY}</value>
-<status status="NOT RUN" start="2025-02-02T16:11:51.554031" elapsed="0.000004"/>
-</return>
-<msg time="2025-02-02T16:11:51.554095" level="INFO">${has_input} = True</msg>
-<msg time="2025-02-02T16:11:51.554108" level="INFO">${input_file} = ./temp/input.txt</msg>
-<var>${has_input}</var>
-<var>${input_file}</var>
-<arg>${input}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.552466" elapsed="0.001649"/>
+<status status="PASS" start="2025-02-02T17:00:12.089802" elapsed="0.000244"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.554194" level="INFO">${status} = success</msg>
+<msg time="2025-02-02T17:00:12.090129" level="INFO">${status} = success</msg>
 <var>${status}</var>
 <arg>success</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.554156" elapsed="0.000045"/>
+<status status="PASS" start="2025-02-02T17:00:12.090088" elapsed="0.000049"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.554577" level="INFO">${output} = </msg>
+<msg time="2025-02-02T17:00:12.090464" level="INFO">${output} = </msg>
 <var>${output}</var>
 <arg>${EMPTY}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.554239" elapsed="0.000347"/>
+<status status="PASS" start="2025-02-02T17:00:12.090174" elapsed="0.000299"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.090694" level="INFO">${error_msg} = </msg>
+<var>${error_msg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.090511" elapsed="0.000191"/>
 </kw>
 <try>
 <branch type="TRY">
 <if>
-<branch type="IF" condition="'${language}' == 'python'">
-<kw name="Execute Python Code">
-<if>
-<branch type="IF" condition="${has_input}">
+<branch type="IF" condition="$language == &quot;python&quot;">
 <kw name="Run Process" owner="Process">
-<msg time="2025-02-02T16:11:51.555390" level="INFO">Starting process:
+<msg time="2025-02-02T17:00:12.090957" level="INFO">Starting process:
 python ./temp/test.py</msg>
-<msg time="2025-02-02T16:11:51.557833" level="INFO">Waiting for process to complete.</msg>
-<msg time="2025-02-02T16:11:51.574062" level="INFO">Process completed.</msg>
-<msg time="2025-02-02T16:11:51.574250" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2025-02-02T17:00:12.093657" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-02-02T17:00:12.108599" level="INFO">Process completed.</msg>
+<msg time="2025-02-02T17:00:12.108815" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>${PYTHON_CMD}</arg>
-<arg>${filename}</arg>
-<arg>stdin=${input_file}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
 <arg>shell=True</arg>
-<arg>stderr=STDOUT</arg>
-<arg>stdout=STDOUT</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.555014" elapsed="0.019254"/>
+<status status="PASS" start="2025-02-02T17:00:12.090851" elapsed="0.018039"/>
 </kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.575353" level="INFO">${timestamp} = 2025-02-02 16:11:51.575309</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.575226" elapsed="0.000140"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.109552" level="INFO">${output} = 120
+6</msg>
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.109120" elapsed="0.000442"/>
 </kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.575614" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.575415" elapsed="0.000220"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.109838" level="INFO">${error_msg} = </msg>
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.109616" elapsed="0.000231"/>
 </kw>
-<arg>Python execution with input - RC: ${result.rc}, Output:\n${result.stdout}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.574527" elapsed="0.001133"/>
-</kw>
-<status status="PASS" start="2025-02-02T16:11:51.554956" elapsed="0.020749"/>
+<status status="PASS" start="2025-02-02T17:00:12.090766" elapsed="0.019101"/>
 </branch>
-<branch type="ELSE">
+<branch type="ELSE IF" condition="$language == &quot;javascript&quot;">
 <kw name="Run Process" owner="Process">
 <var>${result}</var>
-<arg>${PYTHON_CMD}</arg>
-<arg>${filename}</arg>
+<arg>${JAVASCRIPT_CMD}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
 <arg>shell=True</arg>
-<arg>stderr=STDOUT</arg>
-<arg>stdout=STDOUT</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.575784" elapsed="0.000007"/>
-</kw>
-<kw name="Log Debug Info">
-<arg>Python execution without input - RC: ${result.rc}, Output:\n${result.stdout}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.575843" elapsed="0.000008"/>
-</kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.575728" elapsed="0.000133"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.554948" elapsed="0.020922"/>
-</if>
-<return>
-<value>${result}</value>
-<status status="PASS" start="2025-02-02T16:11:51.575899" elapsed="0.000039"/>
-</return>
-<msg time="2025-02-02T16:11:51.575994" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}${ext}</arg>
-<arg>${has_input}</arg>
-<arg>${input_file}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.554816" elapsed="0.021187"/>
-</kw>
-<if>
-<branch type="IF" condition="${result.rc} != 0">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>runtime_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.576325" elapsed="0.000008"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.109964" elapsed="0.000007"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${output}</var>
 <arg>${result.stdout}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.576374" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110011" elapsed="0.000006"/>
 </kw>
-<kw name="Log Debug Info">
-<arg>Python runtime error: ${result.stdout}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.576425" elapsed="0.000007"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110050" elapsed="0.000006"/>
 </kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.576048" elapsed="0.000394"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.109895" elapsed="0.000173"/>
 </branch>
-<branch type="ELSE">
-<kw name="Get Final Output">
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.577160" level="INFO">${timestamp} = 2025-02-02 16:11:51.577127</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.577079" elapsed="0.000090"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.577358" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.577210" elapsed="0.000167"/>
-</kw>
-<arg>Processing raw output: ${output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.576981" elapsed="0.000419"/>
-</kw>
-<kw name="Split To Lines" owner="String">
-<msg time="2025-02-02T16:11:51.577487" level="INFO">1 lines returned</msg>
-<msg time="2025-02-02T16:11:51.577511" level="INFO">${lines} = ['Enter A: The Unicode is: u0062']</msg>
-<var>${lines}</var>
-<arg>${output}</arg>
-<doc>Splits the given string to lines.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.577441" elapsed="0.000078"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.577747" level="INFO">${final_output} = </msg>
-<var>${final_output}</var>
-<arg>${EMPTY}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.577559" elapsed="0.000197"/>
-</kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.577853" level="INFO">Length is 1.</msg>
-<msg time="2025-02-02T16:11:51.577878" level="INFO">${length} = 1</msg>
-<var>${length}</var>
-<arg>${lines}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.577803" elapsed="0.000082"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-02-02T16:11:51.578301" level="INFO">${line} = Enter A: The Unicode is: u0062</msg>
-<var>${line}</var>
-<arg>${lines}</arg>
-<arg>${index}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.578228" elapsed="0.000081"/>
-</kw>
-<kw name="Strip String" owner="String">
-<msg time="2025-02-02T16:11:51.578409" level="INFO">${stripped} = Enter A: The Unicode is: u0062</msg>
-<var>${stripped}</var>
-<arg>${line}</arg>
-<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.578350" elapsed="0.000067"/>
-</kw>
-<kw name="Continue For Loop If" owner="BuiltIn">
-<arg>'${stripped}' == ''</arg>
-<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.578459" elapsed="0.000095"/>
-</kw>
-<kw name="Replace String Using Regexp" owner="String">
-<msg time="2025-02-02T16:11:51.579014" level="INFO">${cleaned} = The Unicode is: u0062</msg>
-<var>${cleaned}</var>
-<arg>${stripped}</arg>
-<arg>(?i)Enter [A-Za-z]+:\\s*</arg>
-<arg>${EMPTY}</arg>
-<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.578596" elapsed="0.000427"/>
-</kw>
-<kw name="Replace String Using Regexp" owner="String">
-<msg time="2025-02-02T16:11:51.579413" level="INFO">${cleaned} = The Unicode is: u0062</msg>
-<var>${cleaned}</var>
-<arg>${cleaned}</arg>
-<arg>(?i)Input [A-Za-z]+:\\s*</arg>
-<arg>${EMPTY}</arg>
-<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.579067" elapsed="0.000355"/>
-</kw>
-<kw name="Replace String Using Regexp" owner="String">
-<msg time="2025-02-02T16:11:51.579922" level="INFO">${cleaned} = The Unicode is: u0062</msg>
-<var>${cleaned}</var>
-<arg>${cleaned}</arg>
-<arg>(?i)Please enter [A-Za-z]+:\\s*</arg>
-<arg>${EMPTY}</arg>
-<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.579498" elapsed="0.000437"/>
-</kw>
-<kw name="Strip String" owner="String">
-<msg time="2025-02-02T16:11:51.580057" level="INFO">${cleaned} = The Unicode is: u0062</msg>
-<var>${cleaned}</var>
-<arg>${cleaned}</arg>
-<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.579990" elapsed="0.000076"/>
-</kw>
-<kw name="Continue For Loop If" owner="BuiltIn">
-<arg>'${cleaned}' == ''</arg>
-<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.580110" elapsed="0.000198"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.580432" level="INFO">${final_output} = The Unicode is: u0062</msg>
-<var>${final_output}</var>
-<arg>${cleaned}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.580352" elapsed="0.000093"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.580560" level="INFO">Exiting for loop altogether.</msg>
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.580525" elapsed="0.000073"/>
-</kw>
-<var name="${index}">0</var>
-<status status="PASS" start="2025-02-02T16:11:51.578185" elapsed="0.002430"/>
-</iter>
-<var>${index}</var>
-<value>${length-1}</value>
-<value>-1</value>
-<value>-1</value>
-<status status="PASS" start="2025-02-02T16:11:51.577923" elapsed="0.002714"/>
-</for>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.580918" level="INFO">${timestamp} = 2025-02-02 16:11:51.580876</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.580815" elapsed="0.000151"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.581202" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.581017" elapsed="0.000206"/>
-</kw>
-<arg>Final raw output: ${final_output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.580699" elapsed="0.000549"/>
-</kw>
-<return>
-<value>${final_output}</value>
-<status status="PASS" start="2025-02-02T16:11:51.581266" elapsed="0.000017"/>
-</return>
-<msg time="2025-02-02T16:11:51.581330" level="INFO">${raw_output} = The Unicode is: u0062</msg>
-<var>${raw_output}</var>
-<arg>${result.stdout}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.576711" elapsed="0.004627"/>
-</kw>
-<kw name="Normalize Output">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.581613" level="INFO">${normalized} = The Unicode is: u0062</msg>
-<var>${normalized}</var>
-<arg>${output}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.581557" elapsed="0.000065"/>
+<branch type="ELSE IF" condition="$language == &quot;cpp&quot;">
+<kw name="Run Process" owner="Process">
+<var>${compile_result}</var>
+<arg>${CPP_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110114" elapsed="0.000006"/>
 </kw>
 <if>
-<branch type="IF" condition="'${normalized}' == ''">
-<return>
-<value>${normalized}</value>
-<status status="NOT RUN" start="2025-02-02T16:11:51.581695" elapsed="0.000005"/>
-</return>
-<status status="NOT RUN" start="2025-02-02T16:11:51.581651" elapsed="0.000060"/>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110193" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110231" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110268" elapsed="0.000004"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110160" elapsed="0.000123"/>
 </branch>
-<status status="PASS" start="2025-02-02T16:11:51.581643" elapsed="0.000076"/>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110321" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110356" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110291" elapsed="0.000080"/>
+</branch>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110150" elapsed="0.000229"/>
 </if>
-<try>
-<branch type="TRY">
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.581902" level="FAIL">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</msg>
-<var>${as_number}</var>
-<arg>${normalized}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="FAIL" start="2025-02-02T16:11:51.581783" elapsed="0.000219">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</status>
-</kw>
-<kw name="Convert To String" owner="BuiltIn">
-<var>${normalized}</var>
-<arg>${as_number}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.582052" elapsed="0.000007"/>
-</kw>
-<status status="FAIL" start="2025-02-02T16:11:51.581746" elapsed="0.000345">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</status>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110078" elapsed="0.000310"/>
 </branch>
-<branch type="EXCEPT">
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.582425" level="INFO">${timestamp} = 2025-02-02 16:11:51.582398</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.582356" elapsed="0.000078"/>
+<branch type="ELSE IF" condition="$language == &quot;rust&quot;">
+<kw name="Run Process" owner="Process">
+<var>${compile_result}</var>
+<arg>${RUST_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110427" elapsed="0.000005"/>
 </kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.582606" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.582473" elapsed="0.000152"/>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110493" elapsed="0.000005"/>
 </kw>
-<arg>Output is not numeric, keeping as string: ${normalized}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.582155" elapsed="0.000492"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110530" elapsed="0.000005"/>
 </kw>
-<status status="PASS" start="2025-02-02T16:11:51.582115" elapsed="0.000542"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110565" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110460" elapsed="0.000120"/>
 </branch>
-<status status="PASS" start="2025-02-02T16:11:51.581733" elapsed="0.000940"/>
-</try>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110624" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110662" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110590" elapsed="0.000087"/>
+</branch>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110453" elapsed="0.000232"/>
+</if>
+<status status="NOT RUN" start="2025-02-02T17:00:12.110396" elapsed="0.000297"/>
+</branch>
+<status status="PASS" start="2025-02-02T17:00:12.090759" elapsed="0.019943"/>
+</if>
+<kw name="Normalize Output">
 <kw name="Strip String" owner="String">
-<msg time="2025-02-02T16:11:51.582771" level="INFO">${normalized} = The Unicode is: u0062</msg>
+<msg time="2025-02-02T17:00:12.111047" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${output}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.110977" elapsed="0.000080"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.111163" level="INFO">${normalized} = 120
+6</msg>
 <var>${normalized}</var>
 <arg>${normalized}</arg>
-<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.582714" elapsed="0.000065"/>
+<arg>\r\n</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.111094" elapsed="0.000079"/>
 </kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.582977" level="INFO">${timestamp} = 2025-02-02 16:11:51.582954</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.582915" elapsed="0.000070"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.583145" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.583024" elapsed="0.000149"/>
-</kw>
-<arg>Normalized output: ${normalized}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.582822" elapsed="0.000373"/>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.111267" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${normalized}</arg>
+<arg>\r</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.111211" elapsed="0.000064"/>
 </kw>
 <return>
 <value>${normalized}</value>
-<status status="PASS" start="2025-02-02T16:11:51.583210" elapsed="0.000013"/>
+<status status="PASS" start="2025-02-02T17:00:12.111294" elapsed="0.000034"/>
 </return>
-<msg time="2025-02-02T16:11:51.583267" level="INFO">${output} = The Unicode is: u0062</msg>
+<msg time="2025-02-02T17:00:12.111376" level="INFO">${output} = 120
+6</msg>
 <var>${output}</var>
-<arg>${raw_output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.581455" elapsed="0.001819"/>
+<arg>${output}</arg>
+<status status="PASS" start="2025-02-02T17:00:12.110822" elapsed="0.000561"/>
 </kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.583470" level="INFO">${timestamp} = 2025-02-02 16:11:51.583447</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.583409" elapsed="0.000070"/>
+<kw name="Validate Code Output">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.111634" level="INFO">${is_valid} = True</msg>
+<var>${is_valid}</var>
+<arg>${True}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.111580" elapsed="0.000062"/>
 </kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.583631" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.583518" elapsed="0.000135"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.111917" level="INFO">${message} = </msg>
+<var>${message}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.111710" elapsed="0.000216"/>
 </kw>
-<arg>Python final output: ${output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.583315" elapsed="0.000359"/>
-</kw>
-<status status="PASS" start="2025-02-02T16:11:51.576452" elapsed="0.007232"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.576038" elapsed="0.007656"/>
-</if>
-<status status="PASS" start="2025-02-02T16:11:51.554658" elapsed="0.029047"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'cpp'">
-<kw name="Execute CPP Code">
-<var>${exec_status}</var>
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}${ext}</arg>
-<arg>${has_input}</arg>
-<arg>${input_file}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.583802" elapsed="0.000008"/>
+<kw name="Strip String" owner="String">
+<msg time="2025-02-02T17:00:12.112028" level="INFO">${output_stripped} = 120
+6</msg>
+<var>${output_stripped}</var>
+<arg>${output}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.111967" elapsed="0.000071"/>
 </kw>
 <if>
-<branch type="IF" condition="'${exec_status}' == 'success'">
-<kw name="Get Final Output">
-<var>${raw_output}</var>
-<arg>${result.stdout}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.583917" elapsed="0.000007"/>
-</kw>
-<kw name="Normalize Output">
-<var>${output}</var>
-<arg>${raw_output}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584000" elapsed="0.000006"/>
-</kw>
-<kw name="Log Debug Info">
-<arg>C++ final output: ${output}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584069" elapsed="0.000005"/>
-</kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.583840" elapsed="0.000245"/>
-</branch>
-<branch type="ELSE">
+<branch type="IF" condition="$status == &quot;success&quot; and $output_stripped == &quot;&quot;">
 <kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>${exec_status}</arg>
+<var>${is_valid}</var>
+<arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584130" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112223" elapsed="0.000007"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout}</arg>
+<var>${message}</var>
+<arg>No output generated from code execution</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584171" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112266" elapsed="0.000006"/>
 </kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584094" elapsed="0.000094"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112067" elapsed="0.000218"/>
 </branch>
-<status status="NOT RUN" start="2025-02-02T16:11:51.583832" elapsed="0.000363"/>
+<status status="PASS" start="2025-02-02T17:00:12.112059" elapsed="0.000236"/>
 </if>
-<status status="NOT RUN" start="2025-02-02T16:11:51.583713" elapsed="0.000492"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'rust'">
-<kw name="Execute Rust Code">
-<var>${exec_status}</var>
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}${ext}</arg>
-<arg>${has_input}</arg>
-<arg>${input_file}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584288" elapsed="0.000007"/>
+<return>
+<value>${is_valid}</value>
+<value>${message}</value>
+<status status="PASS" start="2025-02-02T17:00:12.112311" elapsed="0.000017"/>
+</return>
+<msg time="2025-02-02T17:00:12.112403" level="INFO">${is_valid} = True</msg>
+<msg time="2025-02-02T17:00:12.112418" level="INFO">${validation_message} = </msg>
+<var>${is_valid}</var>
+<var>${validation_message}</var>
+<arg>${output}</arg>
+<arg>${status}</arg>
+<status status="PASS" start="2025-02-02T17:00:12.111467" elapsed="0.000958"/>
 </kw>
 <if>
-<branch type="IF" condition="'${exec_status}' == 'success'">
-<kw name="Get Final Output">
-<var>${raw_output}</var>
-<arg>${result.stdout}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584390" elapsed="0.000007"/>
-</kw>
-<kw name="Normalize Output">
-<var>${output}</var>
-<arg>${raw_output}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584470" elapsed="0.000007"/>
-</kw>
-<kw name="Log Debug Info">
-<arg>Rust final output: ${output}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584511" elapsed="0.000006"/>
-</kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584319" elapsed="0.000207"/>
-</branch>
-<branch type="ELSE">
+<branch type="IF" condition="not ${is_valid}">
 <kw name="Set Variable" owner="BuiltIn">
 <var>${status}</var>
-<arg>${exec_status}</arg>
+<arg>invalid_output</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584568" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112523" elapsed="0.000006"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout}</arg>
+<var>${error_msg}</var>
+<arg>${validation_message}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584609" elapsed="0.000005"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112565" elapsed="0.000005"/>
 </kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584534" elapsed="0.000091"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112453" elapsed="0.000129"/>
 </branch>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584314" elapsed="0.000318"/>
+<status status="PASS" start="2025-02-02T17:00:12.112447" elapsed="0.000144"/>
 </if>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584213" elapsed="0.000428"/>
-</branch>
-<branch type="ELSE IF" condition="'${language}' == 'javascript'">
-<kw name="Execute JavaScript Code">
-<var>${result}</var>
-<arg>${TEMP_DIR}/${filename}${ext}</arg>
-<arg>${has_input}</arg>
-<arg>${input_file}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584704" elapsed="0.000007"/>
-</kw>
-<if>
-<branch type="IF" condition="${result.rc} != 0">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${status}</var>
-<arg>runtime_error</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584765" elapsed="0.000006"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
-<arg>${result.stdout}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584807" elapsed="0.000005"/>
-</kw>
-<kw name="Log Debug Info">
-<arg>JavaScript runtime error: ${result.stdout}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584847" elapsed="0.000006"/>
-</kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584733" elapsed="0.000130"/>
-</branch>
-<branch type="ELSE">
-<kw name="Get Final Output">
-<var>${raw_output}</var>
-<arg>${result.stdout}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584938" elapsed="0.000006"/>
-</kw>
-<kw name="Normalize Output">
-<var>${output}</var>
-<arg>${raw_output}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.585016" elapsed="0.000005"/>
-</kw>
-<kw name="Log Debug Info">
-<arg>JavaScript final output: ${output}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.585053" elapsed="0.000006"/>
-</kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584871" elapsed="0.000197"/>
-</branch>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584728" elapsed="0.000347"/>
-</if>
-<status status="NOT RUN" start="2025-02-02T16:11:51.584648" elapsed="0.000436"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.554652" elapsed="0.030440"/>
-</if>
-<status status="PASS" start="2025-02-02T16:11:51.554634" elapsed="0.030466"/>
+<status status="PASS" start="2025-02-02T17:00:12.090742" elapsed="0.021858"/>
 </branch>
 <branch type="EXCEPT" assign="${error}">
 <kw name="Set Variable" owner="BuiltIn">
 <var>${status}</var>
 <arg>runtime_error</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.585150" elapsed="0.000005"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112662" elapsed="0.000006"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<var>${output}</var>
+<var>${error_msg}</var>
 <arg>${error}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.585189" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112701" elapsed="0.000005"/>
 </kw>
-<kw name="Log Debug Info">
-<arg>Exception occurred: ${error}</arg>
-<status status="NOT RUN" start="2025-02-02T16:11:51.585851" elapsed="0.000009"/>
-</kw>
-<status status="NOT RUN" start="2025-02-02T16:11:51.585117" elapsed="0.000754"/>
+<status status="NOT RUN" start="2025-02-02T17:00:12.112627" elapsed="0.000089"/>
 </branch>
-<status status="PASS" start="2025-02-02T16:11:51.554612" elapsed="0.031272"/>
+<status status="PASS" start="2025-02-02T17:00:12.090725" elapsed="0.022007"/>
 </try>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.586091" level="INFO">${timestamp} = 2025-02-02 16:11:51.586065</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.586025" elapsed="0.000075"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.586270" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.586138" elapsed="0.000151"/>
-</kw>
-<arg>Final execution status: ${status}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.585923" elapsed="0.000388"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.586502" level="INFO">${timestamp} = 2025-02-02 16:11:51.586479</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.586442" elapsed="0.000069"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.586667" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.586548" elapsed="0.000137"/>
-</kw>
-<arg>Final processed output: ${output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.586349" elapsed="0.000357"/>
-</kw>
 <return>
 <value>${status}</value>
 <value>${output}</value>
-<status status="PASS" start="2025-02-02T16:11:51.586719" elapsed="0.000012"/>
+<value>${error_msg}</value>
+<status status="PASS" start="2025-02-02T17:00:12.112750" elapsed="0.000012"/>
 </return>
-<msg time="2025-02-02T16:11:51.586792" level="INFO">${student_status} = success</msg>
-<msg time="2025-02-02T16:11:51.586823" level="INFO">${student_output} = The Unicode is: u0062</msg>
+<msg time="2025-02-02T17:00:12.112834" level="INFO">${student_status} = success</msg>
+<msg time="2025-02-02T17:00:12.112848" level="INFO">${student_output} = 120
+6</msg>
+<msg time="2025-02-02T17:00:12.112860" level="INFO">${student_error} = </msg>
 <var>${student_status}</var>
 <var>${student_output}</var>
-<arg>${code}</arg>
+<var>${student_error}</var>
+<arg>${student}[defaultCode]</arg>
 <arg>${student}[language]</arg>
-<arg>${test_input}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.550898" elapsed="0.035933"/>
+<status status="PASS" start="2025-02-02T17:00:12.089464" elapsed="0.023402"/>
 </kw>
-<kw name="Compare Outputs">
-<kw name="Normalize Output">
+<kw name="Execute Code">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.587180" level="INFO">${normalized} = The Unicode is: u0062</msg>
-<var>${normalized}</var>
-<arg>${output}</arg>
+<msg time="2025-02-02T17:00:12.113372" level="INFO">${filename} = test</msg>
+<var>${filename}</var>
+<arg>test</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.587130" elapsed="0.000058"/>
-</kw>
-<if>
-<branch type="IF" condition="'${normalized}' == ''">
-<return>
-<value>${normalized}</value>
-<status status="NOT RUN" start="2025-02-02T16:11:51.587251" elapsed="0.000004"/>
-</return>
-<status status="NOT RUN" start="2025-02-02T16:11:51.587214" elapsed="0.000051"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.587207" elapsed="0.000066"/>
-</if>
-<try>
-<branch type="TRY">
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.587424" level="FAIL">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</msg>
-<var>${as_number}</var>
-<arg>${normalized}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="FAIL" start="2025-02-02T16:11:51.587334" elapsed="0.000155">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</status>
-</kw>
-<kw name="Convert To String" owner="BuiltIn">
-<var>${normalized}</var>
-<arg>${as_number}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.587537" elapsed="0.000007"/>
-</kw>
-<status status="FAIL" start="2025-02-02T16:11:51.587298" elapsed="0.000269">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</status>
-</branch>
-<branch type="EXCEPT">
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.587780" level="INFO">${timestamp} = 2025-02-02 16:11:51.587756</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.587717" elapsed="0.000071"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.587943" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.587826" elapsed="0.000138"/>
-</kw>
-<arg>Output is not numeric, keeping as string: ${normalized}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.587621" elapsed="0.000364"/>
-</kw>
-<status status="PASS" start="2025-02-02T16:11:51.587585" elapsed="0.000411"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.587286" elapsed="0.000722"/>
-</try>
-<kw name="Strip String" owner="String">
-<msg time="2025-02-02T16:11:51.588099" level="INFO">${normalized} = The Unicode is: u0062</msg>
-<var>${normalized}</var>
-<arg>${normalized}</arg>
-<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.588044" elapsed="0.000063"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.588299" level="INFO">${timestamp} = 2025-02-02 16:11:51.588276</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.588239" elapsed="0.000070"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.588467" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.588345" elapsed="0.000144"/>
-</kw>
-<arg>Normalized output: ${normalized}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.588147" elapsed="0.000362"/>
-</kw>
-<return>
-<value>${normalized}</value>
-<status status="PASS" start="2025-02-02T16:11:51.588523" elapsed="0.000011"/>
-</return>
-<msg time="2025-02-02T16:11:51.588577" level="INFO">${normalized_student} = The Unicode is: u0062</msg>
-<var>${normalized_student}</var>
-<arg>${student_output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.587038" elapsed="0.001547"/>
-</kw>
-<kw name="Normalize Output">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.588808" level="INFO">${normalized} = The Unicode is: u0062</msg>
-<var>${normalized}</var>
-<arg>${output}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.588758" elapsed="0.000058"/>
-</kw>
-<if>
-<branch type="IF" condition="'${normalized}' == ''">
-<return>
-<value>${normalized}</value>
-<status status="NOT RUN" start="2025-02-02T16:11:51.588876" elapsed="0.000004"/>
-</return>
-<status status="NOT RUN" start="2025-02-02T16:11:51.588841" elapsed="0.000049"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.588834" elapsed="0.000064"/>
-</if>
-<try>
-<branch type="TRY">
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.589037" level="FAIL">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</msg>
-<var>${as_number}</var>
-<arg>${normalized}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="FAIL" start="2025-02-02T16:11:51.588955" elapsed="0.000131">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</status>
-</kw>
-<kw name="Convert To String" owner="BuiltIn">
-<var>${normalized}</var>
-<arg>${as_number}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<status status="NOT RUN" start="2025-02-02T16:11:51.589134" elapsed="0.000006"/>
-</kw>
-<status status="FAIL" start="2025-02-02T16:11:51.588920" elapsed="0.000243">'The Unicode is: u0062' cannot be converted to a floating point number: ValueError: could not convert string to float: 'The Unicode is: u0062'</status>
-</branch>
-<branch type="EXCEPT">
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.589467" level="INFO">${timestamp} = 2025-02-02 16:11:51.589444</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.589406" elapsed="0.000069"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.589631" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.589514" elapsed="0.000134"/>
-</kw>
-<arg>Output is not numeric, keeping as string: ${normalized}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.589219" elapsed="0.000451"/>
-</kw>
-<status status="PASS" start="2025-02-02T16:11:51.589182" elapsed="0.000517"/>
-</branch>
-<status status="PASS" start="2025-02-02T16:11:51.588910" elapsed="0.000803"/>
-</try>
-<kw name="Strip String" owner="String">
-<msg time="2025-02-02T16:11:51.589803" level="INFO">${normalized} = The Unicode is: u0062</msg>
-<var>${normalized}</var>
-<arg>${normalized}</arg>
-<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.589748" elapsed="0.000062"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.590000" level="INFO">${timestamp} = 2025-02-02 16:11:51.589978</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.589942" elapsed="0.000066"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.590158" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.590046" elapsed="0.000130"/>
-</kw>
-<arg>Normalized output: ${normalized}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.589851" elapsed="0.000346"/>
-</kw>
-<return>
-<value>${normalized}</value>
-<status status="PASS" start="2025-02-02T16:11:51.590211" elapsed="0.000010"/>
-</return>
-<msg time="2025-02-02T16:11:51.590263" level="INFO">${normalized_expected} = The Unicode is: u0062</msg>
-<var>${normalized_expected}</var>
-<arg>${expected_output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.588666" elapsed="0.001604"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${normalized_student}</arg>
-<arg>${normalized_expected}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.590387" elapsed="0.000102"/>
-</kw>
-<msg time="2025-02-02T16:11:51.590563" level="INFO">${is_equal} = True</msg>
-<var>${is_equal}</var>
-<arg>Should Be Equal As Strings</arg>
-<arg>${normalized_student}</arg>
-<arg>${normalized_expected}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.590326" elapsed="0.000246"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.590826" level="INFO">${timestamp} = 2025-02-02 16:11:51.590799</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.590754" elapsed="0.000081"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.591009" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.590877" elapsed="0.000152"/>
-</kw>
-<arg>Comparing outputs - Student: "${normalized_student}", Expected: "${normalized_expected}", Match: ${is_equal}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.590625" elapsed="0.000427"/>
-</kw>
-<return>
-<value>${is_equal}</value>
-<status status="PASS" start="2025-02-02T16:11:51.591066" elapsed="0.000012"/>
-</return>
-<msg time="2025-02-02T16:11:51.591123" level="INFO">${outputs_match} = True</msg>
-<var>${outputs_match}</var>
-<arg>${student_output}</arg>
-<arg>${expected_output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.586892" elapsed="0.004238"/>
+<status status="PASS" start="2025-02-02T17:00:12.113235" elapsed="0.000146"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.591275" level="INFO">${test_status} = PASS</msg>
-<var>${test_status}</var>
-<arg>'${student_status}' != 'success'</arg>
-<arg>FAIL</arg>
-<arg>not ${outputs_match}</arg>
-<arg>FAIL</arg>
-<arg>PASS</arg>
+<msg time="2025-02-02T17:00:12.113509" level="INFO">${ext} = .py</msg>
+<var>${ext}</var>
+<arg>'${language}' == 'python'</arg>
+<arg>.py</arg>
+<arg>'${language}' == 'cpp'</arg>
+<arg>.cpp</arg>
+<arg>'${language}' == 'rust'</arg>
+<arg>.rs</arg>
+<arg>'${language}' == 'javascript'</arg>
+<arg>.js</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.591178" elapsed="0.000104"/>
+<status status="PASS" start="2025-02-02T17:00:12.113431" elapsed="0.000085"/>
 </kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-02-02T17:00:12.113878" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test.py"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp/test.py&lt;/a&gt;'.</msg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>${code}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.113563" elapsed="0.000342"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.113986" level="INFO">${status} = success</msg>
+<var>${status}</var>
+<arg>success</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.113945" elapsed="0.000047"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.114255" level="INFO">${output} = </msg>
+<var>${output}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.114028" elapsed="0.000235"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.114498" level="INFO">${error_msg} = </msg>
+<var>${error_msg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.114307" elapsed="0.000199"/>
+</kw>
+<try>
+<branch type="TRY">
+<if>
+<branch type="IF" condition="$language == &quot;python&quot;">
+<kw name="Run Process" owner="Process">
+<msg time="2025-02-02T17:00:12.114745" level="INFO">Starting process:
+python ./temp/test.py</msg>
+<msg time="2025-02-02T17:00:12.119126" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-02-02T17:00:12.135406" level="INFO">Process completed.</msg>
+<msg time="2025-02-02T17:00:12.135610" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>${PYTHON_CMD}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.114634" elapsed="0.020992"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.136279" level="INFO">${output} = 120
+6</msg>
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.135844" elapsed="0.000446"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.136560" level="INFO">${error_msg} = </msg>
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.136355" elapsed="0.000214"/>
+</kw>
+<status status="PASS" start="2025-02-02T17:00:12.114556" elapsed="0.022032"/>
+</branch>
+<branch type="ELSE IF" condition="$language == &quot;javascript&quot;">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${JAVASCRIPT_CMD}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136669" elapsed="0.000007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136768" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136806" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136610" elapsed="0.000212"/>
+</branch>
+<branch type="ELSE IF" condition="$language == &quot;cpp&quot;">
+<kw name="Run Process" owner="Process">
+<var>${compile_result}</var>
+<arg>${CPP_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136865" elapsed="0.000005"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136944" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136987" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137028" elapsed="0.000004"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136912" elapsed="0.000131"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137080" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137117" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137051" elapsed="0.000080"/>
+</branch>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136901" elapsed="0.000237"/>
+</if>
+<status status="NOT RUN" start="2025-02-02T17:00:12.136831" elapsed="0.000317"/>
+</branch>
+<branch type="ELSE IF" condition="$language == &quot;rust&quot;">
+<kw name="Run Process" owner="Process">
+<var>${compile_result}</var>
+<arg>${RUST_COMPILER}</arg>
+<arg>${TEMP_DIR}/${filename}${ext}</arg>
+<arg>-o</arg>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137187" elapsed="0.000005"/>
+</kw>
+<if>
+<branch type="IF" condition="${compile_result.rc} == 0">
+<kw name="Run Process" owner="Process">
+<var>${result}</var>
+<arg>${TEMP_DIR}/${filename}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137249" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137287" elapsed="0.000004"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137320" elapsed="0.000004"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137220" elapsed="0.000114"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>compilation_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137369" elapsed="0.000005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${compile_result.stderr}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137403" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137342" elapsed="0.000076"/>
+</branch>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137214" elapsed="0.000211"/>
+</if>
+<status status="NOT RUN" start="2025-02-02T17:00:12.137156" elapsed="0.000279"/>
+</branch>
+<status status="PASS" start="2025-02-02T17:00:12.114551" elapsed="0.022892"/>
+</if>
+<kw name="Normalize Output">
+<kw name="Strip String" owner="String">
+<msg time="2025-02-02T17:00:12.137759" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${output}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.137691" elapsed="0.000077"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.137873" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${normalized}</arg>
+<arg>\r\n</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.137804" elapsed="0.000077"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.137975" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${normalized}</arg>
+<arg>\r</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.137918" elapsed="0.000065"/>
+</kw>
+<return>
+<value>${normalized}</value>
+<status status="PASS" start="2025-02-02T17:00:12.138003" elapsed="0.000027"/>
+</return>
+<msg time="2025-02-02T17:00:12.138080" level="INFO">${output} = 120
+6</msg>
+<var>${output}</var>
+<arg>${output}</arg>
+<status status="PASS" start="2025-02-02T17:00:12.137552" elapsed="0.000535"/>
+</kw>
+<kw name="Validate Code Output">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.138352" level="INFO">${is_valid} = True</msg>
+<var>${is_valid}</var>
+<arg>${True}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.138301" elapsed="0.000059"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.138589" level="INFO">${message} = </msg>
+<var>${message}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.138397" elapsed="0.000201"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-02-02T17:00:12.138686" level="INFO">${output_stripped} = 120
+6</msg>
+<var>${output_stripped}</var>
+<arg>${output}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.138634" elapsed="0.000059"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == &quot;success&quot; and $output_stripped == &quot;&quot;">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${is_valid}</var>
+<arg>${False}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.138846" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${message}</var>
+<arg>No output generated from code execution</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.138887" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.138716" elapsed="0.000217"/>
+</branch>
+<status status="PASS" start="2025-02-02T17:00:12.138710" elapsed="0.000232"/>
+</if>
+<return>
+<value>${is_valid}</value>
+<value>${message}</value>
+<status status="PASS" start="2025-02-02T17:00:12.138956" elapsed="0.000012"/>
+</return>
+<msg time="2025-02-02T17:00:12.139030" level="INFO">${is_valid} = True</msg>
+<msg time="2025-02-02T17:00:12.139044" level="INFO">${validation_message} = </msg>
+<var>${is_valid}</var>
+<var>${validation_message}</var>
+<arg>${output}</arg>
+<arg>${status}</arg>
+<status status="PASS" start="2025-02-02T17:00:12.138181" elapsed="0.000870"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_valid}">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>invalid_output</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.139132" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${validation_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.139172" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.139075" elapsed="0.000114"/>
+</branch>
+<status status="PASS" start="2025-02-02T17:00:12.139070" elapsed="0.000126"/>
+</if>
+<status status="PASS" start="2025-02-02T17:00:12.114539" elapsed="0.024666"/>
+</branch>
+<branch type="EXCEPT" assign="${error}">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${status}</var>
+<arg>runtime_error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.139259" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${error_msg}</var>
+<arg>${error}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-02-02T17:00:12.139296" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.139227" elapsed="0.000084"/>
+</branch>
+<status status="PASS" start="2025-02-02T17:00:12.114525" elapsed="0.024799"/>
+</try>
+<return>
+<value>${status}</value>
+<value>${output}</value>
+<value>${error_msg}</value>
+<status status="PASS" start="2025-02-02T17:00:12.139341" elapsed="0.000012"/>
+</return>
+<msg time="2025-02-02T17:00:12.139423" level="INFO">${teacher_status} = success</msg>
+<msg time="2025-02-02T17:00:12.139440" level="INFO">${teacher_output} = 120
+6</msg>
+<msg time="2025-02-02T17:00:12.139461" level="INFO">${teacher_error} = </msg>
+<var>${teacher_status}</var>
+<var>${teacher_output}</var>
+<var>${teacher_error}</var>
+<arg>${teacher}[defaultCode]</arg>
+<arg>${teacher}[language]</arg>
+<status status="PASS" start="2025-02-02T17:00:12.113109" elapsed="0.026361"/>
+</kw>
+<kw name="Normalize Output">
+<kw name="Strip String" owner="String">
+<msg time="2025-02-02T17:00:12.139754" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${output}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.139692" elapsed="0.000072"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.139859" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${normalized}</arg>
+<arg>\r\n</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.139800" elapsed="0.000066"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.139955" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${normalized}</arg>
+<arg>\r</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.139901" elapsed="0.000061"/>
+</kw>
+<return>
+<value>${normalized}</value>
+<status status="PASS" start="2025-02-02T17:00:12.139986" elapsed="0.000012"/>
+</return>
+<msg time="2025-02-02T17:00:12.140039" level="INFO">${student_output} = 120
+6</msg>
+<var>${student_output}</var>
+<arg>${student_output}</arg>
+<status status="PASS" start="2025-02-02T17:00:12.139588" elapsed="0.000458"/>
+</kw>
+<kw name="Normalize Output">
+<kw name="Strip String" owner="String">
+<msg time="2025-02-02T17:00:12.140373" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${output}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.140321" elapsed="0.000060"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.140473" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${normalized}</arg>
+<arg>\r\n</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.140417" elapsed="0.000063"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-02T17:00:12.140568" level="INFO">${normalized} = 120
+6</msg>
+<var>${normalized}</var>
+<arg>${normalized}</arg>
+<arg>\r</arg>
+<arg>\n</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.140515" elapsed="0.000060"/>
+</kw>
+<return>
+<value>${normalized}</value>
+<status status="PASS" start="2025-02-02T17:00:12.140592" elapsed="0.000009"/>
+</return>
+<msg time="2025-02-02T17:00:12.140640" level="INFO">${teacher_output} = 120
+6</msg>
+<var>${teacher_output}</var>
+<arg>${teacher_output}</arg>
+<status status="PASS" start="2025-02-02T17:00:12.140115" elapsed="0.000531"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-02T17:00:12.140765" level="INFO">${details} = Student output: "120
+6"
+Teacher output: "120
+6"</msg>
+<var>${details}</var>
+<arg>Student output: "${student_output}"\nTeacher output: "${teacher_output}"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-02T17:00:12.140701" elapsed="0.000071"/>
+</kw>
+<if>
+<branch type="IF" condition="$student_status != &quot;success&quot;">
+<kw name="Add Comparison Result">
+<arg>${results}</arg>
+<arg>FAIL</arg>
+<arg>Student code error: ${student_output}</arg>
+<arg>${student}[language]</arg>
+<arg>${student_error}</arg>
+<status status="NOT RUN" start="2025-02-02T17:00:12.140895" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.140812" elapsed="0.000106"/>
+</branch>
+<branch type="ELSE IF" condition="$teacher_status != &quot;success&quot;">
+<kw name="Add Comparison Result">
+<arg>${results}</arg>
+<arg>FAIL</arg>
+<arg>Teacher code error: ${teacher_output}</arg>
+<arg>${student}[language]</arg>
+<arg>${teacher_error}</arg>
+<status status="NOT RUN" start="2025-02-02T17:00:12.140991" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.140926" elapsed="0.000085"/>
+</branch>
+<branch type="ELSE IF" condition="$student_output == $teacher_output">
 <kw name="Add Comparison Result">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.591694" level="INFO">${result} = {'status': 'PASS', 'details': 'Student output: "The Unicode is: u0062"\nTeacher output: "The Unicode is: u0062"', 'language': 'python'}</msg>
+<msg time="2025-02-02T17:00:12.141579" level="INFO">${result} = {'status': 'PASS', 'details': 'Student output: "120\n6"\nTeacher output: "120\n6"', 'language': 'python', 'error': ''}</msg>
 <var>${result}</var>
 <arg>status=${status}</arg>
-<arg>details=Student output: "${student_output}"\nTeacher output: "${teacher_output}"</arg>
+<arg>details=${details}</arg>
 <arg>language=${language}</arg>
+<arg>error=${error_msg}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.591487" elapsed="0.000217"/>
+<status status="PASS" start="2025-02-02T17:00:12.141369" elapsed="0.000220"/>
 </kw>
 <kw name="Append To List" owner="Collections">
 <arg>${results}</arg>
 <arg>${result}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.591748" elapsed="0.000056"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.592021" level="INFO">${timestamp} = 2025-02-02 16:11:51.591996</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.591956" elapsed="0.000074"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.592190" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.592069" elapsed="0.000140"/>
-</kw>
-<arg>Added comparison result - Status: ${status}, Student: ${student_output}, Teacher: ${teacher_output}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.591847" elapsed="0.000383"/>
+<status status="PASS" start="2025-02-02T17:00:12.141633" elapsed="0.000061"/>
 </kw>
 <arg>${results}</arg>
-<arg>${test_status}</arg>
-<arg>${student_output}</arg>
-<arg>${expected_output}</arg>
+<arg>PASS</arg>
+<arg>${details}</arg>
 <arg>${student}[language]</arg>
-<status status="PASS" start="2025-02-02T16:11:51.591334" elapsed="0.000913"/>
+<status status="PASS" start="2025-02-02T17:00:12.141085" elapsed="0.000629"/>
 </kw>
-<status status="PASS" start="2025-02-02T16:11:51.550684" elapsed="0.041576"/>
+<status status="PASS" start="2025-02-02T17:00:12.141019" elapsed="0.000708"/>
 </branch>
-<status status="PASS" start="2025-02-02T16:11:51.550559" elapsed="0.041713"/>
+<branch type="ELSE">
+<kw name="Add Comparison Result">
+<arg>${results}</arg>
+<arg>FAIL</arg>
+<arg>${details}</arg>
+<arg>${student}[language]</arg>
+<status status="NOT RUN" start="2025-02-02T17:00:12.141800" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-02-02T17:00:12.141760" elapsed="0.000059"/>
+</branch>
+<status status="PASS" start="2025-02-02T17:00:12.140805" elapsed="0.001021"/>
 </if>
 <kw name="Save Results">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-02T16:11:51.592671" level="INFO">${json_string} = [
+<msg time="2025-02-02T17:00:12.142164" level="INFO">${json_string} = [
   {
     "status": "PASS",
-    "details": "Student output: \"The Unicode is: u0062\"\nTeacher output: \"The Unicode is: u0062\"",
-    "language": "python"
+    "details": "Student output: \"120\n6\"\nTeacher output: \"120\n6\"",
+    "language": "python",
+    "error": ""
   }
 ]</msg>
 <var>${json_string}</var>
 <arg>json.dumps($results, indent=2)</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.592460" elapsed="0.000220"/>
+<status status="PASS" start="2025-02-02T17:00:12.141976" elapsed="0.000198"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.592921" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json&lt;/a&gt;'.</msg>
+<msg time="2025-02-02T17:00:12.142500" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/comparison_results.json&lt;/a&gt;'.</msg>
 <arg>${RESULTS_FILE}</arg>
 <arg>${json_string}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.592724" elapsed="0.000217"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.593161" level="INFO">${timestamp} = 2025-02-02 16:11:51.593138</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.593099" elapsed="0.000071"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.593323" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.593208" elapsed="0.000134"/>
-</kw>
-<arg>Saved results to ${RESULTS_FILE}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.593005" elapsed="0.000359"/>
+<status status="PASS" start="2025-02-02T17:00:12.142217" elapsed="0.000309"/>
 </kw>
 <arg>${results}</arg>
-<status status="PASS" start="2025-02-02T16:11:51.592360" elapsed="0.001020"/>
-</kw>
-<kw name="Log Debug Info">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-02-02T16:11:51.593582" level="INFO">${timestamp} = 2025-02-02 16:11:51.593559</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y-%m-%d %H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.593522" elapsed="0.000069"/>
-</kw>
-<kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.593738" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/execution_log.txt&lt;/a&gt;'.</msg>
-<arg>${LOG_FILE}</arg>
-<arg>${timestamp}: ${message}\n</arg>
-<doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.593630" elapsed="0.000126"/>
-</kw>
-<arg>Test execution completed</arg>
-<status status="PASS" start="2025-02-02T16:11:51.593435" elapsed="0.000343"/>
+<status status="PASS" start="2025-02-02T17:00:12.141881" elapsed="0.000668"/>
 </kw>
 <kw name="Cleanup Test Environment" type="TEARDOWN">
 <kw name="Remove Directory" owner="OperatingSystem">
-<msg time="2025-02-02T16:11:51.594228" level="INFO" html="true">Removed directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;'.</msg>
+<msg time="2025-02-02T17:00:12.143026" level="INFO" html="true">Removed directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/temp&lt;/a&gt;'.</msg>
 <arg>${TEMP_DIR}</arg>
 <arg>recursive=True</arg>
 <doc>Removes the directory pointed to by the given ``path``.</doc>
-<status status="PASS" start="2025-02-02T16:11:51.593958" elapsed="0.000292"/>
+<status status="PASS" start="2025-02-02T17:00:12.142752" elapsed="0.000298"/>
 </kw>
-<status status="PASS" start="2025-02-02T16:11:51.593875" elapsed="0.000396"/>
+<status status="PASS" start="2025-02-02T17:00:12.142671" elapsed="0.000407"/>
 </kw>
-<status status="PASS" start="2025-02-02T16:11:51.543853" elapsed="0.050445"/>
+<doc>Compare student code output with teacher's expected results</doc>
+<status status="PASS" start="2025-02-02T17:00:12.086716" elapsed="0.056391"/>
 </test>
-<status status="PASS" start="2025-02-02T16:11:51.478349" elapsed="0.116146"/>
+<status status="PASS" start="2025-02-02T17:00:12.020101" elapsed="0.123235"/>
 </suite>
 <statistics>
 <total>
@@ -1354,7 +1003,7 @@ python ./temp/test.py</msg>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Case2">Case2</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Case1">Case1</stat>
 </suite>
 </statistics>
 <errors>
