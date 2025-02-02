@@ -1,8 +1,7 @@
 [
   {
     "status": "PASS",
-    "details": "Student output: \"120\n6\"\nTeacher output: \"120\n6\"",
-    "language": "python",
-    "error": ""
+    "details": "Student output: \"u0061\"\nTeacher output: \"u0061\"",
+    "language": "python"
   }
 ]

@@ -15,6 +15,7 @@ ${CPP_COMPILER}    g++
 ${RUST_COMPILER}   rustc
 ${JAVASCRIPT_CMD}  node
 ${RESULTS_FILE}    comparison_results.json
+${LOG_FILE}        execution.log
 
 *** Keywords ***
 Setup Test Environment
@@ -39,31 +40,38 @@ Get Final Output
     ${lines}    Split To Lines    ${output}
     
     # Initialize variables
-    ${final_output}    Set Variable    ${EMPTY}
+    ${final_lines}    Create List
     
-    # Start from the last line and find the first non-empty line
-    ${length}    Get Length    ${lines}
-    FOR    ${index}    IN RANGE    ${length-1}    -1    -1
-        ${line}    Get From List    ${lines}    ${index}
+    # Define patterns to remove
+    @{patterns_to_remove}    Create List
+    ...    (?i)Enter [A-Za-z\\s]+:
+    ...    (?i)Input [A-Za-z\\s]+:
+    ...    (?i)Please enter [A-Za-z\\s]+:
+    ...    (?i)The Unicode is:
+    
+    # Process each line
+    FOR    ${line}    IN    @{lines}
         ${stripped}    Strip String    ${line}
         # Skip empty lines
         Continue For Loop If    '${stripped}' == ''
         
-        # Remove common input prompts and their content
-        ${cleaned}    Replace String Using Regexp    ${stripped}    (?i)Enter [A-Za-z]+:\\s*    ${EMPTY}
-        ${cleaned}    Replace String Using Regexp    ${cleaned}    (?i)Input [A-Za-z]+:\\s*    ${EMPTY}
-        ${cleaned}    Replace String Using Regexp    ${cleaned}    (?i)Please enter [A-Za-z]+:\\s*    ${EMPTY}
+        # Remove all defined patterns
+        ${cleaned}    Set Variable    ${stripped}
+        FOR    ${pattern}    IN    @{patterns_to_remove}
+            ${cleaned}    Replace String Using Regexp    ${cleaned}    ${pattern}    ${EMPTY}
+        END
         ${cleaned}    Strip String    ${cleaned}
         
         # Skip if line is empty after cleaning
         Continue For Loop If    '${cleaned}' == ''
         
-        # Found valid output
-        ${final_output}    Set Variable    ${cleaned}
-        Exit For Loop
+        # Add non-empty line to results
+        Append To List    ${final_lines}    ${cleaned}
     END
     
-    Log Debug Info    Final raw output: ${final_output}
+    # Join all valid lines with newlines
+    ${final_output}    Evaluate    "\\n".join($final_lines)
+    Log Debug Info    Final processed output: ${final_output}
     RETURN    ${final_output}
 
 Normalize Output
@@ -71,28 +79,44 @@ Normalize Output
     ${normalized}    Set Variable    ${output}
     
     # Handle empty output
-    IF    '${normalized}' == ''
+    ${is_empty}    Run Keyword And Return Status    Should Be Empty    ${normalized}
+    IF    ${is_empty}
         RETURN    ${normalized}
     END
     
-    # Try to convert to number if possible
-    TRY
-        ${as_number}    Convert To Number    ${normalized}
-        ${normalized}    Convert To String    ${as_number}
-    EXCEPT
-        # Keep as string if not numeric
-        Log Debug Info    Output is not numeric, keeping as string: ${normalized}
+    # Handle multi-line output
+    ${lines}    Split To Lines    ${normalized}
+    ${stripped_lines}    Create List
+    FOR    ${line}    IN    @{lines}
+        ${stripped}    Strip String    ${line}
+        Continue For Loop If    '${stripped}' == ''
+        
+        # Try to convert each line to number if possible
+        TRY
+            ${as_number}    Convert To Number    ${stripped}
+            ${normalized_line}    Convert To String    ${as_number}
+        EXCEPT
+            ${normalized_line}    Set Variable    ${stripped}
+        END
+        
+        Append To List    ${stripped_lines}    ${normalized_line}
     END
     
-    # Remove any trailing/leading whitespace
+    # Join non-empty lines with proper line endings
+    ${normalized}    Evaluate    "\\n".join($stripped_lines)
+    
+    # Remove any trailing/leading whitespace from final result
     ${normalized}    Strip String    ${normalized}
     Log Debug Info    Normalized output: ${normalized}
     RETURN    ${normalized}
 
 Prepare Input File
     [Arguments]    ${input}
-    ${input_exists}    Run Keyword And Return Status    Should Not Be Equal    ${input}    None
-    IF    ${input_exists}
+    ${input_exists}    Run Keyword And Return Status    Variable Should Exist    ${input}
+    ${input_not_none}    Run Keyword And Return Status    Should Not Be Equal    ${input}    None
+    ${should_create_input}    Evaluate    ${input_exists} and ${input_not_none}
+    
+    IF    ${should_create_input}
         # Ensure input ends with newline and handle Windows-style line endings
         ${normalized_input}    Replace String    ${input}    \r\n    \n
         ${has_newline}    Run Keyword And Return Status    Should End With    ${normalized_input}    \n
@@ -258,19 +282,50 @@ Compare Outputs
     [Arguments]    ${student_output}    ${expected_output}
     ${normalized_student}    Normalize Output    ${student_output}
     ${normalized_expected}    Normalize Output    ${expected_output}
-    ${is_equal}    Run Keyword And Return Status
-    ...    Should Be Equal As Strings    ${normalized_student}    ${normalized_expected}
-    Log Debug Info    Comparing outputs - Student: "${normalized_student}", Expected: "${normalized_expected}", Match: ${is_equal}
-    RETURN    ${is_equal}
+    
+    # Handle multi-line comparison
+    ${student_lines}    Split To Lines    ${normalized_student}
+    ${expected_lines}    Split To Lines    ${normalized_expected}
+    
+    # Compare line by line
+    ${student_length}    Get Length    ${student_lines}
+    ${expected_length}    Get Length    ${expected_lines}
+    
+    IF    ${student_length} != ${expected_length}
+        Log Debug Info    Different number of lines - Student: ${student_length}, Expected: ${expected_length}
+        RETURN    ${FALSE}
+    END
+    
+    FOR    ${index}    IN RANGE    ${student_length}
+        ${student_line}    Get From List    ${student_lines}    ${index}
+        ${expected_line}    Get From List    ${expected_lines}    ${index}
+        
+        # Normalize line endings and whitespace
+        ${student_line}    Replace String    ${student_line}    \r    ${EMPTY}
+        ${expected_line}    Replace String    ${expected_line}    \r    ${EMPTY}
+        ${student_line}    Strip String    ${student_line}
+        ${expected_line}    Strip String    ${expected_line}
+        
+        ${line_matches}    Run Keyword And Return Status
+        ...    Should Be Equal As Strings    ${student_line}    ${expected_line}
+        
+        IF    not ${line_matches}
+            Log Debug Info    Mismatch at line ${index} - Student: "${student_line}", Expected: "${expected_line}"
+            RETURN    ${FALSE}
+        END
+    END
+    
+    Log Debug Info    Outputs match completely
+    RETURN    ${TRUE}
 
 Add Comparison Result
-    [Arguments]    ${results}    ${status}    ${student_output}    ${teacher_output}    ${language}
+    [Arguments]    ${results}    ${status}    ${student_output}    ${expected_output}    ${language}
     ${result}    Create Dictionary
     ...    status=${status}
-    ...    details=Student output: "${student_output}"\nTeacher output: "${teacher_output}"
+    ...    details=Student output: "${student_output}"\nTeacher output: "${expected_output}"
     ...    language=${language}
     Append To List    ${results}    ${result}
-    Log Debug Info    Added comparison result - Status: ${status}, Student: ${student_output}, Teacher: ${teacher_output}
+    Log Debug Info    Added comparison result - Status: ${status}, Student: ${student_output}, Teacher: ${expected_output}
 
 Save Results
     [Arguments]    ${results}
@@ -287,6 +342,7 @@ Handle Invalid Code
     ...    No valid code provided    
     ...    ${expected_output}    
     ...    ${language}
+
 
 *** Test Cases ***
 Compare Student Code With Test Cases
