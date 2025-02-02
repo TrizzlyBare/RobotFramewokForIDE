@@ -355,7 +355,7 @@ Compare Student Code With Test Cases
     # Get test cases and expected results
     ${test_input}    Set Variable    ${teacher}[testcase]
     ${expected_output}    Set Variable    ${teacher}[testresult]
-    ${code}    Set Variable    ${student}[defaultCode]
+    ${code}    Set Variable    ${student}[content]
     
     Log Debug Info    Test input: ${test_input}
     Log Debug Info    Expected output: ${expected_output}

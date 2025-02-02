@@ -258,3 +258,118 @@ Enter a character: The Unicode is: u0061
 2025-02-02 17:08:44.387921: Added comparison result - Status: PASS, Student: u0061, Teacher: u0061
 2025-02-02 17:08:44.388944: Saved results to comparison_results.json
 2025-02-02 17:08:44.389373: Test execution completed
+2025-02-02 17:09:22.946710: Starting test execution
+2025-02-02 17:09:22.947537: Test input: 5
+3
+
+2025-02-02 17:09:22.948010: Expected output: 8
+2025-02-02 17:09:22.948431: Student code: a = int(input('Enter A: '))
+b = int(input('Enter B: '))
+print(a + b)
+2025-02-02 17:09:22.950705: Executing code in python:
+a = int(input('Enter A: '))
+b = int(input('Enter B: '))
+print(a + b)
+2025-02-02 17:09:22.951228: Input values: 5
+3
+
+2025-02-02 17:09:22.953510: Created input file with content: 5
+3
+
+2025-02-02 17:09:22.976849: Python execution with input - RC: 0, Output:
+Enter A: Enter B: 8
+2025-02-02 17:09:22.978893: Processing raw output: Enter A: Enter B: 8
+2025-02-02 17:09:22.982270: Final processed output: 8
+2025-02-02 17:09:22.984766: Normalized output: 8.0
+2025-02-02 17:09:22.985279: Python final output: 8.0
+2025-02-02 17:09:22.987348: Final execution status: success
+2025-02-02 17:09:22.987761: Final processed output: 8.0
+2025-02-02 17:09:22.990234: Normalized output: 8.0
+2025-02-02 17:09:22.992361: Normalized output: 8.0
+2025-02-02 17:09:22.994988: Outputs match completely
+2025-02-02 17:09:22.996106: Added comparison result - Status: PASS, Student: 8.0, Teacher: 8
+2025-02-02 17:09:22.997252: Saved results to comparison_results.json
+2025-02-02 17:09:22.997670: Test execution completed
+2025-02-02 17:45:25.841825: Starting test execution
+2025-02-02 17:45:43.286397: Starting test execution
+2025-02-02 17:45:43.287240: Test input: 5
+3
+
+2025-02-02 17:45:43.287721: Expected output: 8
+2025-02-02 17:45:43.288153: Student code: a = int(input('Enter A: '))
+b = int(input('Enter B: '))
+print(a + b)
+2025-02-02 17:45:43.290839: Executing code in python:
+a = int(input('Enter A: '))
+b = int(input('Enter B: '))
+print(a + b)
+2025-02-02 17:45:43.291567: Input values: 5
+3
+
+2025-02-02 17:45:43.295234: Created input file with content: 5
+3
+
+2025-02-02 17:45:43.315635: Python execution with input - RC: 0, Output:
+Enter A: Enter B: 8
+2025-02-02 17:45:43.318346: Processing raw output: Enter A: Enter B: 8
+2025-02-02 17:45:43.322031: Final processed output: 8
+2025-02-02 17:45:43.324763: Normalized output: 8.0
+2025-02-02 17:45:43.325339: Python final output: 8.0
+2025-02-02 17:45:43.327719: Final execution status: success
+2025-02-02 17:45:43.328243: Final processed output: 8.0
+2025-02-02 17:45:43.331046: Normalized output: 8.0
+2025-02-02 17:45:43.333248: Normalized output: 8.0
+2025-02-02 17:45:43.335999: Outputs match completely
+2025-02-02 17:45:43.337101: Added comparison result - Status: PASS, Student: 8.0, Teacher: 8
+2025-02-02 17:45:43.338574: Saved results to comparison_results.json
+2025-02-02 17:45:43.338999: Test execution completed
+2025-02-02 17:47:40.882836: Starting test execution
+2025-02-02 17:47:40.883819: Test input: 5
+3
+
+2025-02-02 17:47:40.884283: Expected output: 8
+2025-02-02 17:47:40.884997: Student code: def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+# Test the function
+print(factorial(5))  # Output: 120
+print(factorial(3))  # Output: 6
+2025-02-02 17:47:40.887785: Executing code in python:
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+# Test the function
+print(factorial(5))  # Output: 120
+print(factorial(3))  # Output: 6
+2025-02-02 17:47:40.888295: Input values: 5
+3
+
+2025-02-02 17:47:40.891825: Created input file with content: 5
+3
+
+2025-02-02 17:47:40.910701: Python execution with input - RC: 0, Output:
+120
+6
+2025-02-02 17:47:40.912674: Processing raw output: 120
+6
+2025-02-02 17:47:40.918109: Final processed output: 120
+6
+2025-02-02 17:47:40.921870: Normalized output: 120.0
+6.0
+2025-02-02 17:47:40.922641: Python final output: 120.0
+6.0
+2025-02-02 17:47:40.924670: Final execution status: success
+2025-02-02 17:47:40.925088: Final processed output: 120.0
+6.0
+2025-02-02 17:47:40.928380: Normalized output: 120.0
+6.0
+2025-02-02 17:47:40.930998: Normalized output: 8.0
+2025-02-02 17:47:40.932017: Different number of lines - Student: 2, Expected: 1
+2025-02-02 17:47:40.933777: Added comparison result - Status: FAIL, Student: 120.0
+6.0, Teacher: 8
+2025-02-02 17:47:40.934982: Saved results to comparison_results.json
+2025-02-02 17:47:40.935428: Test execution completed
