@@ -5,9 +5,9 @@
   "tag_list": ["other"],
   "description": "Write a program to read one character from keyboard and the program then prints out its Unicode in hexadecimal form.",
   "example": "For example:\r\n\r\nEnter a character: a\r\nThe Unicode is: u0061\r\n\r\nHint: To print out a hexadecimal number 0xxx, use the \"04x\" pattern.",
-  "testcase": "a",
-  "testresult": "None",
-  "defaultCode": "x = input(\"Enter a character: \")\nprint(\"The Unicode is: u%04x\" % ord(x))",
+  "testcase": "hello",
+  "testresult": "8",
+  "defaultCode": "a = str(input('Enter A: '))\nprint('The Unicode is: u%04x' %ord(a))",
   "solutionType": "testcase",
   "limitTime": false,
   "duration": "00:30:00"
