@@ -1,22 +1,22 @@
 {
   "Case1": {
     "status": "PASS",
-    "detail": "Student=a vs Teacher=a"
+    "detail": "Student=Hello vs Teacher=Hello"
   },
   "Case2": {
-    "status": "PASS",
-    "detail": "Student=b vs Teacher=b"
+    "status": "FAIL",
+    "detail": "Student=Class vs Teacher=World"
   },
   "Case3": {
     "status": "PASS",
-    "detail": "Student=c vs Teacher=c"
+    "detail": "Student=!!! vs Teacher=!!!"
   },
   "Case4": {
     "status": "PASS",
-    "detail": "Student=d vs Teacher=d"
+    "detail": "Student=First vs Teacher=First"
   },
   "Case5": {
     "status": "PASS",
-    "detail": "Student=e vs Teacher=e"
+    "detail": "Student=Time vs Teacher=Time"
   }
 }
