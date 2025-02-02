@@ -1,8 +1,22 @@
-[
-  {
+{
+  "Case1": {
     "status": "PASS",
-    "details": "Student output: \"120\n6\"\nTeacher output: \"120\n6\"",
-    "language": "python",
-    "error": ""
+    "detail": "Student=a vs Teacher=a"
+  },
+  "Case2": {
+    "status": "PASS",
+    "detail": "Student=b vs Teacher=b"
+  },
+  "Case3": {
+    "status": "PASS",
+    "detail": "Student=c vs Teacher=c"
+  },
+  "Case4": {
+    "status": "PASS",
+    "detail": "Student=d vs Teacher=d"
+  },
+  "Case5": {
+    "status": "PASS",
+    "detail": "Student=e vs Teacher=e"
   }
-]
+}

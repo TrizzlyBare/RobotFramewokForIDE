@@ -17,49 +17,39 @@ Load JSON Data
     Run Keyword If    ${data} == None    Fail    Failed to load data from ${file_path}
     RETURN    ${data}
 
-Normalize String
+Split String Into Characters
     [Arguments]    ${input_string}
     ${normalized}    Replace String    ${input_string}    \r\n    ${SPACE}
     ${normalized}    Replace String    ${normalized}    \n    ${SPACE}
     ${normalized}    Replace String    ${normalized}    \r    ${SPACE}
-    RETURN    ${normalized}
+    ${chars}    Split String    ${normalized}    ${SPACE}
+    RETURN    ${chars}
 
-Compare Single Result
-    [Arguments]    ${student_result}    ${teacher_result}
-    ${student_normalized}    Normalize String    ${student_result}
-    ${teacher_normalized}    Normalize String    ${teacher_result}
-    ${status}    Run Keyword And Return Status
-    ...    Should Be Equal As Strings    ${student_normalized}    ${teacher_normalized}
-    ${result}    Set Variable If    ${status}    PASS    FAIL
-    RETURN    ${result}
-
-Compare Multiple Results
-    [Arguments]    ${student_results}    ${teacher_results}
-    @{comparison_results}    Create List
-    ${student_length}    Get Length    ${student_results}
-    ${teacher_length}    Get Length    ${teacher_results}
+Compare Characters
+    [Arguments]    ${student_chars}    ${teacher_chars}
+    ${results_dict}    Create Dictionary
+    ${student_length}    Get Length    ${student_chars}
+    ${teacher_length}    Get Length    ${teacher_chars}
     
     Run Keyword If    ${student_length} != ${teacher_length}
-    ...    Append To List    ${comparison_results}    FAIL
-    ...    ELSE    Compare Result Lists    ${student_results}    ${teacher_results}    ${comparison_results}
+    ...    Fail    Length mismatch: Student chars (${student_length}) ≠ Teacher chars (${teacher_length})
     
-    RETURN    @{comparison_results}
-
-Compare Result Lists
-    [Arguments]    ${student_results}    ${teacher_results}    ${comparison_results}
-    FOR    ${index}    IN RANGE    0    len(${student_results})
-        ${status}    Compare Single Result    ${student_results}[${index}]    ${teacher_results}[${index}]
-        Append To List    ${comparison_results}    ${status}
+    FOR    ${index}    IN RANGE    0    ${student_length}
+        ${case_key}    Set Variable    Case${index + 1}
+        ${student_char}    Set Variable    ${student_chars}[${index}]
+        ${teacher_char}    Set Variable    ${teacher_chars}[${index}]
+        
+        ${status}    Run Keyword And Return Status
+        ...    Should Be Equal As Strings    ${student_char}    ${teacher_char}
+        ${status_str}    Set Variable If    ${status}    PASS    FAIL
+        
+        ${case_dict}    Create Dictionary
+        ...    status=${status_str}
+        ...    detail=Student=${student_char} vs Teacher=${teacher_char}
+        Set To Dictionary    ${results_dict}    ${case_key}=${case_dict}
     END
-
-Add Comparison Result
-    [Arguments]    ${results}    ${status}    ${student_value}    ${teacher_value}    ${index}=${None}
-    ${student_normalized}    Normalize String    ${student_value}
-    ${teacher_normalized}    Normalize String    ${teacher_value}
-    ${result}    Create Dictionary
-    ...    status=${status}
-    ...    details=Result ${index}: Student=${student_normalized} vs Teacher=${teacher_normalized}
-    Append To List    ${results}    ${result}
+    
+    RETURN    ${results_dict}
 
 Save Results
     [Arguments]    ${results}
@@ -72,34 +62,16 @@ Compare Student and Teacher Results
     ${student_data}    Load JSON Data    ${STUDENT_FILE}
     ${teacher_data}    Load JSON Data    ${TEACHER_FILE}
     
-    # Initialize results list
-    @{results}    Create List
+    # Get test results
+    ${student_result}    Set Variable    ${student_data}[testresult]
+    ${teacher_result}    Set Variable    ${teacher_data}[testresult]
     
-    # Handle both single and multiple results
-    ${student_results}    Set Variable    ${student_data}[testresult]
-    ${teacher_results}    Set Variable    ${teacher_data}[testresult]
+    # Split into individual characters
+    ${student_chars}    Split String Into Characters    ${student_result}
+    ${teacher_chars}    Split String Into Characters    ${teacher_result}
     
-    # Check if the results are lists
-    ${is_list}    Evaluate    isinstance($student_results, list)
-    
-    IF    ${is_list}
-        @{comparison_statuses}    Compare Multiple Results    ${student_results}    ${teacher_results}
-        FOR    ${index}    ${status}    IN ENUMERATE    @{comparison_statuses}
-            Add Comparison Result    
-            ...    ${results}    
-            ...    ${status}    
-            ...    ${student_results}[${index}]    
-            ...    ${teacher_results}[${index}]    
-            ...    ${index + 1}
-        END
-    ELSE
-        ${comparison_status}    Compare Single Result    ${student_results}    ${teacher_results}
-        Add Comparison Result    
-        ...    ${results}    
-        ...    ${comparison_status}    
-        ...    ${student_results}    
-        ...    ${teacher_results}
-    END
+    # Compare characters and generate results
+    ${results}    Compare Characters    ${student_chars}    ${teacher_chars}
     
     # Save results
     Save Results    ${results}
