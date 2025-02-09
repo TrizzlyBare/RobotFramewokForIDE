@@ -373,3 +373,1301 @@ print(factorial(3))  # Output: 6
 6.0, Teacher: 8
 2025-02-02 17:47:40.934982: Saved results to comparison_results.json
 2025-02-02 17:47:40.935428: Test execution completed
+2025-02-02 21:19:56.113891: Starting test execution
+2025-02-02 21:20:06.594325: Starting test execution
+2025-02-02 21:20:06.595290: Test input: a
+b
+c
+d
+e
+2025-02-02 21:20:06.595827: Expected output: u0061
+u0062
+u0063
+u0064
+u0065
+2025-02-02 21:20:06.596394: Student code: def factorial(n):
+    # Write your recursive factorial function here
+    pass
+
+# Test cases
+print(factorial(5))
+print(factorial(3))
+2025-02-02 21:20:06.598700: Executing code in python:
+def factorial(n):
+    # Write your recursive factorial function here
+    pass
+
+# Test cases
+print(factorial(5))
+print(factorial(3))
+2025-02-02 21:20:06.599232: Input values: a
+b
+c
+d
+e
+2025-02-02 21:20:06.601851: Created input file with content: a
+b
+c
+d
+e
+
+2025-02-02 21:20:06.621638: Python execution with input - RC: 0, Output:
+None
+None
+2025-02-02 21:20:06.623396: Processing raw output: None
+None
+2025-02-02 21:20:06.629001: Final processed output: None
+None
+2025-02-02 21:20:06.632297: Normalized output: None
+None
+2025-02-02 21:20:06.632794: Python final output: None
+None
+2025-02-02 21:20:06.634829: Final execution status: success
+2025-02-02 21:20:06.635238: Final processed output: None
+None
+2025-02-02 21:20:06.638459: Normalized output: None
+None
+2025-02-02 21:20:06.643986: Normalized output: u0061
+u0062
+u0063
+u0064
+u0065
+2025-02-02 21:20:06.644985: Different number of lines - Student: 2, Expected: 5
+2025-02-02 21:20:06.646697: Added comparison result - Status: FAIL, Student: None
+None, Teacher: u0061
+u0062
+u0063
+u0064
+u0065
+2025-02-02 21:20:06.647825: Saved results to comparison_results.json
+2025-02-02 21:20:06.648234: Test execution completed
+2025-02-02 21:20:18.251461: Starting test execution
+2025-02-02 21:20:18.252350: Test input: a
+b
+c
+d
+e
+2025-02-02 21:20:18.252837: Expected output: u0061
+u0062
+u0063
+u0064
+u0065
+2025-02-02 21:20:18.253338: Student code: def factorial(n):
+    # Write your recursive factorial function here
+    pass
+
+# Test cases
+print(factorial(5))
+print(factorial(3))
+2025-02-02 21:20:18.255793: Executing code in python:
+def factorial(n):
+    # Write your recursive factorial function here
+    pass
+
+# Test cases
+print(factorial(5))
+print(factorial(3))
+2025-02-02 21:20:18.256245: Input values: a
+b
+c
+d
+e
+2025-02-02 21:20:18.260532: Created input file with content: a
+b
+c
+d
+e
+
+2025-02-02 21:20:18.280939: Python execution with input - RC: 0, Output:
+None
+None
+2025-02-02 21:20:18.282810: Processing raw output: None
+None
+2025-02-02 21:20:18.288631: Final processed output: None
+None
+2025-02-02 21:20:18.292057: Normalized output: None
+None
+2025-02-02 21:20:18.292598: Python final output: None
+None
+2025-02-02 21:20:18.295342: Final execution status: success
+2025-02-02 21:20:18.295796: Final processed output: None
+None
+2025-02-02 21:20:18.299481: Normalized output: None
+None
+2025-02-02 21:20:18.305112: Normalized output: u0061
+u0062
+u0063
+u0064
+u0065
+2025-02-02 21:20:18.306181: Different number of lines - Student: 2, Expected: 5
+2025-02-02 21:20:18.307954: Added comparison result - Status: FAIL, Student: None
+None, Teacher: u0061
+u0062
+u0063
+u0064
+u0065
+2025-02-02 21:20:18.309107: Saved results to comparison_results.json
+2025-02-02 21:20:18.309619: Test execution completed
+2025-02-09 15:11:39.162127: Starting test execution
+2025-02-09 15:11:58.087297: Starting test execution
+2025-02-09 15:12:06.795872: Starting test execution
+2025-02-09 15:13:49.325297: Starting test execution
+2025-02-09 15:14:00.000118: Starting test execution
+2025-02-09 15:14:00.001249: Processing test case 1
+2025-02-09 15:14:00.002771: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:14:00.004747: Input values: a
+2025-02-09 15:14:00.007789: Created input file with content: a
+
+2025-02-09 15:14:00.026400: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-09 15:14:00.027983: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-09 15:14:00.031268: Final processed output: u0061
+2025-02-09 15:14:00.033816: Normalized output: u0061
+2025-02-09 15:14:00.034300: Python final output: u0061
+2025-02-09 15:14:00.036321: Final execution status: success
+2025-02-09 15:14:00.036707: Final processed output: u0061
+2025-02-09 15:14:00.039120: Normalized output: u0061
+2025-02-09 15:14:00.041260: Normalized output: u0061
+2025-02-09 15:14:00.043434: Outputs match completely
+2025-02-09 15:14:00.044651: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-09 15:14:00.045220: Processing test case 2
+2025-02-09 15:14:00.046310: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:14:00.046663: Input values: b
+2025-02-09 15:14:00.048857: Created input file with content: b
+
+2025-02-09 15:14:00.063734: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-09 15:14:00.065055: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-09 15:14:00.067756: Final processed output: u0062
+2025-02-09 15:14:00.069952: Normalized output: u0062
+2025-02-09 15:14:00.070402: Python final output: u0062
+2025-02-09 15:14:00.072310: Final execution status: success
+2025-02-09 15:14:00.072671: Final processed output: u0062
+2025-02-09 15:14:00.074986: Normalized output: u0062
+2025-02-09 15:14:00.077027: Normalized output: u0062
+2025-02-09 15:14:00.079745: Outputs match completely
+2025-02-09 15:14:00.080873: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-09 15:14:00.081430: Processing test case 3
+2025-02-09 15:14:00.088993: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:14:00.089412: Input values: c
+2025-02-09 15:14:00.091275: Created input file with content: c
+
+2025-02-09 15:14:00.105967: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-09 15:14:00.107288: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-09 15:14:00.109988: Final processed output: u0063
+2025-02-09 15:14:00.112101: Normalized output: u0063
+2025-02-09 15:14:00.112539: Python final output: u0063
+2025-02-09 15:14:00.114441: Final execution status: success
+2025-02-09 15:14:00.114808: Final processed output: u0063
+2025-02-09 15:14:00.117150: Normalized output: u0063
+2025-02-09 15:14:00.119269: Normalized output: u0063
+2025-02-09 15:14:00.121461: Outputs match completely
+2025-02-09 15:14:00.122635: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-09 15:14:00.123226: Processing test case 4
+2025-02-09 15:14:00.124344: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:14:00.124696: Input values: d
+2025-02-09 15:14:00.126583: Created input file with content: d
+
+2025-02-09 15:14:00.140374: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-09 15:14:00.141800: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-09 15:14:00.144328: Final processed output: u0064
+2025-02-09 15:14:00.146514: Normalized output: u0064
+2025-02-09 15:14:00.146942: Python final output: u0064
+2025-02-09 15:14:00.148787: Final execution status: success
+2025-02-09 15:14:00.149146: Final processed output: u0064
+2025-02-09 15:14:00.151428: Normalized output: u0064
+2025-02-09 15:14:00.153900: Normalized output: u0064
+2025-02-09 15:14:00.156071: Outputs match completely
+2025-02-09 15:14:00.157165: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-09 15:14:00.157742: Processing test case 5
+2025-02-09 15:14:00.158918: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:14:00.159276: Input values: e
+2025-02-09 15:14:00.161180: Created input file with content: e
+
+2025-02-09 15:14:00.175187: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-09 15:14:00.176515: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-09 15:14:00.179137: Final processed output: u0065
+2025-02-09 15:14:00.181211: Normalized output: u0065
+2025-02-09 15:14:00.181653: Python final output: u0065
+2025-02-09 15:14:00.183528: Final execution status: success
+2025-02-09 15:14:00.183905: Final processed output: u0065
+2025-02-09 15:14:00.186184: Normalized output: u0065
+2025-02-09 15:14:00.188283: Normalized output: u0065
+2025-02-09 15:14:00.190456: Outputs match completely
+2025-02-09 15:14:00.191834: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-09 15:14:00.192850: Saved results to comparison_results.json
+2025-02-09 15:15:12.772039: Starting test execution
+2025-02-09 15:15:12.773278: Processing test case 1
+2025-02-09 15:15:12.774661: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:12.775767: Input values: a
+2025-02-09 15:15:12.778539: Created input file with content: a
+
+2025-02-09 15:15:12.795110: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-09 15:15:12.796529: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-09 15:15:12.799611: Final processed output: u0061
+2025-02-09 15:15:12.801923: Normalized output: u0061
+2025-02-09 15:15:12.802370: Python final output: u0061
+2025-02-09 15:15:12.804310: Final execution status: success
+2025-02-09 15:15:12.804706: Final processed output: u0061
+2025-02-09 15:15:12.807050: Normalized output: u0061
+2025-02-09 15:15:12.809295: Normalized output: u0061
+2025-02-09 15:15:12.811563: Outputs match completely
+2025-02-09 15:15:12.812807: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-09 15:15:12.813377: Processing test case 2
+2025-02-09 15:15:12.814487: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:12.814859: Input values: b
+2025-02-09 15:15:12.816807: Created input file with content: b
+
+2025-02-09 15:15:12.831095: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-09 15:15:12.832459: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-09 15:15:12.835216: Final processed output: u0062
+2025-02-09 15:15:12.837442: Normalized output: u0062
+2025-02-09 15:15:12.837876: Python final output: u0062
+2025-02-09 15:15:12.839733: Final execution status: success
+2025-02-09 15:15:12.840155: Final processed output: u0062
+2025-02-09 15:15:12.842579: Normalized output: u0062
+2025-02-09 15:15:12.844662: Normalized output: u0062
+2025-02-09 15:15:12.847293: Outputs match completely
+2025-02-09 15:15:12.848430: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-09 15:15:12.849013: Processing test case 3
+2025-02-09 15:15:12.856205: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:12.856641: Input values: c
+2025-02-09 15:15:12.858492: Created input file with content: c
+
+2025-02-09 15:15:12.875981: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-09 15:15:12.877746: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-09 15:15:12.880555: Final processed output: u0063
+2025-02-09 15:15:12.882823: Normalized output: u0063
+2025-02-09 15:15:12.883295: Python final output: u0063
+2025-02-09 15:15:12.885234: Final execution status: success
+2025-02-09 15:15:12.885609: Final processed output: u0063
+2025-02-09 15:15:12.888015: Normalized output: u0063
+2025-02-09 15:15:12.890351: Normalized output: u0063
+2025-02-09 15:15:12.892790: Outputs match completely
+2025-02-09 15:15:12.894221: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-09 15:15:12.894864: Processing test case 4
+2025-02-09 15:15:12.896085: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:12.896614: Input values: d
+2025-02-09 15:15:12.898788: Created input file with content: d
+
+2025-02-09 15:15:12.914717: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-09 15:15:12.916235: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-09 15:15:12.918856: Final processed output: u0064
+2025-02-09 15:15:12.921122: Normalized output: u0064
+2025-02-09 15:15:12.921567: Python final output: u0064
+2025-02-09 15:15:12.923520: Final execution status: success
+2025-02-09 15:15:12.923906: Final processed output: u0064
+2025-02-09 15:15:12.926353: Normalized output: u0064
+2025-02-09 15:15:12.929261: Normalized output: u0064
+2025-02-09 15:15:12.931573: Outputs match completely
+2025-02-09 15:15:12.932736: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-09 15:15:12.933360: Processing test case 5
+2025-02-09 15:15:12.934544: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:12.934911: Input values: e
+2025-02-09 15:15:12.936794: Created input file with content: e
+
+2025-02-09 15:15:12.952284: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-09 15:15:12.953809: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-09 15:15:12.956618: Final processed output: u0065
+2025-02-09 15:15:12.958821: Normalized output: u0065
+2025-02-09 15:15:12.959319: Python final output: u0065
+2025-02-09 15:15:12.961610: Final execution status: success
+2025-02-09 15:15:12.962049: Final processed output: u0065
+2025-02-09 15:15:12.964533: Normalized output: u0065
+2025-02-09 15:15:12.966691: Normalized output: u0065
+2025-02-09 15:15:12.968874: Outputs match completely
+2025-02-09 15:15:12.970156: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-09 15:15:12.971274: Saved results to comparison_results.json
+2025-02-09 15:15:16.883832: Starting test execution
+2025-02-09 15:15:16.884937: Processing test case 1
+2025-02-09 15:15:16.886391: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:16.887399: Input values: a
+2025-02-09 15:15:16.889576: Created input file with content: a
+
+2025-02-09 15:15:16.906539: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-09 15:15:16.908102: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-09 15:15:16.911641: Final processed output: u0061
+2025-02-09 15:15:16.914111: Normalized output: u0061
+2025-02-09 15:15:16.914579: Python final output: u0061
+2025-02-09 15:15:16.916628: Final execution status: success
+2025-02-09 15:15:16.917038: Final processed output: u0061
+2025-02-09 15:15:16.919497: Normalized output: u0061
+2025-02-09 15:15:16.921730: Normalized output: u0061
+2025-02-09 15:15:16.924027: Outputs match completely
+2025-02-09 15:15:16.925329: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-09 15:15:16.926011: Processing test case 2
+2025-02-09 15:15:16.927246: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:16.927827: Input values: b
+2025-02-09 15:15:16.929890: Created input file with content: b
+
+2025-02-09 15:15:16.945428: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-09 15:15:16.946900: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-09 15:15:16.949921: Final processed output: u0062
+2025-02-09 15:15:16.952344: Normalized output: u0062
+2025-02-09 15:15:16.952811: Python final output: u0062
+2025-02-09 15:15:16.954819: Final execution status: success
+2025-02-09 15:15:16.955219: Final processed output: u0062
+2025-02-09 15:15:16.957778: Normalized output: u0062
+2025-02-09 15:15:16.959976: Normalized output: u0062
+2025-02-09 15:15:16.962819: Outputs match completely
+2025-02-09 15:15:16.964017: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-09 15:15:16.964629: Processing test case 3
+2025-02-09 15:15:16.973681: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:16.974179: Input values: c
+2025-02-09 15:15:16.976320: Created input file with content: c
+
+2025-02-09 15:15:16.992345: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-09 15:15:16.993845: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-09 15:15:16.996741: Final processed output: u0063
+2025-02-09 15:15:16.999070: Normalized output: u0063
+2025-02-09 15:15:16.999586: Python final output: u0063
+2025-02-09 15:15:17.001803: Final execution status: success
+2025-02-09 15:15:17.002217: Final processed output: u0063
+2025-02-09 15:15:17.004799: Normalized output: u0063
+2025-02-09 15:15:17.007180: Normalized output: u0063
+2025-02-09 15:15:17.009661: Outputs match completely
+2025-02-09 15:15:17.010945: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-09 15:15:17.011607: Processing test case 4
+2025-02-09 15:15:17.012804: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:17.013184: Input values: d
+2025-02-09 15:15:17.015194: Created input file with content: d
+
+2025-02-09 15:15:17.030429: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-09 15:15:17.032031: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-09 15:15:17.034945: Final processed output: u0064
+2025-02-09 15:15:17.037517: Normalized output: u0064
+2025-02-09 15:15:17.038021: Python final output: u0064
+2025-02-09 15:15:17.040154: Final execution status: success
+2025-02-09 15:15:17.040586: Final processed output: u0064
+2025-02-09 15:15:17.043065: Normalized output: u0064
+2025-02-09 15:15:17.045673: Normalized output: u0064
+2025-02-09 15:15:17.048039: Outputs match completely
+2025-02-09 15:15:17.049259: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-09 15:15:17.049927: Processing test case 5
+2025-02-09 15:15:17.051213: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:17.051669: Input values: e
+2025-02-09 15:15:17.053666: Created input file with content: e
+
+2025-02-09 15:15:17.070939: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-09 15:15:17.072636: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-09 15:15:17.075614: Final processed output: u0065
+2025-02-09 15:15:17.077976: Normalized output: u0065
+2025-02-09 15:15:17.078491: Python final output: u0065
+2025-02-09 15:15:17.080744: Final execution status: success
+2025-02-09 15:15:17.081208: Final processed output: u0065
+2025-02-09 15:15:17.083783: Normalized output: u0065
+2025-02-09 15:15:17.086058: Normalized output: u0065
+2025-02-09 15:15:17.088361: Outputs match completely
+2025-02-09 15:15:17.089656: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-09 15:15:17.090688: Saved results to comparison_results.json
+2025-02-09 15:15:41.293185: Starting test execution
+2025-02-09 15:15:41.294308: Processing test case 1
+2025-02-09 15:15:41.295529: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:41.296442: Input values: a
+2025-02-09 15:15:41.300605: Created input file with content: a
+
+2025-02-09 15:15:41.316758: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-09 15:15:41.318175: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-09 15:15:41.321262: Final processed output: u0061
+2025-02-09 15:15:41.323613: Normalized output: u0061
+2025-02-09 15:15:41.324061: Python final output: u0061
+2025-02-09 15:15:41.326009: Final execution status: success
+2025-02-09 15:15:41.326400: Final processed output: u0061
+2025-02-09 15:15:41.328721: Normalized output: u0061
+2025-02-09 15:15:41.330884: Normalized output: u0061
+2025-02-09 15:15:41.333105: Outputs match completely
+2025-02-09 15:15:41.334345: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-09 15:15:41.334907: Processing test case 2
+2025-02-09 15:15:41.336007: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:41.336366: Input values: b
+2025-02-09 15:15:41.338302: Created input file with content: b
+
+2025-02-09 15:15:41.352382: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-09 15:15:41.353751: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-09 15:15:41.356464: Final processed output: u0062
+2025-02-09 15:15:41.358658: Normalized output: u0062
+2025-02-09 15:15:41.359121: Python final output: u0062
+2025-02-09 15:15:41.361033: Final execution status: success
+2025-02-09 15:15:41.361402: Final processed output: u0062
+2025-02-09 15:15:41.363753: Normalized output: u0062
+2025-02-09 15:15:41.365811: Normalized output: u0062
+2025-02-09 15:15:41.368411: Outputs match completely
+2025-02-09 15:15:41.369535: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-09 15:15:41.370105: Processing test case 3
+2025-02-09 15:15:41.377352: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:41.377774: Input values: c
+2025-02-09 15:15:41.379623: Created input file with content: c
+
+2025-02-09 15:15:41.394065: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-09 15:15:41.395376: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-09 15:15:41.398085: Final processed output: u0063
+2025-02-09 15:15:41.400222: Normalized output: u0063
+2025-02-09 15:15:41.400666: Python final output: u0063
+2025-02-09 15:15:41.402583: Final execution status: success
+2025-02-09 15:15:41.402959: Final processed output: u0063
+2025-02-09 15:15:41.405300: Normalized output: u0063
+2025-02-09 15:15:41.407412: Normalized output: u0063
+2025-02-09 15:15:41.409660: Outputs match completely
+2025-02-09 15:15:41.410891: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-09 15:15:41.411458: Processing test case 4
+2025-02-09 15:15:41.412569: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:41.412931: Input values: d
+2025-02-09 15:15:41.414854: Created input file with content: d
+
+2025-02-09 15:15:41.428334: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-09 15:15:41.429799: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-09 15:15:41.432402: Final processed output: u0064
+2025-02-09 15:15:41.434570: Normalized output: u0064
+2025-02-09 15:15:41.435014: Python final output: u0064
+2025-02-09 15:15:41.436887: Final execution status: success
+2025-02-09 15:15:41.437261: Final processed output: u0064
+2025-02-09 15:15:41.439569: Normalized output: u0064
+2025-02-09 15:15:41.442077: Normalized output: u0064
+2025-02-09 15:15:41.444306: Outputs match completely
+2025-02-09 15:15:41.445415: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-09 15:15:41.445987: Processing test case 5
+2025-02-09 15:15:41.447197: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:41.447557: Input values: e
+2025-02-09 15:15:41.449409: Created input file with content: e
+
+2025-02-09 15:15:41.463032: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-09 15:15:41.464515: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-09 15:15:41.467166: Final processed output: u0065
+2025-02-09 15:15:41.469252: Normalized output: u0065
+2025-02-09 15:15:41.469707: Python final output: u0065
+2025-02-09 15:15:41.471617: Final execution status: success
+2025-02-09 15:15:41.471995: Final processed output: u0065
+2025-02-09 15:15:41.474353: Normalized output: u0065
+2025-02-09 15:15:41.476474: Normalized output: u0065
+2025-02-09 15:15:41.478641: Outputs match completely
+2025-02-09 15:15:41.479889: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-09 15:15:41.480462: Processing test case 6
+2025-02-09 15:15:41.481553: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:41.481915: Input values: f
+2025-02-09 15:15:41.483821: Created input file with content: f
+
+2025-02-09 15:15:41.498735: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0066
+2025-02-09 15:15:41.500366: Processing raw output: Enter a character: The Unicode is: u0066
+2025-02-09 15:15:41.503700: Final processed output: u0066
+2025-02-09 15:15:41.506506: Normalized output: u0066
+2025-02-09 15:15:41.507001: Python final output: u0066
+2025-02-09 15:15:41.508981: Final execution status: success
+2025-02-09 15:15:41.509476: Final processed output: u0066
+2025-02-09 15:15:41.512397: Normalized output: u0066
+2025-02-09 15:15:41.514626: Normalized output: u0066
+2025-02-09 15:15:41.516983: Outputs match completely
+2025-02-09 15:15:41.518320: Added comparison result for Case6: {'status': 'PASS', 'teacherinput': 'f', 'detail': 'Student=u0066 vs Teacher=u0066'}
+2025-02-09 15:15:41.519429: Saved results to comparison_results.json
+2025-02-09 15:15:48.676155: Starting test execution
+2025-02-09 15:15:48.677279: Processing test case 1
+2025-02-09 15:15:48.678483: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:48.679331: Input values: a
+2025-02-09 15:15:48.681673: Created input file with content: a
+
+2025-02-09 15:15:48.697767: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-09 15:15:48.699187: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-09 15:15:48.702295: Final processed output: u0061
+2025-02-09 15:15:48.704625: Normalized output: u0061
+2025-02-09 15:15:48.705103: Python final output: u0061
+2025-02-09 15:15:48.707069: Final execution status: success
+2025-02-09 15:15:48.707466: Final processed output: u0061
+2025-02-09 15:15:48.709851: Normalized output: u0061
+2025-02-09 15:15:48.711997: Normalized output: u0061
+2025-02-09 15:15:48.714207: Outputs match completely
+2025-02-09 15:15:48.715446: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-09 15:15:48.716018: Processing test case 2
+2025-02-09 15:15:48.717119: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:48.717485: Input values: b
+2025-02-09 15:15:48.719409: Created input file with content: b
+
+2025-02-09 15:15:48.733765: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-09 15:15:48.735134: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-09 15:15:48.737863: Final processed output: u0062
+2025-02-09 15:15:48.740092: Normalized output: u0062
+2025-02-09 15:15:48.740546: Python final output: u0062
+2025-02-09 15:15:48.742479: Final execution status: success
+2025-02-09 15:15:48.742882: Final processed output: u0062
+2025-02-09 15:15:48.745259: Normalized output: u0062
+2025-02-09 15:15:48.747373: Normalized output: u0062
+2025-02-09 15:15:48.750032: Outputs match completely
+2025-02-09 15:15:48.751171: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-09 15:15:48.751738: Processing test case 3
+2025-02-09 15:15:48.759377: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:48.759827: Input values: c
+2025-02-09 15:15:48.761722: Created input file with content: c
+
+2025-02-09 15:15:48.775967: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-09 15:15:48.777362: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-09 15:15:48.780096: Final processed output: u0063
+2025-02-09 15:15:48.782225: Normalized output: u0063
+2025-02-09 15:15:48.782674: Python final output: u0063
+2025-02-09 15:15:48.784589: Final execution status: success
+2025-02-09 15:15:48.784965: Final processed output: u0063
+2025-02-09 15:15:48.787320: Normalized output: u0063
+2025-02-09 15:15:48.789459: Normalized output: u0063
+2025-02-09 15:15:48.791642: Outputs match completely
+2025-02-09 15:15:48.792881: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-09 15:15:48.793493: Processing test case 4
+2025-02-09 15:15:48.794636: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:48.795001: Input values: d
+2025-02-09 15:15:48.796915: Created input file with content: d
+
+2025-02-09 15:15:48.810314: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-09 15:15:48.811745: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-09 15:15:48.814323: Final processed output: u0064
+2025-02-09 15:15:48.816518: Normalized output: u0064
+2025-02-09 15:15:48.816980: Python final output: u0064
+2025-02-09 15:15:48.818845: Final execution status: success
+2025-02-09 15:15:48.819232: Final processed output: u0064
+2025-02-09 15:15:48.821620: Normalized output: u0064
+2025-02-09 15:15:48.824059: Normalized output: u0064
+2025-02-09 15:15:48.826294: Outputs match completely
+2025-02-09 15:15:48.827413: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-09 15:15:48.828002: Processing test case 5
+2025-02-09 15:15:48.829216: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:48.829591: Input values: e
+2025-02-09 15:15:48.831443: Created input file with content: e
+
+2025-02-09 15:15:48.844752: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-09 15:15:48.846104: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-09 15:15:48.848786: Final processed output: u0065
+2025-02-09 15:15:48.850868: Normalized output: u0065
+2025-02-09 15:15:48.851331: Python final output: u0065
+2025-02-09 15:15:48.853222: Final execution status: success
+2025-02-09 15:15:48.853613: Final processed output: u0065
+2025-02-09 15:15:48.855918: Normalized output: u0065
+2025-02-09 15:15:48.858024: Normalized output: u0065
+2025-02-09 15:15:48.860214: Outputs match completely
+2025-02-09 15:15:48.861428: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-09 15:15:48.861996: Processing test case 6
+2025-02-09 15:15:48.863114: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:15:48.863482: Input values: f
+2025-02-09 15:15:48.865407: Created input file with content: f
+
+2025-02-09 15:15:48.878769: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0066
+2025-02-09 15:15:48.880192: Processing raw output: Enter a character: The Unicode is: u0066
+2025-02-09 15:15:48.882868: Final processed output: u0066
+2025-02-09 15:15:48.885030: Normalized output: u0066
+2025-02-09 15:15:48.885472: Python final output: u0066
+2025-02-09 15:15:48.887386: Final execution status: success
+2025-02-09 15:15:48.887766: Final processed output: u0066
+2025-02-09 15:15:48.890523: Normalized output: u0066
+2025-02-09 15:15:48.892585: Normalized output: u0068
+2025-02-09 15:15:48.894820: Mismatch at line 0 - Student: "u0066", Expected: "u0068"
+2025-02-09 15:15:48.896099: Added comparison result for Case6: {'status': 'FAIL', 'teacherinput': 'f', 'detail': 'Student=u0066 vs Teacher=u0068'}
+2025-02-09 15:15:48.897066: Saved results to comparison_results.json
+2025-02-09 15:25:35.351981: Starting test execution
+2025-02-09 15:25:35.353057: Processing test case 1
+2025-02-09 15:25:35.354351: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:25:35.355441: Input values: a
+2025-02-09 15:25:35.357687: Created input file with content: a
+
+2025-02-09 15:25:35.373967: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.375532: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.377783: Final execution status: runtime_error
+2025-02-09 15:25:35.378184: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.379577: Added comparison result for Case1: {'status': 'runtime_error', 'teacherinput': 'a', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=u0061'}
+2025-02-09 15:25:35.380200: Processing test case 2
+2025-02-09 15:25:35.381475: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:25:35.381847: Input values: b
+2025-02-09 15:25:35.383758: Created input file with content: b
+
+2025-02-09 15:25:35.398204: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.399611: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.401823: Final execution status: runtime_error
+2025-02-09 15:25:35.402203: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.403527: Added comparison result for Case2: {'status': 'runtime_error', 'teacherinput': 'b', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=u0062'}
+2025-02-09 15:25:35.404109: Processing test case 3
+2025-02-09 15:25:35.405319: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:25:35.405674: Input values: c
+2025-02-09 15:25:35.407621: Created input file with content: c
+
+2025-02-09 15:25:35.421318: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.422681: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.424892: Final execution status: runtime_error
+2025-02-09 15:25:35.425281: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.426600: Added comparison result for Case3: {'status': 'runtime_error', 'teacherinput': 'c', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=u0063'}
+2025-02-09 15:25:35.427189: Processing test case 4
+2025-02-09 15:25:35.428400: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:25:35.428757: Input values: d
+2025-02-09 15:25:35.430637: Created input file with content: d
+
+2025-02-09 15:25:35.444083: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.445412: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.447565: Final execution status: runtime_error
+2025-02-09 15:25:35.447953: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.449277: Added comparison result for Case4: {'status': 'runtime_error', 'teacherinput': 'd', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=u0064'}
+2025-02-09 15:25:35.450325: Processing test case 5
+2025-02-09 15:25:35.451448: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:25:35.451816: Input values: e
+2025-02-09 15:25:35.459691: Created input file with content: e
+
+2025-02-09 15:25:35.474151: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.475554: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.477862: Final execution status: runtime_error
+2025-02-09 15:25:35.478270: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.479599: Added comparison result for Case5: {'status': 'runtime_error', 'teacherinput': 'e', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=u0065'}
+2025-02-09 15:25:35.480198: Processing test case 6
+2025-02-09 15:25:35.481421: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:25:35.481800: Input values: f
+2025-02-09 15:25:35.483670: Created input file with content: f
+
+2025-02-09 15:25:35.497208: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.498530: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.500696: Final execution status: runtime_error
+2025-02-09 15:25:35.501075: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:25:35.502419: Added comparison result for Case6: {'status': 'runtime_error', 'teacherinput': 'f', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=u0068'}
+2025-02-09 15:25:35.503459: Saved results to comparison_results.json
+2025-02-09 15:26:26.649908: Starting test execution
+2025-02-09 15:26:26.650980: Processing test case 1
+2025-02-09 15:26:26.652651: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:26:26.653089: Input values: 3
+2025-02-09 15:26:26.655587: Created input file with content: 3
+
+2025-02-09 15:26:26.671665: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:26.673108: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:26.675343: Final execution status: runtime_error
+2025-02-09 15:26:26.675742: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:26.677113: Added comparison result for Case1: {'status': 'runtime_error', 'teacherinput': '3', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=6'}
+2025-02-09 15:26:26.677703: Processing test case 2
+2025-02-09 15:26:26.678926: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:26:26.679289: Input values: 5
+2025-02-09 15:26:26.681229: Created input file with content: 5
+
+2025-02-09 15:26:26.695176: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:26.696595: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:26.698824: Final execution status: runtime_error
+2025-02-09 15:26:26.699215: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:26.700545: Added comparison result for Case2: {'status': 'runtime_error', 'teacherinput': '5', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=120'}
+2025-02-09 15:26:26.701599: Saved results to comparison_results.json
+2025-02-09 15:26:31.229089: Starting test execution
+2025-02-09 15:26:31.230328: Processing test case 1
+2025-02-09 15:26:31.232175: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:26:31.232718: Input values: 3
+2025-02-09 15:26:31.235036: Created input file with content: 3
+
+2025-02-09 15:26:31.251515: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:31.253078: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:31.255376: Final execution status: runtime_error
+2025-02-09 15:26:31.255774: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:31.257147: Added comparison result for Case1: {'status': 'runtime_error', 'teacherinput': '3', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=6'}
+2025-02-09 15:26:31.257737: Processing test case 2
+2025-02-09 15:26:31.259199: Executing code in python:
+x = int(input())
+ def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+2025-02-09 15:26:31.259597: Input values: 5
+2025-02-09 15:26:31.261549: Created input file with content: 5
+
+2025-02-09 15:26:31.275975: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:31.277353: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:31.279495: Final execution status: runtime_error
+2025-02-09 15:26:31.279874: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:26:31.281201: Added comparison result for Case2: {'status': 'runtime_error', 'teacherinput': '5', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=120'}
+2025-02-09 15:26:31.282228: Saved results to comparison_results.json
+2025-02-09 15:27:08.439753: Starting test execution
+2025-02-09 15:27:08.440846: Processing test case 1
+2025-02-09 15:27:08.442777: Executing code in python:
+x = int(input())
+ def factorial(n):
+if n == 0 or n == 1:
+return 1
+return n * factorial(n - 1)
+
+2025-02-09 15:27:08.443279: Input values: 3
+2025-02-09 15:27:08.445726: Created input file with content: 3
+
+2025-02-09 15:27:08.461953: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:08.463462: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:08.465672: Final execution status: runtime_error
+2025-02-09 15:27:08.466056: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:08.467417: Added comparison result for Case1: {'status': 'runtime_error', 'teacherinput': '3', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=6'}
+2025-02-09 15:27:08.468002: Processing test case 2
+2025-02-09 15:27:08.469237: Executing code in python:
+x = int(input())
+ def factorial(n):
+if n == 0 or n == 1:
+return 1
+return n * factorial(n - 1)
+
+2025-02-09 15:27:08.469602: Input values: 5
+2025-02-09 15:27:08.471520: Created input file with content: 5
+
+2025-02-09 15:27:08.485652: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:08.487047: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:08.489478: Final execution status: runtime_error
+2025-02-09 15:27:08.489905: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:08.491265: Added comparison result for Case2: {'status': 'runtime_error', 'teacherinput': '5', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=120'}
+2025-02-09 15:27:08.492362: Saved results to comparison_results.json
+2025-02-09 15:27:16.046940: Starting test execution
+2025-02-09 15:27:16.048074: Processing test case 1
+2025-02-09 15:27:16.050032: Executing code in python:
+x = int(input())
+ def factorial(n):
+if n == 0 or n == 1:
+return 1
+return n * factorial(n - 1)
+
+2025-02-09 15:27:16.050560: Input values: 3
+2025-02-09 15:27:16.053009: Created input file with content: 3
+
+2025-02-09 15:27:16.068697: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:16.070137: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:16.072399: Final execution status: runtime_error
+2025-02-09 15:27:16.072792: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:16.074165: Added comparison result for Case1: {'status': 'runtime_error', 'teacherinput': '3', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=6'}
+2025-02-09 15:27:16.074761: Processing test case 2
+2025-02-09 15:27:16.076030: Executing code in python:
+x = int(input())
+ def factorial(n):
+if n == 0 or n == 1:
+return 1
+return n * factorial(n - 1)
+
+2025-02-09 15:27:16.076413: Input values: 5
+2025-02-09 15:27:16.078326: Created input file with content: 5
+
+2025-02-09 15:27:16.092363: Python execution with input - RC: 1, Output:
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:16.093773: Python runtime error:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:16.095951: Final execution status: runtime_error
+2025-02-09 15:27:16.096329: Final processed output:   File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2
+    def factorial(n):
+IndentationError: unexpected indent
+2025-02-09 15:27:16.097674: Added comparison result for Case2: {'status': 'runtime_error', 'teacherinput': '5', 'detail': 'Student=  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 2\n    def factorial(n):\nIndentationError: unexpected indent vs Teacher=120'}
+2025-02-09 15:27:16.098707: Saved results to comparison_results.json
+2025-02-09 15:28:44.779940: Starting test execution
+2025-02-09 15:28:44.781146: Processing test case 1
+2025-02-09 15:28:44.782738: Executing code in python:
+x = int(input())
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+print(factorial(x))
+2025-02-09 15:28:44.783150: Input values: 3
+2025-02-09 15:28:44.785615: Created input file with content: 3
+
+2025-02-09 15:28:44.802408: Python execution with input - RC: 0, Output:
+6
+2025-02-09 15:28:44.803808: Processing raw output: 6
+2025-02-09 15:28:44.806855: Final processed output: 6
+2025-02-09 15:28:44.809024: Normalized output: 6.0
+2025-02-09 15:28:44.809566: Python final output: 6.0
+2025-02-09 15:28:44.811609: Final execution status: success
+2025-02-09 15:28:44.812005: Final processed output: 6.0
+2025-02-09 15:28:44.814328: Normalized output: 6.0
+2025-02-09 15:28:44.816442: Normalized output: 6.0
+2025-02-09 15:28:44.818667: Outputs match completely
+2025-02-09 15:28:44.819820: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': '3', 'detail': 'Student=6.0 vs Teacher=6'}
+2025-02-09 15:28:44.820403: Processing test case 2
+2025-02-09 15:28:44.821584: Executing code in python:
+x = int(input())
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+print(factorial(x))
+2025-02-09 15:28:44.821941: Input values: 5
+2025-02-09 15:28:44.823841: Created input file with content: 5
+
+2025-02-09 15:28:44.837815: Python execution with input - RC: 0, Output:
+120
+2025-02-09 15:28:44.839145: Processing raw output: 120
+2025-02-09 15:28:44.841812: Final processed output: 120
+2025-02-09 15:28:44.843918: Normalized output: 120.0
+2025-02-09 15:28:44.844377: Python final output: 120.0
+2025-02-09 15:28:44.846234: Final execution status: success
+2025-02-09 15:28:44.846623: Final processed output: 120.0
+2025-02-09 15:28:44.848877: Normalized output: 120.0
+2025-02-09 15:28:44.850928: Normalized output: 120.0
+2025-02-09 15:28:44.853078: Outputs match completely
+2025-02-09 15:28:44.854633: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': '5', 'detail': 'Student=120.0 vs Teacher=120'}
+2025-02-09 15:28:44.855646: Saved results to comparison_results.json
+2025-02-09 15:30:50.458490: Starting test execution
+2025-02-09 15:30:50.459557: Processing test case 1
+2025-02-09 15:30:50.461221: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 15:30:50.461650: Input values: 3
+5
+2025-02-09 15:30:50.464002: Created input file with content: 3
+5
+
+2025-02-09 15:30:50.481043: Python execution with input - RC: 0, Output:
+8
+2025-02-09 15:30:50.482495: Processing raw output: 8
+2025-02-09 15:30:50.485609: Final processed output: 8
+2025-02-09 15:30:50.487784: Normalized output: 8.0
+2025-02-09 15:30:50.488230: Python final output: 8.0
+2025-02-09 15:30:50.490291: Final execution status: success
+2025-02-09 15:30:50.490686: Final processed output: 8.0
+2025-02-09 15:30:50.493003: Normalized output: 8.0
+2025-02-09 15:30:50.495468: Normalized output: 8.0
+2025-02-09 15:30:50.497878: Outputs match completely
+2025-02-09 15:30:50.499059: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': '3\n5', 'detail': 'Student=8.0 vs Teacher=8'}
+2025-02-09 15:30:50.499667: Processing test case 2
+2025-02-09 15:30:50.500855: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 15:30:50.501224: Input values: 5
+0
+2025-02-09 15:30:50.503182: Created input file with content: 5
+0
+
+2025-02-09 15:30:50.517343: Python execution with input - RC: 0, Output:
+5
+2025-02-09 15:30:50.518702: Processing raw output: 5
+2025-02-09 15:30:50.521436: Final processed output: 5
+2025-02-09 15:30:50.523489: Normalized output: 5.0
+2025-02-09 15:30:50.523934: Python final output: 5.0
+2025-02-09 15:30:50.525865: Final execution status: success
+2025-02-09 15:30:50.526261: Final processed output: 5.0
+2025-02-09 15:30:50.528602: Normalized output: 5.0
+2025-02-09 15:30:50.530712: Normalized output: 5.0
+2025-02-09 15:30:50.532876: Outputs match completely
+2025-02-09 15:30:50.534433: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': '5\n0', 'detail': 'Student=5.0 vs Teacher=5'}
+2025-02-09 15:30:50.535460: Saved results to comparison_results.json
+2025-02-09 15:30:58.483637: Starting test execution
+2025-02-09 15:30:58.484717: Processing test case 1
+2025-02-09 15:30:58.486560: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 15:30:58.487080: Input values: 3
+5
+2025-02-09 15:30:58.489502: Created input file with content: 3
+5
+
+2025-02-09 15:30:58.505309: Python execution with input - RC: 0, Output:
+8
+2025-02-09 15:30:58.506851: Processing raw output: 8
+2025-02-09 15:30:58.509912: Final processed output: 8
+2025-02-09 15:30:58.512180: Normalized output: 8.0
+2025-02-09 15:30:58.512634: Python final output: 8.0
+2025-02-09 15:30:58.514569: Final execution status: success
+2025-02-09 15:30:58.514951: Final processed output: 8.0
+2025-02-09 15:30:58.517249: Normalized output: 8.0
+2025-02-09 15:30:58.519353: Normalized output: 7.0
+2025-02-09 15:30:58.521542: Mismatch at line 0 - Student: "8.0", Expected: "7.0"
+2025-02-09 15:30:58.522783: Added comparison result for Case1: {'status': 'FAIL', 'teacherinput': '3\n5', 'detail': 'Student=8.0 vs Teacher=7'}
+2025-02-09 15:30:58.523485: Processing test case 2
+2025-02-09 15:30:58.524884: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 15:30:58.525302: Input values: 5
+0
+2025-02-09 15:30:58.527480: Created input file with content: 5
+0
+
+2025-02-09 15:30:58.543138: Python execution with input - RC: 0, Output:
+5
+2025-02-09 15:30:58.544619: Processing raw output: 5
+2025-02-09 15:30:58.547385: Final processed output: 5
+2025-02-09 15:30:58.549495: Normalized output: 5.0
+2025-02-09 15:30:58.550040: Python final output: 5.0
+2025-02-09 15:30:58.551856: Final execution status: success
+2025-02-09 15:30:58.552236: Final processed output: 5.0
+2025-02-09 15:30:58.554511: Normalized output: 5.0
+2025-02-09 15:30:58.556580: Normalized output: 5.0
+2025-02-09 15:30:58.558747: Outputs match completely
+2025-02-09 15:30:58.560315: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': '5\n0', 'detail': 'Student=5.0 vs Teacher=5'}
+2025-02-09 15:30:58.561303: Saved results to comparison_results.json
+2025-02-09 15:34:45.651820: Starting test execution
+2025-02-09 15:34:45.653131: Processing test case 1
+2025-02-09 15:34:45.654915: Executing code in python:
+x = int(input())
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+print(factorial(x))
+2025-02-09 15:34:45.655355: Input values: 3
+2025-02-09 15:34:45.657430: Created input file with content: 3
+
+2025-02-09 15:34:45.673854: Python execution with input - RC: 0, Output:
+6
+2025-02-09 15:34:45.675328: Processing raw output: 6
+2025-02-09 15:34:45.678485: Final processed output: 6
+2025-02-09 15:34:45.681212: Normalized output: 6.0
+2025-02-09 15:34:45.681722: Python final output: 6.0
+2025-02-09 15:34:45.683664: Final execution status: success
+2025-02-09 15:34:45.684049: Final processed output: 6.0
+2025-02-09 15:34:45.686356: Normalized output: 6.0
+2025-02-09 15:34:45.688548: Normalized output: 6.0
+2025-02-09 15:34:45.690719: Outputs match completely
+2025-02-09 15:34:45.691849: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': '3', 'detail': 'Student=6.0 vs Teacher=6'}
+2025-02-09 15:34:45.692463: Processing test case 2
+2025-02-09 15:34:45.693649: Executing code in python:
+x = int(input())
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+print(factorial(x))
+2025-02-09 15:34:45.694010: Input values: 5
+2025-02-09 15:34:45.695954: Created input file with content: 5
+
+2025-02-09 15:34:45.710410: Python execution with input - RC: 0, Output:
+120
+2025-02-09 15:34:45.711761: Processing raw output: 120
+2025-02-09 15:34:45.714617: Final processed output: 120
+2025-02-09 15:34:45.716746: Normalized output: 120.0
+2025-02-09 15:34:45.717215: Python final output: 120.0
+2025-02-09 15:34:45.719137: Final execution status: success
+2025-02-09 15:34:45.719538: Final processed output: 120.0
+2025-02-09 15:34:45.721803: Normalized output: 120.0
+2025-02-09 15:34:45.723877: Normalized output: 120.0
+2025-02-09 15:34:45.726053: Outputs match completely
+2025-02-09 15:34:45.727619: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': '5', 'detail': 'Student=120.0 vs Teacher=120'}
+2025-02-09 15:34:45.728623: Saved results to comparison_results.json
+2025-02-09 15:35:06.837622: Starting test execution
+2025-02-09 15:35:06.838693: Processing test case 1
+2025-02-09 15:35:06.839903: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:35:06.840738: Input values: a
+2025-02-09 15:35:06.843008: Created input file with content: a
+
+2025-02-09 15:35:06.859133: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-09 15:35:06.860697: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-09 15:35:06.863813: Final processed output: u0061
+2025-02-09 15:35:06.866175: Normalized output: u0061
+2025-02-09 15:35:06.866621: Python final output: u0061
+2025-02-09 15:35:06.868590: Final execution status: success
+2025-02-09 15:35:06.869005: Final processed output: u0061
+2025-02-09 15:35:06.871362: Normalized output: u0061
+2025-02-09 15:35:06.873612: Normalized output: u0061
+2025-02-09 15:35:06.875805: Outputs match completely
+2025-02-09 15:35:06.877045: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-09 15:35:06.877616: Processing test case 2
+2025-02-09 15:35:06.878846: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:35:06.879230: Input values: b
+2025-02-09 15:35:06.881250: Created input file with content: b
+
+2025-02-09 15:35:06.895307: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-09 15:35:06.896639: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-09 15:35:06.899491: Final processed output: u0062
+2025-02-09 15:35:06.901688: Normalized output: u0062
+2025-02-09 15:35:06.902128: Python final output: u0062
+2025-02-09 15:35:06.903987: Final execution status: success
+2025-02-09 15:35:06.904360: Final processed output: u0062
+2025-02-09 15:35:06.906667: Normalized output: u0062
+2025-02-09 15:35:06.908723: Normalized output: u0062
+2025-02-09 15:35:06.911311: Outputs match completely
+2025-02-09 15:35:06.912440: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-09 15:35:06.913010: Processing test case 3
+2025-02-09 15:35:06.920124: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:35:06.920536: Input values: c
+2025-02-09 15:35:06.922479: Created input file with content: c
+
+2025-02-09 15:35:06.937021: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-09 15:35:06.938349: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-09 15:35:06.941067: Final processed output: u0063
+2025-02-09 15:35:06.943176: Normalized output: u0063
+2025-02-09 15:35:06.943629: Python final output: u0063
+2025-02-09 15:35:06.945523: Final execution status: success
+2025-02-09 15:35:06.945895: Final processed output: u0063
+2025-02-09 15:35:06.948246: Normalized output: u0063
+2025-02-09 15:35:06.950409: Normalized output: u0063
+2025-02-09 15:35:06.952581: Outputs match completely
+2025-02-09 15:35:06.953756: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-09 15:35:06.954315: Processing test case 4
+2025-02-09 15:35:06.955436: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:35:06.955795: Input values: d
+2025-02-09 15:35:06.957711: Created input file with content: d
+
+2025-02-09 15:35:06.971287: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-09 15:35:06.972708: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-09 15:35:06.975210: Final processed output: u0064
+2025-02-09 15:35:06.977404: Normalized output: u0064
+2025-02-09 15:35:06.977846: Python final output: u0064
+2025-02-09 15:35:06.979718: Final execution status: success
+2025-02-09 15:35:06.980090: Final processed output: u0064
+2025-02-09 15:35:06.982404: Normalized output: u0064
+2025-02-09 15:35:06.984841: Normalized output: u0064
+2025-02-09 15:35:06.987015: Outputs match completely
+2025-02-09 15:35:06.988139: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-09 15:35:06.988725: Processing test case 5
+2025-02-09 15:35:06.989903: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:35:06.990268: Input values: e
+2025-02-09 15:35:06.992169: Created input file with content: e
+
+2025-02-09 15:35:07.005894: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-09 15:35:07.007230: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-09 15:35:07.009869: Final processed output: u0065
+2025-02-09 15:35:07.011966: Normalized output: u0065
+2025-02-09 15:35:07.012420: Python final output: u0065
+2025-02-09 15:35:07.014350: Final execution status: success
+2025-02-09 15:35:07.014742: Final processed output: u0065
+2025-02-09 15:35:07.017049: Normalized output: u0065
+2025-02-09 15:35:07.019156: Normalized output: u0065
+2025-02-09 15:35:07.021329: Outputs match completely
+2025-02-09 15:35:07.022538: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-09 15:35:07.023107: Processing test case 6
+2025-02-09 15:35:07.024199: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 15:35:07.024558: Input values: f
+2025-02-09 15:35:07.026466: Created input file with content: f
+
+2025-02-09 15:35:07.039930: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0066
+2025-02-09 15:35:07.041335: Processing raw output: Enter a character: The Unicode is: u0066
+2025-02-09 15:35:07.043878: Final processed output: u0066
+2025-02-09 15:35:07.046049: Normalized output: u0066
+2025-02-09 15:35:07.046488: Python final output: u0066
+2025-02-09 15:35:07.048411: Final execution status: success
+2025-02-09 15:35:07.048785: Final processed output: u0066
+2025-02-09 15:35:07.051476: Normalized output: u0066
+2025-02-09 15:35:07.053513: Normalized output: u0068
+2025-02-09 15:35:07.055733: Mismatch at line 0 - Student: "u0066", Expected: "u0068"
+2025-02-09 15:35:07.056936: Added comparison result for Case6: {'status': 'FAIL', 'teacherinput': 'f', 'detail': 'Student=u0066 vs Teacher=u0068'}
+2025-02-09 15:35:07.057889: Saved results to comparison_results.json

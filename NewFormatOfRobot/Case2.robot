@@ -22,7 +22,7 @@ Setup Test Environment
     Create Directory    ${TEMP_DIR}
     ${student}    Load JSON From File    ${STUDENT_FILE}
     ${teacher}    Load JSON From File    ${TEACHER_FILE}
-    @{results}    Create List
+    ${results}    Create Dictionary
     ${current_time}    Get Current Date    result_format=%Y-%m-%d %H:%M:%S
     RETURN    ${student}    ${teacher}    ${results}
 
@@ -319,13 +319,14 @@ Compare Outputs
     RETURN    ${TRUE}
 
 Add Comparison Result
-    [Arguments]    ${results}    ${status}    ${student_output}    ${expected_output}    ${language}
-    ${result}    Create Dictionary
+    [Arguments]    ${results}    ${case_number}    ${status}    ${student_output}    ${teacher_input}    ${teacher_output}
+    ${case_key}    Set Variable    Case${case_number}
+    ${case_result}    Create Dictionary
     ...    status=${status}
-    ...    details=Student output: "${student_output}"\nTeacher output: "${expected_output}"
-    ...    language=${language}
-    Append To List    ${results}    ${result}
-    Log Debug Info    Added comparison result - Status: ${status}, Student: ${student_output}, Teacher: ${expected_output}
+    ...    teacherinput=${teacher_input}
+    ...    detail=Student=${student_output} vs Teacher=${teacher_output}
+    Set To Dictionary    ${results}    ${case_key}=${case_result}
+    Log Debug Info    Added comparison result for ${case_key}: ${case_result}
 
 Save Results
     [Arguments]    ${results}
@@ -334,15 +335,15 @@ Save Results
     Log Debug Info    Saved results to ${RESULTS_FILE}
 
 Handle Invalid Code
-    [Arguments]    ${results}    ${expected_output}    ${language}
-    Log Debug Info    Handling invalid code for language: ${language}
+    [Arguments]    ${results}    ${case_number}    ${expected_output}    ${teacher_input}    ${language}
+    Log Debug Info    Handling invalid code for case ${case_number} in language: ${language}
     Add Comparison Result    
-    ...    ${results}    
+    ...    ${results}
+    ...    ${case_number}    
     ...    FAIL    
     ...    No valid code provided    
-    ...    ${expected_output}    
-    ...    ${language}
-
+    ...    ${teacher_input}
+    ...    ${expected_output}
 
 *** Test Cases ***
 Compare Student Code With Test Cases
@@ -353,41 +354,44 @@ Compare Student Code With Test Cases
     Log Debug Info    Starting test execution
     
     # Get test cases and expected results
-    ${test_input}    Set Variable    ${teacher}[testcase]
-    ${expected_output}    Set Variable    ${teacher}[testresult]
-    ${code}    Set Variable    ${student}[content]
-    
-    Log Debug Info    Test input: ${test_input}
-    Log Debug Info    Expected output: ${expected_output}
-    Log Debug Info    Student code: ${code}
-    
-    # Execute and compare
-    ${use_code}    Run Keyword And Return Status    Should Not Be Equal    ${code}    None
-    IF    not ${use_code}
-        Handle Invalid Code    ${results}    ${expected_output}    ${student}[language]
-    ELSE
-        # Execute student code
-        ${student_status}    ${student_output}    Execute Code With Input    
-        ...    ${code}    
-        ...    ${student}[language]    
-        ...    ${test_input}
+    @{test_cases}    Set Variable    ${teacher}[testcases]
+    ${code}    Set Variable    ${student}[code]
+    ${language}    Set Variable    ${student}[language]
+
+    # Loop through test cases
+    FOR    ${index}    ${test_case}    IN ENUMERATE    @{test_cases}
+        ${case_number}    Evaluate    ${index} + 1
+        Log Debug Info    Processing test case ${case_number}
         
-        # Compare outputs
-        ${outputs_match}    Compare Outputs    ${student_output}    ${expected_output}
-        ${test_status}    Set Variable If    
-        ...    '${student_status}' != 'success'    FAIL
-        ...    not ${outputs_match}    FAIL
-        ...    PASS
+        # Skip if no valid code provided
+        ${code_exists}    Run Keyword And Return Status    Should Not Be Empty    ${code}
+        IF    not ${code_exists}
+            Handle Invalid Code    ${results}    ${case_number}    
+            ...    ${test_case}[output]    ${test_case}[input]    ${language}
+            Continue For Loop
+        END
         
-        # Add results
+        # Execute code and compare outputs
+        ${status}    ${actual_output}    Execute Code With Input    
+        ...    ${code}    ${language}    ${test_case}[input]
+        
+        # Handle execution status
+        IF    '${status}' == 'success'
+            ${outputs_match}    Compare Outputs    ${actual_output}    ${test_case}[output]
+            ${final_status}    Set Variable If    ${outputs_match}    PASS    FAIL
+        ELSE
+            ${final_status}    Set Variable    ${status}
+        END
+        
+        # Record results
         Add Comparison Result    
         ...    ${results}    
-        ...    ${test_status}    
-        ...    ${student_output}    
-        ...    ${expected_output}    
-        ...    ${student}[language]
+        ...    ${case_number}    
+        ...    ${final_status}    
+        ...    ${actual_output}    
+        ...    ${test_case}[input]    
+        ...    ${test_case}[output]
     END
     
     # Save final results
     Save Results    ${results}
-    Log Debug Info    Test execution completed
