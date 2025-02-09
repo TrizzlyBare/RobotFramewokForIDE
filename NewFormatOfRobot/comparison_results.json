@@ -23,10 +23,5 @@
     "status": "PASS",
     "teacherinput": "e",
     "detail": "Student=u0065 vs Teacher=u0065"
-  },
-  "Case6": {
-    "status": "FAIL",
-    "teacherinput": "f",
-    "detail": "Student=u0066 vs Teacher=u0068"
   }
 }

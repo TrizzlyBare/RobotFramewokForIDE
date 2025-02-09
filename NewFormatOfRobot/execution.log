@@ -1671,3 +1671,232 @@ Enter a character: The Unicode is: u0066
 2025-02-09 15:35:07.055733: Mismatch at line 0 - Student: "u0066", Expected: "u0068"
 2025-02-09 15:35:07.056936: Added comparison result for Case6: {'status': 'FAIL', 'teacherinput': 'f', 'detail': 'Student=u0066 vs Teacher=u0068'}
 2025-02-09 15:35:07.057889: Saved results to comparison_results.json
+2025-02-09 17:37:59.694047: Starting test execution
+2025-02-09 17:37:59.695376: Processing test case 1
+2025-02-09 17:37:59.696718: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 17:37:59.697679: Input values: a
+2025-02-09 17:37:59.699739: Created input file with content: a
+
+2025-02-09 17:37:59.716813: Python execution with input - RC: 1, Output:
+Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a'
+2025-02-09 17:37:59.718304: Python runtime error: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a'
+2025-02-09 17:37:59.720534: Final execution status: runtime_error
+2025-02-09 17:37:59.720932: Final processed output: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a'
+2025-02-09 17:37:59.722331: Added comparison result for Case1: {'status': 'runtime_error', 'teacherinput': 'a', 'detail': 'Student=Traceback (most recent call last):\n  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>\n    a = int(input())\n        ^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: \'a\' vs Teacher=u0061'}
+2025-02-09 17:37:59.722957: Processing test case 2
+2025-02-09 17:37:59.724869: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 17:37:59.725317: Input values: b
+2025-02-09 17:37:59.727346: Created input file with content: b
+
+2025-02-09 17:37:59.742069: Python execution with input - RC: 1, Output:
+Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'b'
+2025-02-09 17:37:59.743491: Python runtime error: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'b'
+2025-02-09 17:37:59.745662: Final execution status: runtime_error
+2025-02-09 17:37:59.746051: Final processed output: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'b'
+2025-02-09 17:37:59.747418: Added comparison result for Case2: {'status': 'runtime_error', 'teacherinput': 'b', 'detail': 'Student=Traceback (most recent call last):\n  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>\n    a = int(input())\n        ^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: \'b\' vs Teacher=u0062'}
+2025-02-09 17:37:59.748046: Processing test case 3
+2025-02-09 17:37:59.749273: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 17:37:59.749631: Input values: c
+2025-02-09 17:37:59.751495: Created input file with content: c
+
+2025-02-09 17:37:59.765374: Python execution with input - RC: 1, Output:
+Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'c'
+2025-02-09 17:37:59.766725: Python runtime error: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'c'
+2025-02-09 17:37:59.768926: Final execution status: runtime_error
+2025-02-09 17:37:59.769332: Final processed output: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'c'
+2025-02-09 17:37:59.770675: Added comparison result for Case3: {'status': 'runtime_error', 'teacherinput': 'c', 'detail': 'Student=Traceback (most recent call last):\n  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>\n    a = int(input())\n        ^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: \'c\' vs Teacher=u0063'}
+2025-02-09 17:37:59.771268: Processing test case 4
+2025-02-09 17:37:59.772482: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 17:37:59.772855: Input values: d
+2025-02-09 17:37:59.774773: Created input file with content: d
+
+2025-02-09 17:37:59.788505: Python execution with input - RC: 1, Output:
+Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'd'
+2025-02-09 17:37:59.789882: Python runtime error: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'd'
+2025-02-09 17:37:59.792093: Final execution status: runtime_error
+2025-02-09 17:37:59.792480: Final processed output: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'd'
+2025-02-09 17:37:59.793814: Added comparison result for Case4: {'status': 'runtime_error', 'teacherinput': 'd', 'detail': 'Student=Traceback (most recent call last):\n  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>\n    a = int(input())\n        ^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: \'d\' vs Teacher=u0064'}
+2025-02-09 17:37:59.794797: Processing test case 5
+2025-02-09 17:37:59.795946: Executing code in python:
+a = int(input())
+b = int(input())
+print(a + b)
+2025-02-09 17:37:59.796318: Input values: e
+2025-02-09 17:37:59.804558: Created input file with content: e
+
+2025-02-09 17:37:59.819273: Python execution with input - RC: 1, Output:
+Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'e'
+2025-02-09 17:37:59.820646: Python runtime error: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'e'
+2025-02-09 17:37:59.822924: Final execution status: runtime_error
+2025-02-09 17:37:59.823349: Final processed output: Traceback (most recent call last):
+  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>
+    a = int(input())
+        ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'e'
+2025-02-09 17:37:59.824686: Added comparison result for Case5: {'status': 'runtime_error', 'teacherinput': 'e', 'detail': 'Student=Traceback (most recent call last):\n  File "/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/./temp/test.py", line 1, in <module>\n    a = int(input())\n        ^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: \'e\' vs Teacher=u0065'}
+2025-02-09 17:37:59.825734: Saved results to comparison_results.json
+2025-02-09 17:38:22.736416: Starting test execution
+2025-02-09 17:38:22.737695: Processing test case 1
+2025-02-09 17:38:22.738951: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 17:38:22.739917: Input values: a
+2025-02-09 17:38:22.742248: Created input file with content: a
+
+2025-02-09 17:38:22.758035: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-09 17:38:22.759561: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-09 17:38:22.762667: Final processed output: u0061
+2025-02-09 17:38:22.765042: Normalized output: u0061
+2025-02-09 17:38:22.765495: Python final output: u0061
+2025-02-09 17:38:22.767447: Final execution status: success
+2025-02-09 17:38:22.767843: Final processed output: u0061
+2025-02-09 17:38:22.770170: Normalized output: u0061
+2025-02-09 17:38:22.772455: Normalized output: u0061
+2025-02-09 17:38:22.774663: Outputs match completely
+2025-02-09 17:38:22.775883: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-09 17:38:22.776438: Processing test case 2
+2025-02-09 17:38:22.777518: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 17:38:22.777870: Input values: b
+2025-02-09 17:38:22.779791: Created input file with content: b
+
+2025-02-09 17:38:22.793657: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-09 17:38:22.795014: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-09 17:38:22.797755: Final processed output: u0062
+2025-02-09 17:38:22.800000: Normalized output: u0062
+2025-02-09 17:38:22.800444: Python final output: u0062
+2025-02-09 17:38:22.802323: Final execution status: success
+2025-02-09 17:38:22.802712: Final processed output: u0062
+2025-02-09 17:38:22.805029: Normalized output: u0062
+2025-02-09 17:38:22.807088: Normalized output: u0062
+2025-02-09 17:38:22.809713: Outputs match completely
+2025-02-09 17:38:22.810844: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-09 17:38:22.811407: Processing test case 3
+2025-02-09 17:38:22.818498: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 17:38:22.818912: Input values: c
+2025-02-09 17:38:22.820797: Created input file with content: c
+
+2025-02-09 17:38:22.835499: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-09 17:38:22.836815: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-09 17:38:22.839551: Final processed output: u0063
+2025-02-09 17:38:22.841696: Normalized output: u0063
+2025-02-09 17:38:22.842132: Python final output: u0063
+2025-02-09 17:38:22.844030: Final execution status: success
+2025-02-09 17:38:22.844395: Final processed output: u0063
+2025-02-09 17:38:22.846791: Normalized output: u0063
+2025-02-09 17:38:22.848955: Normalized output: u0063
+2025-02-09 17:38:22.851175: Outputs match completely
+2025-02-09 17:38:22.852360: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-09 17:38:22.852922: Processing test case 4
+2025-02-09 17:38:22.854072: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 17:38:22.854445: Input values: d
+2025-02-09 17:38:22.856437: Created input file with content: d
+
+2025-02-09 17:38:22.870231: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-09 17:38:22.871707: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-09 17:38:22.874266: Final processed output: u0064
+2025-02-09 17:38:22.876447: Normalized output: u0064
+2025-02-09 17:38:22.876877: Python final output: u0064
+2025-02-09 17:38:22.878736: Final execution status: success
+2025-02-09 17:38:22.879110: Final processed output: u0064
+2025-02-09 17:38:22.881493: Normalized output: u0064
+2025-02-09 17:38:22.884527: Normalized output: u0064
+2025-02-09 17:38:22.886929: Outputs match completely
+2025-02-09 17:38:22.888115: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-09 17:38:22.888732: Processing test case 5
+2025-02-09 17:38:22.889990: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-09 17:38:22.890372: Input values: e
+2025-02-09 17:38:22.892362: Created input file with content: e
+
+2025-02-09 17:38:22.909154: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-09 17:38:22.911146: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-09 17:38:22.914500: Final processed output: u0065
+2025-02-09 17:38:22.916930: Normalized output: u0065
+2025-02-09 17:38:22.917425: Python final output: u0065
+2025-02-09 17:38:22.919712: Final execution status: success
+2025-02-09 17:38:22.920184: Final processed output: u0065
+2025-02-09 17:38:22.922878: Normalized output: u0065
+2025-02-09 17:38:22.925150: Normalized output: u0065
+2025-02-09 17:38:22.927349: Outputs match completely
+2025-02-09 17:38:22.928799: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-09 17:38:22.930104: Saved results to comparison_results.json

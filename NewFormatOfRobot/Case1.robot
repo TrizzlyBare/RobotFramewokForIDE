@@ -4,6 +4,7 @@ Library           OperatingSystem
 Library           Collections
 Library           Process
 Library           String
+Library           DateTime
 
 *** Variables ***
 ${STUDENT_FILE}    students.json
@@ -33,7 +34,6 @@ Validate Code Output
     
     ${output_stripped}    Strip String    ${output}
     
-    # Fixed IF condition syntax using $status and $output_stripped
     IF    $status == "success" and $output_stripped == ""
         ${is_valid}    Set Variable    ${False}
         ${message}    Set Variable    No output generated from code execution
@@ -47,6 +47,10 @@ Normalize Output
     ${normalized}    Replace String    ${normalized}    \r\n    \n
     ${normalized}    Replace String    ${normalized}    \r    \n
     RETURN    ${normalized}
+
+Get Current Time Ms
+    ${time}    Evaluate    int(time.time() * 1000)    time
+    RETURN    ${time}
 
 Execute Code
     [Arguments]    ${code}    ${language}
@@ -62,22 +66,32 @@ Execute Code
     ${status}    Set Variable    success
     ${output}    Set Variable    ${EMPTY}
     ${error_msg}    Set Variable    ${EMPTY}
+    ${runtime}    Set Variable    0
     
     TRY
         IF    $language == "python"
+            ${start_time}    Get Current Time Ms
             ${result}    Run Process    ${PYTHON_CMD}    ${TEMP_DIR}/${filename}${ext}    shell=True
+            ${end_time}    Get Current Time Ms
+            ${runtime}    Evaluate    ${end_time} - ${start_time}
             ${output}    Set Variable    ${result.stdout}
             ${error_msg}    Set Variable    ${result.stderr}
             
         ELSE IF    $language == "javascript"
+            ${start_time}    Get Current Time Ms
             ${result}    Run Process    ${JAVASCRIPT_CMD}    ${TEMP_DIR}/${filename}${ext}    shell=True
+            ${end_time}    Get Current Time Ms
+            ${runtime}    Evaluate    ${end_time} - ${start_time}
             ${output}    Set Variable    ${result.stdout}
             ${error_msg}    Set Variable    ${result.stderr}
 
         ELSE IF    $language == "cpp"
             ${compile_result}    Run Process    ${CPP_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
             IF    ${compile_result.rc} == 0
+                ${start_time}    Get Current Time Ms
                 ${result}    Run Process    ${TEMP_DIR}/${filename}    shell=True
+                ${end_time}    Get Current Time Ms
+                ${runtime}    Evaluate    ${end_time} - ${start_time}
                 ${output}    Set Variable    ${result.stdout}
                 ${error_msg}    Set Variable    ${result.stderr}
             ELSE
@@ -88,7 +102,10 @@ Execute Code
         ELSE IF    $language == "rust"
             ${compile_result}    Run Process    ${RUST_COMPILER}    ${TEMP_DIR}/${filename}${ext}    -o    ${TEMP_DIR}/${filename}    shell=True
             IF    ${compile_result.rc} == 0
+                ${start_time}    Get Current Time Ms
                 ${result}    Run Process    ${TEMP_DIR}/${filename}    shell=True
+                ${end_time}    Get Current Time Ms
+                ${runtime}    Evaluate    ${end_time} - ${start_time}
                 ${output}    Set Variable    ${result.stdout}
                 ${error_msg}    Set Variable    ${result.stderr}
             ELSE
@@ -109,14 +126,16 @@ Execute Code
         ${status}    Set Variable    runtime_error
         ${error_msg}    Set Variable    ${error}
     END
-    RETURN    ${status}    ${output}    ${error_msg}
+    RETURN    ${status}    ${output}    ${error_msg}    ${runtime}
 
 Add Comparison Result
-    [Arguments]    ${results}    ${status}    ${details}    ${language}    ${error_msg}=${EMPTY}
+    [Arguments]    ${results}    ${status}    ${details}    ${language}    ${student_runtime}=${0}    ${teacher_runtime}=${0}    ${error_msg}=${EMPTY}
     ${result}    Create Dictionary
     ...    status=${status}
     ...    details=${details}
     ...    language=${language}
+    ...    student_runtime_ms=${student_runtime}
+    ...    teacher_runtime_ms=${teacher_runtime}
     ...    error=${error_msg}
     Append To List    ${results}    ${result}
 
@@ -134,12 +153,12 @@ Compare Student And Teacher Code
     ${student}    ${teacher}    ${results}    Setup Test Environment
     
     # Execute student code
-    ${student_status}    ${student_output}    ${student_error}    Execute Code    
+    ${student_status}    ${student_output}    ${student_error}    ${student_runtime}    Execute Code    
     ...    ${student}[defaultCode]    
     ...    ${student}[language]
     
     # Execute teacher code
-    ${teacher_status}    ${teacher_output}    ${teacher_error}    Execute Code    
+    ${teacher_status}    ${teacher_output}    ${teacher_error}    ${teacher_runtime}    Execute Code    
     ...    ${teacher}[defaultCode]    
     ...    ${teacher}[language]
     
@@ -150,14 +169,14 @@ Compare Student And Teacher Code
     
     IF    $student_status != "success"
         Add Comparison Result    ${results}    FAIL    Student code error: ${student_output}    
-        ...    ${student}[language]    ${student_error}
+        ...    ${student}[language]    ${student_runtime}    ${teacher_runtime}    ${student_error}
     ELSE IF    $teacher_status != "success"
         Add Comparison Result    ${results}    FAIL    Teacher code error: ${teacher_output}    
-        ...    ${student}[language]    ${teacher_error}
+        ...    ${student}[language]    ${student_runtime}    ${teacher_runtime}    ${teacher_error}
     ELSE IF    $student_output == $teacher_output
-        Add Comparison Result    ${results}    PASS    ${details}    ${student}[language]
+        Add Comparison Result    ${results}    PASS    ${details}    ${student}[language]    ${student_runtime}    ${teacher_runtime}
     ELSE
-        Add Comparison Result    ${results}    FAIL    ${details}    ${student}[language]
+        Add Comparison Result    ${results}    FAIL    ${details}    ${student}[language]    ${student_runtime}    ${teacher_runtime}
     END
     
     Save Results    ${results}

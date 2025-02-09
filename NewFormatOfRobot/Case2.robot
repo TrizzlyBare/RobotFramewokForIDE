@@ -355,7 +355,7 @@ Compare Student Code With Test Cases
     
     # Get test cases and expected results
     @{test_cases}    Set Variable    ${teacher}[testcases]
-    ${code}    Set Variable    ${student}[code]
+    ${code}    Set Variable    ${student}[defaultCode]
     ${language}    Set Variable    ${student}[language]
 
     # Loop through test cases
