@@ -2576,3 +2576,292 @@ Enter a character: The Unicode is: u006a
 2025-02-12 21:39:38.966829: Outputs match completely
 2025-02-12 21:39:38.967971: Added comparison result for Case10: {'status': 'PASS', 'teacherinput': 'j', 'detail': 'Student=u006a vs Teacher=u006a'}
 2025-02-12 21:39:38.969083: Saved results to comparison_results.json
+2025-02-12 21:45:09.523736: Starting test execution
+2025-02-12 21:45:09.524982: Processing test case 1
+2025-02-12 21:45:09.526296: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.527335: Input values: a
+2025-02-12 21:45:09.529518: Created input file with content: a
+
+2025-02-12 21:45:09.546543: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-12 21:45:09.547974: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-12 21:45:09.554892: Final processed output: u0061
+2025-02-12 21:45:09.557210: Normalized output: u0061
+2025-02-12 21:45:09.557751: Python final output: u0061
+2025-02-12 21:45:09.559808: Final execution status: success
+2025-02-12 21:45:09.560210: Final processed output: u0061
+2025-02-12 21:45:09.562636: Normalized output: u0061
+2025-02-12 21:45:09.564784: Normalized output: u0061
+2025-02-12 21:45:09.567054: Outputs match completely
+2025-02-12 21:45:09.568210: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-12 21:45:09.568820: Processing test case 2
+2025-02-12 21:45:09.570034: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.570440: Input values: b
+2025-02-12 21:45:09.572347: Created input file with content: b
+
+2025-02-12 21:45:09.586872: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-12 21:45:09.588253: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-12 21:45:09.593783: Final processed output: u0062
+2025-02-12 21:45:09.596027: Normalized output: u0062
+2025-02-12 21:45:09.596466: Python final output: u0062
+2025-02-12 21:45:09.598350: Final execution status: success
+2025-02-12 21:45:09.598736: Final processed output: u0062
+2025-02-12 21:45:09.601402: Normalized output: u0062
+2025-02-12 21:45:09.603447: Normalized output: u0062
+2025-02-12 21:45:09.611716: Outputs match completely
+2025-02-12 21:45:09.612901: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-12 21:45:09.613503: Processing test case 3
+2025-02-12 21:45:09.614690: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.615066: Input values: c
+2025-02-12 21:45:09.616923: Created input file with content: c
+
+2025-02-12 21:45:09.631310: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-12 21:45:09.632689: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-12 21:45:09.638300: Final processed output: u0063
+2025-02-12 21:45:09.641927: Normalized output: u0063
+2025-02-12 21:45:09.642464: Python final output: u0063
+2025-02-12 21:45:09.644467: Final execution status: success
+2025-02-12 21:45:09.644869: Final processed output: u0063
+2025-02-12 21:45:09.647260: Normalized output: u0063
+2025-02-12 21:45:09.649284: Normalized output: u0063
+2025-02-12 21:45:09.651528: Outputs match completely
+2025-02-12 21:45:09.652640: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-12 21:45:09.653234: Processing test case 4
+2025-02-12 21:45:09.654484: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.654855: Input values: d
+2025-02-12 21:45:09.656943: Created input file with content: d
+
+2025-02-12 21:45:09.671649: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-12 21:45:09.673000: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-12 21:45:09.678508: Final processed output: u0064
+2025-02-12 21:45:09.680795: Normalized output: u0064
+2025-02-12 21:45:09.681240: Python final output: u0064
+2025-02-12 21:45:09.683548: Final execution status: success
+2025-02-12 21:45:09.683960: Final processed output: u0064
+2025-02-12 21:45:09.686585: Normalized output: u0064
+2025-02-12 21:45:09.688868: Normalized output: u0064
+2025-02-12 21:45:09.691423: Outputs match completely
+2025-02-12 21:45:09.692586: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-12 21:45:09.693198: Processing test case 5
+2025-02-12 21:45:09.694410: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.694798: Input values: e
+2025-02-12 21:45:09.696707: Created input file with content: e
+
+2025-02-12 21:45:09.710756: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-12 21:45:09.712115: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-12 21:45:09.717591: Final processed output: u0065
+2025-02-12 21:45:09.719852: Normalized output: u0065
+2025-02-12 21:45:09.720316: Python final output: u0065
+2025-02-12 21:45:09.722211: Final execution status: success
+2025-02-12 21:45:09.722595: Final processed output: u0065
+2025-02-12 21:45:09.724953: Normalized output: u0065
+2025-02-12 21:45:09.727024: Normalized output: u0065
+2025-02-12 21:45:09.729268: Outputs match completely
+2025-02-12 21:45:09.730385: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-12 21:45:09.730961: Processing test case 6
+2025-02-12 21:45:09.732129: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.732500: Input values: f
+2025-02-12 21:45:09.734522: Created input file with content: f
+
+2025-02-12 21:45:09.748387: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0066
+2025-02-12 21:45:09.749742: Processing raw output: Enter a character: The Unicode is: u0066
+2025-02-12 21:45:09.756244: Final processed output: u0066
+2025-02-12 21:45:09.758756: Normalized output: u0066
+2025-02-12 21:45:09.759249: Python final output: u0066
+2025-02-12 21:45:09.761317: Final execution status: success
+2025-02-12 21:45:09.761756: Final processed output: u0066
+2025-02-12 21:45:09.764164: Normalized output: u0066
+2025-02-12 21:45:09.766973: Normalized output: u0066
+2025-02-12 21:45:09.769391: Outputs match completely
+2025-02-12 21:45:09.770604: Added comparison result for Case6: {'status': 'PASS', 'teacherinput': 'f', 'detail': 'Student=u0066 vs Teacher=u0066'}
+2025-02-12 21:45:09.771315: Processing test case 7
+2025-02-12 21:45:09.772555: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.772927: Input values: g
+2025-02-12 21:45:09.775156: Created input file with content: g
+
+2025-02-12 21:45:09.790522: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0067
+2025-02-12 21:45:09.791955: Processing raw output: Enter a character: The Unicode is: u0067
+2025-02-12 21:45:09.797736: Final processed output: u0067
+2025-02-12 21:45:09.800145: Normalized output: u0067
+2025-02-12 21:45:09.800615: Python final output: u0067
+2025-02-12 21:45:09.802631: Final execution status: success
+2025-02-12 21:45:09.803050: Final processed output: u0067
+2025-02-12 21:45:09.806104: Normalized output: u0067
+2025-02-12 21:45:09.808341: Normalized output: u0067
+2025-02-12 21:45:09.810790: Outputs match completely
+2025-02-12 21:45:09.811987: Added comparison result for Case7: {'status': 'PASS', 'teacherinput': 'g', 'detail': 'Student=u0067 vs Teacher=u0067'}
+2025-02-12 21:45:09.812594: Processing test case 8
+2025-02-12 21:45:09.814284: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.814684: Input values: h
+2025-02-12 21:45:09.816634: Created input file with content: h
+
+2025-02-12 21:45:09.833191: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0068
+2025-02-12 21:45:09.834661: Processing raw output: Enter a character: The Unicode is: u0068
+2025-02-12 21:45:09.841109: Final processed output: u0068
+2025-02-12 21:45:09.843558: Normalized output: u0068
+2025-02-12 21:45:09.844058: Python final output: u0068
+2025-02-12 21:45:09.845966: Final execution status: success
+2025-02-12 21:45:09.846382: Final processed output: u0068
+2025-02-12 21:45:09.848758: Normalized output: u0068
+2025-02-12 21:45:09.850784: Normalized output: u0068
+2025-02-12 21:45:09.853115: Outputs match completely
+2025-02-12 21:45:09.854486: Added comparison result for Case8: {'status': 'PASS', 'teacherinput': 'h', 'detail': 'Student=u0068 vs Teacher=u0068'}
+2025-02-12 21:45:09.855175: Processing test case 9
+2025-02-12 21:45:09.856958: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.857437: Input values: i
+2025-02-12 21:45:09.859556: Created input file with content: i
+
+2025-02-12 21:45:09.875959: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0069
+2025-02-12 21:45:09.877329: Processing raw output: Enter a character: The Unicode is: u0069
+2025-02-12 21:45:09.882897: Final processed output: u0069
+2025-02-12 21:45:09.885165: Normalized output: u0069
+2025-02-12 21:45:09.885643: Python final output: u0069
+2025-02-12 21:45:09.887962: Final execution status: success
+2025-02-12 21:45:09.888478: Final processed output: u0069
+2025-02-12 21:45:09.891672: Normalized output: u0069
+2025-02-12 21:45:09.893963: Normalized output: u0069
+2025-02-12 21:45:09.896519: Outputs match completely
+2025-02-12 21:45:09.897778: Added comparison result for Case9: {'status': 'PASS', 'teacherinput': 'i', 'detail': 'Student=u0069 vs Teacher=u0069'}
+2025-02-12 21:45:09.898402: Processing test case 10
+2025-02-12 21:45:09.899870: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:09.900294: Input values: j
+2025-02-12 21:45:09.902207: Created input file with content: j
+
+2025-02-12 21:45:09.917806: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u006a
+2025-02-12 21:45:09.919188: Processing raw output: Enter a character: The Unicode is: u006a
+2025-02-12 21:45:09.925580: Final processed output: u006a
+2025-02-12 21:45:09.927866: Normalized output: u006a
+2025-02-12 21:45:09.928341: Python final output: u006a
+2025-02-12 21:45:09.930281: Final execution status: success
+2025-02-12 21:45:09.930662: Final processed output: u006a
+2025-02-12 21:45:09.933083: Normalized output: u006a
+2025-02-12 21:45:09.935119: Normalized output: u006a
+2025-02-12 21:45:09.937598: Outputs match completely
+2025-02-12 21:45:09.938822: Added comparison result for Case10: {'status': 'PASS', 'teacherinput': 'j', 'detail': 'Student=u006a vs Teacher=u006a'}
+2025-02-12 21:45:09.939925: Saved results to comparison_results.json
+2025-02-12 21:45:21.586425: Starting test execution
+2025-02-12 21:45:21.587543: Processing test case 1
+2025-02-12 21:45:21.588998: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:21.590261: Input values: a
+2025-02-12 21:45:21.592709: Created input file with content: a
+
+2025-02-12 21:45:21.609585: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-12 21:45:21.611038: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-12 21:45:21.618270: Final processed output: u0061
+2025-02-12 21:45:21.620728: Normalized output: u0061
+2025-02-12 21:45:21.621189: Python final output: u0061
+2025-02-12 21:45:21.623148: Final execution status: success
+2025-02-12 21:45:21.623550: Final processed output: u0061
+2025-02-12 21:45:21.625843: Normalized output: u0061
+2025-02-12 21:45:21.627988: Normalized output: u0061
+2025-02-12 21:45:21.630271: Outputs match completely
+2025-02-12 21:45:21.631410: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-12 21:45:21.631993: Processing test case 2
+2025-02-12 21:45:21.633216: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:21.633604: Input values: b
+2025-02-12 21:45:21.635449: Created input file with content: b
+
+2025-02-12 21:45:21.649918: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-12 21:45:21.651287: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-12 21:45:21.656890: Final processed output: u0062
+2025-02-12 21:45:21.659128: Normalized output: u0062
+2025-02-12 21:45:21.659577: Python final output: u0062
+2025-02-12 21:45:21.661458: Final execution status: success
+2025-02-12 21:45:21.661841: Final processed output: u0062
+2025-02-12 21:45:21.664499: Normalized output: u0062
+2025-02-12 21:45:21.666554: Normalized output: u0062
+2025-02-12 21:45:21.674823: Outputs match completely
+2025-02-12 21:45:21.676006: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-12 21:45:21.676605: Processing test case 3
+2025-02-12 21:45:21.677764: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:21.678150: Input values: c
+2025-02-12 21:45:21.680093: Created input file with content: c
+
+2025-02-12 21:45:21.694649: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-12 21:45:21.696009: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-12 21:45:21.701635: Final processed output: u0063
+2025-02-12 21:45:21.703898: Normalized output: u0063
+2025-02-12 21:45:21.704344: Python final output: u0063
+2025-02-12 21:45:21.706268: Final execution status: success
+2025-02-12 21:45:21.706668: Final processed output: u0063
+2025-02-12 21:45:21.709147: Normalized output: u0063
+2025-02-12 21:45:21.711173: Normalized output: u0063
+2025-02-12 21:45:21.713447: Outputs match completely
+2025-02-12 21:45:21.714589: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-12 21:45:21.715180: Processing test case 4
+2025-02-12 21:45:21.716364: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:21.716737: Input values: d
+2025-02-12 21:45:21.718595: Created input file with content: d
+
+2025-02-12 21:45:21.734732: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-12 21:45:21.736287: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-12 21:45:21.743659: Final processed output: u0064
+2025-02-12 21:45:21.746063: Normalized output: u0064
+2025-02-12 21:45:21.746539: Python final output: u0064
+2025-02-12 21:45:21.748893: Final execution status: success
+2025-02-12 21:45:21.749275: Final processed output: u0064
+2025-02-12 21:45:21.751598: Normalized output: u0064
+2025-02-12 21:45:21.753591: Normalized output: u0064
+2025-02-12 21:45:21.755984: Outputs match completely
+2025-02-12 21:45:21.757149: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-12 21:45:21.757764: Processing test case 5
+2025-02-12 21:45:21.759045: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 21:45:21.759545: Input values: e
+2025-02-12 21:45:21.761557: Created input file with content: e
+
+2025-02-12 21:45:21.777890: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-12 21:45:21.779918: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-12 21:45:21.786367: Final processed output: u0065
+2025-02-12 21:45:21.789396: Normalized output: u0065
+2025-02-12 21:45:21.789936: Python final output: u0065
+2025-02-12 21:45:21.792042: Final execution status: success
+2025-02-12 21:45:21.792459: Final processed output: u0065
+2025-02-12 21:45:21.795337: Normalized output: u0065
+2025-02-12 21:45:21.797600: Normalized output: u0065
+2025-02-12 21:45:21.800014: Outputs match completely
+2025-02-12 21:45:21.801181: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-12 21:45:21.802233: Saved results to comparison_results.json

@@ -5,13 +5,12 @@
   "tag_list": ["other"],
   "description": "Write a program to read one character from keyboard and the program then prints out its Unicode in hexadecimal form.",
   "example": "For example:\r\n\r\nEnter a character: a\r\nThe Unicode is: u0061\r\n\r\nHint: To print out a hexadecimal number 0xxx, use the \"04x\" pattern.",
-  "testcase": "a\r\nb\r\nc\r\nd\r\ne",
   "testresult": "u0061\r\nu0062\r\nu0063\r\nu0064\r\nu0065",
   "defaultCode": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\n# Test the function\r\nprint(factorial(5))  # expected: 120\r\nprint(factorial(3))  # expected: 6",
   "solutionType": "testcase",
   "limitTime": false,
   "duration": "00:30:00",
-  "testcases": [
+  "testcase": [
     {
       "input": "a",
       "expected": "u0061"
@@ -31,26 +30,6 @@
     {
       "input": "e",
       "expected": "u0065"
-    },
-    {
-      "input": "f",
-      "expected": "u0066"
-    },
-    {
-      "input": "g",
-      "expected": "u0067"
-    },
-    {
-      "input": "h",
-      "expected": "u0068"
-    },
-    {
-      "input": "i",
-      "expected": "u0069"
-    },
-    {
-      "input": "j",
-      "expected": "u006a"
     }
   ]
 }

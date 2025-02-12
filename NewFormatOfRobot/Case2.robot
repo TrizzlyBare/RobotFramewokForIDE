@@ -370,7 +370,7 @@ Compare Student Code With Test Cases
     Log Debug Info    Starting test execution
     
     # Get test cases and expected results
-    @{test_cases}    Set Variable    ${teacher}[testcases]
+    @{test_cases}    Set Variable    ${teacher}[testcase]
     ${code}    Set Variable    ${student}[defaultCode]
     ${language}    Set Variable    ${student}[language]
 
