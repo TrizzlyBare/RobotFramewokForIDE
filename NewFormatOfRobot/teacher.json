@@ -1,35 +1,55 @@
 {
   "id": 4,
   "title": "L2Q2 Unicode",
-  "language": "python",
+  "language": "javascript",
   "tag_list": ["other"],
   "description": "Write a program to read one character from keyboard and the program then prints out its Unicode in hexadecimal form.",
   "example": "For example:\r\n\r\nEnter a character: a\r\nThe Unicode is: u0061\r\n\r\nHint: To print out a hexadecimal number 0xxx, use the \"04x\" pattern.",
   "testresult": "u0061\r\nu0062\r\nu0063\r\nu0064\r\nu0065",
-  "defaultCode": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\n# Test the function\r\nprint(factorial(5))  # expected: 120\r\nprint(factorial(3))  # expected: 6",
+  "defaultCode": "const readline = require('readline');\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nrl.question('Enter a character: ', (char) => {\n    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');\n    console.log(`The Unicode is: u${unicode}`);\n    rl.close();\n});",
   "solutionType": "testcase",
   "limitTime": false,
   "duration": "00:30:00",
   "testcase": [
     {
-      "input": "a",
-      "expected": "u0061"
+      "input": "0",
+      "expected": "1"
     },
     {
-      "input": "b",
-      "expected": "u0062"
+      "input": "1",
+      "expected": "2"
     },
     {
-      "input": "c",
-      "expected": "u0063"
+      "input": "2",
+      "expected": "4"
     },
     {
-      "input": "d",
-      "expected": "u0064"
+      "input": "3",
+      "expected": "8"
     },
     {
-      "input": "e",
-      "expected": "u0065"
+      "input": "4",
+      "expected": "16"
+    },
+    {
+      "input": "5",
+      "expected": "32"
+    },
+    {
+      "input": "6",
+      "expected": "64"
+    },
+    {
+      "input": "7",
+      "expected": "128"
+    },
+    {
+      "input": "8",
+      "expected": "256"
+    },
+    {
+      "input": "9",
+      "expected": "512"
     }
   ]
 }

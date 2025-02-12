@@ -8,8 +8,8 @@
   "answerTo": "labtest",
   "marking": 5,
   "content": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\n# Test the function\r\nprint(factorial(5))  # Output: 120\r\nprint(factorial(3))  # Output: 6",
-  "defaultCode": "x = input(\"Enter a character: \")\r\nprint(\"The Unicode is: u%04x\" %ord(x))",
+  "defaultCode": "use std::io;\n\nfn main() {\n    println!(\"Enter a value for x:\");\n    let mut input = String::new();\n    io::stdin().read_line(&mut input).expect(\"Failed to read line\");\n    \n    let x: u32 = input.trim().parse().expect(\"Please enter a valid number\");\n    let result: i32 = 2i32.pow(x);\n    println!(\"{}\", result);\n}",
   "testresult": "Passed",
   "timestamp": "2025-01-26T20:35:06.011871Z",
-  "language": "python"
+  "language": "rust"
 }

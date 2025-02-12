@@ -2865,3 +2865,710 @@ Enter a character: The Unicode is: u0065
 2025-02-12 21:45:21.800014: Outputs match completely
 2025-02-12 21:45:21.801181: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
 2025-02-12 21:45:21.802233: Saved results to comparison_results.json
+2025-02-12 22:00:51.652183: Starting test execution
+2025-02-12 22:00:51.653574: Processing test case 1
+2025-02-12 22:00:51.655190: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 22:00:51.656458: Input values: a
+2025-02-12 22:00:51.658790: Created input file with content: a
+
+2025-02-12 22:00:51.679813: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0061
+2025-02-12 22:00:51.681366: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-12 22:00:51.688675: Final processed output: u0061
+2025-02-12 22:00:51.691085: Normalized output: u0061
+2025-02-12 22:00:51.691542: Python final output: u0061
+2025-02-12 22:00:51.693527: Final execution status: success
+2025-02-12 22:00:51.693904: Final processed output: u0061
+2025-02-12 22:00:51.696213: Normalized output: u0061
+2025-02-12 22:00:51.698326: Normalized output: u0061
+2025-02-12 22:00:51.700599: Outputs match completely
+2025-02-12 22:00:51.701748: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-12 22:00:51.702334: Processing test case 2
+2025-02-12 22:00:51.703508: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 22:00:51.703896: Input values: b
+2025-02-12 22:00:51.706051: Created input file with content: b
+
+2025-02-12 22:00:51.720860: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0062
+2025-02-12 22:00:51.722256: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-12 22:00:51.727896: Final processed output: u0062
+2025-02-12 22:00:51.730086: Normalized output: u0062
+2025-02-12 22:00:51.730524: Python final output: u0062
+2025-02-12 22:00:51.732437: Final execution status: success
+2025-02-12 22:00:51.732835: Final processed output: u0062
+2025-02-12 22:00:51.735480: Normalized output: u0062
+2025-02-12 22:00:51.737537: Normalized output: u0062
+2025-02-12 22:00:51.746003: Outputs match completely
+2025-02-12 22:00:51.747180: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-12 22:00:51.747797: Processing test case 3
+2025-02-12 22:00:51.748971: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 22:00:51.749332: Input values: c
+2025-02-12 22:00:51.751168: Created input file with content: c
+
+2025-02-12 22:00:51.765782: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0063
+2025-02-12 22:00:51.767121: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-12 22:00:51.772881: Final processed output: u0063
+2025-02-12 22:00:51.775172: Normalized output: u0063
+2025-02-12 22:00:51.775624: Python final output: u0063
+2025-02-12 22:00:51.777538: Final execution status: success
+2025-02-12 22:00:51.777947: Final processed output: u0063
+2025-02-12 22:00:51.780306: Normalized output: u0063
+2025-02-12 22:00:51.782330: Normalized output: u0063
+2025-02-12 22:00:51.784585: Outputs match completely
+2025-02-12 22:00:51.785693: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-12 22:00:51.786270: Processing test case 4
+2025-02-12 22:00:51.787464: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 22:00:51.787826: Input values: d
+2025-02-12 22:00:51.789783: Created input file with content: d
+
+2025-02-12 22:00:51.803743: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0064
+2025-02-12 22:00:51.805124: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-12 22:00:51.810764: Final processed output: u0064
+2025-02-12 22:00:51.813029: Normalized output: u0064
+2025-02-12 22:00:51.813492: Python final output: u0064
+2025-02-12 22:00:51.815853: Final execution status: success
+2025-02-12 22:00:51.816243: Final processed output: u0064
+2025-02-12 22:00:51.818564: Normalized output: u0064
+2025-02-12 22:00:51.820602: Normalized output: u0064
+2025-02-12 22:00:51.822934: Outputs match completely
+2025-02-12 22:00:51.824074: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-12 22:00:51.824660: Processing test case 5
+2025-02-12 22:00:51.825847: Executing code in python:
+x = input("Enter a character: ")
+print("The Unicode is: u%04x" %ord(x))
+2025-02-12 22:00:51.826210: Input values: e
+2025-02-12 22:00:51.828048: Created input file with content: e
+
+2025-02-12 22:00:51.841991: Python execution with input - RC: 0, Output:
+Enter a character: The Unicode is: u0065
+2025-02-12 22:00:51.843345: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-12 22:00:51.848771: Final processed output: u0065
+2025-02-12 22:00:51.850939: Normalized output: u0065
+2025-02-12 22:00:51.851386: Python final output: u0065
+2025-02-12 22:00:51.853258: Final execution status: success
+2025-02-12 22:00:51.853627: Final processed output: u0065
+2025-02-12 22:00:51.856346: Normalized output: u0065
+2025-02-12 22:00:51.858520: Normalized output: u0065
+2025-02-12 22:00:51.860768: Outputs match completely
+2025-02-12 22:00:51.861878: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-12 22:00:51.862868: Saved results to comparison_results.json
+2025-02-12 23:20:35.752298: Starting test execution
+2025-02-12 23:20:35.753493: Processing test case 1
+2025-02-12 23:20:35.755578: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:35.756093: Input values: a
+2025-02-12 23:20:35.758462: Created input file with content: a
+
+2025-02-12 23:20:35.868600: JavaScript execution output:
+Enter a character: The Unicode is: u0061
+2025-02-12 23:20:35.870007: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-12 23:20:35.877023: Final processed output: u0061
+2025-02-12 23:20:35.879390: Normalized output: u0061
+2025-02-12 23:20:35.879864: JavaScript final output: u0061
+2025-02-12 23:20:35.880433: Final execution status: success
+2025-02-12 23:20:35.880895: Final processed output: u0061
+2025-02-12 23:20:35.883210: Normalized output: u0061
+2025-02-12 23:20:35.885311: Normalized output: u0061
+2025-02-12 23:20:35.887610: Outputs match completely
+2025-02-12 23:20:35.888747: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-12 23:20:35.889345: Processing test case 2
+2025-02-12 23:20:35.890574: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:35.890950: Input values: b
+2025-02-12 23:20:35.892835: Created input file with content: b
+
+2025-02-12 23:20:35.925799: JavaScript execution output:
+Enter a character: The Unicode is: u0062
+2025-02-12 23:20:35.927583: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-12 23:20:35.933521: Final processed output: u0062
+2025-02-12 23:20:35.935857: Normalized output: u0062
+2025-02-12 23:20:35.936347: JavaScript final output: u0062
+2025-02-12 23:20:35.936929: Final execution status: success
+2025-02-12 23:20:35.937402: Final processed output: u0062
+2025-02-12 23:20:35.939666: Normalized output: u0062
+2025-02-12 23:20:35.942223: Normalized output: u0062
+2025-02-12 23:20:35.951499: Outputs match completely
+2025-02-12 23:20:35.952765: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-12 23:20:35.953412: Processing test case 3
+2025-02-12 23:20:35.954679: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:35.955064: Input values: c
+2025-02-12 23:20:35.956943: Created input file with content: c
+
+2025-02-12 23:20:35.987982: JavaScript execution output:
+Enter a character: The Unicode is: u0063
+2025-02-12 23:20:35.989356: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-12 23:20:35.995031: Final processed output: u0063
+2025-02-12 23:20:35.997269: Normalized output: u0063
+2025-02-12 23:20:35.997714: JavaScript final output: u0063
+2025-02-12 23:20:35.998375: Final execution status: success
+2025-02-12 23:20:35.998758: Final processed output: u0063
+2025-02-12 23:20:36.001211: Normalized output: u0063
+2025-02-12 23:20:36.003299: Normalized output: u0063
+2025-02-12 23:20:36.005682: Outputs match completely
+2025-02-12 23:20:36.006793: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-12 23:20:36.007407: Processing test case 4
+2025-02-12 23:20:36.008694: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:36.009079: Input values: d
+2025-02-12 23:20:36.011016: Created input file with content: d
+
+2025-02-12 23:20:36.040994: JavaScript execution output:
+Enter a character: The Unicode is: u0064
+2025-02-12 23:20:36.042375: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-12 23:20:36.048151: Final processed output: u0064
+2025-02-12 23:20:36.050406: Normalized output: u0064
+2025-02-12 23:20:36.050860: JavaScript final output: u0064
+2025-02-12 23:20:36.051427: Final execution status: success
+2025-02-12 23:20:36.052257: Final processed output: u0064
+2025-02-12 23:20:36.054566: Normalized output: u0064
+2025-02-12 23:20:36.056747: Normalized output: u0064
+2025-02-12 23:20:36.059083: Outputs match completely
+2025-02-12 23:20:36.060225: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-12 23:20:36.060833: Processing test case 5
+2025-02-12 23:20:36.062148: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:36.062577: Input values: e
+2025-02-12 23:20:36.064529: Created input file with content: e
+
+2025-02-12 23:20:36.095232: JavaScript execution output:
+Enter a character: The Unicode is: u0065
+2025-02-12 23:20:36.096665: Processing raw output: Enter a character: The Unicode is: u0065
+2025-02-12 23:20:36.102202: Final processed output: u0065
+2025-02-12 23:20:36.104428: Normalized output: u0065
+2025-02-12 23:20:36.104867: JavaScript final output: u0065
+2025-02-12 23:20:36.105431: Final execution status: success
+2025-02-12 23:20:36.105820: Final processed output: u0065
+2025-02-12 23:20:36.108160: Normalized output: u0065
+2025-02-12 23:20:36.110237: Normalized output: u0065
+2025-02-12 23:20:36.112679: Outputs match completely
+2025-02-12 23:20:36.113877: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': 'e', 'detail': 'Student=u0065 vs Teacher=u0065'}
+2025-02-12 23:20:36.115253: Saved results to comparison_results.json
+2025-02-12 23:20:45.933874: Starting test execution
+2025-02-12 23:20:45.935048: Processing test case 1
+2025-02-12 23:20:45.937374: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:45.937928: Input values: a
+2025-02-12 23:20:45.940449: Created input file with content: a
+
+2025-02-12 23:20:45.974811: JavaScript execution output:
+Enter a character: The Unicode is: u0061
+2025-02-12 23:20:45.976265: Processing raw output: Enter a character: The Unicode is: u0061
+2025-02-12 23:20:45.983910: Final processed output: u0061
+2025-02-12 23:20:45.986327: Normalized output: u0061
+2025-02-12 23:20:45.986818: JavaScript final output: u0061
+2025-02-12 23:20:45.987423: Final execution status: success
+2025-02-12 23:20:45.987968: Final processed output: u0061
+2025-02-12 23:20:45.990442: Normalized output: u0061
+2025-02-12 23:20:45.992703: Normalized output: u0061
+2025-02-12 23:20:45.995116: Outputs match completely
+2025-02-12 23:20:45.996424: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': 'a', 'detail': 'Student=u0061 vs Teacher=u0061'}
+2025-02-12 23:20:45.997105: Processing test case 2
+2025-02-12 23:20:45.998445: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:45.998831: Input values: b
+2025-02-12 23:20:46.000794: Created input file with content: b
+
+2025-02-12 23:20:46.032352: JavaScript execution output:
+Enter a character: The Unicode is: u0062
+2025-02-12 23:20:46.033723: Processing raw output: Enter a character: The Unicode is: u0062
+2025-02-12 23:20:46.039504: Final processed output: u0062
+2025-02-12 23:20:46.041765: Normalized output: u0062
+2025-02-12 23:20:46.042235: JavaScript final output: u0062
+2025-02-12 23:20:46.042851: Final execution status: success
+2025-02-12 23:20:46.043337: Final processed output: u0062
+2025-02-12 23:20:46.045897: Normalized output: u0062
+2025-02-12 23:20:46.048597: Normalized output: u0062
+2025-02-12 23:20:46.057356: Outputs match completely
+2025-02-12 23:20:46.058604: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': 'b', 'detail': 'Student=u0062 vs Teacher=u0062'}
+2025-02-12 23:20:46.059243: Processing test case 3
+2025-02-12 23:20:46.060553: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:46.060949: Input values: c
+2025-02-12 23:20:46.062952: Created input file with content: c
+
+2025-02-12 23:20:46.095114: JavaScript execution output:
+Enter a character: The Unicode is: u0063
+2025-02-12 23:20:46.096592: Processing raw output: Enter a character: The Unicode is: u0063
+2025-02-12 23:20:46.102439: Final processed output: u0063
+2025-02-12 23:20:46.104745: Normalized output: u0063
+2025-02-12 23:20:46.105217: JavaScript final output: u0063
+2025-02-12 23:20:46.105904: Final execution status: success
+2025-02-12 23:20:46.106283: Final processed output: u0063
+2025-02-12 23:20:46.108759: Normalized output: u0063
+2025-02-12 23:20:46.110893: Normalized output: u0063
+2025-02-12 23:20:46.113327: Outputs match completely
+2025-02-12 23:20:46.114501: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': 'c', 'detail': 'Student=u0063 vs Teacher=u0063'}
+2025-02-12 23:20:46.115131: Processing test case 4
+2025-02-12 23:20:46.116433: Executing code in javascript:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter a character: ', (char) => {
+    const unicode = char.charCodeAt(0).toString(16).padStart(4, '0');
+    console.log(`The Unicode is: u${unicode}`);
+    rl.close();
+});
+2025-02-12 23:20:46.116823: Input values: d
+2025-02-12 23:20:46.119048: Created input file with content: d
+
+2025-02-12 23:20:46.152280: JavaScript execution output:
+Enter a character: The Unicode is: u0064
+2025-02-12 23:20:46.153891: Processing raw output: Enter a character: The Unicode is: u0064
+2025-02-12 23:20:46.159849: Final processed output: u0064
+2025-02-12 23:20:46.162311: Normalized output: u0064
+2025-02-12 23:20:46.162820: JavaScript final output: u0064
+2025-02-12 23:20:46.163432: Final execution status: success
+2025-02-12 23:20:46.164406: Final processed output: u0064
+2025-02-12 23:20:46.167162: Normalized output: u0064
+2025-02-12 23:20:46.169521: Normalized output: u0064
+2025-02-12 23:20:46.172372: Outputs match completely
+2025-02-12 23:20:46.173601: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': 'd', 'detail': 'Student=u0064 vs Teacher=u0064'}
+2025-02-12 23:20:46.174711: Saved results to comparison_results.json
+2025-02-13 01:05:15.588958: Starting test execution
+2025-02-13 01:05:15.590045: Processing test case 1
+2025-02-13 01:05:15.592152: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:05:15.592665: Input values: 1
+2025-02-13 01:05:15.594946: Created input file with content: 1
+
+2025-02-13 01:05:16.070601: Rust compilation result: 
+2025-02-13 01:05:16.427824: Rust execution output:
+Enter a value for x:
+2
+2025-02-13 01:05:16.429247: Processing raw output: Enter a value for x:
+2
+2025-02-13 01:05:16.443794: Final processed output: 2
+2025-02-13 01:05:16.446373: Normalized output: 2.0
+2025-02-13 01:05:16.446872: Rust final output: 2.0
+2025-02-13 01:05:16.448135: Final execution status: success
+2025-02-13 01:05:16.448541: Final processed output: 2.0
+2025-02-13 01:05:16.451099: Normalized output: 2.0
+2025-02-13 01:05:16.453372: Normalized output: 2.0
+2025-02-13 01:05:16.455809: Outputs match completely
+2025-02-13 01:05:16.457153: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': '1', 'detail': 'Student=2.0 vs Teacher=2'}
+2025-02-13 01:05:16.458164: Saved results to comparison_results.json
+2025-02-13 01:08:25.139500: Starting test execution
+2025-02-13 01:08:25.140622: Processing test case 1
+2025-02-13 01:08:25.142058: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:25.143159: Input values: 0
+2025-02-13 01:08:25.145431: Created input file with content: 0
+
+2025-02-13 01:08:25.694482: Rust compilation result: 
+2025-02-13 01:08:25.862933: Rust execution output:
+Enter a value for x:
+1
+2025-02-13 01:08:25.864107: Processing raw output: Enter a value for x:
+1
+2025-02-13 01:08:25.881404: Final processed output: 1
+2025-02-13 01:08:25.884520: Normalized output: 1.0
+2025-02-13 01:08:25.885103: Rust final output: 1.0
+2025-02-13 01:08:25.886383: Final execution status: success
+2025-02-13 01:08:25.886862: Final processed output: 1.0
+2025-02-13 01:08:25.889833: Normalized output: 1.0
+2025-02-13 01:08:25.892576: Normalized output: 1.0
+2025-02-13 01:08:25.895567: Outputs match completely
+2025-02-13 01:08:25.897204: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': '0', 'detail': 'Student=1.0 vs Teacher=1'}
+2025-02-13 01:08:25.897922: Processing test case 2
+2025-02-13 01:08:25.899326: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:25.899763: Input values: 1
+2025-02-13 01:08:25.902145: Created input file with content: 1
+
+2025-02-13 01:08:26.013398: Rust compilation result: 
+2025-02-13 01:08:26.162662: Rust execution output:
+Enter a value for x:
+2
+2025-02-13 01:08:26.164432: Processing raw output: Enter a value for x:
+2
+2025-02-13 01:08:26.180846: Final processed output: 2
+2025-02-13 01:08:26.184525: Normalized output: 2.0
+2025-02-13 01:08:26.185162: Rust final output: 2.0
+2025-02-13 01:08:26.186688: Final execution status: success
+2025-02-13 01:08:26.187194: Final processed output: 2.0
+2025-02-13 01:08:26.197667: Normalized output: 2.0
+2025-02-13 01:08:26.200334: Normalized output: 2.0
+2025-02-13 01:08:26.202972: Outputs match completely
+2025-02-13 01:08:26.204360: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': '1', 'detail': 'Student=2.0 vs Teacher=2'}
+2025-02-13 01:08:26.205043: Processing test case 3
+2025-02-13 01:08:26.206398: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:26.206807: Input values: 2
+2025-02-13 01:08:26.208993: Created input file with content: 2
+
+2025-02-13 01:08:26.315882: Rust compilation result: 
+2025-02-13 01:08:26.462553: Rust execution output:
+Enter a value for x:
+4
+2025-02-13 01:08:26.464220: Processing raw output: Enter a value for x:
+4
+2025-02-13 01:08:26.479826: Final processed output: 4
+2025-02-13 01:08:26.482636: Normalized output: 4.0
+2025-02-13 01:08:26.483334: Rust final output: 4.0
+2025-02-13 01:08:26.484948: Final execution status: success
+2025-02-13 01:08:26.485493: Final processed output: 4.0
+2025-02-13 01:08:26.488430: Normalized output: 4.0
+2025-02-13 01:08:26.490949: Normalized output: 4.0
+2025-02-13 01:08:26.493716: Outputs match completely
+2025-02-13 01:08:26.495061: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': '2', 'detail': 'Student=4.0 vs Teacher=4'}
+2025-02-13 01:08:26.495760: Processing test case 4
+2025-02-13 01:08:26.497236: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:26.497663: Input values: 3
+2025-02-13 01:08:26.499776: Created input file with content: 3
+
+2025-02-13 01:08:26.603841: Rust compilation result: 
+2025-02-13 01:08:26.749118: Rust execution output:
+Enter a value for x:
+8
+2025-02-13 01:08:26.751643: Processing raw output: Enter a value for x:
+8
+2025-02-13 01:08:26.766656: Final processed output: 8
+2025-02-13 01:08:26.769534: Normalized output: 8.0
+2025-02-13 01:08:26.770111: Rust final output: 8.0
+2025-02-13 01:08:26.771564: Final execution status: success
+2025-02-13 01:08:26.772120: Final processed output: 8.0
+2025-02-13 01:08:26.774894: Normalized output: 8.0
+2025-02-13 01:08:26.777341: Normalized output: 8.0
+2025-02-13 01:08:26.780065: Outputs match completely
+2025-02-13 01:08:26.781566: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': '3', 'detail': 'Student=8.0 vs Teacher=8'}
+2025-02-13 01:08:26.782238: Processing test case 5
+2025-02-13 01:08:26.783806: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:26.784306: Input values: 4
+2025-02-13 01:08:26.786610: Created input file with content: 4
+
+2025-02-13 01:08:26.890119: Rust compilation result: 
+2025-02-13 01:08:27.036070: Rust execution output:
+Enter a value for x:
+16
+2025-02-13 01:08:27.037703: Processing raw output: Enter a value for x:
+16
+2025-02-13 01:08:27.053677: Final processed output: 16
+2025-02-13 01:08:27.057513: Normalized output: 16.0
+2025-02-13 01:08:27.058249: Rust final output: 16.0
+2025-02-13 01:08:27.059808: Final execution status: success
+2025-02-13 01:08:27.060317: Final processed output: 16.0
+2025-02-13 01:08:27.063686: Normalized output: 16.0
+2025-02-13 01:08:27.066820: Normalized output: 16.0
+2025-02-13 01:08:27.069702: Outputs match completely
+2025-02-13 01:08:27.071989: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': '4', 'detail': 'Student=16.0 vs Teacher=16'}
+2025-02-13 01:08:27.072821: Processing test case 6
+2025-02-13 01:08:27.074603: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:27.075194: Input values: 5
+2025-02-13 01:08:27.077739: Created input file with content: 5
+
+2025-02-13 01:08:27.186068: Rust compilation result: 
+2025-02-13 01:08:27.335383: Rust execution output:
+Enter a value for x:
+32
+2025-02-13 01:08:27.336965: Processing raw output: Enter a value for x:
+32
+2025-02-13 01:08:27.349111: Final processed output: 32
+2025-02-13 01:08:27.352057: Normalized output: 32.0
+2025-02-13 01:08:27.352567: Rust final output: 32.0
+2025-02-13 01:08:27.353874: Final execution status: success
+2025-02-13 01:08:27.354478: Final processed output: 32.0
+2025-02-13 01:08:27.357104: Normalized output: 32.0
+2025-02-13 01:08:27.359595: Normalized output: 32.0
+2025-02-13 01:08:27.362337: Outputs match completely
+2025-02-13 01:08:27.363668: Added comparison result for Case6: {'status': 'PASS', 'teacherinput': '5', 'detail': 'Student=32.0 vs Teacher=32'}
+2025-02-13 01:08:27.364255: Processing test case 7
+2025-02-13 01:08:27.365441: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:27.365814: Input values: 6
+2025-02-13 01:08:27.367774: Created input file with content: 6
+
+2025-02-13 01:08:27.469680: Rust compilation result: 
+2025-02-13 01:08:27.636340: Rust execution output:
+Enter a value for x:
+64
+2025-02-13 01:08:27.637553: Processing raw output: Enter a value for x:
+64
+2025-02-13 01:08:27.649870: Final processed output: 64
+2025-02-13 01:08:27.652417: Normalized output: 64.0
+2025-02-13 01:08:27.652947: Rust final output: 64.0
+2025-02-13 01:08:27.654174: Final execution status: success
+2025-02-13 01:08:27.654573: Final processed output: 64.0
+2025-02-13 01:08:27.657065: Normalized output: 64.0
+2025-02-13 01:08:27.659512: Normalized output: 64.0
+2025-02-13 01:08:27.661913: Outputs match completely
+2025-02-13 01:08:27.663135: Added comparison result for Case7: {'status': 'PASS', 'teacherinput': '6', 'detail': 'Student=64.0 vs Teacher=64'}
+2025-02-13 01:08:27.663838: Processing test case 8
+2025-02-13 01:08:27.665082: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:27.665455: Input values: 7
+2025-02-13 01:08:27.667435: Created input file with content: 7
+
+2025-02-13 01:08:27.769365: Rust compilation result: 
+2025-02-13 01:08:27.912446: Rust execution output:
+Enter a value for x:
+128
+2025-02-13 01:08:27.914979: Processing raw output: Enter a value for x:
+128
+2025-02-13 01:08:27.933000: Final processed output: 128
+2025-02-13 01:08:27.936026: Normalized output: 128.0
+2025-02-13 01:08:27.936657: Rust final output: 128.0
+2025-02-13 01:08:27.938235: Final execution status: success
+2025-02-13 01:08:27.938727: Final processed output: 128.0
+2025-02-13 01:08:27.941902: Normalized output: 128.0
+2025-02-13 01:08:27.944567: Normalized output: 128.0
+2025-02-13 01:08:27.947473: Outputs match completely
+2025-02-13 01:08:27.948887: Added comparison result for Case8: {'status': 'PASS', 'teacherinput': '7', 'detail': 'Student=128.0 vs Teacher=128'}
+2025-02-13 01:08:27.949576: Processing test case 9
+2025-02-13 01:08:27.951478: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:27.951920: Input values: 8
+2025-02-13 01:08:27.954134: Created input file with content: 8
+
+2025-02-13 01:08:28.059945: Rust compilation result: 
+2025-02-13 01:08:28.206237: Rust execution output:
+Enter a value for x:
+256
+2025-02-13 01:08:28.208063: Processing raw output: Enter a value for x:
+256
+2025-02-13 01:08:28.222368: Final processed output: 256
+2025-02-13 01:08:28.225335: Normalized output: 256.0
+2025-02-13 01:08:28.225940: Rust final output: 256.0
+2025-02-13 01:08:28.227284: Final execution status: success
+2025-02-13 01:08:28.227730: Final processed output: 256.0
+2025-02-13 01:08:28.230524: Normalized output: 256.0
+2025-02-13 01:08:28.232925: Normalized output: 256.0
+2025-02-13 01:08:28.235508: Outputs match completely
+2025-02-13 01:08:28.236924: Added comparison result for Case9: {'status': 'PASS', 'teacherinput': '8', 'detail': 'Student=256.0 vs Teacher=256'}
+2025-02-13 01:08:28.237581: Processing test case 10
+2025-02-13 01:08:28.238863: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-02-13 01:08:28.239262: Input values: 9
+2025-02-13 01:08:28.241489: Created input file with content: 9
+
+2025-02-13 01:08:28.345103: Rust compilation result: 
+2025-02-13 01:08:28.486863: Rust execution output:
+Enter a value for x:
+512
+2025-02-13 01:08:28.488497: Processing raw output: Enter a value for x:
+512
+2025-02-13 01:08:28.504280: Final processed output: 512
+2025-02-13 01:08:28.507686: Normalized output: 512.0
+2025-02-13 01:08:28.508380: Rust final output: 512.0
+2025-02-13 01:08:28.509859: Final execution status: success
+2025-02-13 01:08:28.510337: Final processed output: 512.0
+2025-02-13 01:08:28.513248: Normalized output: 512.0
+2025-02-13 01:08:28.515739: Normalized output: 512.0
+2025-02-13 01:08:28.518387: Outputs match completely
+2025-02-13 01:08:28.519691: Added comparison result for Case10: {'status': 'PASS', 'teacherinput': '9', 'detail': 'Student=512.0 vs Teacher=512'}
+2025-02-13 01:08:28.520803: Saved results to comparison_results.json

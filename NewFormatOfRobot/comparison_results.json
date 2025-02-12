@@ -1,27 +1,52 @@
 {
   "Case1": {
     "status": "PASS",
-    "teacherinput": "a",
-    "detail": "Student=u0061 vs Teacher=u0061"
+    "teacherinput": "0",
+    "detail": "Student=1.0 vs Teacher=1"
   },
   "Case2": {
     "status": "PASS",
-    "teacherinput": "b",
-    "detail": "Student=u0062 vs Teacher=u0062"
+    "teacherinput": "1",
+    "detail": "Student=2.0 vs Teacher=2"
   },
   "Case3": {
     "status": "PASS",
-    "teacherinput": "c",
-    "detail": "Student=u0063 vs Teacher=u0063"
+    "teacherinput": "2",
+    "detail": "Student=4.0 vs Teacher=4"
   },
   "Case4": {
     "status": "PASS",
-    "teacherinput": "d",
-    "detail": "Student=u0064 vs Teacher=u0064"
+    "teacherinput": "3",
+    "detail": "Student=8.0 vs Teacher=8"
   },
   "Case5": {
     "status": "PASS",
-    "teacherinput": "e",
-    "detail": "Student=u0065 vs Teacher=u0065"
+    "teacherinput": "4",
+    "detail": "Student=16.0 vs Teacher=16"
+  },
+  "Case6": {
+    "status": "PASS",
+    "teacherinput": "5",
+    "detail": "Student=32.0 vs Teacher=32"
+  },
+  "Case7": {
+    "status": "PASS",
+    "teacherinput": "6",
+    "detail": "Student=64.0 vs Teacher=64"
+  },
+  "Case8": {
+    "status": "PASS",
+    "teacherinput": "7",
+    "detail": "Student=128.0 vs Teacher=128"
+  },
+  "Case9": {
+    "status": "PASS",
+    "teacherinput": "8",
+    "detail": "Student=256.0 vs Teacher=256"
+  },
+  "Case10": {
+    "status": "PASS",
+    "teacherinput": "9",
+    "detail": "Student=512.0 vs Teacher=512"
   }
 }
