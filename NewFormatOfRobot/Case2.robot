@@ -29,10 +29,15 @@ Setup Test Environment
 Cleanup Test Environment
     Remove Directory    ${TEMP_DIR}    recursive=True
 
+
 Log Debug Info
     [Arguments]    ${message}
     ${timestamp}    Get Current Date    result_format=%Y-%m-%d %H:%M:%S.%f
     Append To File    ${LOG_FILE}    ${timestamp}: ${message}\n
+
+Get Current Time Ms
+    ${time}    Evaluate    int(time.time() * 1000)    time
+    RETURN    ${time}
 
 Get Final Output
     [Arguments]    ${output}
@@ -47,8 +52,19 @@ Get Final Output
     ...    (?i)Enter [A-Za-z\\s]+:
     ...    (?i)Input [A-Za-z\\s]+:
     ...    (?i)Please enter [A-Za-z\\s]+:
+    ...    (?i)Please input [A-Za-z\\s]+:
+    ...    (?i)Enter the [A-Za-z\\s]+:
+    ...    (?i)The [A-Za-z\\s]+ is:
+    ...    (?i)Enter [A-Za-z\\s]+   
+    ...    (?i)Input [A-Za-z\\s]+
+    ...    (?i)Please enter [A-Za-z\\s]+
+    ...    (?i)Please input [A-Za-z\\s]+
+    ...    (?i)Enter the [A-Za-z\\s]+
+    ...    (?i)The [A-Za-z\\s]+ is
+    ...    (?i)Enter [A-Za-z\\s]+:
+    ...    (?i)Input [A-Za-z\\s]+:
     ...    (?i)The Unicode is:
-    
+
     # Process each line
     FOR    ${line}    IN    @{lines}
         ${stripped}    Strip String    ${line}
@@ -68,7 +84,7 @@ Get Final Output
         # Add non-empty line to results
         Append To List    ${final_lines}    ${cleaned}
     END
-    
+
     # Join all valid lines with newlines
     ${final_output}    Evaluate    "\\n".join($final_lines)
     Log Debug Info    Final processed output: ${final_output}
@@ -367,7 +383,7 @@ Compare Student Code With Test Cases
         ${code_exists}    Run Keyword And Return Status    Should Not Be Empty    ${code}
         IF    not ${code_exists}
             Handle Invalid Code    ${results}    ${case_number}    
-            ...    ${test_case}[output]    ${test_case}[input]    ${language}
+            ...    ${test_case}[expected]    ${test_case}[input]    ${language}
             Continue For Loop
         END
         
@@ -377,7 +393,7 @@ Compare Student Code With Test Cases
         
         # Handle execution status
         IF    '${status}' == 'success'
-            ${outputs_match}    Compare Outputs    ${actual_output}    ${test_case}[output]
+            ${outputs_match}    Compare Outputs    ${actual_output}    ${test_case}[expected]
             ${final_status}    Set Variable If    ${outputs_match}    PASS    FAIL
         ELSE
             ${final_status}    Set Variable    ${status}
@@ -390,7 +406,7 @@ Compare Student Code With Test Cases
         ...    ${final_status}    
         ...    ${actual_output}    
         ...    ${test_case}[input]    
-        ...    ${test_case}[output]
+        ...    ${test_case}[expected]
     END
     
     # Save final results

@@ -1,16 +1,15 @@
 {
-    "id": 2,
-    "title": "Square Example",
-    "language": "python",
-    "tag_list": [
-        "other"
-    ],
-    "description": "Write a Python function to calculate square of input",
-    "example": "def factorial(n):\r\n    pass\r\n\r\n# Test the function\r\nprint(factorial(5))  # Output: 120\r\nprint(factorial(3))  # Output: 6",
-    "testcase": "example",
-    "testresult": "example",
+    "id": 4,
+    "student": 9,
+    "question": 2,
+    "labtest": 1,
+    "homework": null,
+    "version": 1,
+    "answerTo": "labtest",
+    "marking": 5,
+    "content": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\n# Test the function\r\nprint(factorial(5))  # Output: 120\r\nprint(factorial(3))  # Output: 6",
     "defaultCode": "def factorial(n):\r\n    if n == 0 or n == 1:\r\n        return 1\r\n    return n * factorial(n - 1)\r\n\r\n# Test the function\r\nprint(factorial(5))  # Output: 120\r\nprint(factorial(3))  # Output: 6",
-    "solutionType": "default_code",
-    "limitTime": false,
-    "duration": "00:30:00"
+    "testresult": "Passed",
+    "timestamp": "2025-01-26T20:35:06.011871Z",
+    "language": "python"
 }

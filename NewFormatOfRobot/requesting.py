@@ -3,7 +3,7 @@ from requests.auth import HTTPBasicAuth
 import json
 
 # URL to make the request to
-url = "http://intelligentbuilding.io:8080/api/admin/coding/resultlog/4/change/"
+url = "http://intelligentbuilding.io:8080/api/coding/resultlog/4/"
 
 # Replace these with your actual username and password
 username = "admin"

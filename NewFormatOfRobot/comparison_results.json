@@ -23,5 +23,30 @@
     "status": "PASS",
     "teacherinput": "e",
     "detail": "Student=u0065 vs Teacher=u0065"
+  },
+  "Case6": {
+    "status": "PASS",
+    "teacherinput": "f",
+    "detail": "Student=u0066 vs Teacher=u0066"
+  },
+  "Case7": {
+    "status": "PASS",
+    "teacherinput": "g",
+    "detail": "Student=u0067 vs Teacher=u0067"
+  },
+  "Case8": {
+    "status": "PASS",
+    "teacherinput": "h",
+    "detail": "Student=u0068 vs Teacher=u0068"
+  },
+  "Case9": {
+    "status": "PASS",
+    "teacherinput": "i",
+    "detail": "Student=u0069 vs Teacher=u0069"
+  },
+  "Case10": {
+    "status": "PASS",
+    "teacherinput": "j",
+    "detail": "Student=u006a vs Teacher=u006a"
   }
 }

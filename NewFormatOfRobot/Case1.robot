@@ -155,7 +155,7 @@ Compare Student And Teacher Code
     # Execute student code
     ${student_status}    ${student_output}    ${student_error}    ${student_runtime}    Execute Code    
     ...    ${student}[defaultCode]    
-    ...    ${student}[language]
+    ...    ${teacher}[language]
     
     # Execute teacher code
     ${teacher_status}    ${teacher_output}    ${teacher_error}    ${teacher_runtime}    Execute Code    
