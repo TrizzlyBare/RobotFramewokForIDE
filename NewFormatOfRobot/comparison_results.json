@@ -46,7 +46,7 @@
   },
   "Case10": {
     "status": "PASS",
-    "teacherinput": "9",
-    "detail": "Student=512.0 vs Teacher=512"
+    "teacherinput": "10",
+    "detail": "Student=1024.0 vs Teacher=1024"
   }
 }

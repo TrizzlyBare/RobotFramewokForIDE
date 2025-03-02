@@ -48,8 +48,8 @@
       "expected": "256"
     },
     {
-      "input": "9",
-      "expected": "512"
+      "input": "10",
+      "expected": "1024"
     }
   ]
 }

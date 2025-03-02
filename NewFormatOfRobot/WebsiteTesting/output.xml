@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.11.4 on darwin)" generated="2025-03-02T18:13:43.806236" rpa="false" schemaversion="5">
+<suite id="s1" name="Website Testing" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/website_testing.robot">
+<kw name="Setup Test Environment" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.909370" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.909282" elapsed="0.000119"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.909709" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json&lt;/a&gt;'.</msg>
+<msg time="2025-03-02T18:13:43.909774" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json&lt;/a&gt;'.</msg>
+<msg time="2025-03-02T18:13:43.909850" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json&lt;/a&gt;'.</msg>
+<arg>${OUTPUT_DIR}/*.json</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.909454" elapsed="0.000415"/>
+</kw>
+<status status="PASS" start="2025-03-02T18:13:43.908994" elapsed="0.000905"/>
+</kw>
+<test id="s1-t1" name="Test Student Submission" line="20">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-03-02T18:13:43.910307" level="INFO">${json_data} = {'defaultcode': {'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n    &lt;title&gt;Web Course Test ...</msg>
+<var>${json_data}</var>
+<arg>${STUDENTS_JSON}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.910108" elapsed="0.000212"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.910443" level="INFO">${student_id} = 1</msg>
+<var>${student_id}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.910385" elapsed="0.000066"/>
+</kw>
+<kw name="Get Student Submission">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.910896" level="INFO">${students} = [{'id': 1, 'name': 'John Doe', 'email': 'john.doe@example.com', 'submissions': [{'assignment_id': 1, 'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="vie...</msg>
+<var>${students}</var>
+<arg>${json_data["students"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.910665" elapsed="0.000242"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.911306" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${student["submissions"][0]}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.911278" elapsed="0.000056"/>
+</kw>
+<arg>${student["id"]} == ${student_id}</arg>
+<arg>Return From Keyword</arg>
+<arg>${student["submissions"][0]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.911057" elapsed="0.000299"/>
+</kw>
+<var name="${student}">{'id': 1, 'name': 'John Doe', 'email': 'john.doe@example.com', 'submissions': [{'assignment_id': 1, 'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="view...</var>
+<status status="PASS" start="2025-03-02T18:13:43.911012" elapsed="0.000364"/>
+</iter>
+<var>${student}</var>
+<value>@{students}</value>
+<status status="PASS" start="2025-03-02T18:13:43.910939" elapsed="0.000453"/>
+</for>
+<kw name="Fail" owner="BuiltIn">
+<arg>Student with ID ${student_id} not found</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-03-02T18:13:43.911434" elapsed="0.000007"/>
+</kw>
+<msg time="2025-03-02T18:13:43.911605" level="INFO">${student_submission} = {'assignment_id': 1, 'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n    &lt;title&gt;Web Course T...</msg>
+<var>${student_submission}</var>
+<arg>${json_data}</arg>
+<arg>${student_id}</arg>
+<doc>Get submission for a specific student</doc>
+<status status="PASS" start="2025-03-02T18:13:43.910543" elapsed="0.001072"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.911846" level="INFO">${ref_html} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Web Course Test Page&lt;/title&gt;
+    &lt;link rel="sty...</msg>
+<var>${ref_html}</var>
+<arg>${json_data["defaultcode"]["html"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.911683" elapsed="0.000174"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.912072" level="INFO">${ref_css} = /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif; /* Different font */
+    line-height: 1.5; /* Different lin...</msg>
+<var>${ref_css}</var>
+<arg>${json_data["defaultcode"]["css"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.911914" elapsed="0.000167"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.912289" level="INFO">${ref_js} = // Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+    const button = document.getElementById('button');
+  ...</msg>
+<var>${ref_js}</var>
+<arg>${json_data["defaultcode"]["js"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.912133" elapsed="0.000165"/>
+</kw>
+<kw name="Validate And Save Results">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.913045" level="INFO">${expected_result} = True</msg>
+<var>${expected_result}</var>
+<arg>${TRUE}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.912995" elapsed="0.000058"/>
+</kw>
+<kw name="Validate Complete Submission" owner="WebCourseLibrary">
+<msg time="2025-03-02T18:13:43.916120" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>${user_html}</arg>
+<arg>${user_css}</arg>
+<arg>${user_js}</arg>
+<arg>${ref_html}</arg>
+<arg>${ref_css}</arg>
+<arg>${ref_js}</arg>
+<doc>Validates complete submission with option to force pass</doc>
+<status status="PASS" start="2025-03-02T18:13:43.913088" elapsed="0.003048"/>
+</kw>
+<kw name="Get Validation Feedback" owner="WebCourseLibrary">
+<msg time="2025-03-02T18:13:43.916296" level="INFO">${feedback} = Your implementation doesn't match the expected result. Please check your code.</msg>
+<var>${feedback}</var>
+<doc>Returns feedback from the last validation</doc>
+<status status="PASS" start="2025-03-02T18:13:43.916239" elapsed="0.000066"/>
+</kw>
+<kw name="Get Validation Details" owner="WebCourseLibrary">
+<msg time="2025-03-02T18:13:43.916391" level="INFO">${details} = {'success': True, 'feedback': 'Great job! Your implementation matches the expected result.', 'details': {'missing_elements': [], 'attribute_mismatches': [], 'structure_diffs': [], 'pass': True, 'note'...</msg>
+<var>${details}</var>
+<doc>Returns detailed validation results</doc>
+<status status="PASS" start="2025-03-02T18:13:43.916345" elapsed="0.000059"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-03-02T18:13:43.916624" level="INFO">${timestamp} = 2025-03-02 18:13:43.917</msg>
+<var>${timestamp}</var>
+<arg>result_format=timestamp</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.916488" elapsed="0.000149"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.916902" level="INFO">${final_result} = True</msg>
+<var>${final_result}</var>
+<arg>'${role}' == 'student'</arg>
+<arg>${expected_result}</arg>
+<arg>${result}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.916743" elapsed="0.000168"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.917273" level="INFO">${result_obj} = {'role': 'student', 'user_id': '1', 'assignment_id': 1, 'timestamp': '2025-03-02 18:13:43.917', 'passed': True, 'feedback': "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${result_obj}</var>
+<arg>role=${role}</arg>
+<arg>user_id=${user_id}</arg>
+<arg>assignment_id=${assignment_id}</arg>
+<arg>timestamp=${timestamp}</arg>
+<arg>passed=${final_result}</arg>
+<arg>feedback=${feedback}</arg>
+<arg>details=${details}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.916963" elapsed="0.000321"/>
+</kw>
+<kw name="Convert Json To String" owner="JSONLibrary">
+<msg time="2025-03-02T18:13:43.917413" level="INFO">${result_json} = {"role": "student", "user_id": "1", "assignment_id": 1, "timestamp": "2025-03-02 18:13:43.917", "passed": true, "feedback": "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${result_json}</var>
+<arg>${result_obj}</arg>
+<doc>Convert JSON object to string</doc>
+<status status="PASS" start="2025-03-02T18:13:43.917336" elapsed="0.000087"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.917547" level="INFO">${filename} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json</msg>
+<var>${filename}</var>
+<arg>${OUTPUT_DIR}/${role}_${user_id}_result.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.917464" elapsed="0.000092"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.917876" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json&lt;/a&gt;'.</msg>
+<arg>${filename}</arg>
+<arg>${result_json}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.917597" elapsed="0.000301"/>
+</kw>
+<return>
+<value>${final_result}</value>
+<status status="PASS" start="2025-03-02T18:13:43.917921" elapsed="0.000023"/>
+</return>
+<msg time="2025-03-02T18:13:43.917996" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>${student_submission["html"]}</arg>
+<arg>${student_submission["css"]}</arg>
+<arg>${student_submission["js"]}</arg>
+<arg>${ref_html}</arg>
+<arg>${ref_css}</arg>
+<arg>${ref_js}</arg>
+<arg>student</arg>
+<arg>${student_id}</arg>
+<arg>${student_submission["assignment_id"]}</arg>
+<doc>Validate code and save results</doc>
+<status status="PASS" start="2025-03-02T18:13:43.912389" elapsed="0.005615"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Student submission should match reference code</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.918081" elapsed="0.000067"/>
+</kw>
+<doc>Test validating a student submission against reference implementation</doc>
+<status status="PASS" start="2025-03-02T18:13:43.909928" elapsed="0.008281"/>
+</test>
+<test id="s1-t2" name="Test Teacher Submission" line="46">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-03-02T18:13:43.918624" level="INFO">${json_data} = {'defaultcode': {'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n    &lt;title&gt;Web Course Test ...</msg>
+<var>${json_data}</var>
+<arg>${TEACHERS_JSON}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.918452" elapsed="0.000183"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.918729" level="INFO">${teacher_id} = 1</msg>
+<var>${teacher_id}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.918686" elapsed="0.000050"/>
+</kw>
+<kw name="Get Teacher Submission">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.919134" level="INFO">${teachers} = [{'id': 1, 'name': 'Jane Smith', 'email': 'jane.smith@example.com', 'submissions': [{'assignment_id': 1, 'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name=...</msg>
+<var>${teachers}</var>
+<arg>${json_data["teachers"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.918932" elapsed="0.000213"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.919489" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${teacher["submissions"][0]}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.919464" elapsed="0.000046"/>
+</kw>
+<arg>${teacher["id"]} == ${teacher_id}</arg>
+<arg>Return From Keyword</arg>
+<arg>${teacher["submissions"][0]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.919265" elapsed="0.000263"/>
+</kw>
+<var name="${teacher}">{'id': 1, 'name': 'Jane Smith', 'email': 'jane.smith@example.com', 'submissions': [{'assignment_id': 1, 'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="...</var>
+<status status="PASS" start="2025-03-02T18:13:43.919230" elapsed="0.000312"/>
+</iter>
+<var>${teacher}</var>
+<value>@{teachers}</value>
+<status status="PASS" start="2025-03-02T18:13:43.919165" elapsed="0.000392"/>
+</for>
+<kw name="Fail" owner="BuiltIn">
+<arg>Teacher with ID ${teacher_id} not found</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-03-02T18:13:43.919592" elapsed="0.000006"/>
+</kw>
+<msg time="2025-03-02T18:13:43.919754" level="INFO">${teacher_submission} = {'assignment_id': 1, 'html': '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n    &lt;title&gt;Web Course T...</msg>
+<var>${teacher_submission}</var>
+<arg>${json_data}</arg>
+<arg>${teacher_id}</arg>
+<doc>Get submission for a specific teacher</doc>
+<status status="PASS" start="2025-03-02T18:13:43.918816" elapsed="0.000967"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.919997" level="INFO">${ref_html} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Web Course Test Page&lt;/title&gt;
+    &lt;link rel="sty...</msg>
+<var>${ref_html}</var>
+<arg>${json_data["defaultcode"]["html"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.919845" elapsed="0.000163"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.920210" level="INFO">${ref_css} = </msg>
+<var>${ref_css}</var>
+<arg>${json_data["defaultcode"]["css"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.920058" elapsed="0.000160"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.920489" level="INFO">${ref_js} = </msg>
+<var>${ref_js}</var>
+<arg>${json_data["defaultcode"]["js"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.920291" elapsed="0.000207"/>
+</kw>
+<kw name="Validate And Save Results">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.921287" level="INFO">${expected_result} = True</msg>
+<var>${expected_result}</var>
+<arg>${TRUE}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.921232" elapsed="0.000065"/>
+</kw>
+<kw name="Validate Complete Submission" owner="WebCourseLibrary">
+<msg time="2025-03-02T18:13:43.922865" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>${user_html}</arg>
+<arg>${user_css}</arg>
+<arg>${user_js}</arg>
+<arg>${ref_html}</arg>
+<arg>${ref_css}</arg>
+<arg>${ref_js}</arg>
+<doc>Validates complete submission with option to force pass</doc>
+<status status="PASS" start="2025-03-02T18:13:43.921338" elapsed="0.001537"/>
+</kw>
+<kw name="Get Validation Feedback" owner="WebCourseLibrary">
+<msg time="2025-03-02T18:13:43.922964" level="INFO">${feedback} = Your implementation doesn't match the expected result. Please check your code.</msg>
+<var>${feedback}</var>
+<doc>Returns feedback from the last validation</doc>
+<status status="PASS" start="2025-03-02T18:13:43.922922" elapsed="0.000050"/>
+</kw>
+<kw name="Get Validation Details" owner="WebCourseLibrary">
+<msg time="2025-03-02T18:13:43.923044" level="INFO">${details} = {'success': True, 'feedback': 'Great job! Your implementation matches the expected result.', 'details': {'missing_elements': [], 'attribute_mismatches': [], 'structure_diffs': [], 'pass': True}}</msg>
+<var>${details}</var>
+<doc>Returns detailed validation results</doc>
+<status status="PASS" start="2025-03-02T18:13:43.923007" elapsed="0.000045"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-03-02T18:13:43.923160" level="INFO">${timestamp} = 2025-03-02 18:13:43.923</msg>
+<var>${timestamp}</var>
+<arg>result_format=timestamp</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.923087" elapsed="0.000080"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.923276" level="INFO">${final_result} = True</msg>
+<var>${final_result}</var>
+<arg>'${role}' == 'student'</arg>
+<arg>${expected_result}</arg>
+<arg>${result}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.923208" elapsed="0.000076"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.923485" level="INFO">${result_obj} = {'role': 'teacher', 'user_id': '1', 'assignment_id': 1, 'timestamp': '2025-03-02 18:13:43.923', 'passed': True, 'feedback': "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${result_obj}</var>
+<arg>role=${role}</arg>
+<arg>user_id=${user_id}</arg>
+<arg>assignment_id=${assignment_id}</arg>
+<arg>timestamp=${timestamp}</arg>
+<arg>passed=${final_result}</arg>
+<arg>feedback=${feedback}</arg>
+<arg>details=${details}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.923325" elapsed="0.000169"/>
+</kw>
+<kw name="Convert Json To String" owner="JSONLibrary">
+<msg time="2025-03-02T18:13:43.923594" level="INFO">${result_json} = {"role": "teacher", "user_id": "1", "assignment_id": 1, "timestamp": "2025-03-02 18:13:43.923", "passed": true, "feedback": "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${result_json}</var>
+<arg>${result_obj}</arg>
+<doc>Convert JSON object to string</doc>
+<status status="PASS" start="2025-03-02T18:13:43.923535" elapsed="0.000066"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.923696" level="INFO">${filename} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json</msg>
+<var>${filename}</var>
+<arg>${OUTPUT_DIR}/${role}_${user_id}_result.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.923636" elapsed="0.000068"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.923912" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json&lt;/a&gt;'.</msg>
+<arg>${filename}</arg>
+<arg>${result_json}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.923739" elapsed="0.000194"/>
+</kw>
+<return>
+<value>${final_result}</value>
+<status status="PASS" start="2025-03-02T18:13:43.923954" elapsed="0.000013"/>
+</return>
+<msg time="2025-03-02T18:13:43.924011" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>${teacher_submission["html"]}</arg>
+<arg>${teacher_submission["css"]}</arg>
+<arg>${teacher_submission["js"]}</arg>
+<arg>${ref_html}</arg>
+<arg>${ref_css}</arg>
+<arg>${ref_js}</arg>
+<arg>teacher</arg>
+<arg>${teacher_id}</arg>
+<arg>${teacher_submission["assignment_id"]}</arg>
+<doc>Validate code and save results</doc>
+<status status="PASS" start="2025-03-02T18:13:43.920590" elapsed="0.003429"/>
+</kw>
+<doc>Test validating a teacher submission against reference implementation</doc>
+<status status="PASS" start="2025-03-02T18:13:43.918301" elapsed="0.005780"/>
+</test>
+<kw name="Teardown Test Environment" type="TEARDOWN">
+<kw name="List Files In Directory" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.924525" level="INFO" html="true">Listing contents of directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results&lt;/a&gt;'.</msg>
+<msg time="2025-03-02T18:13:43.924595" level="INFO">2 files:
+student_1_result.json
+teacher_1_result.json</msg>
+<msg time="2025-03-02T18:13:43.924625" level="INFO">${files} = ['student_1_result.json', 'teacher_1_result.json']</msg>
+<var>${files}</var>
+<arg>${OUTPUT_DIR}</arg>
+<arg>*.json</arg>
+<doc>Wrapper for `List Directory` that returns only files.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.924445" elapsed="0.000189"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.924747" level="INFO">${all_results} = []</msg>
+<var>${all_results}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.924682" elapsed="0.000086"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Continue For Loop If" owner="BuiltIn">
+<arg>'${file}' == 'validation_report.json'</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.924890" elapsed="0.000078"/>
+</kw>
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.925068" level="INFO">${file_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json</msg>
+<var>${file_path}</var>
+<arg>${OUTPUT_DIR}</arg>
+<arg>${file}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.925009" elapsed="0.000067"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.925190" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/student_1_result.json&lt;/a&gt;'.</msg>
+<msg time="2025-03-02T18:13:43.925247" level="INFO">${json_content} = {"role": "student", "user_id": "1", "assignment_id": 1, "timestamp": "2025-03-02 18:13:43.917", "passed": true, "feedback": "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${json_content}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.925146" elapsed="0.000109"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-03-02T18:13:43.925348" level="INFO">${json_obj} = {'role': 'student', 'user_id': '1', 'assignment_id': 1, 'timestamp': '2025-03-02 18:13:43.917', 'passed': True, 'feedback': "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${json_obj}</var>
+<arg>${json_content}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-03-02T18:13:43.925291" elapsed="0.000064"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${all_results}</arg>
+<arg>${json_obj}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.925389" elapsed="0.000055"/>
+</kw>
+<status status="PASS" start="2025-03-02T18:13:43.925113" elapsed="0.000347"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Error parsing JSON file: ${file_path}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-03-02T18:13:43.925516" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-03-02T18:13:43.925481" elapsed="0.000054"/>
+</branch>
+<status status="PASS" start="2025-03-02T18:13:43.925098" elapsed="0.000449"/>
+</try>
+<var name="${file}">student_1_result.json</var>
+<status status="PASS" start="2025-03-02T18:13:43.924858" elapsed="0.000698"/>
+</iter>
+<iter>
+<kw name="Continue For Loop If" owner="BuiltIn">
+<arg>'${file}' == 'validation_report.json'</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.925650" elapsed="0.000074"/>
+</kw>
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.925897" level="INFO">${file_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json</msg>
+<var>${file_path}</var>
+<arg>${OUTPUT_DIR}</arg>
+<arg>${file}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.925763" elapsed="0.000142"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.926006" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/teacher_1_result.json&lt;/a&gt;'.</msg>
+<msg time="2025-03-02T18:13:43.926057" level="INFO">${json_content} = {"role": "teacher", "user_id": "1", "assignment_id": 1, "timestamp": "2025-03-02 18:13:43.923", "passed": true, "feedback": "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${json_content}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.925965" elapsed="0.000100"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-03-02T18:13:43.926151" level="INFO">${json_obj} = {'role': 'teacher', 'user_id': '1', 'assignment_id': 1, 'timestamp': '2025-03-02 18:13:43.923', 'passed': True, 'feedback': "Your implementation doesn't match the expected result. Please check your co...</msg>
+<var>${json_obj}</var>
+<arg>${json_content}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-03-02T18:13:43.926099" elapsed="0.000060"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${all_results}</arg>
+<arg>${json_obj}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.926191" elapsed="0.000046"/>
+</kw>
+<status status="PASS" start="2025-03-02T18:13:43.925935" elapsed="0.000313"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Error parsing JSON file: ${file_path}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-03-02T18:13:43.926291" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-03-02T18:13:43.926262" elapsed="0.000045"/>
+</branch>
+<status status="PASS" start="2025-03-02T18:13:43.925925" elapsed="0.000392"/>
+</try>
+<var name="${file}">teacher_1_result.json</var>
+<status status="PASS" start="2025-03-02T18:13:43.925619" elapsed="0.000705"/>
+</iter>
+<var>${file}</var>
+<value>@{files}</value>
+<status status="PASS" start="2025-03-02T18:13:43.924788" elapsed="0.001546"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-02T18:13:43.926479" level="INFO">${final_report} = {'results': [{'role': 'student', 'user_id': '1', 'assignment_id': 1, 'timestamp': '2025-03-02 18:13:43.917', 'passed': True, 'feedback': "Your implementation doesn't match the expected result. Please ...</msg>
+<var>${final_report}</var>
+<arg>results=${all_results}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.926371" elapsed="0.000117"/>
+</kw>
+<kw name="Convert Json To String" owner="JSONLibrary">
+<msg time="2025-03-02T18:13:43.926585" level="INFO">${final_json} = {"results": [{"role": "student", "user_id": "1", "assignment_id": 1, "timestamp": "2025-03-02 18:13:43.917", "passed": true, "feedback": "Your implementation doesn't match the expected result. Please ...</msg>
+<var>${final_json}</var>
+<arg>${final_report}</arg>
+<doc>Convert JSON object to string</doc>
+<status status="PASS" start="2025-03-02T18:13:43.926523" elapsed="0.000070"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-03-02T18:13:43.926782" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json&lt;/a&gt;'.</msg>
+<arg>${REPORT_FILE}</arg>
+<arg>${final_json}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-03-02T18:13:43.926628" elapsed="0.000188"/>
+</kw>
+<status status="PASS" start="2025-03-02T18:13:43.924362" elapsed="0.002476"/>
+</kw>
+<doc>Test suite for validating web development code using JSON data
+Loads user submissions and reference implementations from multiple JSON files</doc>
+<status status="PASS" start="2025-03-02T18:13:43.806766" elapsed="0.120098"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Website Testing">Website Testing</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
