@@ -1,0 +1,9 @@
+attrs==25.1.0
+jsonpath-ng==1.7.0
+jsonschema==4.23.0
+jsonschema-specifications==2024.10.1
+ply==3.11
+referencing==0.36.2
+robotframework==7.2.2
+robotframework-jsonlibrary==0.5
+rpds-py==0.23.1

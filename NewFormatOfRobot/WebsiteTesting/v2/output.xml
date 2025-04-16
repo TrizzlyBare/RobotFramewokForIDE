@@ -1,0 +1,2122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on darwin)" generated="2025-04-17T01:23:17.868994" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Web Code" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_web_code.robot">
+<kw name="Setup Test Environment" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.934951" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.934862" elapsed="0.000127"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.937045" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.937145" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/validation_report.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.937219" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
+<arg>${OUTPUT_DIR}/*.json</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.935049" elapsed="0.002215"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.934557" elapsed="0.002753"/>
+</kw>
+<test id="s1-t1" name="Test Default Code Consistency With Specific Feedback" line="24">
+<kw name="Extract JSON Files">
+<kw name="Run Process" owner="Process">
+<msg time="2025-04-17T01:23:17.937901" level="INFO">Starting process:
+python /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/json_helper.py extract /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/students.json</msg>
+<msg time="2025-04-17T01:23:17.940286" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-04-17T01:23:17.958961" level="INFO">Process completed.</msg>
+<msg time="2025-04-17T01:23:17.959155" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python</arg>
+<arg>${HELPER_SCRIPT}</arg>
+<arg>extract</arg>
+<arg>${file_path}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.937794" elapsed="0.021384"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.959868" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>Failed to extract data from ${file_path}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.959394" elapsed="0.000512"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2025-04-17T01:23:17.960164" level="INFO">3 lines returned</msg>
+<msg time="2025-04-17T01:23:17.960195" level="INFO">${lines} = ['HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt', 'CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfR...</msg>
+<var>${lines}</var>
+<arg>${result.stdout}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.959972" elapsed="0.000232"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.960430" level="INFO">${html_path} = </msg>
+<var>${html_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.960251" elapsed="0.000188"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.960631" level="INFO">${css_path} = </msg>
+<var>${css_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.960481" elapsed="0.000158"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.960833" level="INFO">${js_path} = </msg>
+<var>${js_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.960675" elapsed="0.000166"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:17.961127" level="INFO">${stripped} = HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.961061" elapsed="0.000075"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.961824" level="INFO">${html_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt</msg>
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.961522" elapsed="0.000379"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.961389" elapsed="0.000544"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.962069" elapsed="0.000010"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.962003" elapsed="0.000093"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.962246" elapsed="0.000013"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.962173" elapsed="0.000103"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.961381" elapsed="0.000907"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:17.961173" elapsed="0.001157"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.961159" elapsed="0.001189"/>
+</if>
+<var name="${line}">HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt</var>
+<status status="PASS" start="2025-04-17T01:23:17.961027" elapsed="0.001341"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:17.962642" level="INFO">${stripped} = CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.962544" elapsed="0.000114"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.963011" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.962936" elapsed="0.000094"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.963242" level="INFO">${css_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt</msg>
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.963095" elapsed="0.000161"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.963039" elapsed="0.000230"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.963310" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.963277" elapsed="0.000051"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.962931" elapsed="0.000404"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:17.962754" elapsed="0.000590"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.962741" elapsed="0.000610"/>
+</if>
+<var name="${line}">CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt</var>
+<status status="PASS" start="2025-04-17T01:23:17.962504" elapsed="0.000854"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:17.963495" level="INFO">${stripped} = JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.963446" elapsed="0.000060"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.963733" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.963677" elapsed="0.000074"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.963810" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.963759" elapsed="0.000068"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.964019" level="INFO">${js_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt</msg>
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.963881" elapsed="0.000147"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.963834" elapsed="0.000206"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.963672" elapsed="0.000375"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:17.963528" elapsed="0.000527"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.963523" elapsed="0.000538"/>
+</if>
+<var name="${line}">JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt</var>
+<status status="PASS" start="2025-04-17T01:23:17.963420" elapsed="0.000647"/>
+</iter>
+<var>${line}</var>
+<value>@{lines}</value>
+<status status="PASS" start="2025-04-17T01:23:17.960888" elapsed="0.003189"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.964340" level="INFO">${paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${paths}</var>
+<arg>html_path=${html_path}</arg>
+<arg>css_path=${css_path}</arg>
+<arg>js_path=${js_path}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.964133" elapsed="0.000217"/>
+</kw>
+<return>
+<value>${paths}</value>
+<status status="PASS" start="2025-04-17T01:23:17.964378" elapsed="0.000035"/>
+</return>
+<msg time="2025-04-17T01:23:17.964474" level="INFO">${student_paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${student_paths}</var>
+<arg>${STUDENTS_JSON}</arg>
+<status status="PASS" start="2025-04-17T01:23:17.937681" elapsed="0.026806"/>
+</kw>
+<kw name="Extract JSON Files">
+<kw name="Run Process" owner="Process">
+<msg time="2025-04-17T01:23:17.964916" level="INFO">Starting process:
+python /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/json_helper.py extract /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/teachers.json</msg>
+<msg time="2025-04-17T01:23:17.966784" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-04-17T01:23:17.985217" level="INFO">Process completed.</msg>
+<msg time="2025-04-17T01:23:17.985386" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python</arg>
+<arg>${HELPER_SCRIPT}</arg>
+<arg>extract</arg>
+<arg>${file_path}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.964803" elapsed="0.020601"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.985971" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>Failed to extract data from ${file_path}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.985591" elapsed="0.000408"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2025-04-17T01:23:17.986213" level="INFO">3 lines returned</msg>
+<msg time="2025-04-17T01:23:17.986238" level="INFO">${lines} = ['HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt', 'CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfR...</msg>
+<var>${lines}</var>
+<arg>${result.stdout}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.986056" elapsed="0.000191"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.986448" level="INFO">${html_path} = </msg>
+<var>${html_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.986288" elapsed="0.000169"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.986628" level="INFO">${css_path} = </msg>
+<var>${css_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.986492" elapsed="0.000180"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.986847" level="INFO">${js_path} = </msg>
+<var>${js_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.986708" elapsed="0.000147"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:17.987087" level="INFO">${stripped} = HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.987034" elapsed="0.000062"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.987507" level="INFO">${html_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt</msg>
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.987364" elapsed="0.000152"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.987283" elapsed="0.000245"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.987572" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.987539" elapsed="0.000051"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.987626" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.987597" elapsed="0.000045"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.987278" elapsed="0.000371"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:17.987122" elapsed="0.000536"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.987115" elapsed="0.000549"/>
+</if>
+<var name="${line}">HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt</var>
+<status status="PASS" start="2025-04-17T01:23:17.987003" elapsed="0.000667"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:17.987799" level="INFO">${stripped} = CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.987751" elapsed="0.000059"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.988033" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.987976" elapsed="0.000076"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.988251" level="INFO">${css_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt</msg>
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.988113" elapsed="0.000147"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.988060" elapsed="0.000212"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.988310" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.988280" elapsed="0.000048"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.987971" elapsed="0.000364"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:17.987831" elapsed="0.000511"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.987825" elapsed="0.000524"/>
+</if>
+<var name="${line}">CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt</var>
+<status status="PASS" start="2025-04-17T01:23:17.987726" elapsed="0.000630"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:17.988480" level="INFO">${stripped} = JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.988434" elapsed="0.000054"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.988708" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.988656" elapsed="0.000071"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.988784" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.988734" elapsed="0.000066"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.988994" level="INFO">${js_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt</msg>
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.988856" elapsed="0.000147"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.988808" elapsed="0.000206"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.988651" elapsed="0.000371"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:17.988510" elapsed="0.000519"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.988504" elapsed="0.000532"/>
+</if>
+<var name="${line}">JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt</var>
+<status status="PASS" start="2025-04-17T01:23:17.988408" elapsed="0.000634"/>
+</iter>
+<var>${line}</var>
+<value>@{lines}</value>
+<status status="PASS" start="2025-04-17T01:23:17.986893" elapsed="0.002158"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.989244" level="INFO">${paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${paths}</var>
+<arg>html_path=${html_path}</arg>
+<arg>css_path=${css_path}</arg>
+<arg>js_path=${js_path}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.989119" elapsed="0.000135"/>
+</kw>
+<return>
+<value>${paths}</value>
+<status status="PASS" start="2025-04-17T01:23:17.989277" elapsed="0.000027"/>
+</return>
+<msg time="2025-04-17T01:23:17.989360" level="INFO">${teacher_paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${teacher_paths}</var>
+<arg>${TEACHERS_JSON}</arg>
+<status status="PASS" start="2025-04-17T01:23:17.964692" elapsed="0.024676"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.989643" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.989741" level="INFO">${student_html} = &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;HTML Demo&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            backgr...</msg>
+<var>${student_html}</var>
+<arg>${student_paths["html_path"]}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.989462" elapsed="0.000290"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.989949" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.990008" level="INFO">${student_css} = /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif; /* Different font */
+    line-height: 1.5; /* Different lin...</msg>
+<var>${student_css}</var>
+<arg>${student_paths["css_path"]}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.989805" elapsed="0.000213"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.990206" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.990259" level="INFO">${student_js} = // Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');...</msg>
+<var>${student_js}</var>
+<arg>${student_paths["js_path"]}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.990066" elapsed="0.000202"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.990453" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.990504" level="INFO">${teacher_html} = &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;HTML Demo&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            backgr...</msg>
+<var>${teacher_html}</var>
+<arg>${teacher_paths["html_path"]}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.990315" elapsed="0.000199"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.990700" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.990754" level="INFO">${teacher_css} = /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif; /* Different font */
+    line-height: 1.5; /* Different lin...</msg>
+<var>${teacher_css}</var>
+<arg>${teacher_paths["css_path"]}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.990559" elapsed="0.000204"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.990948" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:17.990997" level="INFO">${teacher_js} = // Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');...</msg>
+<var>${teacher_js}</var>
+<arg>${teacher_paths["js_path"]}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.990808" elapsed="0.000199"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${student_html}</arg>
+<arg>${teacher_html}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.991119" elapsed="0.000069"/>
+</kw>
+<msg time="2025-04-17T01:23:17.991217" level="INFO">${html_match} = True</msg>
+<var>${html_match}</var>
+<arg>Should Be Equal As Strings</arg>
+<arg>${student_html}</arg>
+<arg>${teacher_html}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.991059" elapsed="0.000166"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.991332" level="INFO">@{html_differences} = [ ]</msg>
+<var>@{html_differences}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.991282" elapsed="0.000058"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.991423" level="INFO">@{css_differences} = [ ]</msg>
+<var>@{css_differences}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.991380" elapsed="0.000051"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.991509" level="INFO">@{js_differences} = [ ]</msg>
+<var>@{js_differences}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.991471" elapsed="0.000045"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${html_match}">
+<kw name="Compare Html Structure" owner="WebCourseLibrary">
+<var>${html_diff_result}</var>
+<arg>${student_html}</arg>
+<arg>${teacher_html}</arg>
+<doc>Compare HTML structure and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.991617" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>@{html_differences}</var>
+<arg>${html_diff_result}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.991679" elapsed="0.000006"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>HTML differences found:</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.991720" elapsed="0.000008"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<arg>@{html_differences}</arg>
+<arg>WARN</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.991761" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.991549" elapsed="0.000229"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.991541" elapsed="0.000246"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${student_css}</arg>
+<arg>${teacher_css}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.991878" elapsed="0.000061"/>
+</kw>
+<msg time="2025-04-17T01:23:17.991970" level="INFO">${css_match} = True</msg>
+<var>${css_match}</var>
+<arg>Should Be Equal As Strings</arg>
+<arg>${student_css}</arg>
+<arg>${teacher_css}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.991830" elapsed="0.000148"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${css_match}">
+<kw name="Compare Css Rules" owner="WebCourseLibrary">
+<var>${css_diff_result}</var>
+<arg>${student_css}</arg>
+<arg>${teacher_css}</arg>
+<doc>Compare CSS rules and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.992068" elapsed="0.000006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>@{css_differences}</var>
+<arg>${css_diff_result}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.992109" elapsed="0.000006"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>CSS differences found:</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.992144" elapsed="0.000005"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<arg>@{css_differences}</arg>
+<arg>WARN</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:17.992178" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:17.992012" elapsed="0.000181"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.992005" elapsed="0.000197"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.992353" level="INFO">// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');
+    
+    if (button &amp;&amp; result) {
+        button.addEventListener('click', function() {
+            result.textContent = 'You clicked the button!'; // Different text
+            // Added extra behavior
+            button.style.backgroundColor = '#aaaaaa';
+        });
+    }
+    
+    // Form submission with different behavior
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Missing validation
+           // Different message
+            result.textContent = `Form submitted by ${name}`;
+            contactForm.reset();
+        });
+    }
+    
+    // Missing navigation smooth scrolling functionality
+});
+
+!=
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');
+    
+    if (button &amp;&amp; result) {
+        button.addEventListener('click', function() {
+            result.textContent = 'You clicked the button!'; // Different text
+            result.style.backgroundColor = '#ffeeee'; // Different color
+            // Added extra behavior
+            button.style.backgroundColor = '#aaaaaa';
+        });
+    }
+    
+    // Form submission with different behavior
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Missing validation
+           // Different message
+            result.textContent = `Form submitted by ${name}`;
+            contactForm.reset();
+        });
+    }
+    
+    // Missing navigation smooth scrolling functionality
+});</msg>
+<msg time="2025-04-17T01:23:17.992482" level="FAIL">Multiline strings are different:
+--- first
++++ second
+@@ -6,6 +6,7 @@
+     if (button &amp;&amp; result) {
+         button.addEventListener('click', function() {
+             result.textContent = 'You clicked the button!'; // Different text
++            result.style.backgroundColor = '#ffeeee'; // Different color
+             // Added extra behavior
+             button.style.backgroundColor = '#aaaaaa';
+         });</msg>
+<arg>${student_js}</arg>
+<arg>${teacher_js}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2025-04-17T01:23:17.992288" elapsed="0.000309">Multiline strings are different:
+--- first
++++ second
+@@ -6,6 +6,7 @@
+     if (button &amp;&amp; result) {
+         button.addEventListener('click', function() {
+             result.textContent = 'You clicked the button!'; // Different text
++            result.style.backgroundColor = '#ffeeee'; // Different color
+             // Added extra behavior
+             button.style.backgroundColor = '#aaaaaa';
+         });</status>
+</kw>
+<msg time="2025-04-17T01:23:17.992634" level="INFO">${js_match} = False</msg>
+<var>${js_match}</var>
+<arg>Should Be Equal As Strings</arg>
+<arg>${student_js}</arg>
+<arg>${teacher_js}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.992242" elapsed="0.000400"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${js_match}">
+<kw name="Compare Js Functionality" owner="WebCourseLibrary">
+<msg time="2025-04-17T01:23:17.993016" level="INFO">${js_diff_result} = ['JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.']</msg>
+<var>${js_diff_result}</var>
+<arg>${student_js}</arg>
+<arg>${teacher_js}</arg>
+<doc>Compare JavaScript functionality and return specific differences</doc>
+<status status="PASS" start="2025-04-17T01:23:17.992761" elapsed="0.000265"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.993116" level="INFO">@{js_differences} = [ JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences. ]</msg>
+<var>@{js_differences}</var>
+<arg>${js_diff_result}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.993062" elapsed="0.000062"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.993206" level="WARN">JavaScript differences found:</msg>
+<arg>JavaScript differences found:</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.993156" elapsed="0.000104"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.993351" level="INFO">JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.</msg>
+<msg time="2025-04-17T01:23:17.993379" level="INFO">WARN</msg>
+<arg>@{js_differences}</arg>
+<arg>WARN</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.993308" elapsed="0.000083"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:17.992684" elapsed="0.000717"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:17.992676" elapsed="0.000734"/>
+</if>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-17T01:23:17.993546" level="INFO">${timestamp} = 1744827797.993515</msg>
+<var>${timestamp}</var>
+<arg>result_format=epoch</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.993460" elapsed="0.000094"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.993814" level="INFO">${result_obj} = {'timestamp': 1744827797.993515, 'html_match': True, 'css_match': True, 'js_match': False, 'html_differences': [], 'css_differences': [], 'js_differences': ['JavaScript files differ but no specific fu...</msg>
+<var>${result_obj}</var>
+<arg>timestamp=${timestamp}</arg>
+<arg>html_match=${html_match}</arg>
+<arg>css_match=${css_match}</arg>
+<arg>js_match=${js_match}</arg>
+<arg>html_differences=${html_differences}</arg>
+<arg>css_differences=${css_differences}</arg>
+<arg>js_differences=${js_differences}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.993608" elapsed="0.000216"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.994149" level="INFO">${result_json} = {
+  "timestamp": 1744827797.993515,
+  "html_match": true,
+  "css_match": true,
+  "js_match": false,
+  "html_differences": [],
+  "css_differences": [],
+  "js_differences": [
+    "JavaScript files diffe...</msg>
+<var>${result_json}</var>
+<arg>json.dumps(${result_obj}, indent=2)</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.993880" elapsed="0.000283"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.994308" level="INFO">${filename} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json</msg>
+<var>${filename}</var>
+<arg>${OUTPUT_DIR}/defaultcode_comparison_result.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.994240" elapsed="0.000078"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.994623" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
+<arg>${filename}</arg>
+<arg>${result_json}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.994381" elapsed="0.000271"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.994822" level="INFO">${overall_match} = False</msg>
+<var>${overall_match}</var>
+<arg>${html_match} and ${css_match} and ${js_match}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.994713" elapsed="0.000118"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-04-17T01:23:17.994986" level="FAIL">Defaultcode does not match teacher reference</msg>
+<arg>${overall_match}</arg>
+<arg>Defaultcode does not match teacher reference</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-04-17T01:23:17.994893" elapsed="0.000130">Defaultcode does not match teacher reference</status>
+</kw>
+<doc>Test defaultcode consistency with enhanced specific feedback</doc>
+<status status="FAIL" start="2025-04-17T01:23:17.937351" elapsed="0.057791">Defaultcode does not match teacher reference</status>
+</test>
+<test id="s1-t2" name="Test Student Submission Against Teacher Reference" line="101">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:17.995530" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.995455" elapsed="0.000414"/>
+</kw>
+<kw name="Extract JSON Files">
+<kw name="Run Process" owner="Process">
+<msg time="2025-04-17T01:23:17.996267" level="INFO">Starting process:
+python /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/json_helper.py extract /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/students.json</msg>
+<msg time="2025-04-17T01:23:17.998669" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-04-17T01:23:18.017232" level="INFO">Process completed.</msg>
+<msg time="2025-04-17T01:23:18.017404" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python</arg>
+<arg>${HELPER_SCRIPT}</arg>
+<arg>extract</arg>
+<arg>${file_path}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-04-17T01:23:17.996151" elapsed="0.021271"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.018020" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>Failed to extract data from ${file_path}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.017619" elapsed="0.000429"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2025-04-17T01:23:18.018270" level="INFO">3 lines returned</msg>
+<msg time="2025-04-17T01:23:18.018297" level="INFO">${lines} = ['HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt', 'CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfR...</msg>
+<var>${lines}</var>
+<arg>${result.stdout}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.018105" elapsed="0.000201"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.018508" level="INFO">${html_path} = </msg>
+<var>${html_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.018351" elapsed="0.000165"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.018700" level="INFO">${css_path} = </msg>
+<var>${css_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.018553" elapsed="0.000155"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.018887" level="INFO">${js_path} = </msg>
+<var>${js_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.018748" elapsed="0.000147"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:18.019140" level="INFO">${stripped} = HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.019082" elapsed="0.000068"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.019629" level="INFO">${html_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt</msg>
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.019481" elapsed="0.000157"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.019392" elapsed="0.000259"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.019696" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.019663" elapsed="0.000050"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.019749" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.019720" elapsed="0.000045"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.019387" elapsed="0.000385"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:18.019224" elapsed="0.000558"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.019211" elapsed="0.000577"/>
+</if>
+<var name="${line}">HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt</var>
+<status status="PASS" start="2025-04-17T01:23:18.019047" elapsed="0.000748"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:18.019934" level="INFO">${stripped} = CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.019884" elapsed="0.000061"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020170" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020114" elapsed="0.000074"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.020384" level="INFO">${css_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt</msg>
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.020245" elapsed="0.000147"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.020195" elapsed="0.000210"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020442" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020412" elapsed="0.000047"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.020109" elapsed="0.000357"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:18.019968" elapsed="0.000505"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.019962" elapsed="0.000517"/>
+</if>
+<var name="${line}">CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt</var>
+<status status="PASS" start="2025-04-17T01:23:18.019858" elapsed="0.000628"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:18.020611" level="INFO">${stripped} = JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.020564" elapsed="0.000056"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020832" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020780" elapsed="0.000070"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020907" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.020858" elapsed="0.000066"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.021113" level="INFO">${js_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt</msg>
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.020976" elapsed="0.000146"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.020931" elapsed="0.000202"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.020776" elapsed="0.000365"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:18.020641" elapsed="0.000507"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.020636" elapsed="0.000518"/>
+</if>
+<var name="${line}">JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt</var>
+<status status="PASS" start="2025-04-17T01:23:18.020539" elapsed="0.000622"/>
+</iter>
+<var>${line}</var>
+<value>@{lines}</value>
+<status status="PASS" start="2025-04-17T01:23:18.018933" elapsed="0.002237"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.021331" level="INFO">${paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${paths}</var>
+<arg>html_path=${html_path}</arg>
+<arg>css_path=${css_path}</arg>
+<arg>js_path=${js_path}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.021212" elapsed="0.000128"/>
+</kw>
+<return>
+<value>${paths}</value>
+<status status="PASS" start="2025-04-17T01:23:18.021362" elapsed="0.000022"/>
+</return>
+<msg time="2025-04-17T01:23:18.021434" level="INFO">${student_paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${student_paths}</var>
+<arg>${STUDENTS_JSON}</arg>
+<status status="PASS" start="2025-04-17T01:23:17.996024" elapsed="0.025435"/>
+</kw>
+<kw name="Extract JSON Files">
+<kw name="Run Process" owner="Process">
+<msg time="2025-04-17T01:23:18.021870" level="INFO">Starting process:
+python /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/json_helper.py extract /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/teachers.json</msg>
+<msg time="2025-04-17T01:23:18.023724" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-04-17T01:23:18.041772" level="INFO">Process completed.</msg>
+<msg time="2025-04-17T01:23:18.041938" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python</arg>
+<arg>${HELPER_SCRIPT}</arg>
+<arg>extract</arg>
+<arg>${file_path}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.021748" elapsed="0.020213"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.042607" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>Failed to extract data from ${file_path}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.042203" elapsed="0.000434"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2025-04-17T01:23:18.042858" level="INFO">3 lines returned</msg>
+<msg time="2025-04-17T01:23:18.042886" level="INFO">${lines} = ['HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt', 'CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfR...</msg>
+<var>${lines}</var>
+<arg>${result.stdout}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.042698" elapsed="0.000197"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.043090" level="INFO">${html_path} = </msg>
+<var>${html_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.042940" elapsed="0.000159"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.043274" level="INFO">${css_path} = </msg>
+<var>${css_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.043136" elapsed="0.000146"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.043453" level="INFO">${js_path} = </msg>
+<var>${js_path}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.043317" elapsed="0.000144"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:18.043694" level="INFO">${stripped} = HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.043641" elapsed="0.000063"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.044124" level="INFO">${html_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt</msg>
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.043970" elapsed="0.000163"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.043887" elapsed="0.000259"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044192" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044158" elapsed="0.000052"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044247" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044218" elapsed="0.000045"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.043882" elapsed="0.000388"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:18.043730" elapsed="0.000549"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.043723" elapsed="0.000562"/>
+</if>
+<var name="${line}">HTML_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt</var>
+<status status="PASS" start="2025-04-17T01:23:18.043607" elapsed="0.000685"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:18.044433" level="INFO">${stripped} = CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.044382" elapsed="0.000060"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044675" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044617" elapsed="0.000077"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.044898" level="INFO">${css_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt</msg>
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.044753" elapsed="0.000154"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.044702" elapsed="0.000217"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044958" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.044927" elapsed="0.000049"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.044612" elapsed="0.000371"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:18.044468" elapsed="0.000523"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.044458" elapsed="0.000539"/>
+</if>
+<var name="${line}">CSS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt</var>
+<status status="PASS" start="2025-04-17T01:23:18.044353" elapsed="0.000651"/>
+</iter>
+<iter>
+<kw name="Strip String" owner="String">
+<msg time="2025-04-17T01:23:18.045139" level="INFO">${stripped} = JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt</msg>
+<var>${stripped}</var>
+<arg>${line}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.045088" elapsed="0.000089"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${stripped}&quot; != &quot;${EMPTY}&quot;">
+<if>
+<branch type="IF" condition="$stripped.startswith(&quot;HTML_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${html_path}</var>
+<arg>${stripped.replace("HTML_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.045403" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.045350" elapsed="0.000071"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;CSS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${css_path}</var>
+<arg>${stripped.replace("CSS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.045477" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.045428" elapsed="0.000066"/>
+</branch>
+<branch type="ELSE IF" condition="$stripped.startswith(&quot;JS_PATH:&quot;)">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.045720" level="INFO">${js_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt</msg>
+<var>${js_path}</var>
+<arg>${stripped.replace("JS_PATH:", "")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.045562" elapsed="0.000168"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.045501" elapsed="0.000242"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.045345" elapsed="0.000406"/>
+</if>
+<status status="PASS" start="2025-04-17T01:23:18.045201" elapsed="0.000559"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.045196" elapsed="0.000571"/>
+</if>
+<var name="${line}">JS_PATH:/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt</var>
+<status status="PASS" start="2025-04-17T01:23:18.045063" elapsed="0.000711"/>
+</iter>
+<var>${line}</var>
+<value>@{lines}</value>
+<status status="PASS" start="2025-04-17T01:23:18.043494" elapsed="0.002291"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.045984" level="INFO">${paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${paths}</var>
+<arg>html_path=${html_path}</arg>
+<arg>css_path=${css_path}</arg>
+<arg>js_path=${js_path}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.045837" elapsed="0.000157"/>
+</kw>
+<return>
+<value>${paths}</value>
+<status status="PASS" start="2025-04-17T01:23:18.046018" elapsed="0.000025"/>
+</return>
+<msg time="2025-04-17T01:23:18.046104" level="INFO">${teacher_paths} = {'html_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt', 'css_path': '/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFor...</msg>
+<var>${teacher_paths}</var>
+<arg>${TEACHERS_JSON}</arg>
+<status status="PASS" start="2025-04-17T01:23:18.021629" elapsed="0.024485"/>
+</kw>
+<kw name="Compare Code Files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.046719" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_html.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.046814" level="INFO">${student_code} = &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;HTML Demo&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            backgr...</msg>
+<var>${student_code}</var>
+<arg>${student_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.046644" elapsed="0.000180"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.046902" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_html.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.046958" level="INFO">${teacher_code} = &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;HTML Demo&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            backgr...</msg>
+<var>${teacher_code}</var>
+<arg>${teacher_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.046859" elapsed="0.000108"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.047071" elapsed="0.000071"/>
+</kw>
+<msg time="2025-04-17T01:23:18.047168" level="INFO">${match} = True</msg>
+<var>${match}</var>
+<arg>Should Be Equal As Strings</arg>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.047015" elapsed="0.000161"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.047261" level="INFO">@{differences} = [ ]</msg>
+<var>@{differences}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.047211" elapsed="0.000058"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${match}">
+<if>
+<branch type="IF" condition="&quot;${code_type}&quot; == &quot;html&quot;">
+<kw name="Compare Html Structure" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare HTML structure and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047401" elapsed="0.000015"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047343" elapsed="0.000104"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${code_type}&quot; == &quot;css&quot;">
+<kw name="Compare Css Rules" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare CSS rules and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047542" elapsed="0.000008"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047462" elapsed="0.000104"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${code_type}&quot; == &quot;js&quot;">
+<kw name="Compare Js Functionality" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare JavaScript functionality and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047655" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047574" elapsed="0.000125"/>
+</branch>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047337" elapsed="0.000372"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<var>@{differences}</var>
+<arg>${diff_result}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047746" elapsed="0.000007"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${code_type} differences found:</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047790" elapsed="0.000007"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<arg>@{differences}</arg>
+<arg>WARN</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047858" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.047295" elapsed="0.000581"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.047286" elapsed="0.000599"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.048029" level="INFO">${result} = {'match': True, 'differences': []}</msg>
+<var>${result}</var>
+<arg>match=${match}</arg>
+<arg>differences=${differences}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.047919" elapsed="0.000123"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2025-04-17T01:23:18.048062" elapsed="0.000017"/>
+</return>
+<msg time="2025-04-17T01:23:18.048130" level="INFO">${html_result} = {'match': True, 'differences': []}</msg>
+<var>${html_result}</var>
+<arg>${student_paths["html_path"]}</arg>
+<arg>${teacher_paths["html_path"]}</arg>
+<arg>html</arg>
+<status status="PASS" start="2025-04-17T01:23:18.046292" elapsed="0.001847"/>
+</kw>
+<kw name="Compare Code Files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.048642" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_css.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.048705" level="INFO">${student_code} = /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif; /* Different font */
+    line-height: 1.5; /* Different lin...</msg>
+<var>${student_code}</var>
+<arg>${student_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.048591" elapsed="0.000124"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.048797" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_css.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.048854" level="INFO">${teacher_code} = /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif; /* Different font */
+    line-height: 1.5; /* Different lin...</msg>
+<var>${teacher_code}</var>
+<arg>${teacher_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.048748" elapsed="0.000115"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.048944" elapsed="0.000059"/>
+</kw>
+<msg time="2025-04-17T01:23:18.049028" level="INFO">${match} = True</msg>
+<var>${match}</var>
+<arg>Should Be Equal As Strings</arg>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.048899" elapsed="0.000136"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.049106" level="INFO">@{differences} = [ ]</msg>
+<var>@{differences}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.049068" elapsed="0.000045"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${match}">
+<if>
+<branch type="IF" condition="&quot;${code_type}&quot; == &quot;html&quot;">
+<kw name="Compare Html Structure" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare HTML structure and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049202" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049173" elapsed="0.000047"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${code_type}&quot; == &quot;css&quot;">
+<kw name="Compare Css Rules" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare CSS rules and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049258" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049230" elapsed="0.000045"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${code_type}&quot; == &quot;js&quot;">
+<kw name="Compare Js Functionality" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare JavaScript functionality and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049307" elapsed="0.000005"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049281" elapsed="0.000041"/>
+</branch>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049168" elapsed="0.000161"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<var>@{differences}</var>
+<arg>${diff_result}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049355" elapsed="0.000005"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${code_type} differences found:</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049388" elapsed="0.000005"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<arg>@{differences}</arg>
+<arg>WARN</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049422" elapsed="0.000004"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.049134" elapsed="0.000302"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.049128" elapsed="0.000315"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.049549" level="INFO">${result} = {'match': True, 'differences': []}</msg>
+<var>${result}</var>
+<arg>match=${match}</arg>
+<arg>differences=${differences}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.049471" elapsed="0.000087"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2025-04-17T01:23:18.049574" elapsed="0.000009"/>
+</return>
+<msg time="2025-04-17T01:23:18.049619" level="INFO">${css_result} = {'match': True, 'differences': []}</msg>
+<var>${css_result}</var>
+<arg>${student_paths["css_path"]}</arg>
+<arg>${teacher_paths["css_path"]}</arg>
+<arg>css</arg>
+<status status="PASS" start="2025-04-17T01:23:18.048280" elapsed="0.001346"/>
+</kw>
+<kw name="Compare Code Files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.050099" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/students_js.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.050167" level="INFO">${student_code} = // Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');...</msg>
+<var>${student_code}</var>
+<arg>${student_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.050056" elapsed="0.000119"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.050261" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp/teachers_js.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.050312" level="INFO">${teacher_code} = // Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');...</msg>
+<var>${teacher_code}</var>
+<arg>${teacher_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.050225" elapsed="0.000095"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.050460" level="INFO">// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');
+    
+    if (button &amp;&amp; result) {
+        button.addEventListener('click', function() {
+            result.textContent = 'You clicked the button!'; // Different text
+            // Added extra behavior
+            button.style.backgroundColor = '#aaaaaa';
+        });
+    }
+    
+    // Form submission with different behavior
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Missing validation
+           // Different message
+            result.textContent = `Form submitted by ${name}`;
+            contactForm.reset();
+        });
+    }
+    
+    // Missing navigation smooth scrolling functionality
+});
+
+!=
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Button click event with different behavior
+       const result = document.getElementById('result');
+    
+    if (button &amp;&amp; result) {
+        button.addEventListener('click', function() {
+            result.textContent = 'You clicked the button!'; // Different text
+            result.style.backgroundColor = '#ffeeee'; // Different color
+            // Added extra behavior
+            button.style.backgroundColor = '#aaaaaa';
+        });
+    }
+    
+    // Form submission with different behavior
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Missing validation
+           // Different message
+            result.textContent = `Form submitted by ${name}`;
+            contactForm.reset();
+        });
+    }
+    
+    // Missing navigation smooth scrolling functionality
+});</msg>
+<msg time="2025-04-17T01:23:18.050560" level="FAIL">Multiline strings are different:
+--- first
++++ second
+@@ -6,6 +6,7 @@
+     if (button &amp;&amp; result) {
+         button.addEventListener('click', function() {
+             result.textContent = 'You clicked the button!'; // Different text
++            result.style.backgroundColor = '#ffeeee'; // Different color
+             // Added extra behavior
+             button.style.backgroundColor = '#aaaaaa';
+         });</msg>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2025-04-17T01:23:18.050400" elapsed="0.000206">Multiline strings are different:
+--- first
++++ second
+@@ -6,6 +6,7 @@
+     if (button &amp;&amp; result) {
+         button.addEventListener('click', function() {
+             result.textContent = 'You clicked the button!'; // Different text
++            result.style.backgroundColor = '#ffeeee'; // Different color
+             // Added extra behavior
+             button.style.backgroundColor = '#aaaaaa';
+         });</status>
+</kw>
+<msg time="2025-04-17T01:23:18.050639" level="INFO">${match} = False</msg>
+<var>${match}</var>
+<arg>Should Be Equal As Strings</arg>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.050357" elapsed="0.000290"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.050723" level="INFO">@{differences} = [ ]</msg>
+<var>@{differences}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.050684" elapsed="0.000046"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${match}">
+<if>
+<branch type="IF" condition="&quot;${code_type}&quot; == &quot;html&quot;">
+<kw name="Compare Html Structure" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare HTML structure and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.050851" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.050797" elapsed="0.000073"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${code_type}&quot; == &quot;css&quot;">
+<kw name="Compare Css Rules" owner="WebCourseLibrary">
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare CSS rules and return specific differences</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.050937" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.050879" elapsed="0.000078"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${code_type}&quot; == &quot;js&quot;">
+<kw name="Compare Js Functionality" owner="WebCourseLibrary">
+<msg time="2025-04-17T01:23:18.051153" level="INFO">${diff_result} = ['JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.']</msg>
+<var>${diff_result}</var>
+<arg>${student_code}</arg>
+<arg>${teacher_code}</arg>
+<doc>Compare JavaScript functionality and return specific differences</doc>
+<status status="PASS" start="2025-04-17T01:23:18.051024" elapsed="0.000144"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.050967" elapsed="0.000220"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.050791" elapsed="0.000406"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.051312" level="INFO">@{differences} = [ JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences. ]</msg>
+<var>@{differences}</var>
+<arg>${diff_result}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.051241" elapsed="0.000080"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.051418" level="WARN">js differences found:</msg>
+<arg>${code_type} differences found:</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.051364" elapsed="0.000113"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.051577" level="INFO">JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.</msg>
+<msg time="2025-04-17T01:23:18.051588" level="INFO">WARN</msg>
+<arg>@{differences}</arg>
+<arg>WARN</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.051528" elapsed="0.000070"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.050752" elapsed="0.000858"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.050744" elapsed="0.000874"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.051740" level="INFO">${result} = {'match': False, 'differences': ['JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.']}</msg>
+<var>${result}</var>
+<arg>match=${match}</arg>
+<arg>differences=${differences}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.051649" elapsed="0.000119"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2025-04-17T01:23:18.051784" elapsed="0.000011"/>
+</return>
+<msg time="2025-04-17T01:23:18.051836" level="INFO">${js_result} = {'match': False, 'differences': ['JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.']}</msg>
+<var>${js_result}</var>
+<arg>${student_paths["js_path"]}</arg>
+<arg>${teacher_paths["js_path"]}</arg>
+<arg>js</arg>
+<status status="PASS" start="2025-04-17T01:23:18.049754" elapsed="0.002090"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.052331" level="INFO">${overall_match} = False</msg>
+<var>${overall_match}</var>
+<arg>${html_result["match"]} and ${css_result["match"]} and ${js_result["match"]}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.051901" elapsed="0.000440"/>
+</kw>
+<kw name="Convert To Boolean" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.052472" level="INFO">${overall_match_bool} = False</msg>
+<var>${overall_match_bool}</var>
+<arg>${overall_match}</arg>
+<doc>Converts the given item to Boolean true or false.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.052408" elapsed="0.000072"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.053242" level="INFO">${validation_data} = {'html_match': True, 'css_match': True, 'js_match': False, 'overall_match': False, 'html_differences': [], 'css_differences': [], 'js_differences': ['JavaScript files differ but no specific functional...</msg>
+<var>${validation_data}</var>
+<arg>html_match=${html_result["match"]}</arg>
+<arg>css_match=${css_result["match"]}</arg>
+<arg>js_match=${js_result["match"]}</arg>
+<arg>overall_match=${overall_match_bool}</arg>
+<arg>html_differences=${html_result["differences"]}</arg>
+<arg>css_differences=${css_result["differences"]}</arg>
+<arg>js_differences=${js_result["differences"]}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.052537" elapsed="0.000715"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.053377" level="INFO">${report_file} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json</msg>
+<var>${report_file}</var>
+<arg>${OUTPUT_DIR}/student_validation.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.053322" elapsed="0.000063"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.053609" level="INFO">${report_json} = {
+  "html_match": true,
+  "css_match": true,
+  "js_match": false,
+  "overall_match": false,
+  "html_differences": [],
+  "css_differences": [],
+  "js_differences": [
+    "JavaScript files differ but no...</msg>
+<var>${report_json}</var>
+<arg>json.dumps(${validation_data}, indent=2)</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.053439" elapsed="0.000180"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.054148" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json&lt;/a&gt;'.</msg>
+<arg>${report_file}</arg>
+<arg>${report_json}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.053678" elapsed="0.000498"/>
+</kw>
+<if>
+<branch type="IF" condition="${overall_match_bool}">
+<kw name="Log" owner="BuiltIn">
+<arg>All code parts match! Student submission is correct.</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.054282" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.054221" elapsed="0.000080"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.054372" level="WARN">Student submission has differences. Check the detailed report.</msg>
+<arg>Student submission has differences. Check the detailed report.</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.054339" elapsed="0.000074"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.054309" elapsed="0.000120"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.054211" elapsed="0.000228"/>
+</if>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.054570" level="FAIL">Student submission does not match the teacher reference</msg>
+<arg>${overall_match_bool}</arg>
+<arg>Student submission does not match the teacher reference</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-04-17T01:23:18.054491" elapsed="0.000105">Student submission does not match the teacher reference</status>
+</kw>
+<doc>Test defaultcode in student JSON against teacher reference</doc>
+<status status="FAIL" start="2025-04-17T01:23:17.995267" elapsed="0.059428">Student submission does not match the teacher reference</status>
+</test>
+<kw name="Teardown Test Environment" type="TEARDOWN">
+<kw name="List Files In Directory" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.055144" level="INFO" html="true">Listing contents of directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.055208" level="INFO">2 files:
+defaultcode_comparison_result.json
+student_validation.json</msg>
+<msg time="2025-04-17T01:23:18.055231" level="INFO">${files} = ['defaultcode_comparison_result.json', 'student_validation.json']</msg>
+<var>${files}</var>
+<arg>${OUTPUT_DIR}</arg>
+<arg>*.json</arg>
+<doc>Wrapper for `List Directory` that returns only files.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.055090" elapsed="0.000148"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.055307" level="INFO">${all_results} = []</msg>
+<var>${all_results}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.055273" elapsed="0.000041"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Continue For Loop If" owner="BuiltIn">
+<arg>'${file}' == 'validation_report.json'</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.055424" elapsed="0.000069"/>
+</kw>
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.055583" level="INFO">${file_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json</msg>
+<var>${file_path}</var>
+<arg>${OUTPUT_DIR}</arg>
+<arg>${file}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.055527" elapsed="0.000064"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.055716" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.055784" level="INFO">${json_content} = {
+  "timestamp": 1744827797.993515,
+  "html_match": true,
+  "css_match": true,
+  "js_match": false,
+  "html_differences": [],
+  "css_differences": [],
+  "js_differences": [
+    "JavaScript files diffe...</msg>
+<var>${json_content}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.055676" elapsed="0.000116"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.055917" level="INFO">${json_obj} = {'timestamp': 1744827797.993515, 'html_match': True, 'css_match': True, 'js_match': False, 'html_differences': [], 'css_differences': [], 'js_differences': ['JavaScript files differ but no specific fu...</msg>
+<var>${json_obj}</var>
+<arg>json.loads('''${json_content}''')</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.055824" elapsed="0.000102"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${all_results}</arg>
+<arg>${json_obj}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.055975" elapsed="0.000058"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.055644" elapsed="0.000402"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Error parsing JSON file: ${file_path}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.056097" elapsed="0.000007"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.056065" elapsed="0.000052"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.055624" elapsed="0.000506"/>
+</try>
+<var name="${file}">defaultcode_comparison_result.json</var>
+<status status="PASS" start="2025-04-17T01:23:18.055394" elapsed="0.000745"/>
+</iter>
+<iter>
+<kw name="Continue For Loop If" owner="BuiltIn">
+<arg>'${file}' == 'validation_report.json'</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.056223" elapsed="0.000076"/>
+</kw>
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.056393" level="INFO">${file_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json</msg>
+<var>${file_path}</var>
+<arg>${OUTPUT_DIR}</arg>
+<arg>${file}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.056333" elapsed="0.000069"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.056508" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/student_validation.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-17T01:23:18.056564" level="INFO">${json_content} = {
+  "html_match": true,
+  "css_match": true,
+  "js_match": false,
+  "overall_match": false,
+  "html_differences": [],
+  "css_differences": [],
+  "js_differences": [
+    "JavaScript files differ but no...</msg>
+<var>${json_content}</var>
+<arg>${file_path}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.056465" elapsed="0.000108"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.056695" level="INFO">${json_obj} = {'html_match': True, 'css_match': True, 'js_match': False, 'overall_match': False, 'html_differences': [], 'css_differences': [], 'js_differences': ['JavaScript files differ but no specific functional...</msg>
+<var>${json_obj}</var>
+<arg>json.loads('''${json_content}''')</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.056609" elapsed="0.000096"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${all_results}</arg>
+<arg>${json_obj}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.056740" elapsed="0.000047"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.056435" elapsed="0.000363"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Error parsing JSON file: ${file_path}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T01:23:18.056841" elapsed="0.000006"/>
+</kw>
+<status status="NOT RUN" start="2025-04-17T01:23:18.056813" elapsed="0.000045"/>
+</branch>
+<status status="PASS" start="2025-04-17T01:23:18.056421" elapsed="0.000447"/>
+</try>
+<var name="${file}">student_validation.json</var>
+<status status="PASS" start="2025-04-17T01:23:18.056195" elapsed="0.000681"/>
+</iter>
+<var>${file}</var>
+<value>@{files}</value>
+<status status="PASS" start="2025-04-17T01:23:18.055331" elapsed="0.001554"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.057025" level="INFO">${final_report} = {'results': [{'timestamp': 1744827797.993515, 'html_match': True, 'css_match': True, 'js_match': False, 'html_differences': [], 'css_differences': [], 'js_differences': ['JavaScript files differ but n...</msg>
+<var>${final_report}</var>
+<arg>results=${all_results}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.056930" elapsed="0.000105"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.057258" level="INFO">${final_json} = {
+  "results": [
+    {
+      "timestamp": 1744827797.993515,
+      "html_match": true,
+      "css_match": true,
+      "js_match": false,
+      "html_differences": [],
+      "css_differences": [],
+    ...</msg>
+<var>${final_json}</var>
+<arg>json.dumps(${final_report}, indent=2)</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.057070" elapsed="0.000198"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.057467" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/test_results/validation_report.json&lt;/a&gt;'.</msg>
+<arg>${REPORT_FILE}</arg>
+<arg>${final_json}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.057302" elapsed="0.000185"/>
+</kw>
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.057567" level="INFO">${temp_dir} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp</msg>
+<var>${temp_dir}</var>
+<arg>/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2</arg>
+<arg>temp</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.057524" elapsed="0.000051"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Directory Should Exist" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.057713" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp&lt;/a&gt;' exists.</msg>
+<arg>${temp_dir}</arg>
+<doc>Fails unless the given path points to an existing directory.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.057665" elapsed="0.000066"/>
+</kw>
+<msg time="2025-04-17T01:23:18.057757" level="INFO">${dir_exists} = True</msg>
+<var>${dir_exists}</var>
+<arg>Directory Should Exist</arg>
+<arg>${temp_dir}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.057614" elapsed="0.000151"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-04-17T01:23:18.058223" level="INFO" html="true">Removed directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/v2/temp&lt;/a&gt;'.</msg>
+<arg>${temp_dir}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.057876" elapsed="0.000365"/>
+</kw>
+<arg>${dir_exists}</arg>
+<arg>Remove Directory</arg>
+<arg>${temp_dir}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.057820" elapsed="0.000436"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T01:23:18.058330" level="INFO">Temporary directory status: True</msg>
+<arg>Temporary directory status: ${dir_exists}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T01:23:18.058289" elapsed="0.000054"/>
+</kw>
+<status status="PASS" start="2025-04-17T01:23:18.055030" elapsed="0.003330"/>
+</kw>
+<doc>Enhanced test suite for validating web development code
+Provides specific, detailed feedback on differences</doc>
+<status status="FAIL" start="2025-04-17T01:23:17.869866" elapsed="0.188504"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Web Code" id="s1" pass="0" fail="2" skip="0">Test Web Code</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-17T01:23:17.993206" level="WARN">JavaScript differences found:</msg>
+<msg time="2025-04-17T01:23:18.051418" level="WARN">js differences found:</msg>
+<msg time="2025-04-17T01:23:18.054372" level="WARN">Student submission has differences. Check the detailed report.</msg>
+</errors>
+</robot>

@@ -14,7 +14,7 @@ import re
 import json
 
 # Configuration
-COMPARISON_THRESHOLD = 0.95
+COMPARISON_THRESHOLD = 0.99
 
 
 def clean_code(code):
@@ -685,8 +685,8 @@ def main():
     parser.add_argument(
         "--threshold",
         type=float,
-        default=0.95,  # Higher default threshold
-        help="Similarity threshold (0-1, default: 0.95)",
+        default=0.99,  # Higher default threshold
+        help="Similarity threshold (0-1, default: 0.99)",
     )
     parser.add_argument(
         "--keep-images", action="store_true", help="Keep generated images after testing"

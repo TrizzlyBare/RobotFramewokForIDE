@@ -1,0 +1,11 @@
+{
+  "html_match": true,
+  "css_match": true,
+  "js_match": false,
+  "overall_match": false,
+  "html_differences": [],
+  "css_differences": [],
+  "js_differences": [
+    "JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences."
+  ]
+}

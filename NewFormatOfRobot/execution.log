@@ -4818,3 +4818,315 @@ Enter a value for x:
 2025-02-13 01:20:00.384680: Outputs match completely
 2025-02-13 01:20:00.386076: Added comparison result for Case10: {'status': 'PASS', 'teacherinput': '10', 'detail': 'Student=1024.0 vs Teacher=1024'}
 2025-02-13 01:20:00.387264: Saved results to comparison_results.json
+2025-03-02 22:30:43.273452: Starting test execution
+2025-03-02 22:30:43.275104: Processing test case 1
+2025-03-02 22:30:43.276498: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:43.276864: Input values: 0
+2025-03-02 22:30:43.278752: Created input file with content: 0
+
+2025-03-02 22:30:43.749435: Rust compilation result: 
+2025-03-02 22:30:44.448389: Rust execution output:
+Enter a value for x:
+1
+2025-03-02 22:30:44.450542: Processing raw output: Enter a value for x:
+1
+2025-03-02 22:30:44.471322: Final processed output: 1
+2025-03-02 22:30:44.474301: Normalized output: 1.0
+2025-03-02 22:30:44.474918: Rust final output: 1.0
+2025-03-02 22:30:44.476432: Final execution status: success
+2025-03-02 22:30:44.476912: Final processed output: 1.0
+2025-03-02 22:30:44.480040: Normalized output: 1.0
+2025-03-02 22:30:44.482475: Normalized output: 1.0
+2025-03-02 22:30:44.485197: Outputs match completely
+2025-03-02 22:30:44.486613: Added comparison result for Case1: {'status': 'PASS', 'teacherinput': '0', 'detail': 'Student=1.0 vs Teacher=1'}
+2025-03-02 22:30:44.487405: Processing test case 2
+2025-03-02 22:30:44.489119: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:44.489571: Input values: 1
+2025-03-02 22:30:44.491749: Created input file with content: 1
+
+2025-03-02 22:30:44.601812: Rust compilation result: 
+2025-03-02 22:30:44.766042: Rust execution output:
+Enter a value for x:
+2
+2025-03-02 22:30:44.767388: Processing raw output: Enter a value for x:
+2
+2025-03-02 22:30:44.779751: Final processed output: 2
+2025-03-02 22:30:44.782208: Normalized output: 2.0
+2025-03-02 22:30:44.782729: Rust final output: 2.0
+2025-03-02 22:30:44.783971: Final execution status: success
+2025-03-02 22:30:44.784369: Final processed output: 2.0
+2025-03-02 22:30:44.787031: Normalized output: 2.0
+2025-03-02 22:30:44.789499: Normalized output: 2.0
+2025-03-02 22:30:44.791879: Outputs match completely
+2025-03-02 22:30:44.793070: Added comparison result for Case2: {'status': 'PASS', 'teacherinput': '1', 'detail': 'Student=2.0 vs Teacher=2'}
+2025-03-02 22:30:44.793653: Processing test case 3
+2025-03-02 22:30:44.794902: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:44.795263: Input values: 2
+2025-03-02 22:30:44.797377: Created input file with content: 2
+
+2025-03-02 22:30:44.909151: Rust compilation result: 
+2025-03-02 22:30:45.055688: Rust execution output:
+Enter a value for x:
+4
+2025-03-02 22:30:45.057366: Processing raw output: Enter a value for x:
+4
+2025-03-02 22:30:45.071641: Final processed output: 4
+2025-03-02 22:30:45.075367: Normalized output: 4.0
+2025-03-02 22:30:45.075943: Rust final output: 4.0
+2025-03-02 22:30:45.077135: Final execution status: success
+2025-03-02 22:30:45.077524: Final processed output: 4.0
+2025-03-02 22:30:45.079975: Normalized output: 4.0
+2025-03-02 22:30:45.082381: Normalized output: 4.0
+2025-03-02 22:30:45.084751: Outputs match completely
+2025-03-02 22:30:45.086017: Added comparison result for Case3: {'status': 'PASS', 'teacherinput': '2', 'detail': 'Student=4.0 vs Teacher=4'}
+2025-03-02 22:30:45.086630: Processing test case 4
+2025-03-02 22:30:45.088042: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:45.088541: Input values: 3
+2025-03-02 22:30:45.090541: Created input file with content: 3
+
+2025-03-02 22:30:45.200346: Rust compilation result: 
+2025-03-02 22:30:45.337015: Rust execution output:
+Enter a value for x:
+8
+2025-03-02 22:30:45.338525: Processing raw output: Enter a value for x:
+8
+2025-03-02 22:30:45.350936: Final processed output: 8
+2025-03-02 22:30:45.353340: Normalized output: 8.0
+2025-03-02 22:30:45.353860: Rust final output: 8.0
+2025-03-02 22:30:45.355109: Final execution status: success
+2025-03-02 22:30:45.355639: Final processed output: 8.0
+2025-03-02 22:30:45.358226: Normalized output: 8.0
+2025-03-02 22:30:45.360675: Normalized output: 8.0
+2025-03-02 22:30:45.363496: Outputs match completely
+2025-03-02 22:30:45.364727: Added comparison result for Case4: {'status': 'PASS', 'teacherinput': '3', 'detail': 'Student=8.0 vs Teacher=8'}
+2025-03-02 22:30:45.365345: Processing test case 5
+2025-03-02 22:30:45.366568: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:45.366939: Input values: 4
+2025-03-02 22:30:45.368815: Created input file with content: 4
+
+2025-03-02 22:30:45.476444: Rust compilation result: 
+2025-03-02 22:30:45.619430: Rust execution output:
+Enter a value for x:
+16
+2025-03-02 22:30:45.621807: Processing raw output: Enter a value for x:
+16
+2025-03-02 22:30:45.636248: Final processed output: 16
+2025-03-02 22:30:45.639663: Normalized output: 16.0
+2025-03-02 22:30:45.640249: Rust final output: 16.0
+2025-03-02 22:30:45.641665: Final execution status: success
+2025-03-02 22:30:45.642122: Final processed output: 16.0
+2025-03-02 22:30:45.644910: Normalized output: 16.0
+2025-03-02 22:30:45.647268: Normalized output: 16.0
+2025-03-02 22:30:45.650145: Outputs match completely
+2025-03-02 22:30:45.651507: Added comparison result for Case5: {'status': 'PASS', 'teacherinput': '4', 'detail': 'Student=16.0 vs Teacher=16'}
+2025-03-02 22:30:45.652135: Processing test case 6
+2025-03-02 22:30:45.653578: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:45.654094: Input values: 5
+2025-03-02 22:30:45.656263: Created input file with content: 5
+
+2025-03-02 22:30:45.762960: Rust compilation result: 
+2025-03-02 22:30:45.908957: Rust execution output:
+Enter a value for x:
+32
+2025-03-02 22:30:45.911471: Processing raw output: Enter a value for x:
+32
+2025-03-02 22:30:45.926913: Final processed output: 32
+2025-03-02 22:30:45.929822: Normalized output: 32.0
+2025-03-02 22:30:45.930699: Rust final output: 32.0
+2025-03-02 22:30:45.932176: Final execution status: success
+2025-03-02 22:30:45.932653: Final processed output: 32.0
+2025-03-02 22:30:45.935612: Normalized output: 32.0
+2025-03-02 22:30:45.938067: Normalized output: 32.0
+2025-03-02 22:30:45.940790: Outputs match completely
+2025-03-02 22:30:45.942466: Added comparison result for Case6: {'status': 'PASS', 'teacherinput': '5', 'detail': 'Student=32.0 vs Teacher=32'}
+2025-03-02 22:30:45.943152: Processing test case 7
+2025-03-02 22:30:45.944533: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:45.944952: Input values: 6
+2025-03-02 22:30:45.947073: Created input file with content: 6
+
+2025-03-02 22:30:46.051907: Rust compilation result: 
+2025-03-02 22:30:46.197902: Rust execution output:
+Enter a value for x:
+64
+2025-03-02 22:30:46.200103: Processing raw output: Enter a value for x:
+64
+2025-03-02 22:30:46.216859: Final processed output: 64
+2025-03-02 22:30:46.219909: Normalized output: 64.0
+2025-03-02 22:30:46.220497: Rust final output: 64.0
+2025-03-02 22:30:46.221945: Final execution status: success
+2025-03-02 22:30:46.224073: Final processed output: 64.0
+2025-03-02 22:30:46.226943: Normalized output: 64.0
+2025-03-02 22:30:46.229424: Normalized output: 64.0
+2025-03-02 22:30:46.232216: Outputs match completely
+2025-03-02 22:30:46.233559: Added comparison result for Case7: {'status': 'PASS', 'teacherinput': '6', 'detail': 'Student=64.0 vs Teacher=64'}
+2025-03-02 22:30:46.234257: Processing test case 8
+2025-03-02 22:30:46.235918: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:46.236336: Input values: 7
+2025-03-02 22:30:46.238536: Created input file with content: 7
+
+2025-03-02 22:30:46.348655: Rust compilation result: 
+2025-03-02 22:30:46.497541: Rust execution output:
+Enter a value for x:
+128
+2025-03-02 22:30:46.498986: Processing raw output: Enter a value for x:
+128
+2025-03-02 22:30:46.513873: Final processed output: 128
+2025-03-02 22:30:46.516478: Normalized output: 128.0
+2025-03-02 22:30:46.517002: Rust final output: 128.0
+2025-03-02 22:30:46.518273: Final execution status: success
+2025-03-02 22:30:46.518685: Final processed output: 128.0
+2025-03-02 22:30:46.521559: Normalized output: 128.0
+2025-03-02 22:30:46.523945: Normalized output: 128.0
+2025-03-02 22:30:46.526434: Outputs match completely
+2025-03-02 22:30:46.527672: Added comparison result for Case8: {'status': 'PASS', 'teacherinput': '7', 'detail': 'Student=128.0 vs Teacher=128'}
+2025-03-02 22:30:46.528271: Processing test case 9
+2025-03-02 22:30:46.529483: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:46.529851: Input values: 8
+2025-03-02 22:30:46.532076: Created input file with content: 8
+
+2025-03-02 22:30:46.640682: Rust compilation result: 
+2025-03-02 22:30:46.788184: Rust execution output:
+Enter a value for x:
+256
+2025-03-02 22:30:46.790262: Processing raw output: Enter a value for x:
+256
+2025-03-02 22:30:46.805438: Final processed output: 256
+2025-03-02 22:30:46.808742: Normalized output: 256.0
+2025-03-02 22:30:46.809419: Rust final output: 256.0
+2025-03-02 22:30:46.810924: Final execution status: success
+2025-03-02 22:30:46.811386: Final processed output: 256.0
+2025-03-02 22:30:46.814502: Normalized output: 256.0
+2025-03-02 22:30:46.817261: Normalized output: 256.0
+2025-03-02 22:30:46.820129: Outputs match completely
+2025-03-02 22:30:46.821529: Added comparison result for Case9: {'status': 'PASS', 'teacherinput': '8', 'detail': 'Student=256.0 vs Teacher=256'}
+2025-03-02 22:30:46.822213: Processing test case 10
+2025-03-02 22:30:46.823589: Executing code in rust:
+use std::io;
+
+fn main() {
+    println!("Enter a value for x:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    let x: u32 = input.trim().parse().expect("Please enter a valid number");
+    let result: i32 = 2i32.pow(x);
+    println!("{}", result);
+}
+2025-03-02 22:30:46.824222: Input values: 10
+2025-03-02 22:30:46.826599: Created input file with content: 10
+
+2025-03-02 22:30:46.938098: Rust compilation result: 
+2025-03-02 22:30:47.080239: Rust execution output:
+Enter a value for x:
+1024
+2025-03-02 22:30:47.081744: Processing raw output: Enter a value for x:
+1024
+2025-03-02 22:30:47.095229: Final processed output: 1024
+2025-03-02 22:30:47.097750: Normalized output: 1024.0
+2025-03-02 22:30:47.098270: Rust final output: 1024.0
+2025-03-02 22:30:47.099517: Final execution status: success
+2025-03-02 22:30:47.099928: Final processed output: 1024.0
+2025-03-02 22:30:47.102439: Normalized output: 1024.0
+2025-03-02 22:30:47.104950: Normalized output: 1024.0
+2025-03-02 22:30:47.107418: Outputs match completely
+2025-03-02 22:30:47.108677: Added comparison result for Case10: {'status': 'PASS', 'teacherinput': '10', 'detail': 'Student=1024.0 vs Teacher=1024'}
+2025-03-02 22:30:47.110251: Saved results to comparison_results.json

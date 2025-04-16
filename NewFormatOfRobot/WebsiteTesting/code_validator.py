@@ -118,7 +118,6 @@ class DOMComparator:
             return self.results
 
         # Compare element structures with tolerance
-        # We'll focus on key elements rather than exact structures
         if self.tolerance_level == 0:
             # Strict comparison - full path matching
             self._compare_strict(user_parser, ref_parser)
@@ -151,32 +150,113 @@ class DOMComparator:
     def _compare_normal(self, user_parser, ref_parser):
         # Check for important elements (h1-h6, main, section, form, etc.)
         important_tags = {
-            "h1",
-            "h2",
-            "h3",
-            "h4",
-            "h5",
-            "h6",
-            "main",
+            "html",
+            "head",
+            "title",
+            "base",
+            "link",
+            "meta",
+            "style",
+            "script",
+            "noscript",
+            "body",
+            "section",
+            "nav",
+            "article",
+            "aside",
             "header",
             "footer",
-            "nav",
-            "section",
-            "article",
+            "address",
+            "main",
+            "div",
+            "p",
+            "hr",
+            "pre",
+            "blockquote",
+            "ol",
+            "ul",
+            "li",
+            "dl",
+            "dt",
+            "dd",
+            "figure",
+            "figcaption",
+            "table",
+            "caption",
+            "thead",
+            "tbody",
+            "tfoot",
+            "tr",
+            "th",
+            "td",
+            "colgroup",
+            "col",
             "form",
+            "label",
             "input",
             "button",
             "select",
+            "datalist",
+            "optgroup",
+            "option",
             "textarea",
+            "output",
+            "progress",
+            "meter",
+            "fieldset",
+            "legend",
+            "iframe",
             "img",
+            "embed",
+            "object",
+            "param",
+            "video",
+            "audio",
+            "source",
+            "track",
+            "canvas",
+            "map",
+            "area",
+            "svg",
+            "math",
+            "abbr",
+            "b",
+            "bdi",
+            "bdo",
+            "cite",
+            "code",
+            "data",
+            "dfn",
+            "em",
+            "i",
+            "kbd",
+            "mark",
+            "q",
+            "rp",
+            "rt",
+            "ruby",
+            "s",
+            "samp",
+            "small",
+            "strong",
+            "sub",
+            "sup",
+            "time",
+            "u",
+            "var",
+            "wbr",
             "a",
-            "table",
-            "ul",
-            "ol",
-            "li",
-            "p",
-            "div",
-            "button",
+            "span",
+            "br",
+            "wbr",
+            "template",
+            "slot",
+            "portal",
+            "details",
+            "summary",
+            "dialog",
+            "menu",
+            "menuitem",
         }
 
         # Get user and ref tags by type
@@ -732,6 +812,15 @@ class WebCourseDataHandler:
                     if submission.get("assignment_id") == assignment_id:
                         return submission
         return None
+
+    @staticmethod
+    def get_default_code(teachers_data, teacher_id=1, assignment_id=1):
+        submission = WebCourseDataHandler.get_teacher_submission(
+            teachers_data, teacher_id, assignment_id
+        )
+        if submission:
+            return submission.get("defaultcode", "")
+        return ""
 
     @staticmethod
     def get_student_submission(students_data, student_id=1, assignment_id=1):

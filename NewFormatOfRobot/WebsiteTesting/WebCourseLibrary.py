@@ -222,3 +222,5 @@ class WebCourseLibrary:
             os.close(fd)
             os.unlink(path)
             raise e
+
+    
