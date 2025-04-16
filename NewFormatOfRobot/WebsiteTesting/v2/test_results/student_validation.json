@@ -6,6 +6,7 @@
   "html_differences": [],
   "css_differences": [],
   "js_differences": [
-    "JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences."
+    "JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.",
+    "Missing in student code: result.style.backgroundColor = '#ffeeee'; // Different color"
   ]
 }

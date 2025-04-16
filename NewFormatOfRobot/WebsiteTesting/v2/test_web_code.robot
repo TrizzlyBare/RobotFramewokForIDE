@@ -160,6 +160,48 @@ Setup Test Environment
     Create Directory    ${OUTPUT_DIR}
     # Clear any existing result files to avoid confusion
     Remove Files    ${OUTPUT_DIR}/*.json
+    
+    # Ensure temp directory exists
+    ${temp_dir}=    Join Path    ${CURDIR}    temp
+    Create Directory    ${temp_dir}
+
+Analyze JS Specific Differences
+    [Arguments]    ${student_js}    ${teacher_js}
+    # Run Python analyzer to get specific JS differences
+    ${temp_student_js}=    Set Variable    ${CURDIR}/temp/student_js_analysis.js
+    ${temp_teacher_js}=    Set Variable    ${CURDIR}/temp/teacher_js_analysis.js
+    Create File    ${temp_student_js}    ${student_js}
+    Create File    ${temp_teacher_js}    ${teacher_js}
+    
+    ${result}=    Run Process    python    ${HELPER_SCRIPT}    analyze_js    ${temp_student_js}    ${temp_teacher_js}
+    Should Be Equal As Integers    ${result.rc}    0    Failed to analyze JS differences
+    
+    # Parse the output to get specific differences
+    ${lines}=    Split To Lines    ${result.stdout}
+    @{specific_differences}=    Create List
+    FOR    ${line}    IN    @{lines}
+        ${stripped}=    Strip String    ${line}
+        IF    "${stripped}" != "${EMPTY}"
+            Append To List    ${specific_differences}    ${stripped}
+        END
+    END
+    
+    # Clean up temp files
+    Remove File    ${temp_student_js}
+    Remove File    ${temp_teacher_js}
+    
+    RETURN    ${specific_differences}
+
+Combine Lists
+    [Arguments]    ${list1}    ${list2}
+    ${combined}=    Create List
+    FOR    ${item}    IN    @{list1}
+        Append To List    ${combined}    ${item}
+    END
+    FOR    ${item}    IN    @{list2}
+        Append To List    ${combined}    ${item}
+    END
+    RETURN    ${combined}
 
 Teardown Test Environment
     # Combine all results into a single report file
@@ -186,17 +228,30 @@ Teardown Test Environment
     ${final_json}=    Evaluate    json.dumps(${final_report}, indent=2)    modules=json
     Create File    ${REPORT_FILE}    ${final_json}
     
-    # Clean up temporary directories
+    # Clean up temporary directory after tests are complete
     ${temp_dir}=    Join Path    ${CURDIR}    temp
     ${dir_exists}=    Run Keyword And Return Status    Directory Should Exist    ${temp_dir}
-    Run Keyword If    ${dir_exists}    Remove Directory    ${temp_dir}    recursive=True
-    Log    Temporary directory status: ${dir_exists}
+    
+    IF    ${dir_exists}
+        Log    Cleaning up temporary directory: ${temp_dir}
+        Remove Directory    ${temp_dir}    recursive=True
+    ELSE
+        Log    Temporary directory doesn't exist: ${temp_dir}
+    END
 
 Extract JSON Files
     [Arguments]    ${file_path}
     # Use external Python process to extract JSON into separate files
-    ${result}=    Run Process    python    ${HELPER_SCRIPT}    extract    ${file_path}
-    Should Be Equal As Integers    ${result.rc}    0    Failed to extract data from ${file_path}
+    Log    Extracting JSON from ${file_path}...
+    ${result}=    Run Process    python    ${HELPER_SCRIPT}    extract    ${file_path}    stderr=STDOUT
+    Log    Process output: ${result.stdout}
+    
+    # Check return code
+    ${rc}=    Set Variable    ${result.rc}
+    Log    Process return code: ${rc}
+    
+    Run Keyword If    ${rc} != 0    Log    Error extracting data: ${result.stdout}    WARN
+    Should Be Equal As Integers    ${rc}    0    Failed to extract data from ${file_path}: ${result.stdout}
     
     # Parse the output to get file paths
     ${lines}=    Split To Lines    ${result.stdout}
@@ -245,6 +300,13 @@ Compare Code Files
             ${diff_result}=    Compare Css Rules    ${student_code}    ${teacher_code}
         ELSE IF    "${code_type}" == "js"
             ${diff_result}=    Compare Js Functionality    ${student_code}    ${teacher_code}
+            # Add enhanced JS analysis for more specific differences
+            ${js_specific_analysis}=    Analyze JS Specific Differences    ${student_code}    ${teacher_code}
+            Log    Detailed JavaScript Analysis:    WARN
+            Log Many    @{js_specific_analysis}    WARN
+            # Add the specific analysis to the diff result
+            ${combined_diff}=    Combine Lists    ${diff_result}    ${js_specific_analysis}
+            ${diff_result}=    Set Variable    ${combined_diff}
         END
         
         @{differences}=    Set Variable    ${diff_result}
