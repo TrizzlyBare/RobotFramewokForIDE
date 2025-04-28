@@ -91,3 +91,51 @@ def post_student_status(question_id: int):
     os.remove("comparison_results.json")
 
     return response.json()
+
+
+@app.get("/run_turtle_testing/{question_id}")
+def run_turtle_testing():
+    # Run the turtle_test.py script
+    result = subprocess.run(
+        ["python3", "turtle_test.py"], capture_output=True, text=True
+    )
+
+    # Check if the test_results.json file exists
+    if not os.path.exists("test_results.json"):
+        return {"status": "error", "message": "test_results.json not found"}
+
+    # Load the test_results.json file
+    with open("test_results.json", "r", encoding="utf-8") as f:
+        test_results = json.load(f)
+
+    # Extract the test_summary.result field
+    test_summary_result = test_results.get("test_summary", {}).get("result", "N/A")
+
+    # Return the result
+    return {"test_summary_result": test_summary_result}
+
+
+@app.get("/website_validation/{question_id}")
+def website_validation():
+    # Check if the student_validation.json file exists
+    if not os.path.exists("test_results/student_validation.json"):
+        return {"status": "error", "message": "student_validation.json not found"}
+
+    # Load the student_validation.json file
+    with open("test_results/student_validation.json", "r", encoding="utf-8") as f:
+        validation_data = json.load(f)
+
+    # Extract the overall_match field and differences
+    overall_match = validation_data.get("overall_match", False)
+    html_differences = validation_data.get("html_differences", [])
+    css_differences = validation_data.get("css_differences", [])
+    js_differences = validation_data.get("js_differences", [])
+
+    # Return PASS or FAIL based on the overall_match value, along with differences
+    status = "PASSED" if overall_match else "FAILED"
+    return {
+        "status": status,
+        "html_differences": html_differences,
+        "css_differences": css_differences,
+        "js_differences": js_differences,
+    }
