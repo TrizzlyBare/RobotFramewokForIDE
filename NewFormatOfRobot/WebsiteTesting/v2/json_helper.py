@@ -1,260 +1,318 @@
 #!/usr/bin/env python3
 """
-Helper module for JSON processing in Robot Framework tests
+JSON Helper Script for Web Code Testing
+
+This script helps extract and analyze code from JSON files for web testing.
+It works specifically with the structure of students.json and teachers.json.
 """
 
-import json
 import sys
 import os
+import json
 import re
-import difflib
-import traceback
 
 
-def read_json_file(file_path):
+def extract_json_to_files(json_file_path):
     """
-    Read and parse a JSON file, returning individual fields that Robot can use directly
+    Extract defaultcode from JSON file into separate files
+    Returns paths to the extracted files
     """
     try:
-        print(f"Starting to process file: {file_path}")
+        # Read the JSON file
+        with open(json_file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
 
-        if not os.path.exists(file_path):
-            print(f"Error: File does not exist: {file_path}")
-            sys.exit(1)
+        # Extract the defaultcode
+        if "defaultcode" not in data:
+            print(f"Error: 'defaultcode' not found in {json_file_path}")
+            return None
 
-        try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            print(f"Successfully loaded JSON from {file_path}")
-        except json.JSONDecodeError as e:
-            print(f"JSON parse error in {file_path}: {str(e)}")
-            sys.exit(1)
-        except Exception as e:
-            print(f"Error reading file {file_path}: {str(e)}")
-            traceback.print_exc()
-            sys.exit(1)
+        defaultcode = data["defaultcode"]
 
-        # Extract the code fields specifically
-        if "defaultcode" in data:
-            try:
-                html = data["defaultcode"].get("html", "")
-                css = data["defaultcode"].get("css", "")
-                js = data["defaultcode"].get("js", "")
-                print(f"Successfully extracted HTML, CSS, and JS content")
-            except Exception as e:
-                print(f"Error extracting code fields: {str(e)}")
-                traceback.print_exc()
-                sys.exit(1)
+        # Create temporary files for each code type
+        temp_dir = os.path.join(os.path.dirname(json_file_path), "temp")
+        os.makedirs(temp_dir, exist_ok=True)
 
-            # Save to temp files that Robot can read directly
-            temp_dir = os.path.join(os.path.dirname(file_path), "temp")
-            try:
-                os.makedirs(temp_dir, exist_ok=True)
-                print(f"Created/confirmed temp directory: {temp_dir}")
-            except Exception as e:
-                print(f"Error creating temp directory {temp_dir}: {str(e)}")
-                traceback.print_exc()
-                sys.exit(1)
+        # Create base filename from JSON filename
+        base_name = os.path.splitext(os.path.basename(json_file_path))[0]
 
-            base_name = os.path.basename(file_path).split(".")[0]
-            html_path = os.path.join(temp_dir, f"{base_name}_html.txt")
-            css_path = os.path.join(temp_dir, f"{base_name}_css.txt")
-            js_path = os.path.join(temp_dir, f"{base_name}_js.txt")
+        # Write HTML to file
+        html_path = os.path.join(temp_dir, f"{base_name}_html.html")
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(defaultcode.get("html", ""))
 
-            # Write the files with detailed error handling
-            try:
-                with open(html_path, "w", encoding="utf-8") as f:
-                    f.write(html)
-                print(f"Wrote HTML content to {html_path}")
+        # Write CSS to file
+        css_path = os.path.join(temp_dir, f"{base_name}_css.css")
+        with open(css_path, "w", encoding="utf-8") as f:
+            f.write(defaultcode.get("css", ""))
 
-                with open(css_path, "w", encoding="utf-8") as f:
-                    f.write(css)
-                print(f"Wrote CSS content to {css_path}")
+        # Write JS to file
+        js_path = os.path.join(temp_dir, f"{base_name}_js.js")
+        with open(js_path, "w", encoding="utf-8") as f:
+            f.write(defaultcode.get("js", ""))
 
-                with open(js_path, "w", encoding="utf-8") as f:
-                    f.write(js)
-                print(f"Wrote JS content to {js_path}")
-            except Exception as e:
-                print(f"Error writing extracted files: {str(e)}")
-                traceback.print_exc()
-                sys.exit(1)
+        # Print paths for Robot Framework to capture
+        print(f"HTML_PATH:{html_path}")
+        print(f"CSS_PATH:{css_path}")
+        print(f"JS_PATH:{js_path}")
 
-            # Return paths to the files
-            result = {"html_path": html_path, "css_path": css_path, "js_path": js_path}
-            print(f"Returning file paths: {result}")
-            return result
-        else:
-            print(f"Error: 'defaultcode' not found in {file_path}")
-            sys.exit(1)
+        return html_path, css_path, js_path
+
     except Exception as e:
-        print(f"Unexpected error processing {file_path}: {str(e)}")
-        traceback.print_exc()
-        sys.exit(1)
+        print(f"Error extracting JSON: {str(e)}")
+        return None
 
 
-def write_json_file(data, file_path):
+def analyze_html_differences(student_html_path, teacher_html_path):
     """
-    Write JSON data to file
-    """
-    try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
-        return True
-    except Exception as e:
-        print(f"Error writing JSON file {file_path}: {str(e)}")
-        return False
-
-
-def analyze_js_differences(student_js_path, teacher_js_path):
-    """
-    Analyze JavaScript code and provide specific differences
+    Analyze HTML files for specific differences, especially order differences
     """
     try:
-        with open(student_js_path, "r", encoding="utf-8") as f:
-            student_js = f.read()
-        with open(teacher_js_path, "r", encoding="utf-8") as f:
-            teacher_js = f.read()
+        # Read HTML files
+        with open(student_html_path, "r", encoding="utf-8") as f:
+            student_html = f.read()
 
-        # List to collect specific differences
+        with open(teacher_html_path, "r", encoding="utf-8") as f:
+            teacher_html = f.read()
+
         differences = []
 
-        # Check for missing event listeners
-        teacher_events = re.findall(r'addEventListener\([\'"](\w+)[\'"]', teacher_js)
-        student_events = re.findall(r'addEventListener\([\'"](\w+)[\'"]', student_js)
+        # Check for missing background-color in body
+        if (
+            "background-color: #f5f5f5" in teacher_html
+            and "background-color: #f5f5f5" not in student_html
+        ):
+            differences.append("Missing background-color: #f5f5f5 in body style rule")
 
-        for event in teacher_events:
-            if event not in student_events:
-                differences.append(f"Missing event listener: '{event}'")
+        # Check for order of elements (simplified)
+        # Extract color-box divs
+        teacher_color_boxes = re.findall(
+            r'<div class="color-box"[^>]*>.*?</div>', teacher_html, re.DOTALL
+        )
+        student_color_boxes = re.findall(
+            r'<div class="color-box"[^>]*>.*?</div>', student_html, re.DOTALL
+        )
 
-        # Check for missing DOM elements accessed
-        teacher_elements = re.findall(r'getElementById\([\'"](\w+)[\'"]', teacher_js)
-        student_elements = re.findall(r'getElementById\([\'"](\w+)[\'"]', student_js)
+        # Check if they're in different order
+        if (
+            len(teacher_color_boxes) == len(student_color_boxes)
+            and teacher_color_boxes != student_color_boxes
+        ):
+            # Extract colors for better reporting
+            teacher_colors = [
+                re.search(r"background-color: (#[A-F0-9]+)", box).group(1)
+                for box in teacher_color_boxes
+                if re.search(r"background-color: (#[A-F0-9]+)", box)
+            ]
+            student_colors = [
+                re.search(r"background-color: (#[A-F0-9]+)", box).group(1)
+                for box in student_color_boxes
+                if re.search(r"background-color: (#[A-F0-9]+)", box)
+            ]
 
-        for element in teacher_elements:
-            if element not in student_elements:
-                differences.append(
-                    f"Missing DOM element access: getElementById('{element}')"
-                )
-
-        # Check for specific JavaScript features/methods
-        js_features = [
-            ("preventDefault()", "event.preventDefault() method call"),
-            ("reset()", "form reset method"),
-            ("textContent", "setting textContent property"),
-            ("backgroundColor", "setting backgroundColor style property"),
-            ("DOMContentLoaded", "DOMContentLoaded event listener"),
-            ("style.", "style property manipulation"),
-        ]
-
-        for feature, description in js_features:
-            if feature in teacher_js and feature not in student_js:
-                differences.append(f"Missing JavaScript feature: {description}")
-
-        # Check for missing function declarations
-        teacher_functions = re.findall(r"function\s+(\w+)\s*\(", teacher_js)
-        student_functions = re.findall(r"function\s+(\w+)\s*\(", student_js)
-
-        for func in teacher_functions:
-            if func not in student_functions:
-                differences.append(f"Missing function declaration: {func}")
-
-        # Check for arrow function syntax if present in teacher code
-        if "=>" in teacher_js and "=>" not in student_js:
-            differences.append("Missing arrow function syntax in student code")
-
-        # Check for variable declarations
-        teacher_vars = re.findall(r"(?:const|let|var)\s+(\w+)\s*=", teacher_js)
-        student_vars = re.findall(r"(?:const|let|var)\s+(\w+)\s*=", student_js)
-
-        for var in teacher_vars:
-            if var not in student_vars:
-                differences.append(f"Missing variable declaration: {var}")
-
-        # Look for template literals if used in teacher code
-        if "`" in teacher_js and "`" not in student_js:
-            differences.append("Missing template literals (backtick strings)")
-
-        # Check for specific string differences in comments
-        # This might help identify missing sections based on comment headers
-        teacher_comments = re.findall(r"//\s*(.+)$", teacher_js, re.MULTILINE)
-        student_comments = re.findall(r"//\s*(.+)$", student_js, re.MULTILINE)
-
-        for comment in teacher_comments:
-            if "form submission" in comment.lower() and not any(
-                "form submission" in c.lower() for c in student_comments
-            ):
-                differences.append("Missing form submission handling section")
-            if "validation" in comment.lower() and not any(
-                "validation" in c.lower() for c in student_comments
-            ):
-                differences.append("Missing form validation logic")
             if (
-                "event" in comment.lower()
-                and "handler" in comment.lower()
-                and not any(
-                    ("event" in c.lower() and "handler" in c.lower())
-                    for c in student_comments
-                )
+                sorted(teacher_colors) == sorted(student_colors)
+                and teacher_colors != student_colors
             ):
-                differences.append("Missing event handler implementation")
-
-        # Compare function parameter counts
-        # Extract function signatures and compare number of parameters
-        teacher_signatures = re.findall(r"function\s+\w+\s*\(([^)]*)\)", teacher_js)
-        student_signatures = re.findall(r"function\s+\w+\s*\(([^)]*)\)", student_js)
-
-        if len(teacher_signatures) > len(student_signatures):
-            differences.append(
-                f"Missing {len(teacher_signatures) - len(student_signatures)} function declarations"
-            )
-
-        # If no specific differences were found but the files are different
-        if not differences and student_js != teacher_js:
-            # Use difflib to highlight specific differences
-            diff = list(
-                difflib.unified_diff(
-                    student_js.splitlines(), teacher_js.splitlines(), n=1
+                differences.append(
+                    f"Color boxes are in wrong order. Expected: {', '.join(teacher_colors)}"
                 )
-            )
 
-            if diff:
-                # Limit to first 5 differences to avoid excessive output
-                for line in diff[:8]:
-                    if line.startswith("+") and not line.startswith("+++"):
-                        differences.append(
-                            f"Missing in student code: {line[1:].strip()}"
-                        )
-                    elif line.startswith("-") and not line.startswith("---"):
-                        differences.append(f"Extra in student code: {line[1:].strip()}")
+        # Check order of headings
+        teacher_headings = re.findall(
+            r"<h[1-6][^>]*>.*?</h[1-6]>", teacher_html, re.DOTALL
+        )
+        student_headings = re.findall(
+            r"<h[1-6][^>]*>.*?</h[1-6]>", student_html, re.DOTALL
+        )
+
+        if (
+            len(teacher_headings) == len(student_headings)
+            and teacher_headings != student_headings
+        ):
+            # Extract heading texts
+            teacher_heading_texts = [
+                re.search(r">(.*?)<", heading).group(1)
+                for heading in teacher_headings
+                if re.search(r">(.*?)<", heading)
+            ]
+            student_heading_texts = [
+                re.search(r">(.*?)<", heading).group(1)
+                for heading in student_headings
+                if re.search(r">(.*?)<", heading)
+            ]
+
+            if (
+                sorted(teacher_heading_texts) == sorted(student_heading_texts)
+                and teacher_heading_texts != student_heading_texts
+            ):
+                differences.append(
+                    f"Heading order is incorrect. Expected: {', '.join(teacher_heading_texts)}"
+                )
 
         return differences
 
     except Exception as e:
-        print(f"Error analyzing JavaScript differences: {str(e)}")
-        return ["Error analyzing JavaScript code: " + str(e)]
+        print(f"Error analyzing HTML: {str(e)}")
+        return [f"Error analyzing HTML: {str(e)}"]
+
+
+def analyze_css_differences(student_css_path, teacher_css_path):
+    """
+    Analyze CSS files for specific differences, especially order differences
+    """
+    try:
+        # Read CSS files
+        with open(student_css_path, "r", encoding="utf-8") as f:
+            student_css = f.read()
+
+        with open(teacher_css_path, "r", encoding="utf-8") as f:
+            teacher_css = f.read()
+
+        differences = []
+
+        # Extract selectors in order
+        teacher_selectors = re.findall(r"([^\s,{]+)\s*{", teacher_css)
+        student_selectors = re.findall(r"([^\s,{]+)\s*{", student_css)
+
+        # Check if selectors are in different order
+        if len(teacher_selectors) > 3 and len(student_selectors) > 3:
+            # Check the first few important selectors
+            important_selectors = ["body", ".container", "button"]
+            teacher_important_order = [
+                s for s in teacher_selectors if s in important_selectors
+            ]
+            student_important_order = [
+                s for s in student_selectors if s in important_selectors
+            ]
+
+            if teacher_important_order != student_important_order:
+                differences.append(
+                    f"CSS selector order is different. Expected: {', '.join(teacher_important_order)}"
+                )
+
+        return differences
+
+    except Exception as e:
+        print(f"Error analyzing CSS: {str(e)}")
+        return [f"Error analyzing CSS: {str(e)}"]
+
+
+def analyze_js_differences(student_js_path, teacher_js_path):
+    """
+    Analyze JavaScript files for specific differences, especially order differences
+    """
+    try:
+        # Read JS files
+        with open(student_js_path, "r", encoding="utf-8") as f:
+            student_js = f.read()
+
+        with open(teacher_js_path, "r", encoding="utf-8") as f:
+            teacher_js = f.read()
+
+        differences = []
+
+        # Check event listeners order
+        teacher_events = re.findall(r'addEventListener\([\'"](\w+)[\'"]', teacher_js)
+        student_events = re.findall(r'addEventListener\([\'"](\w+)[\'"]', student_js)
+
+        if len(teacher_events) >= 2 and len(student_events) >= 2:
+            if teacher_events != student_events:
+                differences.append(
+                    f"Event listener order is different. Expected: {', '.join(teacher_events)}"
+                )
+
+        # Check function order
+        teacher_functions = re.findall(r"function\s+(\w+)\s*\(", teacher_js)
+        student_functions = re.findall(r"function\s+(\w+)\s*\(", student_js)
+
+        if len(teacher_functions) >= 2 and len(student_functions) >= 2:
+            if teacher_functions != student_functions:
+                differences.append(
+                    f"Function declaration order is different. Expected: {', '.join(teacher_functions)}"
+                )
+
+        return differences
+
+    except Exception as e:
+        print(f"Error analyzing JS: {str(e)}")
+        return [f"Error analyzing JS: {str(e)}"]
+
+
+def main():
+    """
+    Main function to handle command line arguments
+    """
+    if len(sys.argv) < 2:
+        print(
+            "Usage: python json_helper.py [extract|analyze_html|analyze_css|analyze_js] ..."
+        )
+        return 1
+
+    command = sys.argv[1]
+
+    if command == "extract":
+        if len(sys.argv) < 3:
+            print("Usage: python json_helper.py extract <json_file_path>")
+            return 1
+
+        json_file_path = sys.argv[2]
+        result = extract_json_to_files(json_file_path)
+        return 0 if result else 1
+
+    elif command == "analyze_html":
+        if len(sys.argv) < 4:
+            print(
+                "Usage: python json_helper.py analyze_html <student_html_path> <teacher_html_path>"
+            )
+            return 1
+
+        student_html_path = sys.argv[2]
+        teacher_html_path = sys.argv[3]
+        differences = analyze_html_differences(student_html_path, teacher_html_path)
+
+        for diff in differences:
+            print(diff)
+
+        return 0
+
+    elif command == "analyze_css":
+        if len(sys.argv) < 4:
+            print(
+                "Usage: python json_helper.py analyze_css <student_css_path> <teacher_css_path>"
+            )
+            return 1
+
+        student_css_path = sys.argv[2]
+        teacher_css_path = sys.argv[3]
+        differences = analyze_css_differences(student_css_path, teacher_css_path)
+
+        for diff in differences:
+            print(diff)
+
+        return 0
+
+    elif command == "analyze_js":
+        if len(sys.argv) < 4:
+            print(
+                "Usage: python json_helper.py analyze_js <student_js_path> <teacher_js_path>"
+            )
+            return 1
+
+        student_js_path = sys.argv[2]
+        teacher_js_path = sys.argv[3]
+        differences = analyze_js_differences(student_js_path, teacher_js_path)
+
+        for diff in differences:
+            print(diff)
+
+        return 0
+
+    else:
+        print(f"Unknown command: {command}")
+        print("Available commands: extract, analyze_html, analyze_css, analyze_js")
+        return 1
 
 
 if __name__ == "__main__":
-    # This script can be run directly from command line
-    # Usage: python json_helper.py extract <file_path>
-    # Or: python json_helper.py analyze_js <student_js_path> <teacher_js_path>
-    if len(sys.argv) < 3:
-        print("Usage: python json_helper.py <command> <file_path> [<file_path2>]")
-        sys.exit(1)
-
-    command = sys.argv[1]
-    file_path = sys.argv[2]
-
-    if command == "extract":
-        result = read_json_file(file_path)
-        print(f"HTML_PATH:{result['html_path']}")
-        print(f"CSS_PATH:{result['css_path']}")
-        print(f"JS_PATH:{result['js_path']}")
-    elif command == "analyze_js" and len(sys.argv) > 3:
-        teacher_js_path = sys.argv[3]
-        differences = analyze_js_differences(file_path, teacher_js_path)
-        for diff in differences:
-            print(diff)
-    else:
-        print(f"Unknown command: {command}")
-        sys.exit(1)
+    sys.exit(main())

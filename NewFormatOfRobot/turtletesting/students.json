@@ -1,3 +1,3 @@
 {
-  "defaultcode": "import turtle\n\nt.pensize(2)\nt.circle(100)"
+  "defaultcode": "import turtle\n\nt = turtle.Turtle()\nt.pensize(2)\nfor _ in range(3):\n    t.forward(100)\n    t.left(90)\n\nturtle.done()"
 }

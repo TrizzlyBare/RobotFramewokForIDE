@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.2 on darwin)" generated="2025-04-12T22:17:03.347667" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.2 on darwin)" generated="2025-04-27T17:40:06.030779" rpa="false" schemaversion="5">
 <suite id="s1" name="Website Testing" source="/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/website_testing.robot">
 <kw name="Setup Test Environment" type="SETUP">
 <kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-04-12T22:17:03.542305" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results&lt;/a&gt;' already exists.</msg>
+<msg time="2025-04-27T17:40:06.120272" level="INFO" html="true">Directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results&lt;/a&gt;' already exists.</msg>
 <arg>${OUTPUT_DIR}</arg>
 <doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.542020" elapsed="0.003277"/>
+<status status="PASS" start="2025-04-27T17:40:06.120191" elapsed="0.000112"/>
 </kw>
 <kw name="Remove Files" owner="OperatingSystem">
-<msg time="2025-04-12T22:17:03.546952" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json&lt;/a&gt;'.</msg>
-<msg time="2025-04-12T22:17:03.547529" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T17:40:06.120596" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T17:40:06.120661" level="INFO" html="true">Removed file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
 <arg>${OUTPUT_DIR}/*.json</arg>
 <doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.545781" elapsed="0.002048"/>
+<status status="PASS" start="2025-04-27T17:40:06.120352" elapsed="0.000329"/>
 </kw>
-<status status="PASS" start="2025-04-12T22:17:03.541429" elapsed="0.006587"/>
+<status status="PASS" start="2025-04-27T17:40:06.119925" elapsed="0.000783"/>
 </kw>
 <test id="s1-t1" name="Test Default Code Consistency" line="20">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-04-12T22:17:03.549898" level="INFO">${students_data} = {'defaultcode': {'html': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;HTML Demo&lt;/title&gt;\n    &lt;style&gt;\n        body {\n            margin: 20px;\n            }\n        .container {\n            backgr...</msg>
+<msg time="2025-04-27T17:40:06.121051" level="INFO">${students_data} = {'defaultcode': {'html': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;HTML Demo&lt;/title&gt;\n    &lt;style&gt;\n        body {\n            margin: 20px;\n            }\n        .container {\n            backgr...</msg>
 <var>${students_data}</var>
 <arg>${STUDENTS_JSON}</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.548924" elapsed="0.001143"/>
+<status status="PASS" start="2025-04-27T17:40:06.120901" elapsed="0.000164"/>
 </kw>
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-04-12T22:17:03.551761" level="INFO">${teachers_data} = {'defaultcode': {'html': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;HTML Demo&lt;/title&gt;\n    &lt;style&gt;\n        body {\n            margin: 20px;\n            background-color: #f5f5f5;\n        }\n    ...</msg>
+<msg time="2025-04-27T17:40:06.121466" level="INFO">${teachers_data} = {'defaultcode': {'html': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;HTML Demo&lt;/title&gt;\n    &lt;style&gt;\n        body {\n            margin: 20px;\n            background-color: #f5f5f5;\n        }\n    ...</msg>
 <var>${teachers_data}</var>
 <arg>${TEACHERS_JSON}</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.550710" elapsed="0.001344"/>
+<status status="PASS" start="2025-04-27T17:40:06.121124" elapsed="0.000366"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.553358" level="INFO">${student_default_html} = &lt;!DOCTYPE html&gt;
+<msg time="2025-04-27T17:40:06.121880" level="INFO">${student_default_html} = &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;HTML Demo&lt;/title&gt;
@@ -47,10 +47,10 @@
 <var>${student_default_html}</var>
 <arg>${students_data["defaultcode"]["html"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.552495" elapsed="0.000995"/>
+<status status="PASS" start="2025-04-27T17:40:06.121603" elapsed="0.000292"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.554855" level="INFO">${student_default_css} = /* Reset and base styles */
+<msg time="2025-04-27T17:40:06.122123" level="INFO">${student_default_css} = /* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -63,20 +63,20 @@ body {
 <var>${student_default_css}</var>
 <arg>${students_data["defaultcode"]["css"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.553834" elapsed="0.001321"/>
+<status status="PASS" start="2025-04-27T17:40:06.121956" elapsed="0.000178"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.556725" level="INFO">${student_default_js} = // Wait for DOM to be fully loaded
+<msg time="2025-04-27T17:40:06.122338" level="INFO">${student_default_js} = // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Button click event with different behavior
        const result = document.getElementById('result');...</msg>
 <var>${student_default_js}</var>
 <arg>${students_data["defaultcode"]["js"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.555688" elapsed="0.001197"/>
+<status status="PASS" start="2025-04-27T17:40:06.122185" elapsed="0.000163"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.557964" level="INFO">${teacher_default_html} = &lt;!DOCTYPE html&gt;
+<msg time="2025-04-27T17:40:06.122547" level="INFO">${teacher_default_html} = &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;HTML Demo&lt;/title&gt;
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <var>${teacher_default_html}</var>
 <arg>${teachers_data["defaultcode"]["html"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.557279" elapsed="0.000888"/>
+<status status="PASS" start="2025-04-27T17:40:06.122398" elapsed="0.000161"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.559402" level="INFO">${teacher_default_css} = /* Reset and base styles */
+<msg time="2025-04-27T17:40:06.122757" level="INFO">${teacher_default_css} = /* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -106,21 +106,21 @@ body {
 <var>${teacher_default_css}</var>
 <arg>${teachers_data["defaultcode"]["css"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.558702" elapsed="0.000817"/>
+<status status="PASS" start="2025-04-27T17:40:06.122605" elapsed="0.000162"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.560139" level="INFO">${teacher_default_js} = // Wait for DOM to be fully loaded
+<msg time="2025-04-27T17:40:06.122956" level="INFO">${teacher_default_js} = // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Button click event with different behavior
        const result = document.getElementById('result');...</msg>
 <var>${teacher_default_js}</var>
 <arg>${teachers_data["defaultcode"]["js"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.559719" elapsed="0.000506"/>
+<status status="PASS" start="2025-04-27T17:40:06.122812" elapsed="0.000154"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.563249" level="INFO">&lt;!DOCTYPE html&gt;
+<msg time="2025-04-27T17:40:06.123155" level="INFO">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;HTML Demo&lt;/title&gt;
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</msg>
-<msg time="2025-04-12T22:17:03.564118" level="FAIL">Multiline strings are different:
+<msg time="2025-04-27T17:40:06.123307" level="FAIL">Multiline strings are different:
 --- first
 +++ second
 @@ -5,7 +5,8 @@
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${student_default_html}</arg>
 <arg>${teacher_default_html}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="FAIL" start="2025-04-12T22:17:03.562309" elapsed="0.002289">Multiline strings are different:
+<status status="FAIL" start="2025-04-27T17:40:06.123080" elapsed="0.000290">Multiline strings are different:
 --- first
 +++ second
 @@ -5,7 +5,8 @@
@@ -236,43 +236,43 @@ document.addEventListener('DOMContentLoaded', function() {
              background-color: white;
              border-radius: 8px;</status>
 </kw>
-<msg time="2025-04-12T22:17:03.564928" level="INFO">${html_match} = False</msg>
+<msg time="2025-04-27T17:40:06.123409" level="INFO">${html_match} = False</msg>
 <var>${html_match}</var>
 <arg>Should Be Equal As Strings</arg>
 <arg>${student_default_html}</arg>
 <arg>${teacher_default_html}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.561594" elapsed="0.003532"/>
+<status status="PASS" start="2025-04-27T17:40:06.123018" elapsed="0.000400"/>
 </kw>
 <kw name="Run Keyword Unless" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.565820" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-04-27T17:40:06.123491" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
 <kw name="Compare HTML Content">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.568415" level="INFO">${differences} = []</msg>
+<msg time="2025-04-27T17:40:06.123857" level="INFO">${differences} = []</msg>
 <var>${differences}</var>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.568055" elapsed="0.000542"/>
+<status status="PASS" start="2025-04-27T17:40:06.123815" elapsed="0.000052"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.569052" level="INFO">${comparator} = &lt;code_validator.DOMComparator object at 0x10314de50&gt;</msg>
+<msg time="2025-04-27T17:40:06.123970" level="INFO">${comparator} = &lt;code_validator.DOMComparator object at 0x104d7ed50&gt;</msg>
 <var>${comparator}</var>
 <arg>WebCourseLibrary.DOMComparator(1)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.568767" elapsed="0.000371"/>
+<status status="PASS" start="2025-04-27T17:40:06.123906" elapsed="0.000073"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.572100" level="INFO">${result} = {'missing_elements': [], 'attribute_mismatches': [], 'structure_diffs': [], 'pass': True}</msg>
+<msg time="2025-04-27T17:40:06.125086" level="INFO">${result} = {'missing_elements': [], 'attribute_mismatches': [], 'structure_diffs': [], 'pass': True}</msg>
 <var>${result}</var>
 <arg>$comparator.compare_html_structure($student_html, $teacher_html)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.569265" elapsed="0.002988"/>
+<status status="PASS" start="2025-04-27T17:40:06.124013" elapsed="0.001085"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.572939" level="INFO">${missing_elements} = []</msg>
+<msg time="2025-04-27T17:40:06.125310" level="INFO">${missing_elements} = []</msg>
 <var>${missing_elements}</var>
 <arg>${result["missing_elements"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.572426" elapsed="0.000600"/>
+<status status="PASS" start="2025-04-27T17:40:06.125142" elapsed="0.000179"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -280,21 +280,21 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Missing element: ${element}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.573587" elapsed="0.000086"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125433" elapsed="0.000007"/>
 </kw>
 <var name="${element}"/>
-<status status="NOT RUN" start="2025-04-12T22:17:03.573439" elapsed="0.000357"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125401" elapsed="0.000052"/>
 </iter>
 <var>${element}</var>
 <value>@{missing_elements}</value>
-<status status="NOT RUN" start="2025-04-12T22:17:03.573186" elapsed="0.001097"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125347" elapsed="0.000118"/>
 </for>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.575097" level="INFO">${attribute_mismatches} = []</msg>
+<msg time="2025-04-27T17:40:06.125654" level="INFO">${attribute_mismatches} = []</msg>
 <var>${attribute_mismatches}</var>
 <arg>${result["attribute_mismatches"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.574602" elapsed="0.000694"/>
+<status status="PASS" start="2025-04-27T17:40:06.125502" elapsed="0.000161"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -302,45 +302,45 @@ document.addEventListener('DOMContentLoaded', function() {
 <var>${element}</var>
 <arg>${mismatch["element"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.575703" elapsed="0.000069"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125757" elapsed="0.000007"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${attribute}</var>
 <arg>${mismatch["attribute"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.575961" elapsed="0.000094"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125793" elapsed="0.000005"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${expected}</var>
 <arg>${mismatch["expected"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.576179" elapsed="0.000068"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125824" elapsed="0.000004"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${actual}</var>
 <arg>${mismatch["actual"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.576349" elapsed="0.000062"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125853" elapsed="0.000004"/>
 </kw>
 <kw name="Append To List" owner="Collections">
 <arg>${differences}</arg>
 <arg>Attribute mismatch in ${element}: ${attribute} should be '${expected}' but found '${actual}'</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.576513" elapsed="0.000066"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125882" elapsed="0.000005"/>
 </kw>
 <var name="${mismatch}"/>
-<status status="NOT RUN" start="2025-04-12T22:17:03.575584" elapsed="0.001055"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125730" elapsed="0.000167"/>
 </iter>
 <var>${mismatch}</var>
 <value>@{attribute_mismatches}</value>
-<status status="NOT RUN" start="2025-04-12T22:17:03.575412" elapsed="0.001300"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.125683" elapsed="0.000224"/>
 </for>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.577285" level="INFO">${structure_diffs} = []</msg>
+<msg time="2025-04-27T17:40:06.126087" level="INFO">${structure_diffs} = []</msg>
 <var>${structure_diffs}</var>
 <arg>${result["structure_diffs"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.576829" elapsed="0.000552"/>
+<status status="PASS" start="2025-04-27T17:40:06.125933" elapsed="0.000162"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -348,28 +348,28 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Structure difference: ${diff}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.577712" elapsed="0.000063"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.126171" elapsed="0.000006"/>
 </kw>
 <var name="${diff}"/>
-<status status="NOT RUN" start="2025-04-12T22:17:03.577609" elapsed="0.000232"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.126147" elapsed="0.000041"/>
 </iter>
 <var>${diff}</var>
 <value>@{structure_diffs}</value>
-<status status="NOT RUN" start="2025-04-12T22:17:03.577466" elapsed="0.000437"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.126112" elapsed="0.000084"/>
 </for>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.578254" level="INFO">${has_css_colors_heading_teacher} = True</msg>
+<msg time="2025-04-27T17:40:06.126302" level="INFO">${has_css_colors_heading_teacher} = True</msg>
 <var>${has_css_colors_heading_teacher}</var>
 <arg>'&lt;h2&gt;Some CSS Colors:&lt;/h2&gt;' in $teacher_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.578012" elapsed="0.000322"/>
+<status status="PASS" start="2025-04-27T17:40:06.126227" elapsed="0.000083"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.578654" level="INFO">${has_css_colors_heading_student} = True</msg>
+<msg time="2025-04-27T17:40:06.126405" level="INFO">${has_css_colors_heading_student} = True</msg>
 <var>${has_css_colors_heading_student}</var>
 <arg>'&lt;h2&gt;Some CSS Colors:&lt;/h2&gt;' in $student_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.578447" elapsed="0.000277"/>
+<status status="PASS" start="2025-04-27T17:40:06.126342" elapsed="0.000071"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${has_css_colors_heading_teacher} and not ${has_css_colors_heading_student}</arg>
@@ -377,32 +377,32 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Missing heading: h2 with text "Some CSS Colors:"</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.578841" elapsed="0.000280"/>
+<status status="PASS" start="2025-04-27T17:40:06.126452" elapsed="0.000065"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.579394" level="INFO">${sections_to_check} = ['"HTML Preview Example"', '"Interactive Elements"', '"Some CSS Colors"']</msg>
+<msg time="2025-04-27T17:40:06.126590" level="INFO">${sections_to_check} = ['"HTML Preview Example"', '"Interactive Elements"', '"Some CSS Colors"']</msg>
 <var>${sections_to_check}</var>
 <arg>"HTML Preview Example"</arg>
 <arg>"Interactive Elements"</arg>
 <arg>"Some CSS Colors"</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.579234" elapsed="0.000234"/>
+<status status="PASS" start="2025-04-27T17:40:06.126550" elapsed="0.000048"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.580156" level="INFO">${present_in_teacher} = False</msg>
+<msg time="2025-04-27T17:40:06.126745" level="INFO">${present_in_teacher} = False</msg>
 <var>${present_in_teacher}</var>
 <arg>$section in $teacher_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.579909" elapsed="0.000457"/>
+<status status="PASS" start="2025-04-27T17:40:06.126682" elapsed="0.000094"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.580930" level="INFO">${present_in_student} = False</msg>
+<msg time="2025-04-27T17:40:06.126868" level="INFO">${present_in_student} = False</msg>
 <var>${present_in_student}</var>
 <arg>$section in $student_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.580494" elapsed="0.000692"/>
+<status status="PASS" start="2025-04-27T17:40:06.126809" elapsed="0.000068"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${present_in_teacher} and not ${present_in_student}</arg>
@@ -410,25 +410,25 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Missing section with text: ${section}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.581361" elapsed="0.000290"/>
+<status status="PASS" start="2025-04-27T17:40:06.126911" elapsed="0.000056"/>
 </kw>
 <var name="${section}">"HTML Preview Example"</var>
-<status status="PASS" start="2025-04-12T22:17:03.579794" elapsed="0.001943"/>
+<status status="PASS" start="2025-04-27T17:40:06.126657" elapsed="0.000323"/>
 </iter>
 <iter>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.582255" level="INFO">${present_in_teacher} = False</msg>
+<msg time="2025-04-27T17:40:06.127093" level="INFO">${present_in_teacher} = False</msg>
 <var>${present_in_teacher}</var>
 <arg>$section in $teacher_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.582010" elapsed="0.000329"/>
+<status status="PASS" start="2025-04-27T17:40:06.127034" elapsed="0.000067"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.582676" level="INFO">${present_in_student} = False</msg>
+<msg time="2025-04-27T17:40:06.127187" level="INFO">${present_in_student} = False</msg>
 <var>${present_in_student}</var>
 <arg>$section in $student_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.582461" elapsed="0.000286"/>
+<status status="PASS" start="2025-04-27T17:40:06.127131" elapsed="0.000064"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${present_in_teacher} and not ${present_in_student}</arg>
@@ -436,25 +436,25 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Missing section with text: ${section}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.582869" elapsed="0.000190"/>
+<status status="PASS" start="2025-04-27T17:40:06.127229" elapsed="0.000053"/>
 </kw>
 <var name="${section}">"Interactive Elements"</var>
-<status status="PASS" start="2025-04-12T22:17:03.581879" elapsed="0.001251"/>
+<status status="PASS" start="2025-04-27T17:40:06.127009" elapsed="0.000286"/>
 </iter>
 <iter>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.583544" level="INFO">${present_in_teacher} = False</msg>
+<msg time="2025-04-27T17:40:06.127413" level="INFO">${present_in_teacher} = False</msg>
 <var>${present_in_teacher}</var>
 <arg>$section in $teacher_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.583352" elapsed="0.000260"/>
+<status status="PASS" start="2025-04-27T17:40:06.127347" elapsed="0.000076"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.584008" level="INFO">${present_in_student} = False</msg>
+<msg time="2025-04-27T17:40:06.127514" level="INFO">${present_in_student} = False</msg>
 <var>${present_in_student}</var>
 <arg>$section in $student_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.583719" elapsed="0.000441"/>
+<status status="PASS" start="2025-04-27T17:40:06.127454" elapsed="0.000068"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${present_in_teacher} and not ${present_in_student}</arg>
@@ -462,28 +462,28 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Missing section with text: ${section}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.584703" elapsed="0.000544"/>
+<status status="PASS" start="2025-04-27T17:40:06.127558" elapsed="0.000054"/>
 </kw>
 <var name="${section}">"Some CSS Colors"</var>
-<status status="PASS" start="2025-04-12T22:17:03.583243" elapsed="0.002125"/>
+<status status="PASS" start="2025-04-27T17:40:06.127323" elapsed="0.000304"/>
 </iter>
 <var>${section}</var>
 <value>@{sections_to_check}</value>
-<status status="PASS" start="2025-04-12T22:17:03.579634" elapsed="0.005813"/>
+<status status="PASS" start="2025-04-27T17:40:06.126615" elapsed="0.001022"/>
 </for>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.585926" level="INFO">${teacher_pattern_exists} = True</msg>
+<msg time="2025-04-27T17:40:06.127762" level="INFO">${teacher_pattern_exists} = True</msg>
 <var>${teacher_pattern_exists}</var>
 <arg>'&lt;h2&gt;Interactive Elements:&lt;/h2&gt;' in $teacher_html and '&lt;button' in $teacher_html and '&lt;h2&gt;Some CSS Colors:&lt;/h2&gt;' in $teacher_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.585600" elapsed="0.000452"/>
+<status status="PASS" start="2025-04-27T17:40:06.127674" elapsed="0.000096"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.586596" level="INFO">${student_pattern_exists} = True</msg>
+<msg time="2025-04-27T17:40:06.127885" level="INFO">${student_pattern_exists} = True</msg>
 <var>${student_pattern_exists}</var>
 <arg>'&lt;h2&gt;Interactive Elements:&lt;/h2&gt;' in $student_html and '&lt;button' in $student_html and '&lt;h2&gt;Some CSS Colors:&lt;/h2&gt;' in $student_html</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.586327" elapsed="0.000527"/>
+<status status="PASS" start="2025-04-27T17:40:06.127805" elapsed="0.000088"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${teacher_pattern_exists} and not ${student_pattern_exists}</arg>
@@ -491,21 +491,21 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Missing structural pattern: Interactive Elements -&gt; Button -&gt; Some CSS Colors heading</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.587092" elapsed="0.000292"/>
+<status status="PASS" start="2025-04-27T17:40:06.127930" elapsed="0.000061"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.587802" level="INFO">${h2_count_teacher} = 2</msg>
+<msg time="2025-04-27T17:40:06.128096" level="INFO">${h2_count_teacher} = 2</msg>
 <var>${h2_count_teacher}</var>
 <arg>$teacher_html.count('&lt;h2&gt;')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.587562" elapsed="0.000337"/>
+<status status="PASS" start="2025-04-27T17:40:06.128028" elapsed="0.000077"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.588537" level="INFO">${h2_count_student} = 2</msg>
+<msg time="2025-04-27T17:40:06.128201" level="INFO">${h2_count_student} = 2</msg>
 <var>${h2_count_student}</var>
 <arg>$student_html.count('&lt;h2&gt;')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.588141" elapsed="0.000628"/>
+<status status="PASS" start="2025-04-27T17:40:06.128139" elapsed="0.000070"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${h2_count_teacher} != ${h2_count_student}</arg>
@@ -513,109 +513,109 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>${differences}</arg>
 <arg>Heading count mismatch: Teacher has ${h2_count_teacher} h2 tags, Student has ${h2_count_student} h2 tags</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.589127" elapsed="0.000369"/>
+<status status="PASS" start="2025-04-27T17:40:06.128245" elapsed="0.000057"/>
 </kw>
 <kw name="Get Length" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.589985" level="INFO">Length is 0.</msg>
-<msg time="2025-04-12T22:17:03.590127" level="INFO">${diff_count} = 0</msg>
+<msg time="2025-04-27T17:40:06.128375" level="INFO">Length is 0.</msg>
+<msg time="2025-04-27T17:40:06.128398" level="INFO">${diff_count} = 0</msg>
 <var>${diff_count}</var>
 <arg>${differences}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.589674" elapsed="0.000520"/>
+<status status="PASS" start="2025-04-27T17:40:06.128339" elapsed="0.000066"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Append To List" owner="Collections">
 <arg>${differences}</arg>
 <arg>HTML files differ but no specific structural differences were detected. Check for whitespace, comments, or text content differences.</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.590586" elapsed="0.000167"/>
+<status status="PASS" start="2025-04-27T17:40:06.128508" elapsed="0.000043"/>
 </kw>
 <arg>${diff_count} == 0</arg>
 <arg>Append To List</arg>
 <arg>${differences}</arg>
 <arg>HTML files differ but no specific structural differences were detected. Check for whitespace, comments, or text content differences.</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.590325" elapsed="0.000513"/>
+<status status="PASS" start="2025-04-27T17:40:06.128440" elapsed="0.000128"/>
 </kw>
 <return>
 <value>${differences}</value>
-<status status="PASS" start="2025-04-12T22:17:03.590917" elapsed="0.000098"/>
+<status status="PASS" start="2025-04-27T17:40:06.128587" elapsed="0.000019"/>
 </return>
 <arg>${student_default_html}</arg>
 <arg>${teacher_default_html}</arg>
 <doc>Compare HTML content and return differences with enhanced detection for missing sections</doc>
-<status status="PASS" start="2025-04-12T22:17:03.567474" elapsed="0.023676"/>
+<status status="PASS" start="2025-04-27T17:40:06.123695" elapsed="0.004953"/>
 </kw>
-<msg time="2025-04-12T22:17:03.591254" level="INFO">${html_differences} = ['HTML files differ but no specific structural differences were detected. Check for whitespace, comments, or text content differences.']</msg>
+<msg time="2025-04-27T17:40:06.128675" level="INFO">${html_differences} = ['HTML files differ but no specific structural differences were detected. Check for whitespace, comments, or text content differences.']</msg>
 <var>${html_differences}</var>
 <arg>${html_match}</arg>
 <arg>Compare HTML Content</arg>
 <arg>${student_default_html}</arg>
 <arg>${teacher_default_html}</arg>
 <doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
-<status status="PASS" start="2025-04-12T22:17:03.565655" elapsed="0.025680"/>
+<status status="PASS" start="2025-04-27T17:40:06.123481" elapsed="0.005203"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${student_default_css}</arg>
 <arg>${teacher_default_css}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.591831" elapsed="0.000230"/>
+<status status="PASS" start="2025-04-27T17:40:06.128824" elapsed="0.000071"/>
 </kw>
-<msg time="2025-04-12T22:17:03.592334" level="INFO">${css_match} = True</msg>
+<msg time="2025-04-27T17:40:06.128923" level="INFO">${css_match} = True</msg>
 <var>${css_match}</var>
 <arg>Should Be Equal As Strings</arg>
 <arg>${student_default_css}</arg>
 <arg>${teacher_default_css}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.591660" elapsed="0.000868"/>
+<status status="PASS" start="2025-04-27T17:40:06.128775" elapsed="0.000157"/>
 </kw>
 <kw name="Run Keyword Unless" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.592955" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
-<msg time="2025-04-12T22:17:03.594585" level="INFO">${css_differences} = None</msg>
+<msg time="2025-04-27T17:40:06.128988" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-04-27T17:40:06.129060" level="INFO">${css_differences} = None</msg>
 <var>${css_differences}</var>
 <arg>${css_match}</arg>
 <arg>Compare CSS Content</arg>
 <arg>${student_default_css}</arg>
 <arg>${teacher_default_css}</arg>
 <doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
-<status status="PASS" start="2025-04-12T22:17:03.592860" elapsed="0.002105"/>
+<status status="PASS" start="2025-04-27T17:40:06.128979" elapsed="0.000089"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${student_default_js}</arg>
 <arg>${teacher_default_js}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.595899" elapsed="0.000240"/>
+<status status="PASS" start="2025-04-27T17:40:06.129162" elapsed="0.000060"/>
 </kw>
-<msg time="2025-04-12T22:17:03.596247" level="INFO">${js_match} = True</msg>
+<msg time="2025-04-27T17:40:06.129248" level="INFO">${js_match} = True</msg>
 <var>${js_match}</var>
 <arg>Should Be Equal As Strings</arg>
 <arg>${student_default_js}</arg>
 <arg>${teacher_default_js}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.595562" elapsed="0.000750"/>
+<status status="PASS" start="2025-04-27T17:40:06.129117" elapsed="0.000139"/>
 </kw>
 <kw name="Run Keyword Unless" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.597115" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
-<msg time="2025-04-12T22:17:03.598672" level="INFO">${js_differences} = None</msg>
+<msg time="2025-04-27T17:40:06.129309" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-04-27T17:40:06.129374" level="INFO">${js_differences} = None</msg>
 <var>${js_differences}</var>
 <arg>${js_match}</arg>
 <arg>Compare JS Content</arg>
 <arg>${student_default_js}</arg>
 <arg>${teacher_default_js}</arg>
 <doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
-<status status="PASS" start="2025-04-12T22:17:03.596747" elapsed="0.002296"/>
+<status status="PASS" start="2025-04-27T17:40:06.129301" elapsed="0.000081"/>
 </kw>
 <kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-12T22:17:03.600040" level="INFO">${timestamp} = 1744471023.599964</msg>
+<msg time="2025-04-27T17:40:06.129502" level="INFO">${timestamp} = 1745750406.129474</msg>
 <var>${timestamp}</var>
 <arg>result_format=epoch</arg>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.599580" elapsed="0.000591"/>
+<status status="PASS" start="2025-04-27T17:40:06.129427" elapsed="0.000083"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.601237" level="INFO">${result_obj} = {'timestamp': 1744471023.599964, 'html_match': False, 'css_match': True, 'js_match': True, 'html_differences': ['HTML files differ but no specific structural differences were detected. Check for white...</msg>
+<msg time="2025-04-27T17:40:06.129764" level="INFO">${result_obj} = {'timestamp': 1745750406.129474, 'html_match': False, 'css_match': True, 'js_match': True, 'html_differences': ['HTML files differ but no specific structural differences were detected. Check for white...</msg>
 <var>${result_obj}</var>
 <arg>timestamp=${timestamp}</arg>
 <arg>html_match=${html_match}</arg>
@@ -625,161 +625,161 @@ document.addEventListener('DOMContentLoaded', function() {
 <arg>css_differences=${css_differences}</arg>
 <arg>js_differences=${js_differences}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.600410" elapsed="0.001025"/>
+<status status="PASS" start="2025-04-27T17:40:06.129555" elapsed="0.000220"/>
 </kw>
 <kw name="Convert Json To String" owner="JSONLibrary">
-<msg time="2025-04-12T22:17:03.602240" level="INFO">${result_json} = {"timestamp": 1744471023.599964, "html_match": false, "css_match": true, "js_match": true, "html_differences": ["HTML files differ but no specific structural differences were detected. Check for white...</msg>
+<msg time="2025-04-27T17:40:06.129884" level="INFO">${result_json} = {"timestamp": 1745750406.129474, "html_match": false, "css_match": true, "js_match": true, "html_differences": ["HTML files differ but no specific structural differences were detected. Check for white...</msg>
 <var>${result_json}</var>
 <arg>${result_obj}</arg>
 <doc>Convert JSON object to string</doc>
-<status status="PASS" start="2025-04-12T22:17:03.601929" elapsed="0.000425"/>
+<status status="PASS" start="2025-04-27T17:40:06.129824" elapsed="0.000068"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.602936" level="INFO">${filename} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json</msg>
+<msg time="2025-04-27T17:40:06.129985" level="INFO">${filename} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json</msg>
 <var>${filename}</var>
 <arg>${OUTPUT_DIR}/defaultcode_comparison_result.json</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.602679" elapsed="0.000349"/>
+<status status="PASS" start="2025-04-27T17:40:06.129935" elapsed="0.000059"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-04-12T22:17:03.604474" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T17:40:06.130276" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
 <arg>${filename}</arg>
 <arg>${result_json}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.603226" elapsed="0.001592"/>
+<status status="PASS" start="2025-04-27T17:40:06.130033" elapsed="0.000263"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.606434" level="INFO">HTML Differences: ['HTML files differ but no specific structural differences were detected. Check for whitespace, comments, or text content differences.']</msg>
+<msg time="2025-04-27T17:40:06.130677" level="INFO">HTML Differences: ['HTML files differ but no specific structural differences were detected. Check for whitespace, comments, or text content differences.']</msg>
 <arg>HTML Differences: ${html_differences}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.605981" elapsed="0.000775"/>
+<status status="PASS" start="2025-04-27T17:40:06.130565" elapsed="0.000142"/>
 </kw>
 <arg>not ${html_match}</arg>
 <arg>Log</arg>
 <arg>HTML Differences: ${html_differences}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.605258" elapsed="0.001851"/>
+<status status="PASS" start="2025-04-27T17:40:06.130363" elapsed="0.000365"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>not ${css_match}</arg>
 <arg>Log</arg>
 <arg>CSS Differences: ${css_differences}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.607444" elapsed="0.000367"/>
+<status status="PASS" start="2025-04-27T17:40:06.130869" elapsed="0.000055"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>not ${js_match}</arg>
 <arg>Log</arg>
 <arg>JavaScript Differences: ${js_differences}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.608079" elapsed="0.000473"/>
+<status status="PASS" start="2025-04-27T17:40:06.130972" elapsed="0.000044"/>
 </kw>
 <doc>Test that defaultcode in students.json matches teachers.json</doc>
-<status status="PASS" start="2025-04-12T22:17:03.548124" elapsed="0.062302"/>
+<status status="PASS" start="2025-04-27T17:40:06.120731" elapsed="0.010353"/>
 </test>
 <kw name="Teardown Test Environment" type="TEARDOWN">
 <kw name="List Files In Directory" owner="OperatingSystem">
-<msg time="2025-04-12T22:17:03.614732" level="INFO" html="true">Listing contents of directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results&lt;/a&gt;'.</msg>
-<msg time="2025-04-12T22:17:03.616193" level="INFO">1 file:
+<msg time="2025-04-27T17:40:06.131494" level="INFO" html="true">Listing contents of directory '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T17:40:06.131578" level="INFO">1 file:
 defaultcode_comparison_result.json</msg>
-<msg time="2025-04-12T22:17:03.616478" level="INFO">${files} = ['defaultcode_comparison_result.json']</msg>
+<msg time="2025-04-27T17:40:06.131603" level="INFO">${files} = ['defaultcode_comparison_result.json']</msg>
 <var>${files}</var>
 <arg>${OUTPUT_DIR}</arg>
 <arg>*.json</arg>
 <doc>Wrapper for `List Directory` that returns only files.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.614200" elapsed="0.002437"/>
+<status status="PASS" start="2025-04-27T17:40:06.131420" elapsed="0.000191"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.617599" level="INFO">${all_results} = []</msg>
+<msg time="2025-04-27T17:40:06.131684" level="INFO">${all_results} = []</msg>
 <var>${all_results}</var>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.616861" elapsed="0.001042"/>
+<status status="PASS" start="2025-04-27T17:40:06.131648" elapsed="0.000043"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Continue For Loop If" owner="BuiltIn">
 <arg>'${file}' == 'validation_report.json'</arg>
 <doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.619124" elapsed="0.000459"/>
+<status status="PASS" start="2025-04-27T17:40:06.131909" elapsed="0.000113"/>
 </kw>
 <kw name="Join Path" owner="OperatingSystem">
-<msg time="2025-04-12T22:17:03.620077" level="INFO">${file_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json</msg>
+<msg time="2025-04-27T17:40:06.132140" level="INFO">${file_path} = /Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json</msg>
 <var>${file_path}</var>
 <arg>${OUTPUT_DIR}</arg>
 <arg>${file}</arg>
 <doc>Joins the given path part(s) to the given base path.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.619776" elapsed="0.000469"/>
+<status status="PASS" start="2025-04-27T17:40:06.132069" elapsed="0.000082"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2025-04-12T22:17:03.620896" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
-<msg time="2025-04-12T22:17:03.621861" level="INFO">${json_content} = {"timestamp": 1744471023.599964, "html_match": false, "css_match": true, "js_match": true, "html_differences": ["HTML files differ but no specific structural differences were detected. Check for white...</msg>
+<msg time="2025-04-27T17:40:06.132294" level="INFO" html="true">Getting file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/defaultcode_comparison_result.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T17:40:06.132377" level="INFO">${json_content} = {"timestamp": 1745750406.129474, "html_match": false, "css_match": true, "js_match": true, "html_differences": ["HTML files differ but no specific structural differences were detected. Check for white...</msg>
 <var>${json_content}</var>
 <arg>${file_path}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.620660" elapsed="0.001340"/>
+<status status="PASS" start="2025-04-27T17:40:06.132244" elapsed="0.000142"/>
 </kw>
 <kw name="Convert String To Json" owner="JSONLibrary">
-<msg time="2025-04-12T22:17:03.623094" level="INFO">${json_obj} = {'timestamp': 1744471023.599964, 'html_match': False, 'css_match': True, 'js_match': True, 'html_differences': ['HTML files differ but no specific structural differences were detected. Check for white...</msg>
+<msg time="2025-04-27T17:40:06.132488" level="INFO">${json_obj} = {'timestamp': 1745750406.129474, 'html_match': False, 'css_match': True, 'js_match': True, 'html_differences': ['HTML files differ but no specific structural differences were detected. Check for white...</msg>
 <var>${json_obj}</var>
 <arg>${json_content}</arg>
 <doc>Convert String to JSON object</doc>
-<status status="PASS" start="2025-04-12T22:17:03.622437" elapsed="0.000788"/>
+<status status="PASS" start="2025-04-27T17:40:06.132421" elapsed="0.000077"/>
 </kw>
 <kw name="Append To List" owner="Collections">
 <arg>${all_results}</arg>
 <arg>${json_obj}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.623444" elapsed="0.000337"/>
+<status status="PASS" start="2025-04-27T17:40:06.132531" elapsed="0.000051"/>
 </kw>
-<status status="PASS" start="2025-04-12T22:17:03.620460" elapsed="0.003454"/>
+<status status="PASS" start="2025-04-27T17:40:06.132205" elapsed="0.000390"/>
 </branch>
 <branch type="EXCEPT">
 <kw name="Log" owner="BuiltIn">
 <arg>Error parsing JSON file: ${file_path}</arg>
 <arg>level=WARN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-04-12T22:17:03.624509" elapsed="0.000157"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.132649" elapsed="0.000007"/>
 </kw>
-<status status="NOT RUN" start="2025-04-12T22:17:03.624133" elapsed="0.000730"/>
+<status status="NOT RUN" start="2025-04-27T17:40:06.132616" elapsed="0.000053"/>
 </branch>
-<status status="PASS" start="2025-04-12T22:17:03.620392" elapsed="0.004769"/>
+<status status="PASS" start="2025-04-27T17:40:06.132179" elapsed="0.000503"/>
 </try>
 <var name="${file}">defaultcode_comparison_result.json</var>
-<status status="PASS" start="2025-04-12T22:17:03.618778" elapsed="0.006454"/>
+<status status="PASS" start="2025-04-27T17:40:06.131864" elapsed="0.000829"/>
 </iter>
 <var>${file}</var>
 <value>@{files}</value>
-<status status="PASS" start="2025-04-12T22:17:03.618238" elapsed="0.007156"/>
+<status status="PASS" start="2025-04-27T17:40:06.131756" elapsed="0.000949"/>
 </for>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-04-12T22:17:03.626414" level="INFO">${final_report} = {'results': [{'timestamp': 1744471023.599964, 'html_match': False, 'css_match': True, 'js_match': True, 'html_differences': ['HTML files differ but no specific structural differences were detected. Ch...</msg>
+<msg time="2025-04-27T17:40:06.132838" level="INFO">${final_report} = {'results': [{'timestamp': 1745750406.129474, 'html_match': False, 'css_match': True, 'js_match': True, 'html_differences': ['HTML files differ but no specific structural differences were detected. Ch...</msg>
 <var>${final_report}</var>
 <arg>results=${all_results}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.625677" elapsed="0.000864"/>
+<status status="PASS" start="2025-04-27T17:40:06.132742" elapsed="0.000107"/>
 </kw>
 <kw name="Convert Json To String" owner="JSONLibrary">
-<msg time="2025-04-12T22:17:03.627136" level="INFO">${final_json} = {"results": [{"timestamp": 1744471023.599964, "html_match": false, "css_match": true, "js_match": true, "html_differences": ["HTML files differ but no specific structural differences were detected. Ch...</msg>
+<msg time="2025-04-27T17:40:06.132947" level="INFO">${final_json} = {"results": [{"timestamp": 1745750406.129474, "html_match": false, "css_match": true, "js_match": true, "html_differences": ["HTML files differ but no specific structural differences were detected. Ch...</msg>
 <var>${final_json}</var>
 <arg>${final_report}</arg>
 <doc>Convert JSON object to string</doc>
-<status status="PASS" start="2025-04-12T22:17:03.626676" elapsed="0.000843"/>
+<status status="PASS" start="2025-04-27T17:40:06.132884" elapsed="0.000072"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2025-04-12T22:17:03.629442" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T17:40:06.133194" level="INFO" html="true">Created file '&lt;a href="file:///Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json"&gt;/Users/tanakrit/Documents/GitHub/RobotFramewokForIDE/NewFormatOfRobot/WebsiteTesting/test_results/validation_report.json&lt;/a&gt;'.</msg>
 <arg>${REPORT_FILE}</arg>
 <arg>${final_json}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-04-12T22:17:03.627830" elapsed="0.001773"/>
+<status status="PASS" start="2025-04-27T17:40:06.132988" elapsed="0.000232"/>
 </kw>
-<status status="PASS" start="2025-04-12T22:17:03.613693" elapsed="0.016050"/>
+<status status="PASS" start="2025-04-27T17:40:06.131354" elapsed="0.001889"/>
 </kw>
 <doc>Test suite for validating web development code using JSON data
 Loads user submissions and reference implementations from multiple JSON files</doc>
-<status status="PASS" start="2025-04-12T22:17:03.354251" elapsed="0.275626"/>
+<status status="PASS" start="2025-04-27T17:40:06.031479" elapsed="0.101775"/>
 </suite>
 <statistics>
 <total>
@@ -792,8 +792,8 @@ Loads user submissions and reference implementations from multiple JSON files</d
 </suite>
 </statistics>
 <errors>
-<msg time="2025-04-12T22:17:03.565820" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
-<msg time="2025-04-12T22:17:03.592955" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
-<msg time="2025-04-12T22:17:03.597115" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-04-27T17:40:06.123491" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-04-27T17:40:06.128988" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2025-04-27T17:40:06.129309" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
 </errors>
 </robot>

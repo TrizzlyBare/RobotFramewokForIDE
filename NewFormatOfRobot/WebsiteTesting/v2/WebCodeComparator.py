@@ -147,6 +147,9 @@ class WebCodeComparator:
                     f"Missing onclick attribute in button: {onclick_value}"
                 )
 
+        # NEW: Check the order of elements
+        self._check_element_order(student_soup, teacher_soup, differences)
+
         # If no differences found but HTML doesn't match, check for line-by-line differences
         if not differences and student_html != teacher_html:
             line_differences = self._compare_code_line_by_line(
@@ -161,6 +164,88 @@ class WebCodeComparator:
                 )
 
         return differences
+
+    def _check_element_order(self, student_soup, teacher_soup, differences):
+        """
+        Check if elements appear in the same order in both documents
+        Focus on color boxes, headings, and interactive elements
+        """
+        # Check order of color boxes
+        teacher_color_boxes = teacher_soup.find_all(class_="color-box")
+        student_color_boxes = student_soup.find_all(class_="color-box")
+
+        if len(teacher_color_boxes) > 1 and len(student_color_boxes) > 1:
+            # Extract background colors for comparison
+            teacher_colors = []
+            student_colors = []
+
+            for box in teacher_color_boxes:
+                style = box.get("style", "")
+                color_match = re.search(r"background-color:\s*([^;]+)", style)
+                if color_match:
+                    teacher_colors.append(color_match.group(1).strip())
+
+            for box in student_color_boxes:
+                style = box.get("style", "")
+                color_match = re.search(r"background-color:\s*([^;]+)", style)
+                if color_match:
+                    student_colors.append(color_match.group(1).strip())
+
+            # Compare order only if we have the same colors
+            if (
+                sorted(teacher_colors) == sorted(student_colors)
+                and teacher_colors != student_colors
+            ):
+                differences.append(
+                    f"Color boxes are in wrong order. Expected: {', '.join(teacher_colors)}"
+                )
+
+        # Check order of heading elements
+        container = teacher_soup.find(class_="container")
+        student_container = student_soup.find(class_="container")
+
+        if container and student_container:
+            teacher_headings = container.find_all(["h1", "h2", "h3", "h4", "h5", "h6"])
+            student_headings = student_container.find_all(
+                ["h1", "h2", "h3", "h4", "h5", "h6"]
+            )
+
+            if len(teacher_headings) > 1 and len(student_headings) > 1:
+                teacher_heading_texts = [h.get_text().strip() for h in teacher_headings]
+                student_heading_texts = [h.get_text().strip() for h in student_headings]
+
+                if (
+                    sorted(teacher_heading_texts) == sorted(student_heading_texts)
+                    and teacher_heading_texts != student_heading_texts
+                ):
+                    differences.append(
+                        f"Heading order is incorrect. Expected: {', '.join(teacher_heading_texts)}"
+                    )
+
+        # Check order of interactive elements (buttons, inputs)
+        teacher_interactive = teacher_soup.find_all(
+            ["button", "input", "select", "textarea"]
+        )
+        student_interactive = student_soup.find_all(
+            ["button", "input", "select", "textarea"]
+        )
+
+        if len(teacher_interactive) > 1 and len(student_interactive) > 1:
+            teacher_interactive_types = [
+                elem.name
+                + (f"[type={elem.get('type', '')}]" if elem.get("type") else "")
+                for elem in teacher_interactive
+            ]
+            student_interactive_types = [
+                elem.name
+                + (f"[type={elem.get('type', '')}]" if elem.get("type") else "")
+                for elem in student_interactive
+            ]
+
+            if teacher_interactive_types != student_interactive_types:
+                differences.append(
+                    f"Interactive elements order is incorrect. Expected: {', '.join(teacher_interactive_types)}"
+                )
 
     def compare_css(self, student_css, teacher_css):
         """
@@ -229,6 +314,9 @@ class WebCodeComparator:
                             f"CSS property value mismatch in {selector}: {prop} should be '{teacher_value}' but found '{student_value}'"
                         )
 
+        # NEW: Check the order of CSS rules
+        self._check_css_rule_order(student_css, teacher_css, differences)
+
         # If no specific differences found, show general message
         if not differences:
             differences.append(
@@ -236,6 +324,55 @@ class WebCodeComparator:
             )
 
         return differences
+
+    def _check_css_rule_order(self, student_css, teacher_css, differences):
+        """
+        Check if CSS rules appear in the same order in both files
+        """
+        # Extract selectors in order (simple version)
+        teacher_selectors = re.findall(r"([^\s,{]+)\s*{", teacher_css)
+        student_selectors = re.findall(r"([^\s,{]+)\s*{", student_css)
+
+        # We'll check the key selectors that should be in order
+        key_selectors = ["body", ".container", "header", "button", ".color-box"]
+
+        # Filter to only include key selectors that exist in both files
+        teacher_key_order = [s for s in teacher_selectors if s in key_selectors]
+        student_key_order = [s for s in student_selectors if s in key_selectors]
+
+        # Check if the key selectors are in the same order
+        if len(teacher_key_order) > 1 and len(student_key_order) > 1:
+            if teacher_key_order != student_key_order:
+                differences.append(
+                    f"CSS selector order is incorrect. Expected: {', '.join(teacher_key_order)}"
+                )
+
+        # Check order of properties within selectors
+        for selector in key_selectors:
+            teacher_selector_match = re.search(
+                rf"{re.escape(selector)}\s*{{([^}}]*)}}", teacher_css
+            )
+            student_selector_match = re.search(
+                rf"{re.escape(selector)}\s*{{([^}}]*)}}", student_css
+            )
+
+            if teacher_selector_match and student_selector_match:
+                teacher_props = re.findall(
+                    r"(\b\w+(?:-\w+)*)\s*:", teacher_selector_match.group(1)
+                )
+                student_props = re.findall(
+                    r"(\b\w+(?:-\w+)*)\s*:", student_selector_match.group(1)
+                )
+
+                if len(teacher_props) > 2 and len(student_props) > 2:
+                    # Check if properties are in different order but contain the same values
+                    if (
+                        sorted(teacher_props) == sorted(student_props)
+                        and teacher_props != student_props
+                    ):
+                        differences.append(
+                            f"Properties in {selector} are in wrong order. Expected: {', '.join(teacher_props[:3])}..."
+                        )
 
     def compare_js(self, student_js, teacher_js):
         """
@@ -277,13 +414,81 @@ class WebCodeComparator:
             if feature in teacher_js and feature not in student_js:
                 differences.append(f"Missing JavaScript feature: {description}")
 
+        # NEW: Check the order of event listeners and function declarations
+        self._check_js_order(student_js, teacher_js, differences)
+
         # If no specific differences found, show general message
-        if not differences:
+        if not differences and student_js != teacher_js:
             differences.append(
                 "JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences."
             )
 
         return differences
+
+    def _check_js_order(self, student_js, teacher_js, differences):
+        """
+        Check if JavaScript event listeners and functions appear in the correct order
+        """
+        # Check order of event handler registrations
+        teacher_listeners = re.findall(r'addEventListener\([\'"](\w+)[\'"]', teacher_js)
+        student_listeners = re.findall(r'addEventListener\([\'"](\w+)[\'"]', student_js)
+
+        if len(teacher_listeners) >= 2 and len(student_listeners) >= 2:
+            # For addEventListener, check if they're in the same order
+            if teacher_listeners != student_listeners:
+                differences.append(
+                    f"Event listener registration order is incorrect. Expected: {', '.join(teacher_listeners)}"
+                )
+
+        # Check order of variable declarations
+        teacher_vars = re.findall(r"const\s+(\w+)\s*=", teacher_js)
+        student_vars = re.findall(r"const\s+(\w+)\s*=", student_js)
+
+        if len(teacher_vars) >= 2 and len(student_vars) >= 2:
+            # For important vars like 'button' and 'result', check their order
+            important_vars = ["result", "contactForm", "button"]
+            teacher_important = [v for v in teacher_vars if v in important_vars]
+            student_important = [v for v in student_vars if v in important_vars]
+
+            if len(teacher_important) >= 2 and len(student_important) >= 2:
+                if teacher_important != student_important:
+                    differences.append(
+                        f"Variable declaration order is incorrect. Expected: {', '.join(teacher_important)}"
+                    )
+
+        # Check the order of operations in event handlers
+        # This is approximated by looking at patterns of assignments and method calls
+        if "addEventListener" in teacher_js and "addEventListener" in student_js:
+            # Extract the click event handler content
+            teacher_handler = re.search(
+                r"click\'\),\s*function\(\)\s*{([^}]*)}", teacher_js
+            )
+            student_handler = re.search(
+                r"click\'\),\s*function\(\)\s*{([^}]*)}", student_js
+            )
+
+            if teacher_handler and student_handler:
+                # Look for operation sequences like setting properties or calling methods
+                teacher_ops = re.findall(
+                    r"(\w+\.\w+(?:\.\w+)*)\s*=|(\w+\.\w+\()", teacher_handler.group(1)
+                )
+                student_ops = re.findall(
+                    r"(\w+\.\w+(?:\.\w+)*)\s*=|(\w+\.\w+\()", student_handler.group(1)
+                )
+
+                # Flatten results and remove None entries
+                teacher_ops_flat = [
+                    op[0] or op[1] for op in teacher_ops if op[0] or op[1]
+                ]
+                student_ops_flat = [
+                    op[0] or op[1] for op in student_ops if op[0] or op[1]
+                ]
+
+                if len(teacher_ops_flat) >= 2 and len(student_ops_flat) >= 2:
+                    if teacher_ops_flat != student_ops_flat:
+                        differences.append(
+                            f"Operations in event handler are in wrong order. Expected: {', '.join(teacher_ops_flat[:2])}..."
+                        )
 
     def _compare_code_line_by_line(self, student_code, teacher_code, max_diffs=3):
         """Compare code line by line to find specific differences"""

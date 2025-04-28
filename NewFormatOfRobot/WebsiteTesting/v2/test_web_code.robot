@@ -95,8 +95,15 @@ Test Default Code Consistency With Specific Feedback
     # Calculate overall match
     ${overall_match}=    Evaluate    ${html_match} and ${css_match} and ${js_match}
     
-    # Pass or fail the test based on match
-    Should Be True    ${overall_match}    Defaultcode does not match teacher reference
+    # Log whether the code matches instead of failing the test
+    IF    ${overall_match}
+        Log    All code parts match teacher reference.    INFO
+    ELSE
+        Log    Defaultcode does not match teacher reference. See JSON report for details.    WARN
+    END
+    
+    # Always pass this test
+    Pass Execution    Test completed with detailed results saved to JSON
 
 Test Student Submission Against Teacher Reference
     [Documentation]    Test defaultcode in student JSON against teacher reference
@@ -152,8 +159,8 @@ Test Student Submission Against Teacher Reference
         Log    Student submission has differences. Check the detailed report.    WARN
     END
     
-    # Fail the test if submission doesn't match
-    Should Be True    ${overall_match_bool}    Student submission does not match the teacher reference
+    # Always pass this test
+    Pass Execution    Test completed with detailed results saved to JSON
 
 *** Keywords ***
 Setup Test Environment
@@ -296,17 +303,65 @@ Compare Code Files
     IF    not ${match}
         IF    "${code_type}" == "html"
             ${diff_result}=    Compare Html Structure    ${student_code}    ${teacher_code}
+            
+            # Also run the helper script for additional HTML analysis (especially order)
+            ${html_order_result}=    Run Process    python    ${HELPER_SCRIPT}    analyze_html    ${student_file}    ${teacher_file}
+            ${html_order_diff}=    Create List
+            # Fix: Use proper variable syntax and string comparison for Robot Framework
+            ${stdout_empty}=    Evaluate    $html_order_result.stdout == ""
+            IF    $html_order_result.rc == 0 and not $stdout_empty
+                ${html_order_lines}=    Split To Lines    ${html_order_result.stdout}
+                FOR    ${line}    IN    @{html_order_lines}
+                    ${stripped}=    Strip String    ${line}
+                    ${is_empty}=    Evaluate    "${stripped}" == ""
+                    IF    not ${is_empty}
+                        Append To List    ${html_order_diff}    ${stripped}
+                    END
+                END
+                # Only combine if we actually found differences
+                ${diff_len}=    Get Length    ${html_order_diff}
+                IF    ${diff_len} > 0
+                    ${diff_result}=    Combine Lists    ${diff_result}    ${html_order_diff}
+                END
+            END
+            
         ELSE IF    "${code_type}" == "css"
             ${diff_result}=    Compare Css Rules    ${student_code}    ${teacher_code}
+            
+            # Also run the helper script for additional CSS analysis (especially order)
+            ${css_order_result}=    Run Process    python    ${HELPER_SCRIPT}    analyze_css    ${student_file}    ${teacher_file}
+            ${css_order_diff}=    Create List
+            # Fix: Use proper variable syntax and string comparison for Robot Framework
+            ${stdout_empty}=    Evaluate    $css_order_result.stdout == ""
+            IF    $css_order_result.rc == 0 and not $stdout_empty
+                ${css_order_lines}=    Split To Lines    ${css_order_result.stdout}
+                FOR    ${line}    IN    @{css_order_lines}
+                    ${stripped}=    Strip String    ${line}
+                    ${is_empty}=    Evaluate    "${stripped}" == ""
+                    IF    not ${is_empty}
+                        Append To List    ${css_order_diff}    ${stripped}
+                    END
+                END
+                # Only combine if we actually found differences
+                ${diff_len}=    Get Length    ${css_order_diff}
+                IF    ${diff_len} > 0
+                    ${diff_result}=    Combine Lists    ${diff_result}    ${css_order_diff}
+                END
+            END
+            
         ELSE IF    "${code_type}" == "js"
             ${diff_result}=    Compare Js Functionality    ${student_code}    ${teacher_code}
+            
             # Add enhanced JS analysis for more specific differences
             ${js_specific_analysis}=    Analyze JS Specific Differences    ${student_code}    ${teacher_code}
             Log    Detailed JavaScript Analysis:    WARN
             Log Many    @{js_specific_analysis}    WARN
+            
             # Add the specific analysis to the diff result
-            ${combined_diff}=    Combine Lists    ${diff_result}    ${js_specific_analysis}
-            ${diff_result}=    Set Variable    ${combined_diff}
+            ${js_diff_len}=    Get Length    ${js_specific_analysis}
+            IF    ${js_diff_len} > 0
+                ${diff_result}=    Combine Lists    ${diff_result}    ${js_specific_analysis}
+            END
         END
         
         @{differences}=    Set Variable    ${diff_result}

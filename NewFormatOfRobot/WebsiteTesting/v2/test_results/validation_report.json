@@ -1,26 +1,48 @@
 {
   "results": [
     {
-      "timestamp": 1744828672.054397,
-      "html_match": true,
-      "css_match": true,
+      "timestamp": 1745757098.382632,
+      "html_match": false,
+      "css_match": false,
       "js_match": false,
-      "html_differences": [],
-      "css_differences": [],
+      "html_differences": [
+        "Missing background-color: #f5f5f5 in body style rule",
+        "Color boxes are in wrong order. Expected: #FF5733, #33FF57, #3357FF",
+        "Heading order is incorrect. Expected: Order Testing Example, Interactive Elements:, Third Heading, Color Boxes:"
+      ],
+      "css_differences": [
+        "Missing CSS property in body: font-family: Helvetica, sans-serif",
+        "CSS selector order is incorrect. Expected: body, .container, .color-box, header, button",
+        "Properties in button are in wrong order. Expected: background-color, color, border...",
+        "Properties in .color-box are in wrong order. Expected: display, width, height..."
+      ],
       "js_differences": [
-        "JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences."
+        "Variable declaration order is incorrect. Expected: result, contactForm"
       ]
     },
     {
-      "html_match": true,
-      "css_match": true,
+      "html_match": false,
+      "css_match": false,
       "js_match": false,
       "overall_match": false,
-      "html_differences": [],
-      "css_differences": [],
+      "html_differences": [
+        "Missing background-color: #f5f5f5 in body style rule",
+        "Color boxes are in wrong order. Expected: #FF5733, #33FF57, #3357FF",
+        "Heading order is incorrect. Expected: Order Testing Example, Interactive Elements:, Third Heading, Color Boxes:",
+        "Missing background-color: #f5f5f5 in body style rule",
+        "Color boxes are in wrong order. Expected: #FF5733, #33FF57, #3357FF",
+        "Heading order is incorrect. Expected: Order Testing Example, Interactive Elements:, Third Heading, Color Boxes:"
+      ],
+      "css_differences": [
+        "Missing CSS property in body: font-family: Helvetica, sans-serif",
+        "CSS selector order is incorrect. Expected: body, .container, .color-box, header, button",
+        "Properties in button are in wrong order. Expected: background-color, color, border...",
+        "Properties in .color-box are in wrong order. Expected: display, width, height...",
+        "CSS selector order is different. Expected: body, .container, button"
+      ],
       "js_differences": [
-        "JavaScript files differ but no specific functional differences were detected. Check for whitespace, comments, or formatting differences.",
-        "Missing in student code: result.style.backgroundColor = '#ffeeee'; // Different color"
+        "Variable declaration order is incorrect. Expected: result, contactForm",
+        "Function declaration order is different. Expected: saveData, cancelAction, deleteItem"
       ]
     }
   ]

@@ -1,0 +1,26 @@
+{
+  "test_execution": {
+    "status": "failed",
+    "message": ""
+  },
+  "teacher_code": {
+    "execution_status": "success",
+    "execution_time": "2.00 seconds",
+    "output_length": 333
+  },
+  "student_code": {
+    "execution_status": "success",
+    "execution_time": "1.52 seconds",
+    "output_length": 311
+  },
+  "output_comparison": {
+    "similarity": 0.8633540372670807,
+    "threshold_met": false,
+    "comparison_details": "Compared in-memory turtle state outputs"
+  },
+  "test_summary": {
+    "result": "FAILED",
+    "reason": "Similarity: 0.8634 (below threshold)",
+    "recommendation": "The student's drawing differs significantly from the teacher's"
+  }
+}

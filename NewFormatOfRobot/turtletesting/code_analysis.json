@@ -1,0 +1,47 @@
+{
+  "comparison_result": {
+    "identical_code": false,
+    "similarity_score": 0.8633540372670807,
+    "test_result": "FAILED"
+  },
+  "teacher_code_details": {
+    "operations": [
+      "forward",
+      "left",
+      "pensize"
+    ],
+    "shapes": [
+      "repeated_pattern",
+      "square"
+    ],
+    "style": "object_oriented",
+    "complexity": "moderate",
+    "turtle_instances": [
+      "t"
+    ],
+    "import_style": "import turtle"
+  },
+  "student_code_details": {
+    "operations": [
+      "forward",
+      "left",
+      "pensize"
+    ],
+    "shapes": [
+      "repeated_pattern",
+      "triangle"
+    ],
+    "style": "object_oriented",
+    "complexity": "moderate",
+    "turtle_instances": [
+      "t"
+    ],
+    "import_style": "import turtle"
+  },
+  "test_process": {
+    "comparison_threshold": 0.9,
+    "timeout_seconds": 120,
+    "method": "Memory-based turtle environment with no log files created"
+  },
+  "visualization_description": "The teacher code draws a square, while the student code draws a triangle."
+}

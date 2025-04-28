@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-Quick debug script to directly test JSON parsing
-"""
-
 import json
 import os
 import sys
