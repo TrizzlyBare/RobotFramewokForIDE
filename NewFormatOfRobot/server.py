@@ -94,18 +94,26 @@ def post_student_status(question_id: int):
 
 
 @app.get("/run_turtle_testing/{question_id}")
-def run_turtle_testing():
+def run_turtle_testing(question_id: int):
     # Run the turtle_test.py script
+    os.makedirs("turtletesting", exist_ok=True)
+
     result = subprocess.run(
-        ["python3", "turtle_test.py"], capture_output=True, text=True
+        ["python3", "turtle_test.py"],
+        capture_output=True,
+        text=True,
+        cwd="turtletesting/",
     )
 
     # Check if the test_results.json file exists
-    if not os.path.exists("test_results.json"):
-        return {"status": "error", "message": "test_results.json not found"}
+    if not os.path.exists("turtletesting/test_results.json"):
+        return {
+            "status": "error",
+            "message": "turtletesting/test_results.json not found",
+        }
 
     # Load the test_results.json file
-    with open("test_results.json", "r", encoding="utf-8") as f:
+    with open("turtletesting/test_results.json", "r", encoding="utf-8") as f:
         test_results = json.load(f)
 
     # Extract the test_summary.result field
@@ -116,13 +124,30 @@ def run_turtle_testing():
 
 
 @app.get("/website_validation/{question_id}")
-def website_validation():
+def website_validation(question_id: int):
+    result = subprocess.run(
+        ["robot", "test_web_code.robot"],
+        capture_output=True,
+        text=True,
+        cwd="WebsiteTesting/v2/",
+    )
+
+    if result.returncode != 0:
+        return {
+            "status": "error",
+            "message": "Robot Framework test execution failed",
+            "stdout": result.stdout,
+            "stderr": result.stderr,
+        }
+
     # Check if the student_validation.json file exists
-    if not os.path.exists("test_results/student_validation.json"):
+    if not os.path.exists("WebsiteTesting/v2/test_results/student_validation.json"):
         return {"status": "error", "message": "student_validation.json not found"}
 
     # Load the student_validation.json file
-    with open("test_results/student_validation.json", "r", encoding="utf-8") as f:
+    with open(
+        "WebsiteTesting/v2/test_results/student_validation.json", "r", encoding="utf-8"
+    ) as f:
         validation_data = json.load(f)
 
     # Extract the overall_match field and differences
