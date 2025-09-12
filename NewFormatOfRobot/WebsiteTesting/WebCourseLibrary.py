@@ -1,18 +1,31 @@
 # File: WebCourseLibrary.py
 from robot.api.deco import keyword
 from code_validator import WebCourseValidator, DOMComparator
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import (
+    TimeoutException,
+    NoSuchElementException,
+    WebDriverException,
+)
 import os
 import json
 import tempfile
+import time
 
 
 class WebCourseLibrary:
 
     ROBOT_LIBRARY_SCOPE = "GLOBAL"
 
-    def __init__(self):
+    def __init__(self, timeout=30):
         self.validator = WebCourseValidator()
         self.last_result = None
+        self.driver = None
+        self.timeout = timeout
+        self.wait = None
 
     @keyword
     def validate_html_structure(self, user_html, reference_html):
@@ -223,4 +236,70 @@ class WebCourseLibrary:
             os.unlink(path)
             raise e
 
-    
+    def setup_browser(self, browser_name="chrome"):
+        """Setup browser with proper error handling"""
+        try:
+            if browser_name.lower() == "chrome":
+                options = webdriver.ChromeOptions()
+                options.add_argument("--no-sandbox")
+                options.add_argument("--disable-dev-shm-usage")
+                options.add_argument("--disable-gpu")
+                self.driver = webdriver.Chrome(options=options)
+            elif browser_name.lower() == "firefox":
+                self.driver = webdriver.Firefox()
+            else:
+                raise ValueError(f"Unsupported browser: {browser_name}")
+
+            self.driver.set_page_load_timeout(self.timeout)
+            self.wait = WebDriverWait(self.driver, self.timeout)
+            return True
+
+        except WebDriverException as e:
+            print(f"Failed to setup browser: {e}")
+            return False
+
+    def safe_find_element(self, locator, by=By.ID, timeout=None):
+        """Find element with timeout to prevent infinite waiting"""
+        if timeout is None:
+            timeout = self.timeout
+
+        try:
+            element = WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_element_located((by, locator))
+            )
+            return element
+        except TimeoutException:
+            print(f"Element not found: {locator} (timeout: {timeout}s)")
+            return None
+        except Exception as e:
+            print(f"Error finding element {locator}: {e}")
+            return None
+
+    def safe_click(self, locator, by=By.ID, timeout=None):
+        """Click element with error handling"""
+        element = self.safe_find_element(locator, by, timeout)
+        if element:
+            try:
+                element.click()
+                return True
+            except Exception as e:
+                print(f"Failed to click element {locator}: {e}")
+                return False
+        return False
+
+    def cleanup(self):
+        """Ensure browser is properly closed"""
+        if self.driver:
+            try:
+                self.driver.quit()
+            except Exception as e:
+                print(f"Error closing browser: {e}")
+            finally:
+                self.driver = None
+
+    def __del__(self):
+        """Cleanup on destruction"""
+        self.cleanup()
+
+
+# Reading WebCourseLibrary.py to check for errors

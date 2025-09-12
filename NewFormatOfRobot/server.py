@@ -4,6 +4,8 @@ from requests.auth import HTTPBasicAuth
 import subprocess
 import json
 import os
+import signal
+import sys
 
 app = FastAPI()
 
@@ -11,6 +13,15 @@ API = "http://intelligentbuilding.io:8080/api/"
 
 username = "admin"
 password = "ictadmin"
+
+
+# Add graceful shutdown handler
+def signal_handler(sig, frame):
+    print("\nServer shutting down gracefully...")
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
 
 
 @app.get("/")
@@ -164,3 +175,26 @@ def website_validation(question_id: int):
         "css_differences": css_differences,
         "js_differences": js_differences,
     }
+
+
+# Add error handling wrapper for routes
+@app.errorhandler(500)
+def internal_error(error):
+    return {"error": "Internal server error"}, 500
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return {"error": "Not found"}, 404
+
+
+if __name__ == "__main__":
+    try:
+        print("Starting server on http://localhost:5000")
+        app.run(debug=True, host="0.0.0.0", port=5000, threaded=True)
+    except KeyboardInterrupt:
+        print("\nServer stopped by user")
+    except Exception as e:
+        print(f"Server error: {e}")
+    finally:
+        print("Server shutdown complete")

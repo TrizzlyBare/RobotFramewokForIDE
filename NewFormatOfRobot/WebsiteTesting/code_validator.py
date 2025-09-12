@@ -2,9 +2,15 @@ import os
 import re
 import json
 import difflib
-from bs4 import BeautifulSoup
+import sys
 from html.parser import HTMLParser
 import tempfile
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    print("Error: BeautifulSoup4 is not installed. Please run: pip install beautifulsoup4")
+    sys.exit(1)
 
 
 class HTMLStructureParser(HTMLParser):

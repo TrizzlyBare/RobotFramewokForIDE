@@ -1,0 +1,45 @@
+{
+  "error_prevention": {
+    "max_execution_time_minutes": 30,
+    "max_retry_attempts": 3,
+    "request_timeout_seconds": 30,
+    "webdriver_timeout_seconds": 30,
+    "max_cpu_percent": 90,
+    "max_memory_percent": 85
+  },
+  "server_config": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false,
+    "threaded": true,
+    "auto_reload": false
+  },
+  "webdriver_config": {
+    "implicit_wait": 10,
+    "page_load_timeout": 30,
+    "script_timeout": 30,
+    "chrome_options": [
+      "--no-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--headless"
+    ]
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "application.log",
+    "max_size_mb": 10,
+    "backup_count": 3
+  },
+  "error_patterns": [
+    "infinite loop",
+    "recursion limit",
+    "memory error",
+    "timeout exceeded",
+    "connection refused",
+    "maximum retries exceeded",
+    "selenium.common.exceptions",
+    "requests.exceptions"
+  ]
+}

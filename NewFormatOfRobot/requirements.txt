@@ -11,7 +11,7 @@ Automat==24.8.1
 backcall==0.2.0
 backports.tarfile==1.2.0
 bcrypt==4.0.1
-beautifulsoup4==4.13.3
+beautifulsoup4>=4.11
 bidict==0.23.1
 bleach==6.2.0
 blinker==1.9.0
@@ -43,11 +43,11 @@ drf-nested-routers==0.94.1
 email_validator==2.2.0
 executing==2.2.0
 fanstatic==1.4
-fastapi==0.115.8
+fastapi>=0.95
 fastapi-cli==0.0.5
 fastjsonschema==2.21.1
 filelock==3.14.0
-Flask==3.1.0
+Flask>=2.2
 fonttools==4.52.4
 fsspec==2024.5.0
 gunicorn==23.0.0
@@ -75,7 +75,7 @@ joblib==1.4.2
 jose==1.0.0
 js==1.0
 jsonpath-ng==1.7.0
-jsonschema==4.23.0
+jsonschema>=4.0
 jsonschema-specifications==2024.10.1
 jupyter_client==8.6.3
 jupyter_core==5.7.2
@@ -115,7 +115,7 @@ platformdirs==4.3.6
 pluggy==1.5.0
 ply==3.11
 prompt_toolkit==3.0.50
-psutil==6.1.1
+psutil>=5.9
 psycopg==3.2.4
 psycopg2==2.9.10
 psycopg2-binary==2.9.10
@@ -149,7 +149,7 @@ python-engineio==4.11.2
 python-multipart==0.0.20
 python-socketio==5.12.1
 pytz==2024.1
-PyYAML==6.0.2
+PyYAML>=6.0
 pyzmq==26.2.1
 readme_renderer==44.0
 redis==5.2.1
@@ -157,12 +157,13 @@ referencing==0.36.2
 reflex==0.6.8
 reflex-chakra==0.6.3
 reflex-hosting-cli==0.1.35
-requests==2.32.3
+requests>=2.28
 requests-toolbelt==1.0.0
 rfc3986==2.0.0
 rich==13.9.4
-robotframework==7.1.1
+robotframework
 robotframework-jsonlibrary==0.5
+robotframework-requests
 rpds-py==0.23.0
 scikit-image==0.25.2
 scikit-learn==1.6.0
@@ -203,9 +204,9 @@ typing==3.7.4.3
 typing_extensions==4.12.2
 tzdata==2024.1
 ultralytics==8.2.26
-urllib3==2.3.0
+urllib3>=1.26
 utils==1.0.2
-uvicorn==0.34.0
+uvicorn>=0.20
 uvloop==0.20.0
 watchfiles==0.24.0
 wcwidth==0.2.13
