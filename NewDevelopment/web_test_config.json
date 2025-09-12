@@ -1,0 +1,139 @@
+{
+  "assessment_config": {
+    "lesson_types": {
+      "html_basics": {
+        "required_concepts": ["semantic_html", "proper_nesting"],
+        "test_categories": ["html_structure", "accessibility"]
+      },
+      "css_styling": {
+        "required_concepts": ["selectors", "box_model", "flexbox"],
+        "test_categories": ["visual_appearance", "responsive_design"]
+      },
+      "javascript_fundamentals": {
+        "required_concepts": [
+          "functions",
+          "dom_manipulation",
+          "event_handling"
+        ],
+        "test_categories": ["functionality", "user_interaction"]
+      },
+      "async_programming": {
+        "required_concepts": ["promises", "async_await", "fetch_api"],
+        "test_categories": ["api_integration", "error_handling"]
+      }
+    },
+    "test_templates": {
+      "button_click_interaction": {
+        "description": "Test button click and response",
+        "interaction": {
+          "action": "click",
+          "target": "button",
+          "verification": {
+            "type": "text_content",
+            "target": "#result",
+            "expected": "Button clicked!"
+          }
+        }
+      },
+      "form_submission": {
+        "description": "Test form input and submission",
+        "interactions": [
+          {
+            "action": "input",
+            "target": "input[name='username']",
+            "value": "testuser"
+          },
+          {
+            "action": "click",
+            "target": "button[type='submit']",
+            "verification": {
+              "type": "text_content",
+              "target": "#welcome",
+              "expected": "Welcome, testuser!"
+            }
+          }
+        ]
+      },
+      "css_styling_verification": {
+        "description": "Verify CSS properties are applied",
+        "style_tests": [
+          {
+            "selector": ".highlight",
+            "property": "background-color",
+            "value": "rgb(255, 255, 0)"
+          },
+          {
+            "selector": ".container",
+            "property": "display",
+            "value": "flex"
+          }
+        ]
+      }
+    },
+    "concept_detection_patterns": {
+      "loops": {
+        "javascript": [
+          "for\\s*\\(",
+          "while\\s*\\(",
+          "\\.forEach\\s*\\(",
+          "for\\s+\\w+\\s+of"
+        ],
+        "python": ["for\\s+\\w+\\s+in", "while\\s+.*:"],
+        "weight": 0.8
+      },
+      "functions": {
+        "javascript": ["function\\s+\\w+", "\\w+\\s*=>", "\\(.*\\)\\s*=>"],
+        "python": ["def\\s+\\w+\\s*\\("],
+        "weight": 0.9
+      },
+      "classes": {
+        "javascript": [
+          "class\\s+\\w+",
+          "\\.prototype\\.",
+          "constructor\\s*\\("
+        ],
+        "python": ["class\\s+\\w+\\s*\\(", "class\\s+\\w+\\s*:"],
+        "weight": 0.95
+      },
+      "dom_manipulation": {
+        "javascript": [
+          "document\\.querySelector",
+          "document\\.getElementById",
+          "\\.innerHTML",
+          "\\.textContent",
+          "\\.appendChild",
+          "\\.addEventListener",
+          "\\.setAttribute"
+        ],
+        "weight": 0.85
+      },
+      "async_programming": {
+        "javascript": [
+          "async\\s+function",
+          "await\\s+",
+          "Promise\\s*\\(",
+          "\\.then\\s*\\(",
+          "\\.catch\\s*\\(",
+          "fetch\\s*\\("
+        ],
+        "weight": 0.9
+      }
+    }
+  },
+  "grading_criteria": {
+    "correctness_weight": 0.4,
+    "concept_demonstration_weight": 0.3,
+    "code_quality_weight": 0.2,
+    "best_practices_weight": 0.1,
+    "passing_threshold": 0.7
+  },
+  "feedback_templates": {
+    "missing_concept": "Your solution works but doesn't demonstrate the required concept: {concept}. Please revise your code to use {concept}.",
+    "incorrect_output": "Your code output doesn't match the expected result. Expected: {expected}, Got: {actual}",
+    "html_validation_error": "HTML structure issue: {element} element is missing or incorrectly structured.",
+    "css_style_error": "CSS styling issue: {selector} should have {property}: {expected_value}, but has {actual_value}",
+    "interaction_failure": "User interaction test failed: {interaction} did not produce the expected result.",
+    "concept_detected": "Great! Your code correctly demonstrates {concept}.",
+    "all_tests_passed": "Excellent! Your solution passes all tests and demonstrates the required concepts."
+  }
+}

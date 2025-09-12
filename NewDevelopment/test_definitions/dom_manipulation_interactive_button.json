@@ -1,0 +1,150 @@
+{
+  "lesson_id": "dom_manipulation_interactive_button",
+  "title": "Interactive Button with DOM Manipulation",
+  "description": "Create an interactive button that changes text and style when clicked",
+
+  "test_cases": [
+    {
+      "name": "button_click_interaction",
+      "input": {
+        "action": "click",
+        "target": "#interactive-btn"
+      },
+      "expected_output": {
+        "button_text": "Clicked!",
+        "button_color": "green"
+      },
+      "description": "Button should change text and color when clicked"
+    },
+    {
+      "name": "multiple_clicks",
+      "input": {
+        "action": "click_multiple",
+        "target": "#interactive-btn",
+        "count": 3
+      },
+      "expected_output": {
+        "click_counter": 3
+      },
+      "description": "Button should track multiple clicks"
+    }
+  ],
+
+  "behavioral_requirements": [
+    {
+      "type": "dom_manipulation",
+      "name": "must_manipulate_dom",
+      "description": "Must use DOM manipulation methods",
+      "criteria": {
+        "operations": [
+          "getElementById",
+          "querySelector",
+          "textContent",
+          "style"
+        ],
+        "min_operations": 2
+      },
+      "points": 40
+    },
+    {
+      "type": "event_handling",
+      "name": "must_handle_events",
+      "description": "Must use proper event handling",
+      "criteria": {
+        "events": ["click"],
+        "methods": ["addEventListener"],
+        "required": true
+      },
+      "points": 30
+    },
+    {
+      "type": "html_structure",
+      "name": "correct_html_elements",
+      "description": "Must have proper HTML structure",
+      "criteria": {
+        "required_elements": [
+          { "tag": "button", "id": "interactive-btn" },
+          { "tag": "div", "class": "container" }
+        ]
+      },
+      "points": 20
+    },
+    {
+      "type": "css_styling",
+      "name": "proper_styling",
+      "description": "Must include CSS styling",
+      "criteria": {
+        "selectors": ["#interactive-btn", ".container"],
+        "properties": ["background-color", "padding"]
+      },
+      "points": 10
+    }
+  ],
+
+  "instrumentation": {
+    "monitor_functions": true,
+    "monitor_dom_access": true,
+    "monitor_event_listeners": true,
+    "track_style_changes": true,
+    "capture_user_interactions": true
+  },
+
+  "execution_environment": {
+    "language": "javascript",
+    "runtime": "browser",
+    "timeout_seconds": 10,
+    "headless": true,
+    "viewport": { "width": 1024, "height": 768 }
+  },
+
+  "browser_actions": [
+    {
+      "step": 1,
+      "action": "load_page",
+      "target": "student_submission.html"
+    },
+    {
+      "step": 2,
+      "action": "wait_for_element",
+      "target": "#interactive-btn",
+      "timeout": 5
+    },
+    {
+      "step": 3,
+      "action": "click",
+      "target": "#interactive-btn"
+    },
+    {
+      "step": 4,
+      "action": "verify_text",
+      "target": "#interactive-btn",
+      "expected": "Clicked!"
+    },
+    {
+      "step": 5,
+      "action": "verify_style",
+      "target": "#interactive-btn",
+      "property": "background-color",
+      "expected": "green"
+    }
+  ],
+
+  "grading": {
+    "correctness_weight": 0.4,
+    "behavioral_weight": 0.4,
+    "code_quality_weight": 0.2,
+    "passing_threshold": 70,
+    "max_score": 100
+  },
+
+  "feedback_templates": {
+    "dom_not_manipulated": "Your JavaScript doesn't manipulate the DOM. Use methods like getElementById() or querySelector() to access and modify elements.",
+    "events_not_handled": "No event handling detected. Use addEventListener() to respond to user interactions.",
+    "html_structure_missing": "Required HTML elements are missing. Make sure you have a button with id 'interactive-btn'.",
+    "css_styling_missing": "CSS styling is missing or incomplete. Add proper styling for your elements.",
+    "interaction_not_working": "Button interaction doesn't work as expected. Check your event handler implementation.",
+    "dom_success": "Great! Your code properly manipulates the DOM elements.",
+    "events_success": "Excellent event handling! Your button responds correctly to clicks.",
+    "all_tests_passed": "Perfect! Your interactive button implementation demonstrates proper DOM manipulation and event handling."
+  }
+}

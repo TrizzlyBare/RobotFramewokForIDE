@@ -14,6 +14,7 @@ ${PYTHON_CMD}      python
 ${CPP_COMPILER}    g++
 ${RUST_COMPILER}   rustc
 ${JAVASCRIPT_CMD}  node
+${PROLOG_CMD}    swipl
 ${RESULTS_FILE}    comparison_results.json
 ${LOG_FILE}        execution.log
 
@@ -210,6 +211,18 @@ Execute JavaScript Code
         ...    shell=True    stderr=STDOUT    stdout=STDOUT
     END
     Log Debug Info    JavaScript execution output:\n${result.stdout}
+    RETURN    ${result}
+
+Execute Prolog Code
+    [Arguments]   ${filename}    ${has_input}    ${input_file}
+    IF    ${has_input}
+        ${result}    Run Process    ${PROLOG_CMD}    -s    ${filename}    
+        ...    stdin=${input_file}    shell=True    stderr=STDOUT    stdout=STDOUT
+    ELSE
+        ${result}    Run Process    ${PROLOG_CMD}    -s    ${filename}    
+        ...    shell=True    stderr=STDOUT    stdout=STDOUT
+    END
+    Log Debug Info    Prolog execution output:\n${result.stdout}
     RETURN    ${result}
 
 Execute Code With Input

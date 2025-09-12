@@ -14,6 +14,7 @@ ${PYTHON_CMD}      python
 ${CPP_COMPILER}    g++
 ${RUST_COMPILER}   rustc
 ${JAVASCRIPT_CMD}  node
+${PROLOG_CMD}    swipl
 ${RESULTS_FILE}    comparison_results.json
 
 *** Keywords ***
@@ -60,6 +61,7 @@ Execute Code
     ...    '${language}' == 'cpp'       .cpp
     ...    '${language}' == 'rust'      .rs
     ...    '${language}' == 'javascript'    .js
+    ...    '${language}' == 'prolog'    .pl
     
     Create File    ${TEMP_DIR}/${filename}${ext}    ${code}
     
@@ -112,6 +114,16 @@ Execute Code
                 ${status}    Set Variable    compilation_error
                 ${error_msg}    Set Variable    ${compile_result.stderr}
             END
+        ELSE IF    $language == "prolog"
+            ${start_time}    Get Current Time Ms
+            ${result}    Run Process    ${PROLOG_CMD}    -s    ${TEMP_DIR}/${filename}${ext}    -g    main,halt    -t    halt
+            ${end_time}    Get Current Time Ms
+            ${runtime}    Evaluate    ${end_time} - ${start_time}
+            ${output}    Set Variable    ${result.stdout}
+            ${error_msg}    Set Variable    ${result.stderr}
+        ELSE
+            ${status}    Set Variable    unsupported_language
+            ${error_msg}    Set Variable    Unsupported language: ${language}
         END
 
         # Normalize and validate output

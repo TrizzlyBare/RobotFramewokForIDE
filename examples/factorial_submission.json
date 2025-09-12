@@ -1,0 +1,11 @@
+{
+  "submission_type": "code",
+  "language": "python",
+  "code": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nimport sys\nif len(sys.argv) > 1:\n    n = int(sys.argv[1])\nelse:\n    n = int(input())\nprint(factorial(n))",
+  "student_id": "student123",
+  "submission_time": "2024-01-15T10:30:00Z",
+  "metadata": {
+    "attempt_number": 1,
+    "time_spent_minutes": 15
+  }
+}

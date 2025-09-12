@@ -1,0 +1,103 @@
+{
+  "lesson_id": "loops_array_processing",
+  "title": "Array Processing with Loops",
+  "description": "Students must process arrays using for or while loops",
+
+  "test_cases": [
+    {
+      "name": "sum_array_basic",
+      "input": "[1, 2, 3, 4, 5]",
+      "expected_output": "15",
+      "description": "Sum basic array of positive integers"
+    },
+    {
+      "name": "sum_array_with_negatives",
+      "input": "[-2, -1, 0, 1, 2]",
+      "expected_output": "0",
+      "description": "Sum array with negative numbers"
+    },
+    {
+      "name": "sum_empty_array",
+      "input": "[]",
+      "expected_output": "0",
+      "description": "Handle empty array edge case"
+    },
+    {
+      "name": "sum_large_array",
+      "input": "[10, 20, 30, 40, 50]",
+      "expected_output": "150",
+      "description": "Sum larger numbers"
+    }
+  ],
+
+  "behavioral_requirements": [
+    {
+      "type": "loops",
+      "name": "must_use_loops",
+      "description": "Must use explicit loop constructs (for/while)",
+      "criteria": {
+        "loop_types": ["for", "while"],
+        "min_iterations": 1,
+        "required": true
+      },
+      "points": 50
+    },
+    {
+      "type": "function_calls",
+      "name": "correct_function_usage",
+      "description": "Must define and use sum_array function",
+      "criteria": {
+        "functions": [
+          {
+            "name": "sum_array",
+            "min_calls": 1,
+            "required": true
+          }
+        ]
+      },
+      "points": 30
+    },
+    {
+      "type": "no_built_in_functions",
+      "name": "avoid_built_in_sum",
+      "description": "Should not use built-in sum() function",
+      "criteria": {
+        "forbidden_functions": ["sum", "reduce"],
+        "required": true
+      },
+      "points": 20
+    }
+  ],
+
+  "instrumentation": {
+    "monitor_functions": true,
+    "monitor_recursion": false,
+    "monitor_loops": true,
+    "monitor_classes": false,
+    "track_loop_iterations": true,
+    "detect_built_in_usage": true
+  },
+
+  "execution_environment": {
+    "language": "python",
+    "timeout_seconds": 5,
+    "memory_limit_mb": 64,
+    "allowed_imports": ["sys"],
+    "forbidden_patterns": ["sum\\(", "reduce\\("]
+  },
+
+  "grading": {
+    "correctness_weight": 0.5,
+    "behavioral_weight": 0.5,
+    "passing_threshold": 75,
+    "max_score": 100
+  },
+
+  "feedback_templates": {
+    "loops_not_detected": "Your solution doesn't use loops. You must iterate through the array using for or while loops.",
+    "built_in_sum_used": "Avoid using built-in functions like sum(). The purpose is to practice writing your own loop.",
+    "edge_case_failed": "Your solution fails on edge cases like empty arrays. Make sure to handle all inputs.",
+    "loops_success": "Great! Your solution properly uses loops to iterate through the array.",
+    "all_tests_passed": "Excellent! Your loop-based array processing solution works correctly for all test cases."
+  }
+}

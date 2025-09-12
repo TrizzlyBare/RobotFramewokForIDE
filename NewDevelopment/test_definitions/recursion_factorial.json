@@ -1,0 +1,104 @@
+{
+  "lesson_id": "recursion_factorial",
+  "title": "Recursive Factorial Implementation",
+  "description": "Students must implement a factorial function using recursion",
+
+  "test_cases": [
+    {
+      "name": "factorial_base_case",
+      "input": "0",
+      "expected_output": "1",
+      "description": "Test base case: factorial(0) = 1"
+    },
+    {
+      "name": "factorial_small_number",
+      "input": "3",
+      "expected_output": "6",
+      "description": "Test small number: factorial(3) = 6"
+    },
+    {
+      "name": "factorial_medium_number",
+      "input": "5",
+      "expected_output": "120",
+      "description": "Test medium number: factorial(5) = 120"
+    },
+    {
+      "name": "factorial_edge_case",
+      "input": "1",
+      "expected_output": "1",
+      "description": "Test edge case: factorial(1) = 1"
+    }
+  ],
+
+  "behavioral_requirements": [
+    {
+      "type": "recursion",
+      "name": "must_use_recursion",
+      "description": "Function must call itself recursively",
+      "criteria": {
+        "function_name": "factorial",
+        "min_calls": 2,
+        "required": true
+      },
+      "points": 40
+    },
+    {
+      "type": "function_calls",
+      "name": "correct_function_definition",
+      "description": "Must define and use factorial function",
+      "criteria": {
+        "functions": [
+          {
+            "name": "factorial",
+            "min_calls": 1,
+            "required": true
+          }
+        ]
+      },
+      "points": 20
+    },
+    {
+      "type": "base_case_handling",
+      "name": "handles_base_case",
+      "description": "Must properly handle recursion base case",
+      "criteria": {
+        "test_cases": ["factorial_base_case", "factorial_edge_case"],
+        "must_pass": true
+      },
+      "points": 20
+    }
+  ],
+
+  "instrumentation": {
+    "monitor_functions": true,
+    "monitor_recursion": true,
+    "monitor_loops": false,
+    "monitor_classes": false,
+    "capture_call_stack": true,
+    "track_execution_path": true
+  },
+
+  "execution_environment": {
+    "language": "python",
+    "timeout_seconds": 10,
+    "memory_limit_mb": 128,
+    "allowed_imports": ["sys", "math"],
+    "forbidden_patterns": ["while", "for", "loop"]
+  },
+
+  "grading": {
+    "correctness_weight": 0.6,
+    "behavioral_weight": 0.4,
+    "passing_threshold": 70,
+    "max_score": 100
+  },
+
+  "feedback_templates": {
+    "recursion_not_detected": "Your solution doesn't use recursion. The factorial function must call itself to solve smaller subproblems.",
+    "base_case_missing": "Your recursive function is missing a proper base case, which may cause infinite recursion.",
+    "wrong_output": "Your function produces incorrect output for input {input}. Expected {expected}, got {actual}.",
+    "timeout_error": "Your code took too long to execute. Check for infinite recursion or inefficient algorithms.",
+    "recursion_success": "Excellent! Your solution correctly uses recursion with {recursion_count} recursive calls.",
+    "all_tests_passed": "Perfect! Your recursive factorial implementation passes all test cases and demonstrates proper recursion."
+  }
+}

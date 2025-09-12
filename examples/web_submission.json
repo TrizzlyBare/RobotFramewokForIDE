@@ -1,0 +1,12 @@
+{
+  "submission_type": "web_development",
+  "html": "<div class=\"container\">\n  <h1>Interactive Button Demo</h1>\n  <button id=\"interactive-btn\">Click Me!</button>\n  <p id=\"result\">Click the button to see magic happen!</p>\n</div>",
+  "css": ".container {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 20px;\n  text-align: center;\n}\n\n#interactive-btn {\n  background-color: #007bff;\n  color: white;\n  border: none;\n  padding: 12px 24px;\n  font-size: 16px;\n  border-radius: 5px;\n  cursor: pointer;\n  margin: 20px 0;\n}\n\n#interactive-btn:hover {\n  background-color: #0056b3;\n}\n\n#result {\n  font-size: 18px;\n  margin-top: 20px;\n  min-height: 30px;\n}",
+  "javascript": "document.addEventListener('DOMContentLoaded', function() {\n  const button = document.getElementById('interactive-btn');\n  const result = document.getElementById('result');\n  \n  button.addEventListener('click', function() {\n    this.textContent = 'Clicked!';\n    this.style.backgroundColor = 'green';\n    result.textContent = 'Button was clicked successfully!';\n    result.style.color = 'green';\n  });\n});",
+  "student_id": "student456",
+  "submission_time": "2024-01-15T11:15:00Z",
+  "metadata": {
+    "attempt_number": 2,
+    "time_spent_minutes": 25
+  }
+}
