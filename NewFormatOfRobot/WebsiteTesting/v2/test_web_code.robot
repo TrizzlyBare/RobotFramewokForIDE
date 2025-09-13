@@ -14,7 +14,7 @@ Suite Teardown    Teardown Test Environment
 
 *** Variables ***
 ${STUDENTS_JSON}   ${CURDIR}/students.json
-${TEACHERS_JSON}   ${CURDIR}/teacher.json
+${TEACHERS_JSON}   ${CURDIR}/teachers.json
 ${OUTPUT_DIR}      ${CURDIR}/test_results
 ${REPORT_FILE}     ${OUTPUT_DIR}/validation_report.json
 ${HELPER_SCRIPT}    ${CURDIR}/json_helper.py

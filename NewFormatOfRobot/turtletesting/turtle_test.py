@@ -871,7 +871,7 @@ def main():
     """
     parser = argparse.ArgumentParser(description="Test turtle code solutions")
     parser.add_argument(
-        "--teacher", default="teacher.json", help="Path to teacher's solution file"
+        "--teacher", default="teachers.json", help="Path to teacher's solution file"
     )
     parser.add_argument(
         "--student", default="students.json", help="Path to student's solution file"
